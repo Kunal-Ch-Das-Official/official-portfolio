@@ -5,27 +5,32 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "preview": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kunal-Ch-Das-Official/official-portfolio.git"
   },
   "keywords": [
-    "Kunal",
-    "Chandra",
-    "Das",
-    "Official",
-    "Portfolio",
-    "Software",
-    "Developer.",
-    "Mern",
-    "Stack"
+    "Kunal Chandra Das",
+    "Official Portfolio",
+    "Software Developer.",
+    "Mern Stack Developer"
   ],
   "author": "Kunal Chandra Das",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Kunal-Ch-Das-Official/official-portfolio/issues"
   },
-  "homepage": "https://github.com/Kunal-Ch-Das-Official/official-portfolio#readme"
+  "homepage": "https://github.com/Kunal-Ch-Das-Official/official-portfolio#readme",
+  "dependencies": {
+    "cloudinary": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.3",
+    "multer": "^1.4.5-lts.1"
+  }
 }
