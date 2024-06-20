@@ -19,7 +19,7 @@ const startServer = async() => {
       };
 
     await connectDb();
-    app.listen(appConfig.port, () => {
+    app.listen(appConfig.port || 5000, () => {
         console.log(`server is running on ${appConfig.hostName}${appConfig.port}`);
       });
 }

@@ -22,7 +22,10 @@ app.use(bodyParser.json())
 
 // slash route 
 app.get("/", (req, res) => {
-  res.send("server is connected");
+  res.json({
+    message: "welcome to kunal chandra das portfolio.",
+    status: 200
+  });
 });
 
 // project route 

@@ -11,10 +11,14 @@ const sendAllProjectHandler = require('../controller/project-controller/sendAllP
 const sendSingleProjectHandler = require('../controller/project-controller/sendSingleProjectHandler');
 const editProjectHandler = require('../controller/project-controller/editProjecthandler');
 const deleteProjectHandler = require('../controller/project-controller/deleteProjectHandler');
+const upload = require('../middleware/multerStorage');
 const projectRouter = express.Router();
 
+// Cloudinary middleware 
+// const upload = multer({ dest: 'uploads/' });
+
 // Upload Projects Route
-projectRouter.post('/postproject', uploadProjectHandler);
+projectRouter.post('/postproject', upload.single('projectThumbnail'), uploadProjectHandler);
 
 // Get All Projects Route
 projectRouter.get('/projects', sendAllProjectHandler);
