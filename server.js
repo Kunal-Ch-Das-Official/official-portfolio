@@ -5,24 +5,21 @@ Project Name: Kunal Chandra Das Official Portfolio,
  Date : 20.06.2024 
  */
 
-const envConfig = require('./src/config/envConfig');
-const connectDb = require('./src/config/databaseConnection');
-const app = require('./src/app.js');
+const envConfig = require("./src/config/envConfig");
+const connectDb = require("./src/config/databaseConnection");
+const app = require("./src/app.js");
 
 // DataBase Calling
 
+const startServer = async () => {
+  const appConfig = {
+    port: envConfig.port,
+    hostName: envConfig.host,
+  };
 
-const startServer = async() => {
-    const appConfig = {
-        port: envConfig.port,
-        hostName: envConfig.host,
-      };
-
-    await connectDb();
-    app.listen(appConfig.port || 5000, () => {
-        console.log(`server is running on ${appConfig.hostName}${appConfig.port}`);
-      });
-}
+  await connectDb();
+  app.listen(appConfig.port || 5000, () => {
+    console.log(`server is running on ${appConfig.hostName}${appConfig.port}`);
+  });
+};
 startServer();
-
-
