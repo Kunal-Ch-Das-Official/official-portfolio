@@ -8,14 +8,13 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 
-const Schema = Schema;
+
 
 const ProjectSchema = new Schema(
     {
         projectName: {
             type: String,
             length: 50,
-            unique: true,
             required: true
         },
         author: {
@@ -31,17 +30,14 @@ const ProjectSchema = new Schema(
         projectThumbnail: {
             type: String,
             required: true,
-            unique: true
         },
         projectUrl: {
             type: String,
             required: true,
-            unique: true 
         },
         githubLink: {
             type: String,
-            required: true,
-            unique: true   
+            required: true,  
         },
         status: {
             type: Boolean,
@@ -49,6 +45,6 @@ const ProjectSchema = new Schema(
         }
     }, {timestamps: true});
 
-    const projectModel = mongoose.model('Projects', ProjectSchema);
+    const projectModel = mongoose.model('Project', ProjectSchema);
 
     module.exports = projectModel;
