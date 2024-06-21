@@ -9,6 +9,8 @@ const { json } = require("express");
 const cors = require("cors");
 const projectRouter = require("./routes/projectsRouter");
 const bodyParser = require("body-parser");
+const resumeRouter = require("./routes/resumeRouter");
+const multer = require("multer");
 const app = express();
 
 // Middlewere
@@ -25,7 +27,21 @@ app.get("/", (req, res) => {
   });
 });
 
-// project route
+// Project route
 app.use("/api/project/v1", projectRouter);
+
+// Resume route
+app.use("/api/resume/v1", resumeRouter);
+
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    // Handle Multer-specific errors
+    res.status(500).send(err.message);
+  } else if (err) {
+    // Handle other errors
+    res.status(400).send(err.message);
+  }
+});
+
 
 module.exports = app;

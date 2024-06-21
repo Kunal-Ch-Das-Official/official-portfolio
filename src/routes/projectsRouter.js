@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description : This is the project route handler.
+ Description : This is the project router.
  Date : 20.06.2024 
  */
 
@@ -11,13 +11,13 @@ const sendAllProjectHandler = require("../controller/project-controller/sendAllP
 const sendSingleProjectHandler = require("../controller/project-controller/sendSingleProjectHandler");
 const editProjectHandler = require("../controller/project-controller/editProjecthandler");
 const deleteProjectHandler = require("../controller/project-controller/deleteProjectHandler");
-const upload = require("../middleware/multerStorage");
+const projectsUpload = require("../middleware/multerProjectStorage");
 const projectRouter = express.Router();
 
 // Cloudinary middleware
 // const upload = multer({ dest: 'uploads/' });
 
-const projectUpload = upload.fields([
+const projectUpload = projectsUpload.fields([
   { name: "projectThumbnail", maxCount: 1 },
   { name: "firstView", maxCount: 1 },
   { name: "secondView", maxCount: 1 },
