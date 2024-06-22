@@ -13,6 +13,10 @@
        type: String,
        required: true,
      },
+     publicId: {
+      type: String,
+      require: true
+     },
      status: {
        type: Boolean,
        default: 1,

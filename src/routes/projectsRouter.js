@@ -9,9 +9,9 @@ const express = require("express");
 const uploadProjectHandler = require("../controller/project-controller/uploadProjectHandler");
 const sendAllProjectHandler = require("../controller/project-controller/sendAllProjectHandler");
 const sendSingleProjectHandler = require("../controller/project-controller/sendSingleProjectHandler");
-const editProjectHandler = require("../controller/project-controller/editProjecthandler");
 const deleteProjectHandler = require("../controller/project-controller/deleteProjectHandler");
 const projectsUpload = require("../middleware/multerProjectStorage");
+const editProjectHandler = require("../controller/project-controller/editProjectHandler");
 const projectRouter = express.Router();
 
 // Cloudinary middleware
@@ -33,7 +33,7 @@ projectRouter.get("/projects", sendAllProjectHandler);
 projectRouter.get("/projects/:id", sendSingleProjectHandler);
 
 // Edit Single Project Route
-projectRouter.patch("/projects/:id", editProjectHandler);
+projectRouter.patch("/projects/:id", projectUpload, editProjectHandler);
 
 // Delete Single Project Route
 projectRouter.delete("/projects/:id", deleteProjectHandler);

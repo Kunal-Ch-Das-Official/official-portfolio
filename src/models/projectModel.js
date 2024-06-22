@@ -28,7 +28,15 @@ const ProjectSchema = new Schema(
       type: String,
       required: true,
     },
+    projectThumbnailPublicId:{
+      type: String,
+      required: true,
+    },
     firstView: {
+      type: String,
+      required: true,
+    },
+    firstViewPublicId: {
       type: String,
       required: true,
     },
@@ -36,7 +44,15 @@ const ProjectSchema = new Schema(
       type: String,
       required: true,
     },
+    secondViewPublicId: {
+      type: String,
+      required: true,
+    },
     thirdView: {
+      type: String,
+      required: true,
+    },
+    thirdViewPublicId: {
       type: String,
       required: true,
     },

@@ -23,7 +23,7 @@ resumeRouter.post('/postresume', resumeUpload.single('resume'), uploadResumeHand
 resumeRouter.get("/getresume/:id", sendResumeHandler);
 
 // Edit Resume Route
-resumeRouter.patch("/editresume/:id", resumeUpload.single('resume'), editResumeHandler);
+resumeRouter.put("/editresume/:id", resumeUpload.single('resume'), editResumeHandler);
 
 // Delete Resume Route
 resumeRouter.delete("/deleteresume/:id", deleteResumeHandler);

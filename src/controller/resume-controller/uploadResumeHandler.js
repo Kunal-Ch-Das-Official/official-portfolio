@@ -5,27 +5,20 @@
  Date : 21.06.2024 
  */
 
-require("dotenv").config();
-const cloudinary = require("cloudinary").v2;
+
 const fs = require("fs");
 const resumeModel = require("../../models/resumeModel");
+const cloudConfig = require("../../config/cloudConfig");
 
 const uploadResumeHandler = async (req, res) => {
-  cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET,
-  });
 
   try {
     if (req.file) {
       // File uploaded locally, now upload to Cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path, {
+      const result = await cloudConfig.uploader.upload(req.file.path, {
         folder: "resume_uploads",
       });
 
-      const previousPublicId = result.public_id;
-      module.exports = previousPublicId;
       
       // Delete the file from local storage after uploading to Cloudinary
       fs.unlink(req.file.path, (err) => {
@@ -39,6 +32,7 @@ const uploadResumeHandler = async (req, res) => {
       try {
         const sendToDatabase = new resumeModel({
           resume: result.secure_url,
+          publicId: result.public_id
         });
         await sendToDatabase.save();
         res.status(200).send("Successfully upload resume on database!!!");
