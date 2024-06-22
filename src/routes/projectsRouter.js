@@ -24,7 +24,7 @@ const projectUpload = projectsUpload.fields([
   { name: "thirdView", maxCount: 1 },
 ]);
 // Upload Projects Route
-projectRouter.post("/postproject", projectUpload, uploadProjectHandler);
+projectRouter.post("/project-post", projectUpload, uploadProjectHandler);
 
 // Get All Projects Route
 projectRouter.get("/projects", sendAllProjectHandler);
@@ -33,9 +33,9 @@ projectRouter.get("/projects", sendAllProjectHandler);
 projectRouter.get("/projects/:id", sendSingleProjectHandler);
 
 // Edit Single Project Route
-projectRouter.patch("/projects/:id", projectUpload, editProjectHandler);
+projectRouter.patch("/project-edit/:id", projectUpload, editProjectHandler);
 
 // Delete Single Project Route
-projectRouter.delete("/projects/:id", deleteProjectHandler);
+projectRouter.delete("/project-delete/:id", deleteProjectHandler);
 
 module.exports = projectRouter;

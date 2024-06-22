@@ -17,15 +17,15 @@ const deleteResumeHandler = require('../controller/resume-controller/deleteResum
 const resumeRouter = express.Router();
 
 // Resume Post Route 
-resumeRouter.post('/postresume', resumeUpload.single('resume'), uploadResumeHandler);
+resumeRouter.post('/resume-upload', resumeUpload.single('resume'), uploadResumeHandler);
 
 // Get Resume Route
-resumeRouter.get("/getresume/:id", sendResumeHandler);
+resumeRouter.get("/resume/:id", sendResumeHandler);
 
 // Edit Resume Route
-resumeRouter.put("/editresume/:id", resumeUpload.single('resume'), editResumeHandler);
+resumeRouter.put("/resume-edit/:id", resumeUpload.single('resume'), editResumeHandler);
 
 // Delete Resume Route
-resumeRouter.delete("/deleteresume/:id", deleteResumeHandler);
+resumeRouter.delete("/resume-delete/:id", deleteResumeHandler);
 
 module.exports = resumeRouter;
