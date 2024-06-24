@@ -1,175 +1,74 @@
-/* 
- Project Name: Kunal Chandra Das Official Portfolio,
- Author: Kunal Chandra Das,
- Description : This is controller of the edit project request by client.
- Date : 20.06.2024 
- */
-
 const cloudConfig = require("../../config/cloudConfig");
 const projectModel = require("../../models/projectModel");
 const fs = require("fs");
 
 const editProjectHandler = async (req, res) => {
   try {
+    const updateFields = {};
 
-    try {
-      const updateProjectBody = await projectModel.findByIdAndUpdate(
-        req.params.id,
-        { $set: req.body },
-        { new: true}
-      );
-      if (!updateProjectBody) {
-        return res.status(404).json({ error: "Project not found!" });
+    // Helper function to handle file updates
+    const handleFileUpdate = async (field, req) => {
+      if (req.files && req.files[field] === undefined) {
+        const findField = await projectModel.findById(req.params.id);
+        if (!findField) {
+          return res.status(404).send("Project not found");
+        }
+        updateFields[field] = findField[field];
+        updateFields[`${field}PublicId`] = findField[`${field}PublicId`];
       } else {
-        res.status(200).json({status: 200, message: "Succesfully updated!"});
+        const getFieldInfo = await projectModel.findById(req.params.id);
+        await cloudConfig.uploader.destroy(getFieldInfo[`${field}PublicId`]);
+        const uploadNewImg = await cloudConfig.uploader.upload(
+          req.files[field][0].path,
+          { folder: "projects_upload" }
+        );
+        updateFields[field] = uploadNewImg.secure_url;
+        updateFields[`${field}PublicId`] = uploadNewImg.public_id;
+        fs.unlink(req.files[field][0].path, (err) => {
+          if (err) {
+            console.log("There was an error!", err);
+          } else {
+            console.log(`${field} deleted successfully!`);
+          }
+        });
       }
-    } catch (error) {
-      res
-        .status(400)
-        .json({ error: "Failed to update the project!", details: error.message });
+    };
+
+    // Handle the updates for each file field
+    await handleFileUpdate("projectThumbnail", req);
+    await handleFileUpdate("firstView", req);
+    await handleFileUpdate("secondView", req);
+    await handleFileUpdate("thirdView", req);
+
+    // Update the rest of the fields from req.body if not empty
+    const findProject = await projectModel.findById(req.params.id);
+    if (!findProject) {
+      return res.status(404).send("Project not found");
     }
 
+    Object.keys(req.body).forEach((key) => {
+      if (req.body[key] === "") {
+        updateFields[key] = findProject[key];
+      } else {
+        updateFields[key] = req.body[key];
+      }
+    });
 
-    // Update Project Thumbnail from Database and cloudinary
-    if (!req.files.projectThumbnail) {
-      console.log("Thumbnail View Not Been Update!!");
-    } else {
-      try {
-        const getProjectThumbnailInfo = await projectModel.findById(
-          req.params.id
-        );
-        await cloudConfig.uploader.destroy(
-          getProjectThumbnailInfo.projectThumbnailPublicId
-        );
-        const uploadNewImg = await cloudConfig.uploader.upload(
-          req.files.projectThumbnail[0].path,
-          {
-            folder: "projects_upload",
-          }
-        );
-        const updateProjectThumbnail = {
-          projectThumbnail: uploadNewImg.secure_url,
-          projectThumbnailPublicId: uploadNewImg.public_id,
-        };
-        await projectModel.findByIdAndUpdate(
-          req.params.id,
-          updateProjectThumbnail,
-          { new: true }
-        );
-        fs.unlink(req.files.projectThumbnail[0].path, (err) => {
-          if (err) {
-            console.log("There are an error!", err);
-          } else {
-            console.log("Thumbnail deleted successfully!");
-          }
-        });
-        res.send("done");
-      } catch (error) {
-        res.status(500).send("Internal server error", error.message);
-      }
-    }
-    // Update Project FirstView from Database and cloudinary
-    if (!req.files.firstView) {
-      console.log("First View Not Been Update!!");
-    } else {
-      try {
-        const getFirstViewlInfo = await projectModel.findById(req.params.id);
-        await cloudConfig.uploader.destroy(getFirstViewlInfo.firstViewPublicId);
-        const uploadNewImg = await cloudConfig.uploader.upload(
-          req.files.firstView[0].path,
-          {
-            folder: "projects_upload",
-          }
-        );
-        const updateFirstView = {
-          firstView: uploadNewImg.secure_url,
-          firstViewPublicId: uploadNewImg.public_id,
-        };
-        await projectModel.findByIdAndUpdate(req.params.id, updateFirstView, {
-          new: true,
-        });
-        fs.unlink(req.files.firstView[0].path, (err) => {
-          if (err) {
-            console.log("There are an error!", err);
-          } else {
-            console.log("First view deleted successfully!");
-          }
-        });
-      } catch (error) {
-        res.status(500).send("Internal server error", error.message);
-      }
+    // Update the project with the collected fields
+    const updatedProject = await projectModel.findByIdAndUpdate(
+      req.params.id,
+      { $set: updateFields },
+      { new: true }
+    );
+
+    if (!updatedProject) {
+      return res.status(404).send("Project not found");
     }
 
-    // Update Project SecondView from Database and cloudinary
-    if (!req.files.secondView) {
-      console.log("Second View Not Been Update!!");
-    } else {
-      try {
-        const getSecondViewInfo = await projectModel.findById(req.params.id);
-        await cloudConfig.uploader.destroy(
-          getSecondViewInfo.secondViewPublicId
-        );
-        const uploadNewImg = await cloudConfig.uploader.upload(
-          req.files.secondView[0].path,
-          {
-            folder: "projects_upload",
-          }
-        );
-        const updateSecondView = {
-          secondView: uploadNewImg.secure_url,
-          secondViewPublicId: uploadNewImg.public_id,
-        };
-        await projectModel.findByIdAndUpdate(req.params.id, updateSecondView, {
-          new: true,
-        });
-        fs.unlink(req.files.secondView[0].path, (err) => {
-          if (err) {
-            console.log("There are an error!", err);
-          } else {
-            console.log("Second view deleted successfully!");
-          }
-        });
-      } catch (error) {
-        res.status(500).send("Internal server error", error.message);
-      }
-    }
-
-    // Update Project ThirdView from Database and cloudinary
-    if (!req.files.thirdView) {
-      console.log("Third View Not Been Update!!");
-    } else {
-      try {
-        const getThirdViewInfo = await projectModel.findById(req.params.id);
-        await cloudConfig.uploader.destroy(getThirdViewInfo.thirdViewPublicId);
-        const uploadNewImg = await cloudConfig.uploader.upload(
-          req.files.thirdView[0].path,
-          {
-            folder: "projects_upload",
-          }
-        );
-        const updateThirdView = {
-          thirdView: uploadNewImg.secure_url,
-          thirdViewPublicId: uploadNewImg.public_id,
-        };
-        await projectModel.findByIdAndUpdate(req.params.id, updateThirdView, {
-          new: true,
-        });
-        fs.unlink(req.files.thirdView[0].path, (err) => {
-          if (err) {
-            console.log("There are an error!", err);
-          } else {
-            console.log("Third view deleted successfully!");
-          }
-        });
-      } catch (error) {
-        res.status(500).send("Internal server error", error.message);
-      }
-    }
+    res.status(200).json({status: 200, message: "Project has been updated successfully!"});
   } catch (error) {
-    res.json({ message: error });
+    res.status(500).send(`Internal server error: ${error.message}`);
   }
-
-
- 
 };
+
 module.exports = editProjectHandler;

@@ -24,7 +24,7 @@ const projectUpload = projectsUpload.fields([
   { name: "thirdView", maxCount: 1 },
 ]);
 // Upload Projects Route
-projectRouter.post("/project-post", projectUpload, uploadProjectHandler);
+projectRouter.post("/project-upload", projectUpload, uploadProjectHandler);
 
 // Get All Projects Route
 projectRouter.get("/projects", sendAllProjectHandler);

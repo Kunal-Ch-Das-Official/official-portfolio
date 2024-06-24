@@ -15,13 +15,13 @@ const deleteReviewHandler = require('../controller/review-controller/deleteRevie
  const reviewRouter = express.Router();
 
 //  Post review router 
- reviewRouter.post('/review-post', uploadReviewHandler);
+ reviewRouter.post('/review-upload', uploadReviewHandler);
 
 //  Get reviews router 
-reviewRouter.get('/review', sendAllReviewHandler);
+reviewRouter.get('/reviews', sendAllReviewHandler);
 
 // Get single review 
-reviewRouter.get('/review/:id', sendSingleReviewHandler);
+reviewRouter.get('/reviews/:id', sendSingleReviewHandler);
 
 // Get single review 
 reviewRouter.patch('/review-edit/:id', editReviewHandler);
