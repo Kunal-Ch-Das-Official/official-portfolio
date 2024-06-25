@@ -2,11 +2,11 @@
   "name": "kunal-portfolio-server",
   "version": "1.0.0",
   "description": "This is the server of kunal chandra das's official portfolio",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "preview": "node server.js"
+    "start": "nodemon index.js",
+    "preview": "node index.js"
   },
   "repository": {
     "type": "git",
