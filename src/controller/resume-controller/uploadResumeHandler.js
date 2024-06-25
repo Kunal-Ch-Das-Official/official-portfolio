@@ -17,7 +17,8 @@ const uploadResumeHandler = async (req, res) => {
       // File uploaded locally, now upload to Cloudinary
       const result = await cloudConfig.uploader.upload(req.file.path, {
         folder: "resume_uploads",
-      });
+      
+        });
 
       
       // Delete the file from local storage after uploading to Cloudinary

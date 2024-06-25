@@ -1,3 +1,9 @@
+/* 
+ Project Name: Kunal Chandra Das Official Portfolio,
+ Author: Kunal Chandra Das,
+ Description : This is controller of upload project.
+ Date : 20.06.2024 
+ */
 const cloudConfig = require("../../config/cloudConfig");
 const projectModel = require("../../models/projectModel");
 const fs = require("fs");

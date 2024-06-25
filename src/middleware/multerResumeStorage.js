@@ -19,15 +19,15 @@
    },
  });
  
- // Define the file filter function
- const fileFilter = (req, file, cb) => {
-   // Accept only image files (jpeg, png, gif)
-   if (file.mimetype === "application/document" || file.mimetype === "application/pdf") {
-     cb(null, true);
-   } else {
-     cb(new Error("Invalid file type. Only PDF and Document files are allowed."), false);
-   }
- };
+// Define the file filter function
+const fileFilter = (req, file, cb) => {
+  // Accept only image files (jpeg, png, gif)
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png" || file.mimetype === "image/gif" || file.mimetype === "image/webp" || file.mimetype === "image/svg+xml" || file.mimetype === "image/jpg" ) {
+    cb(null, true);
+  } else {
+    cb(new Error("Invalid file type. Only JPEG, PNG, WEBP, SVG, JPG, and GIF files are allowed."), false);
+  }
+};
  
  const resumeUpload = multer({ 
    storage: storage,

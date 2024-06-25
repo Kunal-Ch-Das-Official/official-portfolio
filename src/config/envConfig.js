@@ -1,3 +1,6 @@
+// Content: Project environment setup.
+// Author: Kunal Chandra Das.
+// Date: 20/06/2024
 require("dotenv").config();
 
 const environment = {
