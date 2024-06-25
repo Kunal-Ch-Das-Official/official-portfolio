@@ -14,12 +14,11 @@ const app = require("./src/app.js");
 const startServer = async () => {
   const appConfig = {
     port: envConfig.port,
-    hostName: envConfig.host,
   };
 
   await connectDb();
   app.listen(appConfig.port || 5000, () => {
-    console.log(`server is running on ${appConfig.hostName}${appConfig.port}`);
+    console.log(`server is running on port: ${appConfig.port}`);
   });
 };
 startServer();
