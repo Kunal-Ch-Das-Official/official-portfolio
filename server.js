@@ -5,8 +5,8 @@ Project Name: Kunal Chandra Das Official Portfolio,
  Date : 20.06.2024 
  */
 
-const envConfig = require("./src/config/envConfig");
-const connectDb = require("./src/config/databaseConnection");
+const envConfig = require("./src/config/envConfig.js");
+const connectDb = require("./src/config/databaseConnection.js");
 const app = require("./src/app.js");
 
 // DataBase Calling
