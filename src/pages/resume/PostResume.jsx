@@ -1,15 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import axios from "axios";
 import envConfig from "../../../envConfig";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
+import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 
 const PostResume = () => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
   const formRef = useRef(null);
   const [ifSuccess, setSuccess] = useState(false);
+  const [asyncLoadingState, setAsyncLoadingState] = useState(false);
   const [fileName, setFileName] = useState("No choosen file");
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -19,6 +21,7 @@ const PostResume = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setAsyncLoadingState(true);
     const formData = new FormData();
     formData.append("resume", file); // Ensure 'file' matches the server-side field name
 
@@ -28,22 +31,26 @@ const PostResume = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+      setAsyncLoadingState(false);
       setMessage("File uploaded successfully!");
       setSuccess(true);
     } catch (error) {
       console.error("Error uploading file:", error.response || error.message);
+      setAsyncLoadingState(false);
       setMessage("Failed to upload file.");
       setSuccess(true);
     }
     formRef.current.reset();
+    setFileName("No choosen file");
   };
 
-  const handleSuccessCloseEvent = () => {
+  const handleSuccessCloseEvent = useCallback(() => {
     setSuccess(false);
-  };
+  }, []);
 
   return (
     <div className=" w-5/6 float-right">
+      {asyncLoadingState === true && <LoadingSpiner />}
       <CustomAlert
         showOrHide={ifSuccess === true ? "flex" : "hidden"}
         closeButton={handleSuccessCloseEvent}
