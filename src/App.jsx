@@ -10,6 +10,8 @@ import PostProject from "./pages/projects/PostProject";
 import ManageProject from "./pages/projects/ManageProject";
 import ManageResume from "./pages/resume/ManageResume";
 import PostResume from "./pages/resume/PostResume";
+import EditResume from "./pages/resume/EditResume";
+import DeleteResume from "./pages/resume/DeleteResume";
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
               <Route path="/dashboard/project-post" element={<PostProject />}/>
               <Route path="/dashboard/project-manage" element={<ManageProject />}/>
               <Route path="/dashboard/resume-post" exact element={<PostResume />} />
+              <Route path="/dashboard/resume-edit/:id" exact element={<EditResume />} />
+              <Route path="/dashboard/resume-delete/:id" exact element={<DeleteResume />} />
               <Route path="/dashboard/resume-manage" exact element={<ManageResume />} />
               <Route path="/dashboard/review-manage" exact element={< Reviews/>} />
             </Route>
