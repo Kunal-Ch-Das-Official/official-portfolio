@@ -11,6 +11,7 @@ const resumeUpload = require('../middleware/multerResumeStorage');
 const sendResumeHandler = require('../controller/resume-controller/sendResumeHandler');
 const editResumeHandler = require('../controller/resume-controller/editResumeHandler');
 const deleteResumeHandler = require('../controller/resume-controller/deleteResumeHandler');
+const sendSingleResumeHandler = require('../controller/resume-controller/sendSingleResumeHandler');
 
 
 
@@ -21,6 +22,8 @@ resumeRouter.post('/resume-upload', resumeUpload.single('resume'), uploadResumeH
 
 // Get Resume Route
 resumeRouter.get("/resume", sendResumeHandler);
+
+resumeRouter.get("/resume/:id", sendSingleResumeHandler);
 
 // Edit Resume Route
 resumeRouter.put("/resume-edit/:id", resumeUpload.single('resume'), editResumeHandler);
