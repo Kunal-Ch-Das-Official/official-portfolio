@@ -20,7 +20,7 @@ const resumeRouter = express.Router();
 resumeRouter.post('/resume-upload', resumeUpload.single('resume'), uploadResumeHandler);
 
 // Get Resume Route
-resumeRouter.get("/resume/:id", sendResumeHandler);
+resumeRouter.get("/resume", sendResumeHandler);
 
 // Edit Resume Route
 resumeRouter.put("/resume-edit/:id", resumeUpload.single('resume'), editResumeHandler);

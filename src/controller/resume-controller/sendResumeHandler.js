@@ -9,11 +9,11 @@ const resumeModel = require("../../models/resumeModel");
 
 const sendResumeHandler = async(req, res) => {
     try {
-        const resumeId = await resumeModel.findById(req.params.id);
-        if(!resumeId){
+        const findResume = await resumeModel.find();
+        if(!findResume){
             res.status(404).send("Resume not found!!");
         }else{
-            res.status(200).json(resumeId)
+            res.status(200).json(findResume)
         }
     } catch (error) {
         res
