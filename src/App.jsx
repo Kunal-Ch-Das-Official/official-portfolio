@@ -4,7 +4,6 @@ import { AuthProvider } from "./auth-context/AuthContext";
 import Dashboard from "./component/one-time/dashboard/Dashboard";
 import PrivateRoute from "./private-route/PrivateRoute";
 import LoginForm from "./component/one-time/admin-login-form/LoginForm";
-import Reviews from "./pages/reviews/Reviews";
 import DashboardBody from "./pages/dashboard-body/DashboardBody";
 import PostProject from "./pages/projects/PostProject";
 import ManageProject from "./pages/projects/ManageProject";
@@ -14,6 +13,10 @@ import EditResume from "./pages/resume/EditResume";
 import DeleteResume from "./pages/resume/DeleteResume";
 import EditProject from "./pages/projects/EditProject";
 import DeleteProject from "./pages/projects/DeleteProject";
+import ManageReviews from "./pages/reviews/ManageReviews";
+import EditReview from "./pages/reviews/EditReview";
+import DeleteReview from "./pages/reviews/DeleteReview";
+import SingleReview from "./pages/reviews/SingleReview";
 
 const App = () => {
   return (
@@ -42,7 +45,10 @@ const App = () => {
 
 
 
-              <Route path="/dashboard/review-manage" exact element={< Reviews/>} />
+              <Route path="/dashboard/review-manage" exact element={< ManageReviews/>} />
+              <Route path="/dashboard/review/:id" exact element={< SingleReview/>} />
+              <Route path="/dashboard/review-edit/:id" exact element={< EditReview/>} />
+              <Route path="/dashboard/review-delete/:id" exact element={< DeleteReview/>} />
             </Route>
 
         </Routes>
