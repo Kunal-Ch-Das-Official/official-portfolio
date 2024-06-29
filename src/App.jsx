@@ -12,6 +12,8 @@ import ManageResume from "./pages/resume/ManageResume";
 import PostResume from "./pages/resume/PostResume";
 import EditResume from "./pages/resume/EditResume";
 import DeleteResume from "./pages/resume/DeleteResume";
+import EditProject from "./pages/projects/EditProject";
+import DeleteProject from "./pages/projects/DeleteProject";
 
 const App = () => {
   return (
@@ -27,12 +29,19 @@ const App = () => {
               </PrivateRoute>
             }>
               <Route index element={<DashboardBody />} />
-              <Route path="/dashboard/project-post" element={<PostProject />}/>
               <Route path="/dashboard/project-manage" element={<ManageProject />}/>
+              <Route path="/dashboard/project-post" element={<PostProject />}/>
+              <Route path="/dashboard/project-edit/:id" exact element={<EditProject />} />
+              <Route path="/dashboard/project-delete/:id" exact element={<DeleteProject />} />
+
+
+              <Route path="/dashboard/resume-manage" exact element={<ManageResume />} />
               <Route path="/dashboard/resume-post" exact element={<PostResume />} />
               <Route path="/dashboard/resume-edit/:id" exact element={<EditResume />} />
               <Route path="/dashboard/resume-delete/:id" exact element={<DeleteResume />} />
-              <Route path="/dashboard/resume-manage" exact element={<ManageResume />} />
+
+
+
               <Route path="/dashboard/review-manage" exact element={< Reviews/>} />
             </Route>
 

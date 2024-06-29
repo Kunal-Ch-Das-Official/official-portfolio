@@ -32,12 +32,12 @@ const PostResume = () => {
         },
       });
       setAsyncLoadingState(false);
-      setMessage("File uploaded successfully!");
+      setMessage("Resume uploaded successfully!");
       setSuccess(true);
     } catch (error) {
       console.error("Error uploading file:", error.response || error.message);
       setAsyncLoadingState(false);
-      setMessage("Failed to upload file.");
+      setMessage("Failed to upload resume.");
       setSuccess(true);
     }
     formRef.current.reset();
