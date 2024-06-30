@@ -8,7 +8,6 @@ import LoadingSpiner from '../../utils/loading-spinner/LoadingSpiner';
 const EditReview = () => {
   const { id } = useParams();
   const [newUserName, setNewUserName] = useState('');
-  const [newReviewRating, setNewReviewRating] = useState(0);
   const [newReviewContent, setNewReviewContent] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +19,6 @@ const EditReview = () => {
         const response = await axios.get(`${envConfig.getReviewApiUrl}/${id}`);
         const review = response.data;
         setNewUserName(review.userName);
-        setNewReviewRating(review.rating);
         setNewReviewContent(review.reviewContent);
       } catch (error) {
         console.error(error);
@@ -36,7 +34,6 @@ const EditReview = () => {
     const updatedData = {
       userName: newUserName,
       reviewContent: newReviewContent,
-      rating: newReviewRating,
     };
 
     try {
@@ -88,26 +85,6 @@ const EditReview = () => {
                   </div>
                 </div>
 
-                <div className="sm:col-span-4">
-                  <label
-                    htmlFor="rating"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Change Review Rating
-                  </label>
-                  <div className="mt-2">
-                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                      <input
-                        type="number"
-                        name="rating"
-                        id="rating"
-                        onChange={(event) => setNewReviewRating(event.target.value)}
-                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                        placeholder="Change Review Rating"
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div className="col-span-full">
                   <label
                     htmlFor="review-content"

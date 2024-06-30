@@ -26,6 +26,8 @@ const ManageReviews = () => {
     getAllreviews();
   }, []);
 
+
+
   return (
     <div className="w-5/6 float-right">
       <div className="w-4/5 mx-auto mt-14">
@@ -99,7 +101,7 @@ const ManageReviews = () => {
                         
                         </td>
                         <td className="px-4 py-4 text-sm ">
-                          {reviews.rating}
+                          {reviews.rating.length}
                         </td>
                         <td className="px-4 py-4 inline-flex">
                           <Link to={`/dashboard/review-edit/${reviews._id}`}

@@ -5,12 +5,14 @@ import envConfig from "../../../envConfig";
 import { FaStar } from "react-icons/fa";
 const SingleReview = () => {
   const [apiResponse, setApiResponse] = useState({});
+  const [ratings, setRatings] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     const getSingleReview = async () => {
       try {
         await axios.get(`${envConfig.getReviewsApiUrl}/${id}`).then((res) => {
           setApiResponse(res.data);
+          setRatings(res.data.rating);
         });
       } catch (error) {
         console.log(error);
@@ -42,12 +44,7 @@ const SingleReview = () => {
             </div>
 
             <div className="flex justify-center space-x-1 mt-4">
-                 <FaStar  className="text-xl text-yellow-600" />
-                 <FaStar  className="text-xl text-yellow-600" />
-                 <FaStar  className="text-xl text-yellow-600" />
-                 <FaStar  className="text-xl text-yellow-600" />
-                 <FaStar  className="text-xl text-yellow-600" />
-              
+              {ratings.map((star, index) => <FaStar key={index} className="text-xl text-yellow-600" />)}            
             </div>
           </div>
         </div>

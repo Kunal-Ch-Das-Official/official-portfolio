@@ -7,6 +7,7 @@ import LoadingSpiner from '../../utils/loading-spinner/LoadingSpiner';
 const DeleteReview = () => {
 
   const [apiResponse, setApiResponse] = useState({});
+  const [ratings, setApiRatings] = useState([]);
   const { id } = useParams();
   const [loadingState, setLoadingState] = useState(false);
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const DeleteReview = () => {
       try {
         await axios.get(`${envConfig.getReviewsApiUrl}/${id}`).then((res) => {
           setApiResponse(res.data);
+          setApiRatings(res.data.rating);
         });
       } catch (error) {
         console.log(error);
@@ -58,11 +60,8 @@ const DeleteReview = () => {
           </div>
 
           <div className="flex justify-center space-x-1 mt-4">
-               <FaStar  className="text-xl text-yellow-600" />
-               <FaStar  className="text-xl text-yellow-600" />
-               <FaStar  className="text-xl text-yellow-600" />
-               <FaStar  className="text-xl text-yellow-600" />
-               <FaStar  className="text-xl text-yellow-600" />
+               
+               {ratings.map((star, index) => <FaStar key={index}  className="text-xl text-yellow-600" />)}
             
           </div>
         </div>
