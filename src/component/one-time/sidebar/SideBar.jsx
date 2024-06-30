@@ -8,6 +8,8 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { MdMarkEmailUnread } from "react-icons/md";
+
 
 const SideBar = () => {
 
@@ -124,6 +126,15 @@ const SideBar = () => {
           <Link to={'/dashboard/review-manage'} className="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all ">
            <MdReviews className="text-2xl mr-3"/>
             <span>Reviews</span>
+          </Link>
+          </li>
+        </ol>
+
+        <ol>
+          <li>
+          <Link to={'/dashboard/emails-manage'} className="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all ">
+           <MdMarkEmailUnread className="text-2xl mr-3"/>
+            <span>Emails</span>
           </Link>
           </li>
         </ol>

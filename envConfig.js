@@ -12,7 +12,9 @@ editProjectApiUrl: import.meta.env.VITE_APP_EDIT_PROJECTS_API_URL,
 deleteProjectApiUrl: import.meta.env.VITE_APP_DELETE_PROJECTS_API_URL,
 getReviewsApiUrl: import.meta.env.VITE_APP_GET_REVIEWS_API_URL,
 editReviewApiUrl: import.meta.env.VITE_APP_EDIT_REVIEW_API_URL,
-deleteReviewApiUrl: import.meta.env.VITE_APP_DELETE_REVIEW_API_URL
+deleteReviewApiUrl: import.meta.env.VITE_APP_DELETE_REVIEW_API_URL,
+getAllEmailsApiUrl: import.meta.env.VITE_APP_GET_EMAILS_API_URL,
+deleteEmailsApiUrl: import.meta.env.VITE_APP_DELETE_EMAIL_API_URL
 }
 
 const envConfig = Object.freeze(environment);

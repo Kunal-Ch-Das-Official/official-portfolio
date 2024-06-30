@@ -17,6 +17,8 @@ import ManageReviews from "./pages/reviews/ManageReviews";
 import EditReview from "./pages/reviews/EditReview";
 import DeleteReview from "./pages/reviews/DeleteReview";
 import SingleReview from "./pages/reviews/SingleReview";
+import ManageEmails from "./pages/emails/ManageEmails";
+import DedicatedEmail from "./pages/emails/DedicatedEmail";
 
 const App = () => {
   return (
@@ -49,6 +51,9 @@ const App = () => {
               <Route path="/dashboard/review/:id" exact element={< SingleReview/>} />
               <Route path="/dashboard/review-edit/:id" exact element={< EditReview/>} />
               <Route path="/dashboard/review-delete/:id" exact element={< DeleteReview/>} />
+
+              <Route path="/dashboard/emails-manage" exact element={< ManageEmails/>} />
+              <Route path="/dashboard/email/:id" exact element={< DedicatedEmail/>} />
             </Route>
 
         </Routes>
