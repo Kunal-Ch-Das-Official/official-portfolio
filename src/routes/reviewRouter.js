@@ -15,7 +15,7 @@ const deleteReviewHandler = require('../controller/review-controller/deleteRevie
  const reviewRouter = express.Router();
 
 //  Post review router 
- reviewRouter.post('/review-upload', uploadReviewHandler);
+reviewRouter.post('/review-upload', uploadReviewHandler);
 
 //  Get reviews router 
 reviewRouter.get('/reviews', sendAllReviewHandler);

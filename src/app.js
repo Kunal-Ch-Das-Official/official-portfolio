@@ -12,6 +12,7 @@ const bodyParser = require("body-parser");
 const resumeRouter = require("./routes/resumeRouter");
 const multer = require("multer");
 const reviewRouter = require("./routes/reviewRouter");
+const contactFormRouter = require("./routes/contactFormRouter");
 const app = express();
 
 // Middlewere
@@ -36,6 +37,9 @@ app.use("/api/resume/v1", resumeRouter);
 
 // Review route
 app.use("/api/reviews/v1", reviewRouter);
+
+// Contact form route
+app.use("/api/contact/v1", contactFormRouter);
 
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {

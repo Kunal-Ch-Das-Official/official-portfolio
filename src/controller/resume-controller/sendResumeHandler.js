@@ -19,7 +19,7 @@ const sendResumeHandler = async(req, res) => {
         res
         .status(500)
         .json({
-          error: "Failed to retrieve resume",
+          error: "Technical error!",
           details: error.message,
         });
     }

@@ -39,8 +39,8 @@ const editResumeHandler = async(req, res) => {
       });
     } catch (error) {
         res
-        .status(400)
-        .json({ error: "Failed to update the resume!", details: error.message });
+        .status(500)
+        .json({ error: "Technical error!", details: error.message });
     
     }
 }

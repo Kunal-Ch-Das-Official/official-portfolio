@@ -12,7 +12,7 @@ const resumeModel = require("../../models/resumeModel");
    try {
      const resumeId = await resumeModel.findById(req.params.id);
      if (!resumeId) {
-       res.status(404).send("Not found !");
+       res.status(404).send("Not found!");
      } else {
        res.status(200).json(resumeId);
      }
@@ -20,7 +20,7 @@ const resumeModel = require("../../models/resumeModel");
      res
        .status(500)
        .json({
-         error: "Failed to retrieve single resume",
+         error: "Technical error!",
          details: error.message,
        });
    }

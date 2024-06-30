@@ -11,12 +11,14 @@ const deleteReviewHandler = async (req, res) => {
   try {
     const deleteReview = await reviewModel.findByIdAndDelete(req.params.id);
     if (!deleteReview) {
-      res.status(500).json({message: "Unable to delete due to some techical error!!"});
+      res.status(404).json({ message: "Not found!" });
     } else {
-      res.status(200).json({message: "Review successfully deleted!"});
+      res.status(200).json({ message: "Review successfully deleted!" });
     }
   } catch (error) {
-    res.status(404).json({message: "Requesed resources are not found!"})
+    res
+      .status(500)
+      .json({ message: "Technical error!", details: error.message });
   }
 };
 

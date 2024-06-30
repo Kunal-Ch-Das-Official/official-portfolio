@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description : This is controller of the delete project request by client.
+ Description : This is controller of the delete project request by admin.
  Date : 20.06.2024 
  */
 
@@ -30,7 +30,7 @@ const deleteProjectHandler = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ error: "Failed to delete project", details: error.message });
+      .json({ error: "Technical error!", details: error.message });
   }
 };
 

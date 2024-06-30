@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description : This is controller of the project post request by client.
+ Description : This is controller of the project post request by admin.
  Date : 20.06.2024 
  */
 

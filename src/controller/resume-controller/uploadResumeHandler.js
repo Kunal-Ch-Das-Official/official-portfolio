@@ -42,7 +42,7 @@ const uploadResumeHandler = async (req, res) => {
         console.log("Some error occured to post resume on database!!!", error);
       }
     } else {
-      res.status(500).send("Bad Request");
+      res.status(500).send("Technical error!");
     }
   } catch (error) {
     console.log("Error Occure", error);

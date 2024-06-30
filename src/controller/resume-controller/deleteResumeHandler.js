@@ -23,7 +23,7 @@ const deleteResumeHandler = async(req, res) => {
     } catch (error) {
         res
       .status(500)
-      .json({ error: "Failed to delete resume", details: error.message });
+      .json({ error: "Technical error!", details: error.message });
   }
 }
 

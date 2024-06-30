@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description :  This is controller of the post user reviews.
+ Description :  This is controller of the post user reviews by client.
  Date : 22.06.2024 
  */
 
@@ -21,12 +21,12 @@ const uploadReviewHandler = async (req, res) => {
   
       const uploadReviews = await newReview.save();
       if(!uploadReviews){
-        res.status(400).json({ error: "Bad request!"})
+        res.status(400).json({ error: "Bad request!"});
       }else{
         res.status(200).json({ message: "Succesfully uploaded!"});
       }
     }else{
-      res.status(409).json({error: 'The request could not be completed due to a conflict with the current state of the resource.'})
+      res.status(409).json({error: 'The request could not be completed due to a conflict with the current state of the resource.'});
     }
 
     

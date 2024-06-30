@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description :  This is controller of the single project get request by client.
+ Description :  This is controller of the get single project get request by client or admin.
  Date : 20.06.2024 
  */
 
@@ -19,7 +19,7 @@ const sendSingleProjectHandler = async (req, res) => {
     res
       .status(500)
       .json({
-        error: "Failed to retrieve single project",
+        error: "Technical error!",
         details: error.message,
       });
   }

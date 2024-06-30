@@ -1,7 +1,7 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description : This is controller of upload project.
+ Description : This is controller of update project by admin.
  Date : 20.06.2024 
  */
 const cloudConfig = require("../../config/cloudConfig");
@@ -73,7 +73,7 @@ const editProjectHandler = async (req, res) => {
 
     res.status(200).json({status: 200, message: "Project has been updated successfully!"});
   } catch (error) {
-    res.status(500).send(`Internal server error: ${error.message}`);
+    res.status(500).send(`Technical error: ${error.message}`);
   }
 };
 
