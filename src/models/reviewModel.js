@@ -6,6 +6,10 @@
  */
  const mongoose = require('mongoose');
 
+ const arrayLimit = (val) => {
+  return val.length <= 5;
+}
+
  const reviewSchema = new mongoose.Schema({
    userName: {
      type: String,
@@ -16,10 +20,8 @@
      required: true
    },
    rating: {
-     type: Number,
-     required: true,
-     min: 1,
-     max: 5
+    type: [Number],
+    validate: [arrayLimit]
    },
    date: {
      type: Date,
