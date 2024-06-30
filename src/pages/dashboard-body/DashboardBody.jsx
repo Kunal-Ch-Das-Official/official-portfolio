@@ -1,110 +1,815 @@
-import React from 'react'
+import React from "react";
 
 const DashboardBody = () => {
   return (
-    <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et cum quaerat repellat molestiae, pariatur incidunt temporibus repellendus, laboriosam fugiat, aperiam est voluptatem quam ipsa numquam iste officiis. Quod, adipisci blanditiis!
-        Minus voluptatum, consequuntur, placeat totam repellendus tempora harum, aut illo sequi cupiditate quibusdam numquam in neque dolorum temporibus porro voluptatem dolor voluptas aspernatur. Iste nihil dicta illo nostrum adipisci excepturi.
-        Dolores quidem culpa enim nostrum dolor cum neque et voluptates libero esse omnis nihil maxime nesciunt maiores accusamus quos dicta, eligendi tenetur tempora, alias adipisci officiis obcaecati mollitia? Laudantium, nisi?
-        Porro maiores nemo error, ea quas repudiandae cumque. Ea fugiat mollitia quisquam, iste, quae repellat sequi accusantium molestias facere autem cupiditate ipsa et ipsam recusandae ratione repellendus alias rerum placeat.
-        Consectetur vel numquam, sit fuga rerum voluptatibus dolorum quisquam. Repellat obcaecati odit magni quia accusamus beatae, alias voluptas, est asperiores minima perspiciatis. Ducimus, ea velit? Quis illo nesciunt soluta error.
-        Ipsa corporis adipisci consequuntur exercitationem suscipit sapiente vel quasi quidem cum error. Quae fugiat odio numquam aliquid, vel, neque a, ipsum quam unde asperiores delectus illo nihil obcaecati quo exercitationem?
-        Tempora aliquid voluptates odio illum atque mollitia. Illo, eius error quia unde deserunt, obcaecati asperiores assumenda nisi dolores accusamus magni eaque expedita consequatur. Soluta non aut laudantium velit, natus animi.
-        Voluptatem, nam? Voluptas, asperiores, amet fugit quaerat quae qui rem quos laudantium modi non, molestias perspiciatis! Vero recusandae possimus doloribus quidem illo alias sint quae aperiam ullam, quibusdam suscipit qui.
-        Mollitia, quos minus ad odio quia itaque error animi deserunt esse dolores ex ratione debitis eos fugit accusamus dolore? Aut laboriosam fugit animi at incidunt suscipit adipisci quidem dolores cum?
-        Adipisci tempore quae eaque placeat quas numquam accusamus porro fugit iste esse laudantium error ullam eveniet vitae sequi, iure omnis sint vel quis cupiditate sed odio labore. Earum, est exercitationem.
-        Perspiciatis cupiditate deleniti quia impedit maiores consectetur eaque cum reprehenderit. Deserunt alias rerum modi itaque pariatur, repellat nostrum asperiores. Quae omnis nulla laborum cupiditate vero iure minus nisi et. Tenetur!
-        Veniam officia ipsa dolores. Quae repudiandae officiis dolor? Labore perferendis pariatur error aperiam sapiente fugiat, provident aut eaque quisquam doloremque quae. Voluptate fuga, porro quia esse illum velit placeat impedit?
-        Officiis aut itaque earum vitae, nesciunt quasi corrupti, veniam suscipit repudiandae, expedita voluptatem officia culpa distinctio repellendus placeat veritatis dolorem autem eveniet numquam accusamus architecto nemo iure. Reiciendis, magni ullam?
-        Saepe aspernatur, tenetur eum consequuntur esse nemo. Quod laudantium itaque asperiores iure nisi quia omnis quae ipsam repellat quos porro ut animi, ducimus quidem. Repellat quos exercitationem aliquid unde nesciunt.
-        Aliquid quod necessitatibus maiores quos quaerat libero minus, amet, voluptate asperiores sed aperiam dicta suscipit magni accusamus facilis ea distinctio earum tenetur? Enim deleniti incidunt maxime! Quia voluptatum consectetur quaerat!
-        Saepe earum veniam numquam eius id animi cum, ea impedit ducimus magnam veritatis perferendis, voluptas sequi ipsa explicabo omnis dolore optio illo, adipisci eos repellendus asperiores dolores pariatur accusamus. Rerum!
-        Eveniet eaque alias tenetur, ea ipsam maxime eum porro fugit architecto reprehenderit harum? Dolor exercitationem ex minus facilis aperiam illum rerum? Explicabo hic eum iure exercitationem reiciendis, ex itaque adipisci.
-        Fugit, aliquam sint excepturi laudantium commodi numquam, cumque ab, libero debitis atque error architecto distinctio officiis. Explicabo quisquam, vel inventore repellendus qui odio cum, facere facilis, aliquam officiis mollitia eos?
-        Non expedita itaque, quod eaque eum consectetur soluta illo accusantium sequi numquam minima qui beatae. Laboriosam voluptate dolorum nulla praesentium perferendis temporibus. Animi ut molestiae quae est explicabo, aut expedita!
-        Expedita, eos! Facilis vel quidem veniam natus nihil adipisci fuga dicta sapiente similique sequi, voluptate reprehenderit totam, incidunt ullam at est tenetur voluptatum perferendis alias iste nostrum iusto, aspernatur tempora.
-        Deserunt molestiae perferendis ipsum impedit itaque, quae cupiditate a laudantium error facere maxime magni nam sed beatae quod harum odio eaque quisquam quas eius corporis sit sunt. Natus, recusandae omnis.
-        Nemo maxime quo vel eum quae unde modi cumque quia molestias! Non ducimus doloribus animi quasi ab sunt eos excepturi fugit praesentium dignissimos molestiae sed tempore, itaque blanditiis deserunt! Ea.
-        Fuga, sunt commodi. Officiis quam nihil fugiat temporibus totam, illo, ab voluptatum aliquam eveniet sint esse, consequatur molestiae labore voluptates quae et quos! Doloribus reprehenderit consequatur, consectetur maxime tenetur quam?
-        Veniam, minima dolores natus sed dolore voluptatibus alias autem error a eos, laudantium libero quos est atque expedita omnis fugiat culpa aliquam nihil laborum earum laboriosam quam quia. Veniam, repudiandae.
-        Debitis harum architecto quam molestias beatae eligendi, illo ullam dignissimos delectus quas veritatis odio alias dolore earum quibusdam voluptatem iste voluptate, aperiam omnis ea error corporis! Itaque corrupti repellendus expedita!
-        Delectus quasi tempora accusamus! Dolor in eaque cum enim quasi tempora minima porro mollitia sapiente dolores ducimus culpa, deserunt qui! Voluptatem, dolor voluptatibus! Odit nobis quis quaerat explicabo officiis non!
-        Ullam inventore dolorum deleniti qui. Soluta laborum dolores iusto autem asperiores adipisci perferendis aliquid inventore, consequatur in ad illo recusandae voluptatem ipsam explicabo modi cumque excepturi. Molestiae distinctio est consectetur.
-        Earum voluptas modi animi nulla aliquam ea, accusamus iusto voluptatum aspernatur tempore deserunt consequuntur fuga tenetur, nemo, vitae quidem rerum sunt soluta? Illo sapiente nam repellendus harum repellat a nesciunt?
-        Minus ad culpa quae. Hic nemo dolor vitae consequatur distinctio illum in obcaecati aliquid quam dolores culpa veniam impedit magni pariatur libero odit, voluptates praesentium qui, nobis accusamus nostrum esse!
-        Inventore culpa iure pariatur dolor? Neque omnis ea dolor, id facilis a sunt dolorum adipisci laboriosam excepturi? Nobis, iusto reiciendis omnis placeat sapiente at, consequatur tempore commodi quibusdam minus delectus?
-        Tenetur, alias, repellendus magnam ipsam obcaecati culpa sit facere, provident laborum animi assumenda. Corrupti dolor magni vitae laborum exercitationem eum possimus blanditiis, iure error id sapiente perferendis nulla dignissimos fugit?
-        Commodi facilis beatae expedita doloremque praesentium. Eos facilis esse fugiat laborum! Reprehenderit, recusandae in officia doloremque perferendis asperiores. Expedita obcaecati officia quasi, iste molestiae quia iusto voluptate ipsum libero quidem.
-        Necessitatibus qui dolore ea nemo ipsa dicta porro animi beatae, quia culpa pariatur laboriosam assumenda voluptas sit, dolor, et fugit enim blanditiis eaque corporis odit minima itaque. Aspernatur, enim similique.
-        Dolore, accusantium cum quam, ullam eum, est voluptatibus amet soluta reiciendis enim possimus dolorum! Saepe possimus error eaque, similique omnis explicabo fugiat eum, ea deserunt voluptates quos! Provident, labore at.
-        Labore velit quia nam fugiat cupiditate excepturi id et sapiente minus. At in possimus sunt aspernatur dolores necessitatibus laborum esse iste excepturi? Velit magnam iusto quis ipsum officiis similique? Velit.
-        Possimus id tempore reprehenderit praesentium aliquid molestias molestiae facilis quibusdam autem veniam. Id ab officiis facilis error rem deleniti blanditiis ex qui, doloribus porro dicta cupiditate enim? Laboriosam, nobis quis.
-        Nostrum tempore quaerat est voluptatum earum illum reprehenderit! Architecto facere ipsa impedit sed molestias iusto odit numquam unde maiores. Labore veniam itaque eum ducimus temporibus quibusdam a qui, soluta nam.
-        Cumque ab veniam, culpa nulla non voluptas architecto repudiandae modi ex quas error unde numquam sit ea voluptates! Reprehenderit quo rem quae nisi optio dicta laborum odio hic nam itaque.
-        Dolores consequatur ipsum minus, optio temporibus voluptatibus modi maiores sit quia unde, voluptates dolorum consectetur accusamus rerum consequuntur ullam ducimus atque eius culpa repudiandae amet dolor aspernatur sed. Qui, quidem.
-        Minima repudiandae eum provident error mollitia ducimus sit nesciunt commodi laborum sapiente natus quidem id laboriosam quaerat voluptates adipisci eius numquam ullam alias perspiciatis perferendis officia, deleniti blanditiis! Dolor, facilis.
-        Praesentium, quasi dolorum rem itaque necessitatibus blanditiis deleniti voluptates debitis nostrum nam nemo sunt, iure amet veritatis quis at? Quis voluptatum possimus eveniet harum dicta perferendis ut, saepe ratione eligendi.
-        Atque, alias quam rem omnis quisquam error facere accusantium ad officiis voluptatem minus cupiditate? Libero temporibus officia sapiente, voluptatibus inventore aut. A asperiores beatae vel optio vero placeat at vitae.
-        Veniam, deleniti consequuntur porro impedit ipsam possimus aliquam corrupti distinctio, optio sit tempore quos quod amet ex numquam. Iure consequuntur eius delectus cum nesciunt nulla consequatur quisquam dolor quia voluptatibus.
-        Quo officia excepturi perspiciatis ea eius, accusantium doloribus aliquam illum sit labore placeat voluptas, dolorem ipsum dicta iusto deleniti totam recusandae dolorum fuga unde consequatur soluta harum? Porro, aut maiores.
-        At incidunt sapiente odit, veritatis repellendus ex quasi autem, recusandae facilis minima fuga natus cumque tempore qui magnam laudantium doloremque aperiam tenetur distinctio quas aliquid deleniti sequi. Quis, itaque fuga.
-        Debitis aut necessitatibus laborum culpa nihil voluptates enim ipsam earum, natus laboriosam quisquam placeat sunt reiciendis odit numquam rem reprehenderit impedit. Delectus ex harum quam, itaque fugit nostrum eligendi. Non?
-        Dolorem, quibusdam. Eveniet, similique laborum nisi magni nemo magnam veniam alias! Architecto, aut maiores dolorem praesentium hic numquam. Quos, laboriosam est? Iusto numquam reprehenderit commodi porro deserunt. Dicta, veniam hic?
-        Consequatur, blanditiis beatae quaerat quasi cumque, sequi quos ipsa, a eaque corrupti tempore? Voluptatem ducimus veniam ipsa dolore beatae quasi laborum! Repudiandae temporibus pariatur reprehenderit fugiat tempora sed aliquid quas?
-        Exercitationem officia earum corporis explicabo cum, magnam inventore eos ab quos quia, quis incidunt accusamus, est quod reprehenderit odio veritatis libero. Animi dignissimos nulla praesentium. Magnam veniam sunt corporis ratione?
-        Obcaecati corrupti illo minus blanditiis asperiores nobis, ab vel voluptatibus. Nemo iste inventore doloremque quod impedit soluta tempora, totam recusandae dignissimos, natus et eum modi qui! Consectetur veniam necessitatibus laboriosam.
-        Tempore odit fugit modi consectetur, natus quibusdam ipsa ab maiores quo officia, commodi laborum soluta labore cupiditate ducimus velit! Itaque omnis perspiciatis mollitia et ex nostrum aliquam vel repellat illum.
-        Et facilis enim nemo rem, reiciendis officia perspiciatis totam ex delectus expedita quae tempora debitis corporis ipsa non vitae cum consectetur eum neque veniam odit. Cumque ex deserunt quam consequuntur.
-        Porro, debitis totam. Voluptatibus soluta sequi a optio nam maiores aliquid libero ipsum explicabo debitis sed quisquam esse perferendis natus dolorem minus, earum repudiandae? Fuga dolorem necessitatibus est aperiam ullam!
-        Alias ullam illum suscipit, aperiam pariatur officiis, vero quia inventore expedita sed atque! Id molestias quae eum. Suscipit quaerat, quos consequuntur dolorem iusto, eius ducimus adipisci, voluptas eum accusantium ipsa?
-        Ex fugit perspiciatis laborum ab quas! Natus facilis debitis ab accusantium ullam minus quae itaque adipisci non. Quas debitis rem aliquam vitae soluta molestiae magni, itaque quo id dicta temporibus?
-        Voluptates qui deleniti quaerat doloribus, pariatur nesciunt repellendus! Sit molestias commodi, aperiam explicabo molestiae placeat at ratione minima saepe sed quia tenetur incidunt impedit enim dolor quisquam ullam et libero.
-        Quasi quia harum rem dolorum soluta repellendus error cumque quo magni, et mollitia alias illo reprehenderit, nam explicabo culpa eaque reiciendis eius. Eligendi dolorum harum ducimus nisi iusto odit suscipit.
-        Laudantium porro commodi veritatis placeat. Corporis quos rem, officia ducimus quae tempore minus fugit similique? Cumque, magni? Accusamus quaerat laboriosam delectus veritatis ipsam debitis quod vel vero, dignissimos iusto. Magni?
-        Modi soluta quis deleniti cupiditate tempore neque ducimus debitis. Perferendis, quae! Odit molestias, possimus atque illo repudiandae nihil inventore maxime provident dicta mollitia accusamus. Debitis vitae sunt explicabo veniam cumque.
-        Architecto tenetur quam doloremque, deleniti facilis iusto dolores fuga minus sapiente sed nisi animi voluptate perferendis sint explicabo velit quidem quibusdam, inventore quod? Molestiae odit iure nihil. Delectus, aspernatur mollitia.
-        Mollitia, vitae. Suscipit, tempore? Ducimus iure voluptas illum eius voluptatibus. Quas cum aspernatur hic laudantium numquam dicta, sapiente beatae quaerat aliquid soluta unde iusto, eos saepe recusandae placeat repellat perferendis!
-        Mollitia ullam exercitationem quae voluptate sit a, repellendus distinctio reprehenderit quos ut rerum rem cum debitis aspernatur asperiores cumque? Temporibus aliquam, delectus alias dolores explicabo odit adipisci distinctio. Ex, corrupti?
-        Minima officiis suscipit facere, nobis quod veritatis quia possimus, et quas iusto vitae facilis quos eos ducimus error eligendi assumenda cumque? Repellat architecto, minima iusto rem beatae explicabo minus facilis.
-        Eaque error architecto fugit! Fuga dolorum ut inventore qui molestias eaque veritatis dolor ullam facilis cumque, velit sunt delectus explicabo laborum est deserunt iusto, necessitatibus soluta alias magnam eos atque!
-        Minima blanditiis quibusdam quisquam error fuga voluptate corporis cumque placeat quae molestias laborum asperiores, nobis, beatae culpa ducimus mollitia ullam commodi optio tenetur obcaecati, minus corrupti? Veritatis commodi numquam neque!
-        Quasi, iusto. Perferendis libero vitae iure repudiandae deleniti provident voluptatum ipsa doloribus doloremque possimus illo unde, facilis totam magnam sequi, veniam amet assumenda enim cupiditate incidunt beatae dignissimos dolorem ut.
-        Harum itaque placeat, vel fuga deserunt dolorum eius voluptates dolores temporibus tempore? Quibusdam illo, reiciendis et vitae, tempore, ratione officiis vel in velit culpa aliquid alias laborum nostrum voluptatum perspiciatis!
-        Nihil porro distinctio ea maxime excepturi. Enim qui, numquam doloremque veniam atque quas quidem, ipsam aliquid voluptate, laboriosam maiores inventore reprehenderit facere velit! Velit, blanditiis eveniet magni sequi mollitia odit?
-        Nisi hic, inventore maxime minus officiis earum nihil accusantium? Magni qui, ratione repellendus iste atque sit. Iure modi illum totam expedita, nihil quasi. Non, porro vitae sint sequi fugiat omnis?
-        Tenetur, a? Architecto molestias, iusto excepturi sequi illo in magni perspiciatis temporibus doloremque culpa neque, numquam earum vero dolor iste ab consequatur ipsum nulla nam ullam. Soluta corrupti itaque odio?
-        Vel ex dolore placeat at repudiandae earum esse ut dolorem odio, maiores expedita adipisci culpa commodi consectetur aut exercitationem veritatis! Laborum totam accusamus vero corporis asperiores maxime excepturi laudantium vel?
-        Velit consequatur libero sit quisquam fugit. Quod sequi, totam assumenda culpa vero cupiditate nam doloremque esse sapiente fuga omnis nobis corporis dolorum praesentium odio voluptatum sed? Provident sed voluptatibus eveniet?
-        Modi, officia nisi. Nisi maiores quas ut iusto ipsa porro alias voluptates numquam laborum et earum nemo, omnis consectetur odio iure libero magni labore sed corrupti. Aperiam ullam quos et!
-        Magni tempore, esse alias voluptatem obcaecati atque veniam odio porro quidem eum debitis eius hic fuga sed quibusdam! Hic, repudiandae quam repellendus cupiditate fuga natus nemo ex reprehenderit fugit laborum!
-        Obcaecati accusamus error ex ducimus facere unde voluptate expedita recusandae corrupti porro non placeat quam, ab provident quis magni dicta assumenda eum? Porro et vero explicabo in earum eum eaque.
-        Unde molestiae natus quod illum ut blanditiis, enim itaque nam ullam incidunt provident voluptatum perferendis illo quas aspernatur rerum, cumque aliquam neque. Cum provident odit ipsum consectetur fuga vero numquam?
-        Eligendi voluptate voluptatibus nulla assumenda necessitatibus quibusdam doloremque laborum, cum veritatis minus, aspernatur labore impedit dolore ad fugiat aut quas vitae! Commodi veniam explicabo ad nihil et ipsam asperiores atque?
-        Suscipit quibusdam minima beatae et blanditiis harum, explicabo fuga dicta aperiam tempore quod ipsum nobis dolorum veritatis? Quidem quis accusamus dolorum natus debitis rerum asperiores, dignissimos id, incidunt nobis illum?
-        Temporibus dolorum nam voluptas quasi ut illo repellendus eligendi, exercitationem optio mollitia maiores sit provident, modi harum, et doloremque nihil aliquam? Velit officiis rerum ex sed pariatur a est harum.
-        Velit blanditiis commodi aut voluptates eligendi nam, reprehenderit harum iste laboriosam unde odit accusamus? Magnam explicabo labore illum vitae nesciunt, saepe deserunt nulla? Placeat, atque? Alias consequatur natus ullam veniam!
-        Laborum unde ea nisi perferendis obcaecati architecto commodi corrupti debitis quod ullam error, dicta incidunt est accusantium eum amet distinctio fugit! Amet rem fuga provident perferendis, fugit dicta quaerat ipsum.
-        Repudiandae ipsa tempora voluptatem delectus ducimus magnam optio exercitationem est, ab distinctio at error impedit sunt facere deserunt neque pariatur animi ipsum. Asperiores reprehenderit commodi, nam ipsum molestiae reiciendis accusantium.
-        Officia numquam adipisci rem odit blanditiis repellendus sit vitae nisi atque quae quidem esse sint error totam ex officiis voluptatem minima voluptatum natus expedita commodi ratione ducimus, saepe voluptas. Impedit?
-        Et officia dolores ex laborum quisquam adipisci blanditiis iusto a voluptates molestias sed saepe minus, illum nesciunt id corporis quasi laboriosam quos veniam! Numquam eos libero odio aliquam quae dolores!
-        In libero ea, quia quam, obcaecati incidunt sed repellat, officia non tempore tempora ullam asperiores? Illum repudiandae mollitia, excepturi neque velit tenetur officiis consequuntur vitae quas repellendus, explicabo eligendi optio!
-        Ea aut omnis recusandae, cupiditate magni nisi beatae rerum eos hic veniam consectetur ipsam odit animi, in autem consequuntur fugiat rem laborum! Modi, rem? Aliquam nobis illum quos. Dicta, blanditiis!
-        Alias suscipit fuga quisquam voluptas quia nam, officia quo provident quam obcaecati consequuntur reiciendis saepe. Officia minus veritatis aperiam reiciendis similique ad molestias, vero, ducimus maiores ut et ex tempore.
-        Doloribus sed neque officia cum accusantium officiis ex, dolore repellendus velit maxime magnam, natus ipsam vitae, recusandae iusto quo incidunt aliquam dolor debitis animi eius tempore! Amet odit qui delectus.
-        Vero sapiente optio culpa eum esse maxime quos vitae iure est obcaecati! Fugiat magnam perferendis soluta maiores, ducimus ipsam hic enim consequuntur explicabo minus? Labore odit delectus assumenda nesciunt enim?
-        Molestiae, commodi odio sunt atque provident libero officiis, itaque voluptatem, tenetur expedita nobis repudiandae laboriosam sint? Harum, officiis quas illo rem nam perferendis ullam molestias natus consequuntur laborum animi maiores.
-        Minus consequuntur quam alias dolorem nulla, laboriosam velit nam ratione quidem enim aspernatur dignissimos nesciunt, obcaecati quos vero accusamus qui quasi dolore consequatur eligendi possimus eaque harum expedita! Recusandae, quae?
-        Iusto quia fuga rerum sunt perferendis at vero doloremque tempore quaerat enim! Quos expedita ratione, dolorem neque nam vero eius iusto delectus repellendus earum, minus cumque mollitia officiis molestiae necessitatibus.
-        Eius voluptas aperiam velit tempora repellendus! Dolores, a? Corrupti facilis sint doloremque molestiae. Cumque, qui hic. Nemo dolorum voluptatum laborum ipsum, repellat obcaecati eum laboriosam ullam consequatur, fugit eaque illum.
-        Tenetur reprehenderit voluptatibus omnis sed, alias id nisi. Fugit reprehenderit nobis animi totam ullam, deserunt perferendis harum officiis deleniti nihil magni laborum a minus labore, quis aspernatur, cupiditate blanditiis odit.
-        Ipsa tempore quis adipisci dolor animi, natus error optio, architecto aperiam qui illum nemo! Quia soluta praesentium, nesciunt perferendis aliquid, recusandae sit veniam delectus, ullam architecto molestias dolor esse magnam!
-        Modi voluptatum quaerat inventore distinctio rerum sint corrupti aspernatur similique, laudantium, enim omnis eum ex atque quasi repellat magnam sit quis architecto at quod harum? Magni omnis delectus aliquam neque?
-        Doloremque maxime culpa non eaque amet. Tempore at, maxime autem soluta blanditiis, beatae, dignissimos commodi eius praesentium quos enim nulla nam architecto eum sint aspernatur quo omnis mollitia earum nemo!
-        Quia laborum quos ut praesentium cumque? Quaerat, natus accusamus obcaecati mollitia numquam voluptas in recusandae molestiae, qui beatae possimus accusantium a placeat ullam neque? Illum voluptas quas repellendus culpa ratione.
-        Sapiente cumque enim sed perferendis laborum, dolorum natus perspiciatis quaerat numquam? Accusamus dolore nihil enim, sit doloremque sequi maiores. Facere fuga ab ipsum nihil asperiores magnam, soluta aut laborum porro.
-        Officiis omnis autem perspiciatis quis, ipsam soluta, nulla est odit laborum corrupti dolor, iure ipsum. Iusto, odio fugiat doloremque ipsam maiores earum debitis minima molestias recusandae aspernatur facere. Dolorum, aperiam.
-    </div>
-  )
-}
+    <div className="w-5/6 float-right">
 
-export default DashboardBody
+      <div className="w-4/5 mx-auto mt-14">
+      <div className="text-center my-12">
+        <h1 className="text-3xl text-blue-600 font-bold">Dummy Dashboard</h1>
+      </div>
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+          <div className="w-full">
+            <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+                    <svg
+                      className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 19"
+                    >
+                      <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z" />
+                      <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
+                      3.4k
+                    </h5>
+                    <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Leads generated per week
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                    <svg
+                      className="w-2.5 h-2.5 me-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13V1m0 0L1 5m4-4 4 4"
+                      />
+                    </svg>
+                    42.5%
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2">
+                <dl className="flex items-center">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Money spent:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    $3,232
+                  </dd>
+                </dl>
+                <dl className="flex items-center justify-end">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Conversion rate:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    1.2%
+                  </dd>
+                </dl>
+              </div>
+
+              <div id="column-chart"></div>
+              <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+                <div className="flex justify-between items-center pt-5">
+                  <button
+                    id="dropdownDefaultButton"
+                    data-dropdown-toggle="lastDaysdropdown"
+                    data-dropdown-placement="bottom"
+                    className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
+                    type="button"
+                  >
+                    Last 7 days
+                    <svg
+                      className="w-2.5 m-2.5 ms-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="lastDaysdropdown"
+                    className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                  >
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownDefaultButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Yesterday
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Today
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 7 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 30 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 90 days
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a
+                    href="#"
+                    className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
+                  >
+                    Leads Report
+                    <svg
+                      className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+                    <svg
+                      className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 19"
+                    >
+                      <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z" />
+                      <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
+                      3.4k
+                    </h5>
+                    <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Leads generated per week
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                    <svg
+                      className="w-2.5 h-2.5 me-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13V1m0 0L1 5m4-4 4 4"
+                      />
+                    </svg>
+                    42.5%
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2">
+                <dl className="flex items-center">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Money spent:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    $3,232
+                  </dd>
+                </dl>
+                <dl className="flex items-center justify-end">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Conversion rate:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    1.2%
+                  </dd>
+                </dl>
+              </div>
+
+              <div id="column-chart"></div>
+              <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+                <div className="flex justify-between items-center pt-5">
+                  <button
+                    id="dropdownDefaultButton"
+                    data-dropdown-toggle="lastDaysdropdown"
+                    data-dropdown-placement="bottom"
+                    className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
+                    type="button"
+                  >
+                    Last 7 days
+                    <svg
+                      className="w-2.5 m-2.5 ms-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="lastDaysdropdown"
+                    className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                  >
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownDefaultButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Yesterday
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Today
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 7 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 30 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 90 days
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a
+                    href="#"
+                    className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
+                  >
+                    Leads Report
+                    <svg
+                      className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+                    <svg
+                      className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 19"
+                    >
+                      <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z" />
+                      <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
+                      3.4k
+                    </h5>
+                    <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Leads generated per week
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                    <svg
+                      className="w-2.5 h-2.5 me-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13V1m0 0L1 5m4-4 4 4"
+                      />
+                    </svg>
+                    42.5%
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2">
+                <dl className="flex items-center">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Money spent:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    $3,232
+                  </dd>
+                </dl>
+                <dl className="flex items-center justify-end">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Conversion rate:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    1.2%
+                  </dd>
+                </dl>
+              </div>
+
+              <div id="column-chart"></div>
+              <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+                <div className="flex justify-between items-center pt-5">
+                  <button
+                    id="dropdownDefaultButton"
+                    data-dropdown-toggle="lastDaysdropdown"
+                    data-dropdown-placement="bottom"
+                    className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
+                    type="button"
+                  >
+                    Last 7 days
+                    <svg
+                      className="w-2.5 m-2.5 ms-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="lastDaysdropdown"
+                    className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                  >
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownDefaultButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Yesterday
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Today
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 7 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 30 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 90 days
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a
+                    href="#"
+                    className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
+                  >
+                    Leads Report
+                    <svg
+                      className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+                    <svg
+                      className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 19"
+                    >
+                      <path d="M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z" />
+                      <path d="M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">
+                      3.4k
+                    </h5>
+                    <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Leads generated per week
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                    <svg
+                      className="w-2.5 h-2.5 me-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13V1m0 0L1 5m4-4 4 4"
+                      />
+                    </svg>
+                    42.5%
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2">
+                <dl className="flex items-center">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Money spent:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    $3,232
+                  </dd>
+                </dl>
+                <dl className="flex items-center justify-end">
+                  <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">
+                    Conversion rate:
+                  </dt>
+                  <dd className="text-gray-900 text-sm dark:text-white font-semibold">
+                    1.2%
+                  </dd>
+                </dl>
+              </div>
+
+              <div id="column-chart"></div>
+              <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+                <div className="flex justify-between items-center pt-5">
+                  <button
+                    id="dropdownDefaultButton"
+                    data-dropdown-toggle="lastDaysdropdown"
+                    data-dropdown-placement="bottom"
+                    className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
+                    type="button"
+                  >
+                    Last 7 days
+                    <svg
+                      className="w-2.5 m-2.5 ms-1.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+
+                  <div
+                    id="lastDaysdropdown"
+                    className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                  >
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownDefaultButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Yesterday
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Today
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 7 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 30 days
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Last 90 days
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a
+                    href="#"
+                    className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2"
+                  >
+                    Leads Report
+                    <svg
+                      className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div>
+          <div className="flex items-center mb-5 mt-28">
+            <p className="bg-blue-100 text-blue-800 text-sm font-semibold inline-flex items-center p-1.5 rounded dark:bg-blue-200 dark:text-blue-800">
+              8.7
+            </p>
+            <p className="ms-2 font-medium text-gray-900 dark:text-white">
+              Excellent
+            </p>
+            <span className="w-1 h-1 mx-2 bg-gray-900 rounded-full dark:bg-gray-500"></span>
+            <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              376 reviews
+            </p>
+            <a
+              href="#"
+              className="ms-auto text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+            >
+              Read all reviews
+            </a>
+          </div>
+          <div className="gap-8 sm:grid sm:grid-cols-2">
+            <div>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Staff
+                </dt>
+                <dd className="flex items-center mb-3">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[88%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    8.8
+                  </span>
+                </dd>
+              </dl>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Comfort
+                </dt>
+                <dd className="flex items-center mb-3">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[89%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    8.9
+                  </span>
+                </dd>
+              </dl>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Free WiFi
+                </dt>
+                <dd className="flex items-center mb-3">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[88%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    8.8
+                  </span>
+                </dd>
+              </dl>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Facilities
+                </dt>
+                <dd className="flex items-center">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[54%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    5.4
+                  </span>
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Value for money
+                </dt>
+                <dd className="flex items-center mb-3">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[89%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    8.9
+                  </span>
+                </dd>
+              </dl>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Cleanliness
+                </dt>
+                <dd className="flex items-center mb-3">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500 w-[70%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    7.0
+                  </span>
+                </dd>
+              </dl>
+              <dl>
+                <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Location
+                </dt>
+                <dd className="flex items-center">
+                  <div className="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                    <div className="bg-blue-600 h-2.5 rounded dark:bg-blue-500w-[77%]"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    8.9
+                  </span>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardBody;

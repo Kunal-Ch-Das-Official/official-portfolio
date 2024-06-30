@@ -9,7 +9,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdMarkEmailUnread } from "react-icons/md";
-
+import profilePic from '../../../assets/Kunal-Chandra Das-profile-image.jpg';
 
 const SideBar = () => {
 
@@ -36,7 +36,7 @@ const SideBar = () => {
 
       <div className="flex flex-wrap items-center cursor-pointer">
         <div className="relative">
-          <img src='https://readymadeui.com/profile_2.webp' className="w-12 h-12 rounded-full border-white" />
+          <img src={profilePic} className="w-12 h-12 rounded-full border-white" alt='Profile Picture'/>
           <span className="h-3 w-3 rounded-full bg-green-600 border-2 border-white block absolute bottom-0 right-0"></span>
         </div>
 
