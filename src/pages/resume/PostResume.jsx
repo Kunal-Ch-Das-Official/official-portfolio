@@ -26,7 +26,7 @@ const PostResume = () => {
     formData.append("resume", file); // Ensure 'file' matches the server-side field name
 
     try {
-      const response = await axios.post(envConfig.postResumeApiUrl, formData, {
+      await axios.post(envConfig.postResumeApiUrl, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

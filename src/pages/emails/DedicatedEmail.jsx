@@ -3,20 +3,25 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import ConfirmAlert from "../../utils/confirm-alert/ConfirmAlert";
+import ProductSkeleton from "../../utils/skeleton/ProductSkeleton";
 
 const DedicatedEmail = () => {
   const { id } = useParams();
   const [singleEmail, setSingleEmail] = useState({});
   const [loadingState, setLoadingState] =useState(false);
+  const [confirmAlert, setConfirmAlert] =useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(false);
   const navigate = useNavigate();
 
 
   useEffect(() => {
     const getSingleEmail = async () => {
+      setDisplaySkeleton(true);
       try {
         await axios.get(`${envConfig.getAllEmailsApiUrl}/${id}`).then((res) => {
-          console.log(res.data);
           setSingleEmail(res.data);
+          setDisplaySkeleton(false);
         });
       } catch (error) {
         console.log(`Error: ${error}`);
@@ -38,9 +43,19 @@ const DedicatedEmail = () => {
     }
   };
 
+  const confirmActionDelete = () => {
+    setConfirmAlert(true);
+  }
+  const confirmActionNotDelete = () => {
+    setConfirmAlert(false);
+  }
+
+
   return (
     <div className="w-5/6 float-right">
       {loadingState === true && <LoadingSpiner />}
+      {confirmAlert === true && <ConfirmAlert deleteHandler={handleDelete} notDeleteHandler={confirmActionNotDelete}/> }
+      {displaySkeleton === true ? <ProductSkeleton /> : 
       <div className="w-4/5 mx-auto mt-14">
         <div className="mb-20">
           <h1 className="text-2xl font-bold text-center text-black">
@@ -97,7 +112,7 @@ const DedicatedEmail = () => {
           </button>
         
 
-          <button onClick={handleDelete}
+          <button onClick={confirmActionDelete}
             
             className="px-5 mt-4 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-700 active:bg-red-600"
           >
@@ -105,6 +120,7 @@ const DedicatedEmail = () => {
           </button>
         </div>
       </div>
+}
     </div>
   );
 };

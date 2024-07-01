@@ -5,19 +5,22 @@ import { MdDeleteSweep } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
 import envConfig from "../../../envConfig";
 import { Link } from "react-router-dom";
+import ListSkeleton from "../../utils/skeleton/ListSkeleton";
 
 
 const ManageReviews = () => {
   const [apiResponse, setApiResponse] = useState([]);
-
+  const [displaySkeleton, setDisplaySkeleton] = useState(false);
 
   useEffect(() => {
 
     const getAllreviews = async () => {
+      setDisplaySkeleton(true);
       try {
         await axios.get(envConfig.getReviewsApiUrl)
         .then((res) => {
           setApiResponse(res.data);
+          setDisplaySkeleton(false);
         })
       } catch (error) {
         console.log(error);
@@ -36,6 +39,7 @@ const ManageReviews = () => {
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div className="overflow-hidden border border-gray-200 md:rounded-lg">
+                  {displaySkeleton === true ? <ListSkeleton /> :
                   <table className="min-w-full divide-y divide-gray-200 ">
                     <thead className="bg-gray-50">
                       <tr>
@@ -127,6 +131,7 @@ const ManageReviews = () => {
                      }
 
                   </table>
+}
                 </div>
               </div>
             </div>

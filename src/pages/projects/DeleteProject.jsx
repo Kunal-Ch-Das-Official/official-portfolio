@@ -3,18 +3,25 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import ConfirmAlert from "../../utils/confirm-alert/ConfirmAlert";
+import ProductSkeleton from "../../utils/skeleton/ProductSkeleton";
 
 const DeleteProject = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [project, setProject] = useState({});
   const [loadingState, setLoadingState] = useState(false);
+  const [confirmAlert, setConfirmAlert] =useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(false);
+
 
   useEffect(() => {
     const getProject = async () => {
+      setDisplaySkeleton(true);
       try {
         await axios.get(`${envConfig.getProjectApiUrl}/${id}`).then((res) => {
           setProject(res.data);
+          setDisplaySkeleton(false);
         });
       } catch (error) {
         console.log(`Faild to fetch data due to ${error}`);
@@ -37,12 +44,23 @@ const DeleteProject = () => {
   }
   }
 
+  const confirmActionDelete = () => {
+    setConfirmAlert(true);
+  }
+  const confirmActionNotDelete = () => {
+    setConfirmAlert(false);
+  }
+
 
   return (
     <div className="w-5/6 float-right">
       {loadingState === true && <LoadingSpiner />}
+      {confirmAlert === true && <ConfirmAlert deleteHandler={deleteProjectHandler} notDeleteHandler={confirmActionNotDelete}/>}
+      
       <div className="w-4/5 mx-auto mt-14">
+      
       <div className="text-center text-3xl font-bold text-blue-500 mb-16">Delete Project From Here</div>
+      {displaySkeleton === true ? <ProductSkeleton /> :
         <div className="bg-gray-50 font-[sans-serif] relative max-w-4xl shadow-lg shadow-[#e9d9f3] mx-auto rounded overflow-hidden">
           <div className="grid sm:grid-cols-2 max-sm:gap-6">
             <div className="text-center p-6 flex flex-col justify-center items-center">
@@ -57,7 +75,7 @@ const DeleteProject = () => {
 
 
               <button
-                onClick={deleteProjectHandler}
+                onClick={confirmActionDelete}
                 className="bg-red-600 hover:bg-red-900 text-white tracking-wide font-semibold text-sm py-3 px-6 rounded-xl mt-8"
               >
                 Delete
@@ -80,7 +98,9 @@ const DeleteProject = () => {
           <div className="absolute -top-[50px] -left-[50px] w-28 h-28 rounded-full bg-[#d10000] opacity-40 shadow-lg"></div>
           <div className="absolute -top-10 -left-10 w-28 h-28 rounded-full bg-[#830000] opacity-40 shadow-lg"></div>
         </div>
+        }
       </div>
+
     </div>
   );
 };

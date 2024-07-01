@@ -4,13 +4,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { MdDeleteSweep } from "react-icons/md";
 import envConfig from '../../../envConfig';
 import LoadingSpiner from '../../utils/loading-spinner/LoadingSpiner';
+import ConfirmAlert from '../../utils/confirm-alert/ConfirmAlert';
 
 const DeleteResume = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [theResume, setTheResume] = useState(null);
     const [lodingState, setLoadingState] = useState(false);
-
+    const [confirmAlert, setConfirmAlert] = useState(false);
 
     useEffect(() => {
         const getPrevResumeData = async () => {
@@ -28,7 +29,7 @@ const DeleteResume = () => {
   const handleDelete = async () => {
     setLoadingState(true);
     try {
-      const res = await axios.delete(`${envConfig.deleteResumeApiUrl}/${id}`);
+      await axios.delete(`${envConfig.deleteResumeApiUrl}/${id}`);
       setLoadingState(false);
       navigate('/dashboard/resume-manage');
     } catch (error) {
@@ -36,9 +37,16 @@ const DeleteResume = () => {
     }
   };
 
+  const confirmActionDelete = () => {
+    setConfirmAlert(true);
+  }
+  const confirmActionNotDelete = () => {
+    setConfirmAlert(false);
+  }
   return (
         <div className="flex flex-col justify-center items-center my-40">
             {lodingState === true && <LoadingSpiner />}
+            {confirmAlert === true && <ConfirmAlert deleteHandler={handleDelete} notDeleteHandler={confirmActionNotDelete}/>}
       {theResume ? 
 
       <div className="card card-side bg-base-100 grid grid-cols-1 mx-auto shadow-xl w-2/4 ml-[450px]">
@@ -54,7 +62,7 @@ const DeleteResume = () => {
         <hr className='mt-4 '/>
         <div className='flex justify-center my-12'>
         <button
-             onClick={handleDelete}
+             onClick={confirmActionDelete}
               className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-900 active:bg-red-600"
             >
               <span className="border-r border-white pr-3">Delete</span>

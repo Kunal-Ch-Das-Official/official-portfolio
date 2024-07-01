@@ -2,18 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import envConfig from "../../../envConfig";
 import { Link } from "react-router-dom";
-import { MdDeleteSweep } from "react-icons/md";
 import { TbMailOpenedFilled } from "react-icons/tb";
+import ListSkeleton from "../../utils/skeleton/ListSkeleton";
 
 
 const ManageEmails = () => {
   const [apiResponse, setApiResponse] = useState([]);
+  const [displaySkeleton, setDisplaySkeleton] = useState(false);
 
   useEffect(() => {
     const getAllEmails = async () => {
+      setDisplaySkeleton(true);
       try {
         await axios.get(envConfig.getAllEmailsApiUrl).then((res) => {
+          
           setApiResponse(res.data);
+          setDisplaySkeleton(false);
         });
       } catch (error) {
         console.log(error);
@@ -28,6 +32,7 @@ const ManageEmails = () => {
   return (
     <div className="w-5/6 float-right">
       <div className="w-4/5 mx-auto mt-14">
+      {displaySkeleton === true ? <ListSkeleton /> : 
         <section className="container px-4 mx-auto">
           <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -78,6 +83,7 @@ const ManageEmails = () => {
                       </tr>
                     </thead>
                     {apiResponse.map((email) => (
+                      
                       <tbody
                         className="bg-white divide-y divide-gray-200"
                         key={email._id}
@@ -120,6 +126,7 @@ const ManageEmails = () => {
             </div>
           </div>
         </section>
+}
       </div>
     </div>
   );

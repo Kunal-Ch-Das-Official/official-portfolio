@@ -4,17 +4,20 @@ import envConfig from "../../../envConfig";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
+import ProductSkeleton from "../../utils/skeleton/ProductSkeleton";
 const ManageResume = () => {
   const [theResume, setTheResume] = useState(null);
   const [resumeId, setResumeId] = useState(null);
-
+  const [displaySkeleton, setDisplaySkeleton] = useState(false);
 
   useEffect(() => {
     const fetchResume = async () => {
+      setDisplaySkeleton(true);
       try {
         await axios.get(envConfig.getResumeApiUrl).then((res) => {
           setTheResume(res.data[0].resume);
           setResumeId(res.data[0]._id);
+          setDisplaySkeleton(false);
           
         });
       } catch (error) {
@@ -26,9 +29,14 @@ const ManageResume = () => {
 
   
   return (
+    <>
+    
     <div className="flex flex-col justify-center items-center my-40">
+    
       {theResume ? 
-      <div className="card card-side bg-base-100 grid grid-cols-2 shadow-xl w-2/4">
+      <>
+      {displaySkeleton === true ? <ProductSkeleton /> :
+      <div className="card card-side bg-base-100 grid grid-cols-2 shadow-xl w-2/4 ml-60">
         <div>
           <img
             src={theResume}
@@ -63,10 +71,16 @@ const ManageResume = () => {
             </Link>
           </div>
         </div>
+
       </div>
+}
+      </>
       : <h1 className="text-center my-auto text-3xl font-bold pl-36 text-gray-500 ">No resume found please upload a resume first 404</h1>
 }
+
     </div>
+
+    </>
   );
 };
 

@@ -42,11 +42,10 @@ const PostProject = () => {
       await axios.post(envConfig.postProjectApiUrl, formData, {
         'Content-Type': 'multipart/form-data'
       })
-      .then((response) => {
+      .then(() => {
         setLoadingState(false);
         setMessage("Project has been successfully added!");
         setCustomAlert(true);
-        console.log(response);
       })
     } catch (error) {
       setLoadingState(false);

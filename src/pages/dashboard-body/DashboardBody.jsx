@@ -2,12 +2,12 @@ import React from "react";
 
 const DashboardBody = () => {
   return (
-    <div className="w-5/6 float-right">
-
+    <div className="w-5/6 float-right mb-20">
+      {" "}
       <div className="w-4/5 mx-auto mt-14">
-      <div className="text-center my-12">
-        <h1 className="text-3xl text-blue-600 font-bold">Dummy Dashboard</h1>
-      </div>
+        <div className="text-center my-12">
+          <h1 className="text-3xl text-blue-600 font-bold">Dummy Dashboard</h1>
+        </div>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
           <div className="w-full">
             <div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
@@ -685,9 +685,6 @@ const DashboardBody = () => {
               </div>
             </div>
           </div>
-
-
-
         </div>
 
         <div>

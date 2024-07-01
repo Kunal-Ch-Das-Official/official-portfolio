@@ -125,7 +125,6 @@ const LoginForm = () => {
                 />
               </div>
             </div>
-
             <div className="mt-12">
               <button
                 type="submit"
@@ -134,6 +133,7 @@ const LoginForm = () => {
                 Admin Login
               </button>
             </div>
+            <p className="text-sm ml-2 mt-2 text-center text-red-600">Please do not open from mobile device</p>
           </form>
         </div>
       </div>

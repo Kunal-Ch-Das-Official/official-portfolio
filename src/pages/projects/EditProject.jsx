@@ -38,7 +38,6 @@ const EditProject = () => {
       await axios
         .patch(`${envConfig.editProjectApiUrl}/${id}`, updatedFormData)
         .then((res) => {
-          console.log(res);
           setLoadingState(false);
           navigate("/dashboard/project-manage");
         });
