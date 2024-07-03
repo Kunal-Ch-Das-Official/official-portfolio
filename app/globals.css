@@ -56,6 +56,95 @@ body {
 }
 .bgStyle{
   border-radius: 50%;
-  box-shadow: 0 0 20px #ffa125, 0 0 40px #ffa125, 0 0 80px #ffa125
+  box-shadow: 0 0 20px #ffa125, 0 0 40px #ffa125, 0 0 80px #ffa125;
+
 }
-/* ff4545 */
+
+.greenBgBlob{
+  box-shadow: 0 5px 5px 5px rgba(13, 253, 49, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.whiteBgBlob{
+  box-shadow: 0 5px 5px 5px #fff;
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.blueBgBlob{
+  box-shadow: 0 5px 5px 5px rgba(13, 253, 225, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes animate {
+  0%, 100%{
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }50%{
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  
+}
+
+
+
+/* Background floating animation  */
+/* .htmlBlob{
+  box-shadow: 0 5px 5px 5px rgba(253, 169, 13, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+@keyframes animate {
+  0%, 100%{
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }50%{
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  
+}
+
+
+.cssBlob{
+  box-shadow: 0 5px 5px 5px rgba(13, 153, 253, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+
+.jsBlob{
+  box-shadow: 0 5px 5px 5px rgba(253, 217, 13, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+.bootstrapBlob{
+  box-shadow: 0 5px 5px 5px rgba(133, 13, 253, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.reactBlob{
+  box-shadow: 0 5px 5px 5px rgba(13, 253, 241, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.nextjsBlob{
+  box-shadow: 0 5px 5px 5px rgba(255, 255, 255, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.reduxBlob{
+  box-shadow: 0 5px 5px 5px rgba(133, 13, 253, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.nodeBlob{
+  box-shadow: 0 5px 5px 5px rgba(31, 186, 0, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.expressBlob{
+  box-shadow: 0 5px 5px 5px rgba(255, 255, 255, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+} */
+
+

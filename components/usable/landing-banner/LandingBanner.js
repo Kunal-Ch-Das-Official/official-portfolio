@@ -40,7 +40,7 @@ const LandingBanner = () => {
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <Image
-              className="object-cover object-center bgStyle"
+              className="object-cover object-center bgStyle "
               alt="Kunal-Chandra-Das-Photo"
               height={500}
               width={500}
@@ -54,3 +54,11 @@ const LandingBanner = () => {
 };
 
 export default LandingBanner;
+
+
+
+
+
+
+
+

@@ -1,10 +1,16 @@
 import LandingBanner from "@/components/usable/landing-banner/LandingBanner";
-import Image from "next/image";
+import LatestProjects from "@/components/usable/latest-projects/LatestProjects";
+import MyStack from "@/components/usable/my-stack/MyStack";
+
 
 export default function Home() {
   return (
     <main>
       <LandingBanner />
+      <MyStack />
+      <LatestProjects />
+      
+     
     </main>
   );
 }
