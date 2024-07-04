@@ -38,7 +38,7 @@ const LandingBanner = () => {
 
             </div>
           </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 order-first lg:order-none mb-28 lg:mb-0">
             <Image
               className="object-cover object-center bgStyle "
               alt="Kunal-Chandra-Das-Photo"

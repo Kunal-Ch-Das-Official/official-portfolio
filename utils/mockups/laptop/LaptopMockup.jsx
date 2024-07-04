@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const LaptopMockup = ({imgsSrc}) => {
   return (
-    <main className="h-fit w-full" >
+    <main className="h-fit w-full transition-transform hover:scale-110" >
     <div className="w-full h-full">
       <div className={mockupStyle.macbook}>
         <div className={mockupStyle.screen}>
