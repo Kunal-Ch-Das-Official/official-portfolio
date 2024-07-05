@@ -33,7 +33,7 @@ const ProjectTimeline = async () => {
   ];
 
   return (
-    <main className={`my-28 ${style.timelineBody}`}>
+    <main className="mt-28 mb-56">
       <div className="lg:flex justify-center items-center h-12">
         <button className="relative 2xl:flex xl:flex lg:flex lg:ml-0 ml-7 h-[50px] w-40 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px]  hover:text-orange-600">
           <span className="relative z-10">Latest Projects</span>

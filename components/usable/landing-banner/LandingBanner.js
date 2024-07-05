@@ -32,7 +32,7 @@ const LandingBanner = () => {
               truffaut hexagon try-hard chambray.
             </p>
             <div className="flex justify-center">
-              <button className="relative 2xl:flex xl:flex lg:flex md:hidden h-[50px] w-40 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600">
+              <button className="relative 2xl:flex xl:flex lg:flex h-[50px] w-40 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600">
               <span className="relative z-10">Get Started</span>
               </button>
 
