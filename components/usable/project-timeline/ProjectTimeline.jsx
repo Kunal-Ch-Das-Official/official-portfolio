@@ -3,6 +3,9 @@ import style from "./ProjectTimeline.module.css";
 import LaptopMockup from "@/utils/mockups/laptop/LaptopMockup";
 import Image from "next/image";
 import getProjectData from "@/apis/project-fetching/getProjectData";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { GrOverview } from "react-icons/gr";
+
 // Technologies icon importing:
 import { IoLogoHtml5 } from "react-icons/io5";
 import { IoLogoCss3 } from "react-icons/io";
@@ -14,6 +17,7 @@ import { RiNextjsFill } from "react-icons/ri";
 import { SiExpress } from "react-icons/si";
 import { SiMongodb } from "react-icons/si";
 import { IoLogoNodejs } from "react-icons/io5";
+
 const ProjectTimeline = async () => {
   const ourProjects = await getProjectData();
 
@@ -30,7 +34,7 @@ const ProjectTimeline = async () => {
 
   return (
     <main className={`my-28 ${style.timelineBody}`}>
-      <div className="lg:flex justify-center items-center h-12 ">
+      <div className="lg:flex justify-center items-center h-12">
         <button className="relative 2xl:flex xl:flex lg:flex lg:ml-0 ml-7 h-[50px] w-40 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px]  hover:text-orange-600">
           <span className="relative z-10">Latest Projects</span>
         </button>
@@ -62,8 +66,7 @@ const ProjectTimeline = async () => {
               </p>
 
               <span className={style.leftContainerArrow}></span>
-
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 mx-12 lg:mx-12 my-12 2xl:mx-12">
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 mx-12 lg:mx-12 my-8 2xl:mx-12">
                 {technologiesIcon.map((tech, index) => (
                   <div
                     key={index}
@@ -79,14 +82,37 @@ const ProjectTimeline = async () => {
           {/* First Project Container Right-Side  */}
           <div className={style.container} id={style.rightContainer}>
             <div className={style.imageBox}>
-              <LaptopMockup imgsSrc={projectInfo.firstView} />
+              <LaptopMockup
+                imgsSrc={projectInfo.firstView}
+                projectName={projectInfo.projectName}
+                projectUrl={projectInfo.projectUrl}
+              />
               <span
                 className={`${style.rightContainerArrow} hidden lg:flex`}
               ></span>
+
+              <div className="mt-2 h-8 w-56 bg-orange-500 rounded-xl mx-auto block lg:hidden">
+                <a
+                  href={`https://${projectInfo.projectUrl}`}
+                  target="_blank"
+                  className="flex items-center justify-center pt-1"
+                >
+                  <span className="mr-4"> {projectInfo.projectName} </span>
+                  <FaExternalLinkAlt />
+                </a>
+              </div>
+              <div className="mt-2 h-8 w-56 bg-orange-500 rounded-xl mx-auto block lg:hidden cursor-pointer">
+              <button className="flex items-center justify-center pt-1 mx-auto cursor-pointer">
+                <span className="mr-4 cursor-pointer"> Overview </span>
+                <GrOverview className="text-lg cursor-pointer"/>
+                </button>
+                </div>
             </div>
           </div>
         </div>
       ))}
+
+
     </main>
   );
 };

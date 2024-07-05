@@ -103,8 +103,8 @@
   position: absolute;
   width: 40px;
   border-radius: 50%;
-  right: -20px;
-  top: 40px;
+  right: -18px;
+  top: 37px;
   z-index: 10;
 }
 #rightContainer .projectLogo {
@@ -114,7 +114,7 @@
 .timeline::after {
   content: "";
   position: absolute;
-  width: 6px;
+  width: 2px;
   height: 130%;
   background: orange;
   top: 0;
@@ -156,7 +156,7 @@
   right: -15px;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1023px) {
   .timeline {
     margin: 0px auto;
   }
@@ -177,4 +177,13 @@
     border-left: 0;
     left: -15px;
   }
+  @keyframes moveline {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 110%;
+    }
+  }
 }
+
