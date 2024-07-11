@@ -2,40 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  
+
+    --s: 22px; /* control the size*/
+    --c1: #000000;
+    --c2: #1c1c1c;
+    --c3: #000000;
+    
+    --_g: var(--c1) 10%,var(--c2) 10.5% 19%,#0000 19.5% 80.5%,var(--c2) 81% 89.5%,var(--c3) 90%;
+    --_c: from -90deg at 37.5% 50%,#0000 75%;
+    --_l1: linear-gradient(145deg,var(--_g));
+    --_l2: linear-gradient( 35deg,var(--_g));
+    background: 
+      var(--_l1), var(--_l1) calc(var(--s)/2) var(--s),
+      var(--_l2), var(--_l2) calc(var(--s)/2) var(--s),
+      conic-gradient(var(--_c),var(--c1) 0) calc(var(--s)/8) 0,
+      conic-gradient(var(--_c),var(--c3) 0) calc(var(--s)/2) 0,
+      linear-gradient(90deg,var(--c3) 38%,var(--c1) 0 50%,var(--c3) 0 62%,var(--c1) 0);
+    background-size: var(--s) calc(2*var(--s)/3);
+
+
+    color: rgb(250, 235, 207);
+  
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
+
 
 .blurBackground {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.562);
   backdrop-filter: blur(8px);
 }
+
+.blurBackgroundItem {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(1.5px);
+}
+
+
 .technologyBg {
   background-color: rgba(164, 164, 164, 0.5);
   backdrop-filter: blur(4px);
@@ -50,6 +57,7 @@ body {
   background: #ff8001;
   border-radius: 20%;
   width: 100%;
+  background: #ffffff25;
 }
 
 * {
@@ -88,108 +96,8 @@ body {
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
 }
-
-
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-.tooltipArrow{
-  height: 0;
-  width: 0;
-  position: absolute;
-  top: 28px;
-  right: 20px;
-  z-index: 1;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-  border-top: 15px solid #ff9100;
+.activeLink{
+  color: #ffa125;
+  border-bottom: 2px solid #ffa125;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #ff9100;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 17%;
-  margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-
-
-
-.tooltip .tooltiptext_2 {
-  visibility: hidden;
-  width: 130px;
-  background-color: #ff9100;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 75%;
-  margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext_2 {
-  visibility: visible;
-}
-
-
-.tooltipArrow_2{
-  height: 0;
-  width: 0;
-  position: absolute;
-  top: 28px;
-  right: 80px;
-  z-index: 1;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-  border-top: 15px solid #ff9100;
-}
-@media screen and (max-width: 1023px) {
-  .tooltip:hover .tooltiptext {
-    visibility:  hidden;
-  }
-  .tooltip:hover .tooltiptext_2 {
-    visibility: hidden;
-  }
-}
-
-.star-checkbox {
-  display: inline-block;
-  position: relative;
-}
-
-.star-checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  width: 0;
-  height: 0;
-}
-
-.star {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>') no-repeat center/contain;
-  transition: transform 0.3s ease;
-}
-
-.star-checkbox input:checked + .star {
-  transform: scale(1.2);
-}
