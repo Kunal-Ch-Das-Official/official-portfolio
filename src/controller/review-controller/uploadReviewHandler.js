@@ -8,15 +8,17 @@
 const reviewModel = require("../../models/reviewModel");
 const uploadReviewHandler = async (req, res) => {
   try {
-    const { userName, reviewContent } = req.body;
-    const existingData = await reviewModel.findOne({ $and: [{ reviewContent: reviewContent }, { userName: userName }] });
+    const { userName, organization } = req.body;
+    const existingData = await reviewModel.findOne({ $and: [{ organization: organization }, { userName: userName }] });
 
 
     if(!existingData){
       const newReview = new reviewModel({
         userName: req.body.userName,
         reviewContent: req.body.reviewContent,
-        rating: req.body.rating
+        rating: req.body.rating,
+        gender: req.body.gender,
+        organization: req.body.organization
       });
   
       const uploadReviews = await newReview.save();

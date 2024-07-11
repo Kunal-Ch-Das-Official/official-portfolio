@@ -15,6 +15,14 @@
      type: String,
      required: true
    },
+   organization: {
+    type: String,
+    required: true
+  },
+   gender: {
+    type: String,
+    required: true
+  },
    reviewContent: {
      type: String,
      required: true
