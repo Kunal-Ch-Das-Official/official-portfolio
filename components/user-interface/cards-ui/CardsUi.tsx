@@ -137,7 +137,7 @@ export const Card = ({
   return (
     <div
       className={aceternityConfig(
-        "relative group/pin z-50  cursor-pointer",
+        "relative group/pin z-0  cursor-pointer",
         containerClassName
       )}
       onMouseEnter={onMouseEnter}

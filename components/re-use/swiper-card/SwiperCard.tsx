@@ -7,20 +7,28 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-
+import maleAvatar from '@/public/avatar/male-avatar-removebg-preview.png';
+import femaleAvatar from '@/public/avatar/female-avatar-removebg-preview.png';
+import transGenderAvatar from '@/public/avatar/transgender-avatar-removebg-preview.png';
+import Image from "next/image";
 // Define the types for the component props
 interface SwiperCardProps {
   content: {
-    userName: string;
-    reviewContent: string;
-    rating: number[];
+    userName: string,
+    organization: string,
+    gender: string,
+    reviewContent: string,
+    rating: number[]
   }[];
 }
 
 const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
- 
+
   return (
-    <main className="my-12 w-full lg:w-1/2 mx-auto lg:mx-auto flex justify-center items-center">
+    <main className="my-12 w-4/5 lg:w-1/2 mx-auto lg:mx-auto flex justify-center items-center">
+      {
+        content.length === 0 ? <h1 className="text-xl font-bold text-orange-400">Currently I Don't Have Any Review Please Write A Review For Me</h1> : 
+   
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -45,8 +53,8 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
           <SwiperSlide key={index}>
             <div className="border border-white hover:border-orange-500 lg:p-6 p-4 rounded-xl">
               <div className="flex items-center">
-                <img
-                  src="https://readymadeui.com/team-3.webp"
+                <Image
+                  src={info.gender == 'male'? maleAvatar : info.gender == "female" ? femaleAvatar : transGenderAvatar}
                   className="w-14 h-14 rounded-full shadow-xl border-2 border-white hover:border-orange-400"
                   alt={`${info.userName}'s profile`}
                 />
@@ -55,7 +63,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
                     {info.userName}
                   </h4>
                   <p className="text-xs text-orange-400 font-semibold mt-1">
-                    CEO, Company
+                    {info.organization}
                   </p>
                 </div>
               </div>
@@ -78,6 +86,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+         }
     </main>
   );
 };

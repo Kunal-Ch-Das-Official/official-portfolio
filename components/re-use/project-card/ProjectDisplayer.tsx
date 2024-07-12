@@ -14,7 +14,7 @@ const ProjectDisplayer = async () => {
 
   return (
     <main className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-      {projectData.map((projectDetails) => (
+      {projectData.slice(0, 4).map((projectDetails) => (
         <ProjectCard
           key={projectDetails._id}
           projectName={projectDetails.projectName}

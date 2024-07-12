@@ -8,10 +8,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 interface ReviewDataProps {
-  _id: string;
-  userName: string;
-  reviewContent: string;
-  rating: number[];
+  _id: string,
+  userName: string,
+  organization: string,
+  gender: string,
+  reviewContent: string,
+  rating: number[],
 }
 
 const TesimonialBody: React.FC = () => {
@@ -22,7 +24,7 @@ const TesimonialBody: React.FC = () => {
     const getReviews = async () => {
       try {
         const res = await axios.get(envConfig.allReviewsApiUrl);
-        setReviewData(res.data); // Assuming res.data contains the array of reviews
+        setReviewData(res.data); 
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }

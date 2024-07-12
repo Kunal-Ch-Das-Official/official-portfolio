@@ -3,9 +3,9 @@ import React from 'react';
 const Projects = () => {
 
   return (
-    <div className='min-h-screen'>
-      Project Page
-    </div>
+    <main className='mt-28'>
+   Projects
+    </main>
   )
 }
 

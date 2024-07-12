@@ -4,8 +4,8 @@ import CustomAlert from "@/utils/custom-alert/CustomAlert";
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
-import successIcon from "@/public/icons/green-tick-1.png";
-import faliureIcon from "@/public/icons/alert-error-icon.png";
+import { TiWarning } from "react-icons/ti";
+import { MdDownloadDone } from "react-icons/md";
 import ReviewFormLoadingState from "@/utils/loading-state/form-submission-state/ReviewFormLoadingState";
 
 interface SendReviewProps {
@@ -23,13 +23,11 @@ interface ResponseMessage {
 
 const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
   const [userName, setUserName] = useState<string>("");
+  const [organization, setOrganization] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
   const [reviewContent, setReviewContent] = useState<string>("");
-  const [rating, setRating] = useState<number[]>([]);
-  const [starColor1, setStarColor1] = useState<boolean>(false);
-  const [starColor2, setStarColor2] = useState<boolean>(false);
-  const [starColor3, setStarColor3] = useState<boolean>(false);
-  const [starColor4, setStarColor4] = useState<boolean>(false);
-  const [starColor5, setStarColor5] = useState<boolean>(false);
+  const [selectedStars, setSelectedStars] = useState<number>(0);
+  const [rating, setRatings] = useState<number[]>([]);
   const [formStatus, setFormStatus] = useState<boolean>(false);
   const [issubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [resMessage, setResMessage] = useState<ResponseMessage>({
@@ -37,46 +35,34 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
     message: "",
     advice: "",
     alertColor: "",
-    iconStatus: undefined,
+    iconStatus: null,
   });
   const formRef = useRef<HTMLFormElement>(null);
 
-
-
-  // Rating Handler 
-  const handleRatingClick = (ratingVal: number) => {
-    if (rating.length < 5) {
-      setRating((prevRatingsVal) => {
-        const updatedRatings = [...prevRatingsVal, ratingVal];
-        console.log("Updated Ratings:", updatedRatings);
-        return updatedRatings;
-      });
-      if (ratingVal === 1) {
-        setStarColor1((prevState) => !prevState);
-      } else if (ratingVal === 2) {
-        setStarColor2((prevState) => !prevState);
-      } else if (ratingVal === 3) {
-        setStarColor3((prevState) => !prevState);
-      } else if (ratingVal === 4) {
-        setStarColor4((prevState) => !prevState);
-      } else if (ratingVal === 5) {
-        setStarColor5((prevState) => !prevState);
-      } else {
-        setStarColor5(false);
-      }
-    } else {
-      alert("Don't Do That");
+  // Rating Handler
+  const handleStarClick = (rating: number) => {
+    setSelectedStars(rating);
+    if (rating === 1) {
+      setRatings([1]);
+    } else if (rating === 2) {
+      setRatings([1, 2]);
+    } else if (rating === 3) {
+      setRatings([1, 2, 3]);
+    } else if (rating === 4) {
+      setRatings([1, 2, 3, 4]);
+    } else if (rating === 5) {
+      setRatings([1, 2, 3, 4, 5]);
     }
   };
 
-
-
-// On Submit Handler
+  // On Submit Handler
   const handlePostReview = async (event: React.FormEvent) => {
     event.preventDefault();
     setIsSubmitSuccessful(true);
     const formData = {
       userName,
+      organization,
+      gender,
       reviewContent,
       rating,
     };
@@ -89,7 +75,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
         message: "I'll Never Forget This Help, Thanks Again",
         advice: "Reload The Page To See Your Review!",
         alertColor: "bg-green-500 hover:bg-green-800",
-        iconStatus: successIcon,
+        iconStatus: <MdDownloadDone className="text-4xl font-bold text-green-500"/>,
       });
       setFormStatus(true);
     } catch (error) {
@@ -100,36 +86,30 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
           "I'm Unable To Recive Your Rating, Please Try It After Some Time.",
         advice: "Reload The Page And Submit Again",
         alertColor: "bg-red-500 hover:bg-red-800",
-        iconStatus: faliureIcon,
+        iconStatus: <TiWarning className="text-4xl font-bold text-red-500"/>,
       });
       setFormStatus(true);
       console.log("Error:", error);
     }
     if (formRef.current) {
       formRef.current.reset();
-      setRating([]);
-      setStarColor1(false);
-      setStarColor2(false);
-      setStarColor3(false);
-      setStarColor4(false);
-      setStarColor5(false);
+      setRatings([]);
+      setSelectedStars(0);
     }
   };
 
+  // Alert Close Handler
+  const handleAlertClose = () => setFormStatus(false);
 
-  // Alert Close Handler 
-  const handleAlertClose = () => {
-    setFormStatus(false);
-  };
   return (
     <main>
       <section className={`text-gray-200 body-font relative`} data-aos={mount}>
-        <div className="container px-5 w-full lg:w-1/2 mx-auto border-2 border-white rounded-lg hover:border-orange-500">
+        <div className="container blurBackgroundForm px-5 w-full lg:w-1/2 mx-auto border-2 border-white rounded-lg hover:border-orange-500">
           <RiCloseCircleFill
             onClick={closePostBox}
             className="text-black text-4xl bg-white float-end mt-6 rounded-full hover:transition-transform hover:scale-110 hover:bg-red-500 hover:text-white"
           />
-          <div className="py-20">
+          <div className="py-10">
             <div className="flex flex-col text-center w-full mb-12">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
                 Write a review for me
@@ -145,47 +125,33 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
               onSubmit={handlePostReview}
               className="lg:w-full md:w-2/3 mx-auto"
             >
-              <div className="rating my-12 flex flex-row justify-center">
-                <input
-                  type="button"
-                  name="rating-2"
-                  className={`mask mask-star-2 ${
-                    starColor1 === true ? "bg-orange-400" : "bg-white"
-                  } mx-2`}
-                  onClick={() => handleRatingClick(1)}
-                />
-                <input
-                  type="button"
-                  name="rating-2"
-                  className={`mask mask-star-2 ${
-                    starColor2 === true ? "bg-orange-400" : "bg-white"
-                  } mx-2`}
-                  onClick={() => handleRatingClick(2)}
-                />
-                <input
-                  type="button"
-                  name="rating-2"
-                  className={`mask mask-star-2 ${
-                    starColor3 === true ? "bg-orange-400" : "bg-white"
-                  } mx-2`}
-                  onClick={() => handleRatingClick(3)}
-                />
-                <input
-                  type="button"
-                  name="rating-2"
-                  className={`mask mask-star-2 ${
-                    starColor4 === true ? "bg-orange-400" : "bg-white"
-                  } mx-2`}
-                  onClick={() => handleRatingClick(4)}
-                />
-                <input
-                  type="button"
-                  name="rating-2"
-                  className={`mask mask-star-2 ${
-                    starColor5 === true ? "bg-orange-400" : "bg-white"
-                  } mx-2`}
-                  onClick={() => handleRatingClick(5)}
-                />
+              <div className="star-rating my-12 flex flex-row justify-center">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span
+                    key={star}
+                    className={`star ${
+                      star <= selectedStars ? "selected" : ""
+                    }`}
+                    onClick={() => handleStarClick(star)}
+                  >
+                    ★
+                  </span>
+                ))}
+                <style jsx>{`
+                  .star-rating {
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 2rem;
+                    cursor: pointer;
+                  }
+                  .star {
+                    margin-right: 5px;
+                    color: gray;
+                  }
+                  .star.selected {
+                    color: gold;
+                  }
+                `}</style>
               </div>
 
               <div className="flex flex-wrap -m-2">
@@ -213,16 +179,16 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                       htmlFor="organzation"
                       className="leading-7 text-sm text-gray-100"
                     >
-                      Enter Organzation Name
+                      Enter Organization Name
                     </label>
                     <input
                       type="text"
-                      id="organzation"
-                      name="organzation"
+                      id="organziation"
+                      name="organization"
                       className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-700 py-[6px] px-3 leading-8 transition-colors duration-200 ease-in-out "
                       placeholder=" Enter Organzation Name"
                       required
-                      // onChange={(event) => setUserName(event.target.value)}
+                      onChange={(event) => setOrganization(event.target.value)}
                     />
                   </div>
                 </div>
@@ -235,6 +201,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                       Select Gender
                     </label>
                     <select
+                     onChange={(event) => setGender(event.target.value)}
                       id="gender"
                       className="select select-bordered w-full max-w-xs  bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200  outline-none text-gray-700 px-3 text-sm transition-colors duration-200 ease-in-out"
                     >
