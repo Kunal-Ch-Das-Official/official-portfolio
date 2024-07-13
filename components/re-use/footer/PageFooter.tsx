@@ -3,15 +3,20 @@ import footerStyle from "./FooterStyle.module.css";
 
 const PageFooter: React.FC = () => {
   return (
-    <div className="mt-40">
-    <footer className={footerStyle.footer}>
-      <div className={footerStyle.waves}>
-        <div className={footerStyle.wave} id={footerStyle.wave1}></div>
-        <div className={footerStyle.wave} id={footerStyle.wave2}></div>
-        <div className={footerStyle.wave} id={footerStyle.wave3}></div>
-        <div className={footerStyle.wave} id={footerStyle.wave4}></div>
-      </div>
-      <div className="footer bg-neutral text-neutral-content items-center p-4">
+    <div className="mt-12">
+      <main className={footerStyle.body}>
+        <div className={footerStyle.loopWrapper}>
+          <div className={footerStyle.mountain}></div>
+          <div className={footerStyle.hill}></div>
+          <div className={footerStyle.tree}></div>
+          <div className={footerStyle.tree}></div>
+          <div className={footerStyle.tree}></div>
+          <div className={footerStyle.rock}></div>
+          <div className={footerStyle.truck}></div>
+          <div className={footerStyle.wheels}></div>
+        </div>
+      </main>
+      <footer className="footer bg-orange-500 text-neutral-content items-center p-4">
         <aside className="grid-flow-col items-center">
           <svg
             width="36"
@@ -61,8 +66,7 @@ const PageFooter: React.FC = () => {
             </svg>
           </a>
         </nav>
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 };

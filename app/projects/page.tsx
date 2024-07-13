@@ -1,10 +1,11 @@
+import ProjectBanner from '@/components/single-use/project-banner/ProjectBanner';
 import React from 'react';
 
 const Projects = () => {
 
   return (
-    <main className='mt-28'>
-   Projects
+    <main className=''>
+   <ProjectBanner />
     </main>
   )
 }
