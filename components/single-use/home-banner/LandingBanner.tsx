@@ -12,9 +12,9 @@ const LandingBanner: React.FC = () => {
   ];
 
   return (
-    <section className="text-gray-100 body-font mt-16">
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+    <section className="text-gray-100 body-font pt-16 pb-28 h-[180vh] lg:h-[140vh] mb-60 lg:mb-32">
+      <div className="container mx-auto flex px-5 py-24 lg:flex-row md:flex-col flex-col items-center">
+        <div className="lg:flex-grow  md:w-1/2 lg:pr-24 md:mx-auto flex flex-col md:items-center md:text-center mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-white">
             <span className="text-orange-700 mb-2">Before </span>
             <span className="text-orange-500 mb-2"> they </span>

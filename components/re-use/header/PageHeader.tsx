@@ -104,6 +104,8 @@ const PageHeader: React.FC = () => {
         >
           <div className="flex justify-between items-center sm:mr-1">
             {/* Rendering logo  */}
+            <div className="bottomTooltip">
+
             <Link href="/" className={"flex items-center gap-2"}>
               <Image
                 src={pageLogo}
@@ -115,7 +117,8 @@ const PageHeader: React.FC = () => {
                 priority={true}
               />
             </Link>
-
+            <span className="bottomTooltipText mt-3 cursor-pointer">Home</span>
+            </div>
             {/* Nav item for large device  */}
             <ul className={"md:flex space-x-12 hidden"}>
               {navItems.map(({ link, path }) => (

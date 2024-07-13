@@ -102,7 +102,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
   const handleAlertClose = () => setFormStatus(false);
 
   return (
-    <main>
+    <main id="postReview">
       <section className={`text-gray-200 body-font relative`} data-aos={mount}>
         <div className="container blurBackgroundForm px-5 w-full lg:w-1/2 mx-auto border-2 border-white rounded-lg hover:border-orange-500">
           <RiCloseCircleFill

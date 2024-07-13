@@ -2,11 +2,11 @@ import getProjectData from '@/apis/project-fetching/getProjects';
 import { ProjectCard } from "@/components/re-use/project-card/ProjectCard";
 
 interface ProjectData {
-  _id: string;
-  projectName: string;
-  description: string;
-  projectUrl: string;
-  projectThumbnail: string;
+  _id: string,
+  projectName: string,
+  description: string,
+  projectUrl: string,
+  firstView: string,
 }
 
 const ProjectDisplayer = async () => {
@@ -20,7 +20,7 @@ const ProjectDisplayer = async () => {
           projectName={projectDetails.projectName}
           projectDescription={projectDetails.description}
           previewLink={projectDetails.projectUrl}
-          projectImage={projectDetails.projectThumbnail}
+          projectImage={projectDetails.firstView}
         />
       ))}
     </main>

@@ -1,7 +1,8 @@
 'use client';
 import React, { useEffect } from 'react';
 import './ProjectBanner.css';
-
+import Image from 'next/image';
+import BannerImage from '@/public/images/project-banner-img.webp';
 const ProjectBanner: React.FC = () => {
   
   useEffect(() => {
@@ -44,10 +45,10 @@ const ProjectBanner: React.FC = () => {
   }, []);
 
   return (
-    <main className="projectBanner">
-    <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-32 gap-3 mx-20'>
-    <div className="flex flex-col justify-center flex-wrap text-center lg:text-left">
-    <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-white">
+    <main className="projectBanner bannerBackground">
+    <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-32 gap-3 mx-20 h-[150vh] lg:h-[100vh]'>
+    <div className=" text-center lg:text-left mt-20">
+    <h1 className=" sm:text-4xl text-3xl mb-4 font-bold text-white">
             <span className="text-orange-700 mb-2">Before </span>
             <span className="text-orange-500 mb-2"> they </span>
             <span className="text-orange-400 mb-2"> sold </span>
@@ -58,7 +59,11 @@ const ProjectBanner: React.FC = () => {
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aperiam voluptatem non maxime id. Laudantium provident officiis sequi distinctio similique placeat ex, libero aut qui doloribus velit doloremque mollitia tempora.</p>
     </div>
  
-    <div className="heroAnimation py-40 mx-auto lg:ml-24 flex flex-col justify-center flex-wrap"></div>
+    <div className="heroAnimation py-40 mx-auto lg:ml-24 flex flex-col justify-center flex-wrap">
+      <div>
+        <Image src={BannerImage} alt="Banner Image" width={500} height={200}/>
+      </div>
+    </div>
     </div>
     </main>
   );

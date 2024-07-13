@@ -26,6 +26,7 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
           <IoCloseCircleOutline className="text-5xl font-bold hover:text-orange-500" />
         </button>
         <ul onClick={closeMenu}>
+        <div className="leftTooltip">
           <Link
             href="/"
             className={"text-2xl font-bold text-white flex items-center gap-2 mb-8"}
@@ -40,6 +41,8 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
               priority={true}
             />
           </Link>
+          <span className="leftTooltiptext mt-4 ml-2 cursor-pointer">Home</span>
+          </div>
           <li>
             <Link
               prefetch={true}
