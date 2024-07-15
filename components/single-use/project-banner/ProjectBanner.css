@@ -50,15 +50,7 @@ transform: translate(var(--x), var(--y));
       height: 100%;
       transition: transform 0.6s ease;
     }
-  
-    &::before {
-      transform: translateZ(4rem);
-      border: 5px solid #f96b59;
-      &:hover {
-        transform: translateZ(0);
-      }
-    }
-  
+    
     &::after {
       transform: translateZ(-4rem);
       background: #f96b59;

@@ -59,7 +59,7 @@ const ProjectBanner: React.FC = () => {
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aperiam voluptatem non maxime id. Laudantium provident officiis sequi distinctio similique placeat ex, libero aut qui doloribus velit doloremque mollitia tempora.</p>
     </div>
  
-    <div className="heroAnimation py-40 mx-auto lg:ml-24 flex flex-col justify-center flex-wrap">
+    <div className="heroAnimation mx-auto lg:ml-24 flex flex-col justify-center flex-wrap">
       <div>
         <Image src={BannerImage} alt="Banner Image" width={500} height={200}/>
       </div>

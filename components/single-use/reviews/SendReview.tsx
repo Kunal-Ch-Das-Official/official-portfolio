@@ -7,6 +7,8 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { TiWarning } from "react-icons/ti";
 import { MdDownloadDone } from "react-icons/md";
 import ReviewFormLoadingState from "@/utils/loading-state/form-submission-state/ReviewFormLoadingState";
+import { IoIosSend } from "react-icons/io";
+
 
 interface SendReviewProps {
   closePostBox: () => void;
@@ -239,9 +241,10 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                   <div className="flex justify-center">
                     <button
                       type="submit"
-                      className="relative 2xl:flex xl:flex lg:flex h-[50px] w-40 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600"
+                      className="relative 2xl:flex xl:flex lg:flex h-[50px] w-48 px-4 items-center justify-between  overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600"
                     >
                       <span className="relative z-10">Submit Review</span>
+                      <IoIosSend className="text-2xl relative z-10"/> 
                     </button>
                   </div>
                 </div>

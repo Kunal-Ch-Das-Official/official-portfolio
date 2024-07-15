@@ -35,15 +35,19 @@ export function ProjectCard({
             </h3>
            </div>
             <div className="text-base !m-0 !p-0 font-normal">
-              <h5 className="text-slate-500 ">{projectOwner}</h5>
+              <h5 className="inline-flex items-center">
+                 <span className="text-lg font-bold text-orange-300">Own By:</span> 
+                 <span className="font-semibold ml-2">{projectOwner}</span> 
+                </h5>
             </div>
+            <p className="text-green-100">For more information visit project page</p>
             <div className="flex flex-1 w-full h-1/2 rounded-lg mt-4 ">
               <Image
                 src={projectImage || alternativeImage}
                 alt={projectName || "Project Image"}
                 width={400}
                 height={400}
-                className="h-2/3 mt-4"
+                className="h-2/3 mt-4 rounded-lg"
               />
             </div>
           </div>
