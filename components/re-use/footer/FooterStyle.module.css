@@ -8,7 +8,7 @@
   position: relative;
   display: block;
   width: 100%;
-  height: 250px;
+  height: 100px;
   overflow: hidden;
   border-bottom: 3px solid #ffab2d;
   color: #fff;
@@ -38,12 +38,12 @@
   border-radius: 50%;
   height: 20px;
   box-shadow: 
-    0 0 0 50px #489a0e,
-    -20px 0 0 20px #489a0e,
-    -90px 0 0 50px #489a0e,
-    250px 0 0 50px #489a0e,
-    290px 0 0 50px #489a0e,
-    620px 0 0 50px #489a0e;
+    0 0 0 50px #d2ab00,
+    -20px 0 0 20px #d2ab00,
+    -90px 0 0 50px #d2ab00,
+    250px 0 0 50px #d2ab00,
+    290px 0 0 50px #d2ab00,
+    620px 0 0 50px #d2ab00;
   animation: hill 4s 2s linear infinite;
 }
 .tree, .tree:nth-child(2), .tree:nth-child(3) {
@@ -72,9 +72,9 @@
   background: #eee;
 }
 .truck {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/truck.svg) no-repeat;
+  background: url(../../../public/images/Footer-Car.png) no-repeat;
   background-size: contain;
-  height: 60px;
+  height: 28px;
 }
 .truck:before {
   content: " ";
@@ -84,11 +84,11 @@
     -30px 28px 0 1.5px #fff,
      -35px 18px 0 1.5px #fff;
 }
-.wheels {
+/* .wheels {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/wheels.svg) no-repeat;
   height: 15px;
   margin-bottom: 0;
-}
+} */
 
 .tree  { animation: tree 3s 0.000s linear infinite; }
 .tree:nth-child(2)  { animation: tree2 2s 0.150s linear infinite; }

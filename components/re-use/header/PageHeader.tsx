@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import pageLogo from "@/public/images/banner-images/Banner-Image.jpg";
+import pageLogo from "@/public/images/banner-images/Potfolio-logo.png";
 import { usePathname } from "next/navigation";
 import SideNav from "./SideNav";
 import { MdSegment } from "react-icons/md";
@@ -110,9 +110,9 @@ const PageHeader: React.FC = () => {
               <Image
                 src={pageLogo}
                 alt="Kunal Chandra Das"
-                height={45}
-                width={45}
-                className={"inline-block rounded-full ring-4 ring-orange-300 mt-2"}
+                height={200}
+                width={200}
+                className={"inline-block rounded-full mt-2"}
                 loading="eager"
                 priority={true}
               />
@@ -120,7 +120,7 @@ const PageHeader: React.FC = () => {
             <span className="bottomTooltipText mt-3 cursor-pointer">Home</span>
             </div>
             {/* Nav item for large device  */}
-            <ul className={"md:flex space-x-12 hidden"}>
+            <ul className={"md:flex space-x-12 mr-16 hidden"}>
               {navItems.map(({ link, path }) => (
                 <Link
                   prefetch={true}

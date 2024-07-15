@@ -26,7 +26,6 @@ interface SingleProjectData {
 const ProjectOverview: React.FC<SingleProjectProps> = async ({params}) => {
     const {id} = params;
     const singleProjectData: SingleProjectData = await getSingleProject(id);
-    console.log(singleProjectData);
   return (
     <div>
         <SingleProject 
@@ -38,7 +37,6 @@ const ProjectOverview: React.FC<SingleProjectProps> = async ({params}) => {
         firstPageView={singleProjectData.firstView}
         secondPageView={singleProjectData.secondView}
         thirdPageView={singleProjectData.thirdView}
-        projectUrl={singleProjectData.projectUrl}
         githubLink={singleProjectData.githubLink}/>
     </div>
   )

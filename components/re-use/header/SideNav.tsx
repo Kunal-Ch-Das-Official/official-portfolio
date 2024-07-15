@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import brandLogo from "@/public/images/banner-images/Banner-Image.jpg";
+import brandLogo from "@/public/images/banner-images/Potfolio-logo.png";
 import { usePathname } from "next/navigation";
 import { BsExclamationOctagonFill } from "react-icons/bs";
 import { IoCloseCircleOutline } from "react-icons/io5";
@@ -26,7 +26,7 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
           <IoCloseCircleOutline className="text-5xl font-bold hover:text-orange-500" />
         </button>
         <ul onClick={closeMenu}>
-        <div className="leftTooltip">
+      
           <Link
             href="/"
             className={"text-2xl font-bold text-white flex items-center gap-2 mb-8"}
@@ -34,15 +34,14 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
             <Image
               src={brandLogo}
               alt="Tech10x logo"
-              height={45}
-              width={45}
-              className={"inline-block rounded-full ring-4 ring-orange-300 mt-2"}
+              height={150}
+              width={150}
+              className={"inline-block mt-2"}
               loading="eager"
               priority={true}
             />
           </Link>
-          <span className="leftTooltiptext mt-4 ml-2 cursor-pointer">Home</span>
-          </div>
+       
           <li>
             <Link
               prefetch={true}

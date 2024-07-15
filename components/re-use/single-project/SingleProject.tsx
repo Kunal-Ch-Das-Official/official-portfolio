@@ -16,15 +16,15 @@ import { SiExpress } from "react-icons/si";
 import { SiMongodb } from "react-icons/si";
 
 interface SingleProjectProps {
-  projectId: string;
-  projectName: string;
-  projectOwner: string;
-  projectDescription: string;
-  projectThumbnail: string;
-  firstPageView: string;
-  secondPageView: string;
-  thirdPageView: string;
-  githubLink: string;
+  projectId: string,
+  projectName: string,
+  projectOwner: string,
+  projectDescription: string,
+  projectThumbnail: string,
+  firstPageView: string,
+  secondPageView: string,
+  thirdPageView: string,
+  githubLink: string
 }
 
 const SingleProject: React.FC<SingleProjectProps> = ({
@@ -157,16 +157,9 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 />
                 {projectName}
               </h2>
-              <div className="text-lg mt-2">{projectDescription}</div>
-
-              <ul className="flex flex-col mt-2">
-                <div>
-                  <h4 className="text-xl font-bold my-2 text-orange-500">
-                    Main Features
-                  </h4>
-                </div>
+              <ul className="flex flex-col mt-2 ml-4">
                 <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-600 mr-2" />
+                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
                   <span className="mb-2">
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -174,7 +167,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 </li>
 
                 <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-600 mr-2" />
+                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
                   <span className="mb-2">
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -182,7 +175,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 </li>
 
                 <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-600 mr-2" />
+                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
                   <span className="mb-2">
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -190,7 +183,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 </li>
 
                 <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-600 mr-2" />
+                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
                   <span className="mb-2">
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -198,7 +191,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 </li>
 
                 <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-600 mr-2" />
+                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
                   <span className="mb-2">
                     {" "}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -261,24 +254,24 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               </ul>
 
               {isClick === 1 ? (
-                <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-white">
+                <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-gray-900 ">
                   {technologies.map((technology) => (
                     <li
                       key={technology.name}
                       className="flex flex-col items-center my-6"
                     >
                       <div>{technology.icon}</div>
-                      <h6 className="ml-2 mt-2 font-semibold text-black">
+                      <h6 className="ml-2 mt-2 font-semibold text-gray-300">
                         {technology.name}
                       </h6>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <ul className="space-y-2 text-sm text-black bg-white mt-8 p-6">
-                  <p>{projectDescription}</p>
-                  <li className="text-black">Visit Github: {githubLink}</li>
-                  <li className="text-black">Project Owner: {projectOwner}</li>
+                <ul className="space-y-2 text-sm text-gray-300 bg-gray-900 mt-8 p-6">
+                  <li className="text-gray-300 text-lg font-bold">Visit Github: {githubLink}</li>
+                  <li className="text-gray-300 text-lg font-bold">Project Owner: {projectOwner}</li>
+                  <p className="text-sm font-semibold">{projectDescription}</p>
                 </ul>
               )}
             </div>
