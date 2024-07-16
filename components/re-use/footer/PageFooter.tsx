@@ -6,11 +6,11 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import Image from "next/image";
-import footerLogo from '@/public/images/banner-images/Potfolio-logo.png';
+import footerLogo from "@/public/images/banner-images/Potfolio-logo.png";
 
 const PageFooter: React.FC = () => {
   return (
-    <div className="mt-12">
+    <footer className="mt-12">
       <main className={footerStyle.body}>
         <div className={footerStyle.loopWrapper}>
           <div className={footerStyle.mountain}></div>
@@ -23,30 +23,35 @@ const PageFooter: React.FC = () => {
           <div className={footerStyle.wheels}></div>
         </div>
       </main>
-      <footer className="footer bannerBackground text-neutral-content items-center p-4 pb-6 lg:pb-0">
+      <div className="footer flex flex-col md:justify-around md:flex-row h-full md:h-24 bannerBackground text-neutral-content items-center p-4 pb-6 lg:pb-0">
         <aside className="flex flex-col">
-          <Image src={footerLogo} alt="Kunal Chandra Das Portfolio" height={200} width={200}/>
-          <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
+          <Image
+            src={footerLogo}
+            alt="Kunal Chandra Das Portfolio"
+            height={200}
+            width={200}
+          />
         </aside>
-        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a>
-           <FaGithub className="text-3xl cursor-pointer hover:transition-transform hover:scale-110"/>
+        <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
+        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+            <FaGithub className="text-xl hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a>
-           <FaLinkedin className="text-3xl text-blue-500 cursor-pointer hover:transition-transform hover:scale-110"/>
+          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+            <FaLinkedin className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a>
-           <FaTwitter className="text-3xl text-blue-500 cursor-pointer hover:transition-transform hover:scale-110"/>
+          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+            <FaTwitter className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a>
-           <IoLogoWhatsapp className="text-3xl text-green-500 cursor-pointer hover:transition-transform hover:scale-110"/>
+          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+            <IoLogoWhatsapp className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a>
-           <MdEmail className="text-3xl text-red-500 cursor-pointer hover:transition-transform hover:scale-110"/>
+          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+            <MdEmail className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-        </nav>
-      </footer>
-    </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

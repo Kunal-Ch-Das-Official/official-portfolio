@@ -3,14 +3,16 @@ import React from "react";
 import profilePicture from "@/public/images/banner-images/Banner-Image.jpg";
 import TypeWriter from "@/utils/type-writter/TypeWritter";
 import { MdDownload } from "react-icons/md";
+import { GiSkills } from "react-icons/gi";
 import Link from "next/link";
 
 const LandingBanner: React.FC = () => {
   const texts: string[] = [
     "Welcome To My Portfolio",
-    "I'm a Next.js Developer",
-    "Using Tailwind CSS",
-    "Enjoy Your Stay!",
+    "I'm a Mern Stack Developer",
+    "I'm a Web Designer",
+    "I'm A Tech Enthusias",
+    "Enjoy Your Stay"
   ];
 
   return (
@@ -25,8 +27,11 @@ const LandingBanner: React.FC = () => {
             <br className="hidden lg:inline-block" />
             readymade gluten
           </h1>
-          <h2 className="text-2xl mb-4 text-orange-400">
-            <TypeWriter texts={texts} />
+          <h2 className="text-2xl mb-4 text-white">
+            <span>Hello Dear,</span>
+            <span className="text-orange-500 ml-2">
+              <TypeWriter texts={texts} />
+            </span>
           </h2>
           <p className="flex flex-col lg:w-3/4 w-full">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aperiam
@@ -38,11 +43,16 @@ const LandingBanner: React.FC = () => {
           <div className="flex justify-center lg:justify-normal mt-8">
             <Link
               href={"/about/#getResume"}
-              className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600"
+              className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between inline-flex overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600"
             >
               <span className="relative z-0 ml-4">Download Resume</span>
               <MdDownload className="text-2xl font-bold mx-4 hover:text-orange-500 relative z-0" />
             </Link>
+
+            <button className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between inline-flex overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600 ml-4">
+              <span className="relative z-0 ml-4">Skills</span>
+              <GiSkills className="text-2xl font-bold mx-4 hover:text-orange-500 relative z-0" />
+            </button>
           </div>
         </div>
 
