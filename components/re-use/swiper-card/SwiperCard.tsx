@@ -27,7 +27,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
   return (
     <main className="my-12 w-4/5 lg:w-1/2 xl:w-[700px] 2xl:w-[700px] mx-auto lg:mx-auto flex justify-center items-center">
       {
-        content.length === 0 ? <h1 className="text-xl font-bold text-orange-400">Currently I Don't Have Any Review Please Write A Review For Me</h1> : 
+        content.length === 0 ? <h1 className="text-xl font-bold text-orange-400">Currently I Don not Have Any Review Please Write A Review For Me</h1> : 
    
       <Swiper
         effect={"coverflow"}
@@ -68,7 +68,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
                 </div>
               </div>
               <div className="flex space-x-1  ml-[68px]">
-                {info.rating.map((star, starIndex) => (
+                {info.rating.map((starIndex) => (
                   <FaStar key={starIndex} className="text-xl text-orange-400 " />
                 ))}
               </div>
