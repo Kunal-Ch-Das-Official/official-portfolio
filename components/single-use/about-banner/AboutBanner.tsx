@@ -4,6 +4,9 @@ import BannerIllustration from "@/public/images/About-Banner-Illustration.png";
 import { SiMinutemailer } from "react-icons/si";
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import Link from "next/link";
+
+
+
 const AboutBanner = () => {
   return (
     <section className="py-20 bannerBackground">

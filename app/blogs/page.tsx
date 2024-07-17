@@ -1,5 +1,4 @@
 import BlogBanner from '@/components/single-use/blog-banner/BlogBanner';
-import SkillDisplayer from '@/components/single-use/skills/SkillDisplayer';
 import React from 'react';
 
 
@@ -21,7 +20,6 @@ const Blogs = () => {
   return (
     <main>
       <BlogBanner />
-      <SkillDisplayer />
     </main>
   )
 }
