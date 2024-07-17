@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: "Kunal Chandra Das Official Portfolio",
   keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, ",
   icons: {
-    icon: ['/favicon.ico?v=4'],
-    apple: ['/apple-touch-icon.png?v=4'],
+    icon: ['/favicon_io/favicon.ico?v=4'],
+    apple: ['/favicon_io/apple-touch-icon.png?v=4'],
     shortcut: ['apple-touch-icon.png']
   }
 };
