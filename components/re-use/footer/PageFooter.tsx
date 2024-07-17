@@ -34,7 +34,7 @@ const PageFooter: React.FC = () => {
         </aside>
         <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="https://github.com/Kunal-Ch-Das-Official" target="_blank" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaGithub className="text-xl hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
           <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
@@ -43,10 +43,10 @@ const PageFooter: React.FC = () => {
           <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaTwitter className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="tel: +919874353723" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <IoLogoWhatsapp className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="mailto:kunalchandradasofficial@gmail.com" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <MdEmail className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
         </div>

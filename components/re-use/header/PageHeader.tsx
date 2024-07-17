@@ -139,7 +139,7 @@ const PageHeader: React.FC = () => {
 
             {/* Github and linkdin button  */}
             <div className="inline-flex items-center">
-              <a href='https://github.com/Kunal-Ch-Das-Official'>
+              <a href='https://github.com/Kunal-Ch-Das-Official' target="_blank">
                 <FaGithub className="text-2xl flex items-center mr-5 text-gray-400 hover:text-white"/>
               </a>
               <a href='#'>

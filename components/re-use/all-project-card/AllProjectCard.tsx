@@ -6,7 +6,7 @@ import {
   CardContainer,
   CardItem,
 } from "../../user-interface/all-projects-card-ui/AllProjectCardUi";
-import alternativeImage from "@/public/next.svg";
+import alternativeImage from "@/public/icons/error-page-icon.png";
 import { FaSquareGithub } from "react-icons/fa6";
 import Link from "next/link";
 export function AllProjectCard({

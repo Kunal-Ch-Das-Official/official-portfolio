@@ -134,7 +134,7 @@ const SkillsMarquee = () => {
    ];
   return (
     <>
-      <div className={marqueeAnimation.logos}>
+      <div className={`bannerBackground ${marqueeAnimation.logos}`}>
         <div className={marqueeAnimation.logosSlides}>
           {skillSet1.map((item:any, index: number) => (
             <div key={index} className={`inline-flex items-center ${marqueeAnimation.brandLogos}`}>

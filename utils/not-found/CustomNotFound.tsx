@@ -25,7 +25,7 @@ const CustomNotFound: React.FC = () => {
              
           </h1>
           <p className="flex flex-col lg:w-3/4 w-full">
-          Requested Page Dose'nt Exist In My Portfolio Site, Some Useful Links Given Bellow.
+          Requested Page Dose'nt Exist In My Portfolio Site, Some Useful Links Are Given Bellow.
           </p>
 
           <div className="flex justify-center lg:justify-normal mt-8">

@@ -49,14 +49,14 @@ const ProjectBanner: React.FC = () => {
     <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-32 gap-3 mx-20 h-[150vh] lg:h-[100vh]'>
     <div className=" text-center lg:text-left mt-20">
     <h1 className=" sm:text-4xl text-3xl mb-4 font-bold text-white">
-            <span className="text-orange-700 mb-2">Before </span>
-            <span className="text-orange-500 mb-2"> they </span>
-            <span className="text-orange-400 mb-2"> sold </span>
-            <span className="text-orange-300 mb-2"> out </span>  
+            <span className="text-orange-700 mb-2">All </span>
+            <span className="text-orange-500 mb-2"> My </span>
+            <span className="text-orange-400 mb-2"> Creative </span>
+            <span className="text-orange-300 mb-2"> Odyssey </span>  
             <br className="hidden lg:inline-block" />
-            readymade gluten
+            Of Web Development
           </h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aperiam voluptatem non maxime id. Laudantium provident officiis sequi distinctio similique placeat ex, libero aut qui doloribus velit doloremque mollitia tempora.</p>
+      <p>Dive into a world of innovation and craftsmanship, where each project tells a story of passion and expertise.</p>
     </div>
  
     <div className="heroAnimation mx-auto lg:ml-24 flex flex-col justify-center flex-wrap">

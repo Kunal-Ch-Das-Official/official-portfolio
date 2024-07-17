@@ -94,9 +94,10 @@ const ContactForm = () => {
             <div className="screen-body">
               <div className="screen-body-item left">
                 <div className="app-title">
-                  <span>Send Me</span>
-                  <span>An Email</span>
+                  <span>Let's Connect</span>
+                  <span>Via Email</span>
                 </div>
+                <p className="my-4">Have questions or want to discuss a project? Reach out to me through email, and I’ll get back to you as soon as possible.</p>
                 <div className="app-contact">CONTACT INFO : +91 9874353723</div>
               </div>
               <div className="screen-body-item">

@@ -50,38 +50,32 @@ export function AboutMeInfo() {
 const myInformation = [
   {
     id: 1,
-    title: "Subject matter expert",
+    title: "Back Office Operations Coordinator",
     description: (
       <ul className="list-disc list-inside text-white">
-        <li>
-          Investigated issues and defects to determine problem root cause and
-          formulate corrective actions and recommendations.
+        <li className="mb-2">
+        Delivered comprehensive training to new employees on operational processes and best practices to ensure a smooth onboarding experience.
         </li>
-        <li>
-          Developing responsive and user-friendly web applications using React,
-          CSS, and HTML.
+        <li className="mb-2">
+        Conducted detailed audits of submitted work, ensuring accuracy and adherence to quality standards before submitting it to management.
         </li>
-        <li>
-          Provided operational assistance and developed software workarounds or
-          resolutions.
+        <li className="mb-2">
+        Maintained and updated attendance records, tracking employee presence and absences to ensure accurate payroll processing.
         </li>
-        <li>
-          Designing and implementing RESTful APIs with a focus on efficient data
-          handling and scalability.
+        <li className="mb-2">
+        Addressed and resolved process-related issues and employee concerns promptly, fostering a productive and harmonious work environment.
         </li>
-        <li>
-          Coordinated with multiple teams for prompt issue resolution via
-          channels like SLACK and JIRA.
+        <li className="mb-2">
+        Provided essential advice and communicated off-day information to team members, ensuring clarity and effective coordination.
         </li>
-        <li>
-          Possessed knowledge of checking which API is not responding properly
-          and how to debug it.
+        <li className="mb-2">
+        Identified areas for improvement within the team and proposed actionable solutions to enhance efficiency and productivity.
         </li>
-        <li>
-          Collaborating with the design team to ensure the implementation of
-          consistent UI/UX design.
+        <li className="mb-2">
+        Kept the team informed about any changes in processes or procedures, ensuring seamless adaptation and compliance.
         </li>
-        <li>Writing clean and maintainable code using Git and Github.</li>
+        <li className="mb-2">Explaining policy implementation to fellow team members.</li>
+        <li className="mb-2">Handling interpersonal conflicts by mediating conflicts between employees in a way that promotes collaboration and respect.</li>
       </ul>
     ),
     badgeFor: "Work Experiences",
@@ -140,7 +134,7 @@ const myInformation = [
         <li>Chemistry</li>
         <li>History</li>
         <li>Geography</li>
-        <li>Computer Application</li>
+        <li>Computer Application / 9th to 12th standerd</li>
       </ul>
     ),
     badgeFor: "School",

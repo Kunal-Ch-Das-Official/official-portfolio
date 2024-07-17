@@ -2,7 +2,7 @@
 import React from "react";
 import { Card } from "@/components/user-interface/cards-ui/CardsUi";
 import Image from "next/image";
-import alternativeImage from "@/public/next.svg";
+import alternativeImage from "@/public/icons/error-page-icon.png";
 
 export function ProjectCard({
   projectThumbnail,

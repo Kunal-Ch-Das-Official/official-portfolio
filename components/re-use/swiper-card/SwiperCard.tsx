@@ -25,7 +25,7 @@ interface SwiperCardProps {
 const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
 
   return (
-    <main className="my-12 w-4/5 lg:w-1/2 mx-auto lg:mx-auto flex justify-center items-center">
+    <main className="my-12 w-4/5 lg:w-1/2 xl:w-[700px] 2xl:w-[700px] mx-auto lg:mx-auto flex justify-center items-center">
       {
         content.length === 0 ? <h1 className="text-xl font-bold text-orange-400">Currently I Don't Have Any Review Please Write A Review For Me</h1> : 
    

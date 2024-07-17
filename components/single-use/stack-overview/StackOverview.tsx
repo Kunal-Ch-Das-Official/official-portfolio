@@ -6,7 +6,7 @@ import { RiNodejsLine } from "react-icons/ri";
 
 const StackOverview:React.FC = () => {
   return (
-    <div>
+    <section>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 mb-24">
         <div className="relative mb-12 px-3 lg:mb-0">
           <div className="mb-4 flex justify-center">
@@ -58,7 +58,7 @@ const StackOverview:React.FC = () => {
           </h6>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -60,16 +60,15 @@ const Resume = () => {
       <div className="text-center mx-auto">
         <h3 className="mb-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
           <span className="text-orange-700">Download </span>
-          <span className="text-orange-500">Or </span>
+          <span className="text-orange-500">And </span>
           <span className="text-orange-400">Preview </span>
           <span className="text-orange-300">My </span>
           <span className="text-orange-300">Resume </span>
         </h3>
-        <p className="flex flex-wrap mx-0 md:mx-20 lg:mx-32">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nostrum
-          reiciendis suscipit illo ipsa earum, quisquam debitis, excepturi at
-          quam, sint labore aliquid maiores. Earum tenetur maiores culpa
-          asperiores quo.
+        <p className="flex flex-wrap justify-center items-center mx-0 md:mx-20 lg:mx-32">
+          Access my detailed resume to see my skills, experience, and
+          achievements. Get a comprehensive view of my professional background
+          and how I can contribute to your team.
         </p>
       </div>
       {previewOpen === true ? (
@@ -81,18 +80,18 @@ const Resume = () => {
       ) : (
         <div className="flex flex-col lg:flex-row justify-center items-center my-16">
           <button
-            className="relative 2xl:flex xl:flex lg:flex inline-flex h-[50px] w-60 items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600 mr-0 mb-12 lg:mb-0 lg:mr-8"
+            className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex  mb-4 lg:mb-0 lg:mr-8"
             onClick={() => setPreviewOpen(true)}
           >
             <span className="relative z-0 ml-4">Preview Resume</span>
-            <VscPreview className="text-2xl font-bold mx-4 hover:text-orange-500 relative z-0" />
+            <VscPreview className="text-2xl font-bold mx-4 relative z-0" />
           </button>
 
-          <button className="relative 2xl:flex xl:flex lg:flex h-[50px] w-60 inline-flex items-center justify-center overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600">
+          <button className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex">
             <span className="relative z-0 ml-4" onClick={downloadResumeHandler}>
               Download Resume
             </span>
-            <MdOutlineSimCardDownload className="text-2xl font-bold mx-4 hover:text-orange-500 relative z-0" />
+            <MdOutlineSimCardDownload className="text-2xl font-bold mx-4 relative z-0" />
           </button>
         </div>
       )}

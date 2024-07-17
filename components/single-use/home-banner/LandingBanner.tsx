@@ -10,7 +10,7 @@ const LandingBanner: React.FC = () => {
     "Welcome To My Portfolio",
     "I'm a Mern Stack Developer",
     "I'm a Web Designer",
-    "I'm A Tech Enthusias",
+    "I'm A Tech Enthusiast",
     "Enjoy Your Stay"
   ];
 
@@ -26,7 +26,7 @@ const LandingBanner: React.FC = () => {
             Official Portfolio
           </h1>
           <h2 className="text-2xl mb-4 text-white">
-            <span>Hello Dear,</span>
+            <span>Hello,</span>
             <span className="text-orange-500 ml-2">
               <TypeWriter texts={texts} />
             </span>
@@ -38,10 +38,10 @@ const LandingBanner: React.FC = () => {
           <div className="flex justify-center lg:justify-normal mt-8">
             <Link
               href={"/about/#getResume"}
-              className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between inline-flex overflow-hidden bg-gradient-to-r from-red-400 to-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white font-semibold textColor hover:shadow-orange-600 hover:before:border-[25px] rounded-lg hover:text-orange-600"
+              className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
             >
               <span className="relative z-0 ml-4">Download Resume</span>
-              <MdDownload className="text-2xl font-bold mx-4 hover:text-orange-500 relative z-0" />
+              <MdDownload className="text-2xl font-bold mx-4 relative z-0" />
             </Link>
           </div>
         </div>

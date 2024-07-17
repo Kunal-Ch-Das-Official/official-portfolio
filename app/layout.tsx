@@ -9,7 +9,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Kunal Chandra Das",
   description: "Kunal Chandra Das Official Portfolio",
-  keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, "
+  keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, ",
+  icons: {
+    icon: ['/favicon.ico?v=4'],
+    apple: ['/apple-touch-icon.png?v=4'],
+    shortcut: ['apple-touch-icon.png']
+  }
 };
 
 export default function RootLayout({

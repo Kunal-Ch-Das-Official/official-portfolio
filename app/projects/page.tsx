@@ -21,8 +21,8 @@ const Projects = () => {
       <ProjectBanner />
       <div className="my-12">
       <SectionHeading
-        mainHeading="Here Is All My Projects"
-        subHeading="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+        mainHeading="Innovative Creations Unveiled"
+        subHeading="Discover the full range of my work, from web development to design, showcasing my dedication to quality and creativity."
       />
       </div>
       <AllProjectsDisplayer />

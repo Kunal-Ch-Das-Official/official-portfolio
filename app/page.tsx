@@ -13,14 +13,14 @@ const Home = () => {
       <LandingBanner />
       <StackOverview />
       <SectionHeading
-        mainHeading="Here is my best projects"
-        subHeading="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptate veniam"
+        mainHeading="My best projects of all time"
+        subHeading="Explore a curated selection of my recent work and innovative projects, demonstrating my skills and expertise in web development and design."
       />
       <ProjectDisplayer />
       <div className="mt-28">
         <SectionHeading
-          mainHeading="This is my client reviews"
-          subHeading="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptate veniam"
+          mainHeading="Hear What My Client Say's"
+          subHeading="Hear what my clients have to say about working with me and the impact of my projects on their businesses."
         />
       </div>
 
