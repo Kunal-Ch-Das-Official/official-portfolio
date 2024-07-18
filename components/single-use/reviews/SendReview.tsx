@@ -80,6 +80,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
         iconStatus: <MdDownloadDone className="text-4xl font-bold text-green-500"/>,
       });
       setFormStatus(true);
+      
     } catch (error) {
       setIsSubmitSuccessful(true);
       setResMessage({
@@ -98,10 +99,14 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
       setRatings([]);
       setSelectedStars(0);
     }
+   
   };
 
   // Alert Close Handler
-  const handleAlertClose = () => setFormStatus(false);
+  const handleAlertClose = () => {
+    setFormStatus(false);
+    closePostBox();
+  }
 
   return (
     <main id="postReview">
@@ -239,7 +244,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                 </div>
                 <div className="p-2 w-full">
                   <div className="flex justify-center">
-                    <button
+                    <button aria-label="Review submit"
                       type="submit"
                       className="relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
                     >

@@ -6,7 +6,7 @@ import {
   CardContainer,
   CardItem,
 } from "../../user-interface/all-projects-card-ui/AllProjectCardUi";
-import alternativeImage from "@/public/icons/error-page-icon.png";
+import alternativeImage from "@/public/images/error-notfound/error-page-icon.webp";
 import { FaSquareGithub } from "react-icons/fa6";
 import Link from "next/link";
 export function AllProjectCard({
@@ -58,7 +58,7 @@ export function AllProjectCard({
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">
-          <a href={`https://${previewLink}`} target={"_blank"}>
+          <a rel="noopener" aria-label={projectName} href={`https://${previewLink}`} target={"_blank"}>
             <CardItem
               translateZ={20}
               translateX={-40}
@@ -69,7 +69,7 @@ export function AllProjectCard({
             </CardItem>
           </a>
           <div className="tooltip">
-            <a href={`https://${githubRepo}`} target={"_blank"}>
+            <a rel="noopener" aria-label="github" href={`https://${githubRepo}`} target={"_blank"}>
               <FaSquareGithub className="text-4xl text-white rounded-lg" />
             </a>
             <span className="tooltiptext mb-2">Github Repo...</span>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import BannerIllustration from "@/public/images/Skills-Illustration.png";
+import BannerIllustration from "@/public/images/about/Skills-Illustration.webp";
 import { SiMinutemailer } from "react-icons/si";
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import Link from "next/link";
@@ -17,6 +17,8 @@ const AboutBanner = () => {
               src={BannerIllustration}
               width={500}
               height={500}
+              priority
+              loading="eager"
               className="w-full h-full rounded-md object-cover"
               alt="About Me Illustration"
             />
@@ -31,7 +33,7 @@ const AboutBanner = () => {
             </p>
 
             <div className="flex justify-center flex-col lg:flex-row lg:justify-normal mt-8 mx-12 lg:mx-0">
-              <a
+              <a rel="noopener"
                 href="#getResume"
                 className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex mb-4 lg:mb-0 lg:mr-8"
               >

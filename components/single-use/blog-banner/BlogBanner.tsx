@@ -1,5 +1,5 @@
 import React from 'react';
-import KunalChandraDasImage from '@/public/images/banner-images/Banner-Image.jpg';
+import KunalChandraDasImage from '@/public/images/kunal-chandra-das/Banner-Image.webp';
 import Image from 'next/image';
 
 const BlogBanner = () => {

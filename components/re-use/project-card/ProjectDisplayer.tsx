@@ -1,20 +1,40 @@
-import getProjectData from '@/apis/project-fetching/getProjects';
+"use client";
 import { ProjectCard } from "@/components/re-use/project-card/ProjectCard";
+import envConfig from "@/envConfig";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 interface ProjectData {
-  _id: string,
-  projectName: string,
-  projectThumbnail: string,
-  author: string,
-  projectUrl: string,
-  firstView: string,
+  _id: string;
+  projectName: string;
+  projectThumbnail: string;
+  author: string;
+  projectUrl: string;
+  firstView: string;
 }
 
-const ProjectDisplayer = async () => {
-  const projectData: ProjectData[] = await getProjectData();
-
+const ProjectDisplayer: React.FC = () => {
+  const [projectData, setProjectData] = useState<ProjectData[]>([]);
+  useEffect(() => {
+    const getProject = async () => {
+      try {
+        const projectDataRes: any = await axios.get(
+          envConfig.allProjectsApiUrl
+        );
+        setProjectData(projectDataRes.data);
+      } catch (error) {
+        console.log(`Error To Fetch..  Resion:${error}`);
+      }
+    };
+    getProject();
+  }, []);
+  
   return (
-    <main className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+    <section>
+      {
+        projectData.length === 0 ? <h2 className="text-orange-500 text-center text-xl font-bold">Currently projects are unavailable!!</h2> :
+      
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {projectData.slice(0, 3).map((projectDetails) => (
         <ProjectCard
           key={projectDetails._id}
@@ -25,8 +45,10 @@ const ProjectDisplayer = async () => {
           projectImage={projectDetails.firstView}
         />
       ))}
-    </main>
-  );
+    </div>
 }
+    </section>
+  );
+};
 
 export default ProjectDisplayer;

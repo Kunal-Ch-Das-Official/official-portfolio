@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import pageLogo from "@/public/images/banner-images/Potfolio-logo.png";
+import pageLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 import { usePathname } from "next/navigation";
 import SideNav from "./SideNav";
 import { MdSegment } from "react-icons/md";
@@ -122,9 +122,10 @@ const PageHeader: React.FC = () => {
             {/* Nav item for large device  */}
             <ul className={"md:flex space-x-12 mr-16 hidden"}>
               {navItems.map(({ link, path }) => (
+                <li key={path}>
                 <Link
+                key={path}
                   prefetch={true}
-                  key={path}
                   href={path}
                   className={`block text-sm align-center
                                text-white uppercase cursor-pointer
@@ -134,21 +135,22 @@ const PageHeader: React.FC = () => {
                 >
                   {link}
                 </Link>
+                </li>
               ))}
             </ul>
 
             {/* Github and linkdin button  */}
             <div className="inline-flex items-center">
-              <a href='https://github.com/Kunal-Ch-Das-Official' target="_blank">
+              <a href='https://github.com/Kunal-Ch-Das-Official' aria-label="github" rel="noopener" target="_blank">
                 <FaGithub className="text-2xl flex items-center mr-5 text-gray-400 hover:text-white"/>
               </a>
-              <a href='#'>
+              <a href='#' rel="noopener" aria-label="linkdin">
                 <FaLinkedin className="text-2xl flex items-center text-gray-400 hover:text-white"/>
               </a>
             </div>
             {/* Menu close button for mobile device  */}
             <div className={"md:hidden"}>
-              <button onClick={toggleMenu} className={"focus:outline-none"}>
+              <button aria-label="Open navigation menu" onClick={toggleMenu} className={"focus:outline-none"}>
                 {isMenuOpen ? (
                   ""
                 ) : (

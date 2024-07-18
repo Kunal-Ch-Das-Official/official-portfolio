@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import './ProjectBanner.css';
 import Image from 'next/image';
-import BannerImage from '@/public/images/project-banner-img.webp';
+import BannerImage from '@/public/images/project/project-banner-img.webp';
 const ProjectBanner: React.FC = () => {
   
   useEffect(() => {

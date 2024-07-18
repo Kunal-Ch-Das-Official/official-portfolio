@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import notFoundImg from "@/public/images/page-not-found-illustration.png";
+import notFoundImg from "@/public/images/error-notfound/page-not-found-illustration.webp";
 import { TiHome } from "react-icons/ti";
 import Link from "next/link";
 

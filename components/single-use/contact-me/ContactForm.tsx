@@ -146,7 +146,7 @@ const ContactForm = () => {
                   </div>
 
                   <div className="app-form-group buttons">
-                    <button type="submit" className="app-form-button">
+                    <button aria-label="Submit contact-form" type="submit" className="app-form-button">
                       SEND
                     </button>
                   </div>

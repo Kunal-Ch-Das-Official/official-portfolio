@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import profilePicture from "@/public/images/banner-images/Banner-Image.jpg";
+import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
 import TypeWriter from "@/utils/type-writter/TypeWritter";
 import { MdDownload } from "react-icons/md";
 import Link from "next/link";
@@ -52,6 +52,8 @@ const LandingBanner: React.FC = () => {
             alt="Kunal-Chandra-Das-Photo"
             height={430}
             width={430}
+            priority
+            loading="eager"
             src={profilePicture}
           />
         </div>

@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import Image from "next/image";
-import footerLogo from "@/public/images/banner-images/Potfolio-logo.png";
+import footerLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 
 const PageFooter: React.FC = () => {
   return (
@@ -34,19 +34,19 @@ const PageFooter: React.FC = () => {
         </aside>
         <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a href="https://github.com/Kunal-Ch-Das-Official" target="_blank" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="https://github.com/Kunal-Ch-Das-Official" target="_blank" aria-label="github" rel="noopener" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaGithub className="text-xl hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="#" rel="noopener" aria-label="linkdin" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaLinkedin className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="#" rel="noopener" aria-label="twitter" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaTwitter className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a href="tel: +919874353723" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="tel: +919874353723" rel="noopener" aria-label="whatsapp" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <IoLogoWhatsapp className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
-          <a href="mailto:kunalchandradasofficial@gmail.com" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
+          <a href="mailto:kunalchandradasofficial@gmail.com" aria-label="gmail" rel="noopener" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <MdEmail className="text-xl text-white hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />
           </a>
         </div>

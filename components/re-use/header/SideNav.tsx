@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import brandLogo from "@/public/images/banner-images/Potfolio-logo.png";
+import brandLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 import { usePathname } from "next/navigation";
 import { BsExclamationOctagonFill } from "react-icons/bs";
 import { IoCloseCircleOutline } from "react-icons/io5";
@@ -19,7 +19,7 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
   return (
     <nav className="blurBackground shadow-2xl h-screen fixed top-0 left-0 min-w-[320px] py-6 px-4 overflow-auto">
       <div className="mt-0">
-        <button
+        <button aria-label="Close navigarion menu"
           className="float-right mt-2 hover:transition-transform hover:scale-110 hover:rounded-full"
           onClick={closeMenu}
         >

@@ -2,7 +2,7 @@
 import React from "react";
 import { Card } from "@/components/user-interface/cards-ui/CardsUi";
 import Image from "next/image";
-import alternativeImage from "@/public/icons/error-page-icon.png";
+import alternativeImage from "@/public/images/error-notfound/error-page-icon.webp";
 
 export function ProjectCard({
   projectThumbnail,
@@ -19,7 +19,7 @@ export function ProjectCard({
 }) {
   return (
     <div className="h-[28rem] w-full flex items-center justify-center ">
-      <a href={`https://${previewLink}`} target={"_blank"}>
+      <a rel="noopener" href={`https://${previewLink}`} target={"_blank"}>
         <Card title={projectName}>
           <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[28rem] ">
            <div className="inline-flex items-center">

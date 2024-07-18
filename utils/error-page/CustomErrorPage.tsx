@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import errorIcon from '@/public/icons/error-page-icon.png';
+import errorIcon from '@/public/images/error-notfound/error-page-icon.webp';
 const CustomErrorPage = () => {
   return (
     <div>
