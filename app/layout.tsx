@@ -17,8 +17,7 @@ export const metadata: Metadata = {
   keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, ",
   icons: {
     icon: ['/favicon_io/favicon.ico?v=4'],
-    // apple: ['/favicon_io/apple-touch-icon.png?v=4'],
-    // shortcut: ['apple-touch-icon.png']
+  
   }
 };
 
