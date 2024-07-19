@@ -26,6 +26,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<LoginForm />} />
+          <Route path="*" element={<LoginForm />} />
           <Route
             path="/dashboard"
             element={

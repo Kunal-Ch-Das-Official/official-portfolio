@@ -9,7 +9,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdMarkEmailUnread } from "react-icons/md";
-import profilePic from '../../../assets/Kunal-Chandra Das-profile-image.jpg';
+import profilePic from '../../../assets/favicon.webp';
 
 const SideBar = () => {
 
