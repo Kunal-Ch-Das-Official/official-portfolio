@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; 
 import PageHeader from "@/components/re-use/header/PageHeader";
-import PageFooter from "@/components/re-use/footer/PageFooter";
+// import PageFooter from "@/components/re-use/footer/PageFooter";
+import dynamic from "next/dynamic";
+const PageFooter = dynamic(() => import("@/components/re-use/footer/PageFooter"),
+{
+  loading: () => <p>Loading ...</p>
+})
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +19,11 @@ export const metadata: Metadata = {
   icons: {
     icon: ['/favicon_io/favicon.ico?v=4'],
     apple: ['/favicon_io/apple-touch-icon.png?v=4'],
-    shortcut: ['apple-touch-icon.png']
+    // shortcut: ['apple-touch-icon.png']
   }
 };
 
-export default function RootLayout({
+export default  function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

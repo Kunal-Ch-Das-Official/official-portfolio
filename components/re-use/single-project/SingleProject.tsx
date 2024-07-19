@@ -96,7 +96,6 @@ const SingleProject: React.FC<SingleProjectProps> = ({
       icon: <SiMongodb className="text-4xl text-green-500" />,
     },
   ];
-  //   const detailsList = [detail1, detail2, detail3, detail4, detail5, detail6];
 
   return (
     <main className="py-36 blurBackgroundItem">

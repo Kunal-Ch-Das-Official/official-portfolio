@@ -1,12 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import pageLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 import { usePathname } from "next/navigation";
-import SideNav from "./SideNav";
+// import SideNav from "./SideNav";
+const SideNav = dynamic(() => import('./SideNav'), {
+  loading: () => <p>Loading ...</p>
+});
 import { MdSegment } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
+
 
 interface NavItem {
   link: string;
@@ -112,6 +117,7 @@ const PageHeader: React.FC = () => {
                 alt="Kunal Chandra Das"
                 height={200}
                 width={200}
+                quality={60}
                 className={"inline-block rounded-full mt-2"}
                 loading="eager"
                 priority={true}
@@ -125,8 +131,8 @@ const PageHeader: React.FC = () => {
                 <li key={path}>
                 <Link
                 key={path}
-                  prefetch={true}
                   href={path}
+                  prefetch={false}
                   className={`block text-sm align-center
                                text-white uppercase cursor-pointer
                                hover:text-orange-300 font-bold ${

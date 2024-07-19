@@ -1,12 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SendReview from "../reviews/SendReview";
 import axios from "axios";
 import envConfig from "@/envConfig";
 import SwiperCard from "@/components/re-use/swiper-card/SwiperCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdRateReview } from "react-icons/md";
+import dynamic from "next/dynamic";
+const SendReview = dynamic(() => import("../reviews/SendReview"),
+{
+  loading: () => <p>Loading...</p>,
+});
+
+
 
 interface ReviewDataProps {
   _id: string;

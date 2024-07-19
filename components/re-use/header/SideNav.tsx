@@ -44,7 +44,6 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
        
           <li>
             <Link
-              prefetch={true}
               className={`text-white hover:text-orange-500 text-sm font-bold flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all ${
                 pathname === "/projects" ? "activeLink" : ""
               }`}
@@ -68,7 +67,7 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
           </li>
           <li>
             <Link
-              prefetch={true}
+              prefetch={false}
               className={`text-white hover:text-orange-500 text-sm font-bold flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all ${
                 pathname === "/hire" ? "activeLink" : ""
               }`}

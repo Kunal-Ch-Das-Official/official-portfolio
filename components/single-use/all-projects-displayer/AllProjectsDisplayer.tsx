@@ -13,8 +13,12 @@ interface AllProjectData {
     firstView: string,
     githubLink: string
   }
+  interface ProjectDisplayerProps {
+    sliceFrom: number | undefined,
+    sliceTo: number | undefined
+  }
 
-const AllProjectsDisplayer:React.FC = () => {
+const AllProjectsDisplayer:React.FC<ProjectDisplayerProps> = ({sliceFrom, sliceTo}) => {
     const [projectData, setProjectData] = useState<AllProjectData[]>([]);
     useEffect(() => {
     const getProjects = async () => {
@@ -32,7 +36,7 @@ const AllProjectsDisplayer:React.FC = () => {
     <section>
       {projectData.length === 0 ? <h2 className="text-orange-500 text-center text-xl font-bold">Currently projects are unavailable!!</h2> :
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2'>
-        {projectData.map((project) =>(
+        {projectData.slice(sliceFrom, sliceTo).map((project) =>(
          <AllProjectCard 
          key={project._id}
          projectName={project.projectName}

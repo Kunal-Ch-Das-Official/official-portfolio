@@ -1,9 +1,15 @@
 import Image from "next/image";
 import React from "react";
 import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
-import TypeWriter from "@/utils/type-writter/TypeWritter";
+// import TypeWriter from "@/utils/type-writter/TypeWritter";
+import dynamic from "next/dynamic";
+const TypeWriter = dynamic(() => import('@/utils/type-writter/TypeWritter'),
+{
+  loading: () => <p>Loading...</p>
+})
 import { MdDownload } from "react-icons/md";
 import Link from "next/link";
+
 
 const LandingBanner: React.FC = () => {
   const texts: string[] = [
@@ -37,6 +43,7 @@ const LandingBanner: React.FC = () => {
 
           <div className="flex justify-center lg:justify-normal mt-8">
             <Link
+            prefetch={false}
               href={"/about/#getResume"}
               className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
             >
@@ -46,13 +53,14 @@ const LandingBanner: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/2 md:w-1/2 w-5/6 flex justify-center lg:justify-end order-first lg:order-none mb-28 lg:mb-0 mt-8">
+        <div className="lg:w-1/2 md:w-1/2 w-5/6 flex justify-center lg:justify-end mb-28 lg:mb-0 mt-8">
           <Image
-            className="object-cover object-center bgStyle"
+            className="object-cover object-center rounded-full shadow-custom-glow"
             alt="Kunal-Chandra-Das-Photo"
             height={430}
             width={430}
             priority
+            quality={95}
             loading="eager"
             src={profilePicture}
           />

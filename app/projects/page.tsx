@@ -25,7 +25,7 @@ const Projects = () => {
         subHeading="Discover the full range of my work, from web development to design, showcasing my dedication to quality and creativity."
       />
       </div>
-      <AllProjectsDisplayer />
+      <AllProjectsDisplayer sliceFrom={undefined} sliceTo={undefined}/>
     </main>
   );
 };

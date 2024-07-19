@@ -54,6 +54,8 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
             <div className="border border-white hover:border-orange-500 lg:p-6 p-4 rounded-xl">
               <div className="flex items-center">
                 <Image
+                loading="lazy"
+                quality={50}
                   src={info.gender == 'male'? maleAvatar : info.gender == "female" ? femaleAvatar : transGenderAvatar}
                   className="w-14 h-14 rounded-full shadow-xl border-2 border-white hover:border-orange-400"
                   alt={`${info.userName}'s profile`}
