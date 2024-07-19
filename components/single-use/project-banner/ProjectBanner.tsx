@@ -61,7 +61,7 @@ const ProjectBanner: React.FC = () => {
  
     <div className="heroAnimation mx-auto lg:ml-24 flex flex-col justify-center flex-wrap">
       <div>
-        <Image src={BannerImage} alt="Banner Image" width={500} height={200}/>
+        <Image src={BannerImage} priority loading='eager' quality={75} alt="Banner Image" width={500} height={200}/>
       </div>
     </div>
     </div>

@@ -38,7 +38,7 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
               width={150}
               className={"inline-block mt-2"}
               loading="eager"
-              priority={true}
+              priority
             />
           </Link>
        

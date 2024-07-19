@@ -19,7 +19,7 @@ const BlogBanner = () => {
 
         <div className="bg-gradient-to-tr from-orange-400 to-orange-600 rounded-tl-full rounded-bl-full w-full h-max">
           <div className="p-2">
-            <Image src={KunalChandraDasImage} className="h-64 w-64 rounded-full object-cover border-4 border-white" alt="Kunal Chandra Das" />
+            <Image src={KunalChandraDasImage} priority quality={75} loading='eager' className="h-64 w-64 rounded-full object-cover border-4 border-white" alt="Kunal Chandra Das" />
           </div>
         </div>
       </div>

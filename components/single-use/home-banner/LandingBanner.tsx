@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
-// import TypeWriter from "@/utils/type-writter/TypeWritter";
 import dynamic from "next/dynamic";
 const TypeWriter = dynamic(() => import('@/utils/type-writter/TypeWritter'),
 {
@@ -21,7 +20,7 @@ const LandingBanner: React.FC = () => {
   ];
 
   return (
-    <section className="text-gray-100 body-font pt-16 mb-10 lg:mb-10">
+    <section className="text-gray-100 body-font pt-24 mb-10 lg:mb-10">
       <div className="container mx-auto flex px-5 py-24 lg:flex-row md:flex-col flex-col justify-between items-center w-full">
         <div className=" text-center lg:text-left lg:w-1/2 md:w-1/2 w-5/6 mt-10">
           <h1 className=" sm:text-4xl text-3xl mb-4 font-bold text-white">
@@ -53,14 +52,14 @@ const LandingBanner: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/2 md:w-1/2 w-5/6 flex justify-center lg:justify-end mb-28 lg:mb-0 mt-8">
+        <div className="lg:w-1/2 md:w-1/2 w-5/6 flex justify-center lg:justify-end mb-28 lg:mb-0 mt-12 lg:mt-8">
           <Image
             className="object-cover object-center rounded-full shadow-custom-glow"
             alt="Kunal-Chandra-Das-Photo"
             height={430}
             width={430}
             priority
-            quality={95}
+            quality={75}
             loading="eager"
             src={profilePicture}
           />

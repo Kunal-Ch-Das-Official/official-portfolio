@@ -61,9 +61,9 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
                   alt={`${info.userName}'s profile`}
                 />
                 <div className="ml-4">
-                  <h6 className="text-white text-sm font-extrabold">
+                  <h5 className="text-white text-sm font-extrabold">
                     {info.userName}
-                  </h6>
+                  </h5>
                   <p className="text-xs text-orange-400 font-semibold mt-1">
                     {info.organization}
                   </p>

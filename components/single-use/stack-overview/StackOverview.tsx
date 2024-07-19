@@ -14,10 +14,10 @@ const StackOverview:React.FC = () => {
               <SiMongodb className="text-5xl text-green-600" />
             </span>
           </div>
-          <h4 className="mb-3 font-bold text-primary text-center">Mongo DB</h4>
-          <h5 className="mb-0 font-normal dark:text-neutral-50 text-center">
+          <h3 className="mb-3 font-bold text-primary text-center">Mongo DB</h3>
+          <h4 className="mb-0 font-normal dark:text-neutral-50 text-center">
             60%
-          </h5>
+          </h4>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -26,12 +26,12 @@ const StackOverview:React.FC = () => {
               <SiExpress className="text-5xl text-black bg-white px-2 rounded-full" />
             </span>
           </div>
-          <h4 className="mb-3 font-bold text-primary text-center">
+          <h3 className="mb-3 font-bold text-primary text-center">
             Express JS
-          </h4>
-          <h5 className="mb-0 font-normal dark:text-neutral-50 text-center">
+          </h3>
+          <h4 className="mb-0 font-normal dark:text-neutral-50 text-center">
             70%
-          </h5>
+          </h4>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -40,10 +40,10 @@ const StackOverview:React.FC = () => {
               <RiReactjsLine className="text-5xl text-blue-400" />
             </span>
           </div>
-          <h4 className="mb-3 font-bold text-primary text-center">React Js</h4>
-          <h5 className="mb-0 font-normal dark:text-neutral-50 text-center">
+          <h3 className="mb-3 font-bold text-primary text-center">React Js</h3>
+          <h4 className="mb-0 font-normal dark:text-neutral-50 text-center">
             95%
-          </h5>
+          </h4>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400 lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -52,10 +52,10 @@ const StackOverview:React.FC = () => {
               <RiNodejsLine className="text-5xl text-green-600 " />
             </span>
           </div>
-          <h4 className="mb-3 font-bold text-primary text-center">Node JS</h4>
-          <h5 className="mb-0 font-normal dark:text-neutral-50 text-center">
+          <h3 className="mb-3 font-bold text-primary text-center">Node JS</h3>
+          <h4 className="mb-0 font-normal dark:text-neutral-50 text-center">
             80%
-          </h5>
+          </h4>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css"; 
 import PageHeader from "@/components/re-use/header/PageHeader";
-// import PageFooter from "@/components/re-use/footer/PageFooter";
 import dynamic from "next/dynamic";
 const PageFooter = dynamic(() => import("@/components/re-use/footer/PageFooter"),
 {
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
   keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, ",
   icons: {
     icon: ['/favicon_io/favicon.ico?v=4'],
-    apple: ['/favicon_io/apple-touch-icon.png?v=4'],
+    // apple: ['/favicon_io/apple-touch-icon.png?v=4'],
     // shortcut: ['apple-touch-icon.png']
   }
 };

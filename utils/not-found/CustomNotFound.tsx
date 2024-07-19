@@ -5,12 +5,6 @@ import { TiHome } from "react-icons/ti";
 import Link from "next/link";
 
 const CustomNotFound: React.FC = () => {
-  const texts: string[] = [
-    "Welcome To My Portfolio",
-    "I'm a Next.js Developer",
-    "Using Tailwind CSS",
-    "Enjoy Your Stay!",
-  ];
 
   return (
     <section className="text-gray-100 body-font pt-16 mb-10 lg:mb-10">

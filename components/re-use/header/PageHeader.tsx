@@ -120,7 +120,7 @@ const PageHeader: React.FC = () => {
                 quality={60}
                 className={"inline-block rounded-full mt-2"}
                 loading="eager"
-                priority={true}
+                priority
               />
             </Link>
             <span className="bottomTooltipText mt-3 cursor-pointer">Home</span>
