@@ -32,7 +32,7 @@ const PageFooter: React.FC = () => {
             width={200}
           />
         </aside>
-        <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
+        <p className="text-sm text-orange-500">Copyright © ${new Date().getFullYear()} - All right reserved</p>
         <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a href="https://github.com/Kunal-Ch-Das-Official" target="_blank" aria-label="github" rel="noopener" className="ring-1 ring-orange-500 rounded-full px-2 py-2">
             <FaGithub className="text-xl hover:text-orange-500 cursor-pointer hover:transition-transform hover:scale-110" />

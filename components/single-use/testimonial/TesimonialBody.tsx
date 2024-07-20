@@ -71,7 +71,7 @@ const TesimonialBody: React.FC = () => {
               onClick={handleOpenSubmitOption}
               className={`relative ${
                 openReviewPostOption ? "hidden" : "flex"
-              } w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex
+              } w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-black rounded-lg inline-flex
               h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50`}
             >
               <span className="relative z-10 mr-2">Post Review</span>

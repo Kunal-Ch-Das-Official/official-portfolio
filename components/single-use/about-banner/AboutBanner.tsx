@@ -31,7 +31,7 @@ const AboutBanner = () => {
               <a
                 rel="noopener"
                 href="#getResume"
-                className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex mb-4 lg:mb-0 lg:mr-8 h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50" 
+                className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mb-4 lg:mb-0 lg:mr-8 h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50" 
               >
                 <span className="relative z-0 ml-4">Download Resume</span>
                 <MdOutlineSimCardDownload className="text-2xl font-bold mx-4 relative z-0" />
@@ -39,7 +39,7 @@ const AboutBanner = () => {
 
               <Link
                 href={"/hire"}
-                className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex
+                className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-black rounded-lg inline-flex
                 h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50"
               >
                 <span className="relative z-0 ml-4">Send Proposal</span>
@@ -55,7 +55,7 @@ const AboutBanner = () => {
           height={430}
           width={430}
           priority
-          quality={75}
+          quality={60}
           loading="eager"
           src={BannerIllustration}
         />

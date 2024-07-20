@@ -5,17 +5,18 @@ import SkillsMarquee from '@/components/single-use/skills-marquee/SkillsMarquee'
 import React from 'react';
 
 
-interface ProjectOverviewMetaData{
+interface AboutMetaData{
   title: string,
   description: string,
   keywords: string
 }
 
 
-export const metadata: ProjectOverviewMetaData = {
+export const metadata: AboutMetaData = {
   title: "About Me",
-  description: "Kunal Chandra Das Official Portfolio",
-  keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, "
+  description: "Kunal Chandra Das Magicmind Technology Backoffice employee Linkdin, Facebook, Instagram Twitter, Github",
+  keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, Back office employee, Ignou javascript, react, node js, html, css, bootstrap, tailwind, next js, mongo db mysql kolkata, westbengal, india,",
+
 };
 
 

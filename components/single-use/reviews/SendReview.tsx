@@ -120,7 +120,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
         <div className="container blurBackgroundForm px-5 w-full lg:w-1/2 mx-auto border-2 border-white rounded-lg hover:border-orange-500">
           <RiCloseCircleFill
             onClick={closePostBox}
-            className="text-black text-4xl bg-white float-end mt-6 rounded-full hover:transition-transform hover:scale-110 hover:bg-red-500 hover:text-white"
+            className="text-black text-4xl bg-white float-end mt-6 rounded-full hover:transition-transform hover:scale-110 hover:bg-orange-500 hover:text-black"
           />
           <div className="py-10">
             <div className="flex flex-col text-center w-full mb-12">
@@ -252,7 +252,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                   <div className="flex justify-center">
                     <button aria-label="Review submit"
                       type="submit"
-                      className="relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
+                      className="relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex"
                     >
                       <span className="relative z-10">Submit Review</span>
                       <IoIosSend className="text-2xl relative z-10"/> 

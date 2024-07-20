@@ -11,7 +11,18 @@ const AllProjectsDisplayer = dynamic(() => import("@/components/single-use/all-p
 });
 
 
+interface MetaData{
+  title: string,
+  description: string,
+  keywords: string
+}
 
+
+export const metadata: MetaData = {
+  title: "Kunal Chandra Das",
+  description: "Kunal Chandra Das Magicmind Technology, Kolkata Backoffice employee, Linkdin, Facebook, Instagram Twitter, Github",
+  keywords: "Web-Developer, MERN-Stack Developer, System Designer, Magicmind Technology, Kolkata, UX-UI Designer, Back office employee, Ignou javascript, react, node js, html, css, bootstrap, tailwind, next js, mongo db mysql kolkata, westbengal, india,"
+};
 
 
 const Home = () => {

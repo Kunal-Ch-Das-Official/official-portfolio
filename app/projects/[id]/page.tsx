@@ -12,10 +12,10 @@ interface ProjectOverviewMetaData{
  
 
   export const metadata: ProjectOverviewMetaData = {
-    title: "Project Overview",
-    description: "Kunal Chandra Das Official Portfolio",
-    keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, "
-  };
+    title: "All Projects",
+    description: "Kunal Chandra Das Magicmind Technology Backoffice employee Kolkata, Linkdin, Facebook, Instagram Twitter, Github",
+    keywords: "Expert Web-Developer, Magicmind Technology , Senior MERN-Stack Developer, System Designer, UX-UI Designer, Back office employee, Ignou javascript, react, node js, html, css, bootstrap, tailwind, next js, mongo db mysql kolkata, westbengal, india,"
+  }; 
 
 interface SingleProjectData {
     _id: string,

@@ -21,10 +21,7 @@ const LandingBanner: React.FC = () => {
   return (
     <section className="text-gray-100 body-font pt-24 mb-10 lg:mb-10">
       <div className="container mx-auto flex px-5 py-24 lg:flex-row md:flex-col flex-col justify-between items-center w-full">
-        
         <div className=" text-center lg:text-left lg:w-1/2 md:w-3/4 w-full mt-10">
-
-
           <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4 font-bold text-white">
             <span className="text-orange-700 mb-2">Kunal </span>
             <span className="text-orange-500 mb-2"> Chandra </span>
@@ -49,12 +46,7 @@ const LandingBanner: React.FC = () => {
             <Link
               prefetch={false}
               href={"/about/#getResume"}
-              className="relative 2xl:flex xl:flex lg:flex
-
-               h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50
-
-               
-                items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-transparent hover:bg-orange-500 hover:text-gray-100 hover:shadow-orange-600 rounded-lg inline-flex"
+              className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mb-4 lg:mb-0 lg:mr-8 h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50" 
             >
               <span className="relative z-0 ml-4">Download Resume</span>
               <MdDownload className="text-2xl font-bold mx-4 relative z-0" />

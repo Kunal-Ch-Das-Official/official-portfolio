@@ -12,9 +12,15 @@ const PageFooter = dynamic(() => import("@/components/re-use/footer/PageFooter")
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.kunalchandradas.tech'),
+  keywords: "Web-Developer, Magicmind Technology MERN-Stack Developer, System Designer, UX-UI Designer, Back office employee, Ignou javascript, react, node js, html, css, bootstrap, tailwind, next js, mongo db mysql kolkata, westbengal, india,",
   title: "Kunal Chandra Das",
-  description: "Kunal Chandra Das Official Portfolio",
-  keywords: "Web-Developer, MERN-Stack Developer, System Designer, UX-UI Designer, ",
+
+  openGraph:{
+    description: "Kunal Chandra Das, Expert Web Developer, Senior Developer, Magicmind Technology Kolkata, Backoffice employee, Linkdin, Facebook, Instagram Twitter, Github",
+    images: ['/favicon_io/favicon.ico?v=4']
+  },
+  
   icons: {
     icon: ['/favicon_io/favicon.ico?v=4'],
   
