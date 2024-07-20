@@ -7,12 +7,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdRateReview } from "react-icons/md";
 import dynamic from "next/dynamic";
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 const SendReview = dynamic(() => import("../reviews/SendReview"),
 {
-  loading: () => <p>Loading...</p>,
+  loading: () => <ComponentSpinner />
 });
-
-
 
 interface ReviewDataProps {
   _id: string;

@@ -2,13 +2,12 @@ import Image from "next/image";
 import React from "react";
 import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
 import dynamic from "next/dynamic";
-const TypeWriter = dynamic(() => import('@/utils/type-writter/TypeWritter'),
-{
-  loading: () => <p>Loading...</p>
-})
 import { MdDownload } from "react-icons/md";
 import Link from "next/link";
-
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
+const TypeWriter = dynamic(() => import("@/utils/type-writter/TypeWritter"), {
+  loading: () => <ComponentSpinner />,
+});
 
 const LandingBanner: React.FC = () => {
   const texts: string[] = [
@@ -16,7 +15,7 @@ const LandingBanner: React.FC = () => {
     "I'm a Mern Stack Developer",
     "I'm a Web Designer",
     "I'm A Tech Enthusiast",
-    "Enjoy Your Stay"
+    "Enjoy Your Stay",
   ];
 
   return (
@@ -37,12 +36,15 @@ const LandingBanner: React.FC = () => {
             </span>
           </h2>
           <p className="flex flex-col lg:w-3/4 w-full">
-          I help business owners and busy web developers to design & develop creative websites that fits their vision and attracts the visitors to stay for ever. Technologies and tools that I use to create such awesome websites.
+            I help business owners and busy web developers to design & develop
+            creative websites that fits their vision and attracts the visitors
+            to stay for ever. Technologies and tools that I use to create such
+            awesome websites.
           </p>
 
           <div className="flex justify-center lg:justify-normal mt-8">
             <Link
-            prefetch={false}
+              prefetch={false}
               href={"/about/#getResume"}
               className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
             >

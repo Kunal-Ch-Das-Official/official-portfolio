@@ -3,11 +3,11 @@ import LandingBanner from "@/components/single-use/home-banner/LandingBanner";
 import SectionHeading from "@/components/re-use/section-heading/SectionHeading";
 import StackOverview from "@/components/single-use/stack-overview/StackOverview";
 import TesimonialBody from "@/components/single-use/testimonial/TesimonialBody";
-// import AllProjectsDisplayer from "@/components/single-use/all-projects-displayer/AllProjectsDisplayer";
 import dynamic from "next/dynamic";
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 const AllProjectsDisplayer = dynamic(() => import("@/components/single-use/all-projects-displayer/AllProjectsDisplayer"),
 {
-  loading: () => <p>Loading ... </p>
+  loading: () => <ComponentSpinner />
 });
 
 

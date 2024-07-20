@@ -20,9 +20,9 @@ const CustomAlert: React.FC<CustomAlertProps> = ({
 }) => {
   return (
     <div
-    className={`blurBackground overflow-hidden ${showOrHide} fixed inset-0 p-4 flex-col justify-center items-center w-full h-full  before:fixed before:inset-0 before:w-full before:h-full before:bg-white overflow-auto`}
+    className={`blurBackground  ${showOrHide} fixed top-0 left-0 right-0 inset-0 p-4 flex-col justify-center items-center w-full h-full  before:fixed before:inset-0 before:w-full before:h-full before:bg-white overflow-auto z-[1000]`}
     >
-      <div className="flex flex-col border-2 border-white p-4 rounded-lg opacity-1 z-[100001]">
+      <div className="flex flex-col border-2 border-white p-4 rounded-lg opacity-1 z-[10000]">
         <div className="w-full max-w-lg bg-gray-800  shadow-lg rounded-lg p-6 relative">
           <div className="my-8 flex flex-col justify-center items-center">
           {statusIcon}

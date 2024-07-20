@@ -1,6 +1,5 @@
 "use client";
 import envConfig from "@/envConfig";
-import CustomAlert from "@/utils/custom-alert/CustomAlert";
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
@@ -8,6 +7,13 @@ import { TiWarning } from "react-icons/ti";
 import { MdDownloadDone } from "react-icons/md";
 import ReviewFormLoadingState from "@/utils/loading-state/form-submission-state/ReviewFormLoadingState";
 import { IoIosSend } from "react-icons/io";
+import dynamic from "next/dynamic";
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
+const CustomAlert = dynamic(() => import("@/utils/custom-alert/CustomAlert"),
+{
+  loading: () => <ComponentSpinner />
+}
+)
 
 
 interface SendReviewProps {
@@ -82,7 +88,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
       setFormStatus(true);
       
     } catch (error) {
-      setIsSubmitSuccessful(true);
+      setIsSubmitSuccessful(false);
       setResMessage({
         heading: "I'm Really Very Sorry!",
         message:
@@ -270,6 +276,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
         message2={resMessage.advice}
         buttonColor={resMessage.alertColor}
       />
+      
     </main>
   );
 };

@@ -113,6 +113,7 @@ const ContactForm = () => {
                       className="app-form-control"
                       placeholder="NAME"
                       onChange={(event) => setUserName(event.target.value)}
+                      required
                     />
                   </div>
 
@@ -123,6 +124,7 @@ const ContactForm = () => {
                       className="app-form-control"
                       placeholder="EMAIL"
                       onChange={(event) => setEmailAdress(event.target.value)}
+                      required
                     />
                   </div>
 
@@ -133,6 +135,7 @@ const ContactForm = () => {
                       className="app-form-control"
                       placeholder="CONTACT NO"
                       onChange={(event) => setContactNumber(event.target.value)}
+                      required
                     />
                   </div>
 
@@ -142,6 +145,7 @@ const ContactForm = () => {
                       className="app-form-control"
                       placeholder="MESSAGE"
                       onChange={(event) => setTextMessage(event.target.value)}
+                      required
                     />
                   </div>
 
