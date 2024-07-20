@@ -8,9 +8,11 @@ import envConfig from "@/envConfig";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import jsPDF from "jspdf";
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 
 const Resume = () => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
+  const [resumeBeingReady, setResumeBeingReady] = useState<boolean>(false);
   const [resumeData, setResumeData] = useState<any>([]);
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const Resume = () => {
   };
 
   const downloadResumeHandler = () => {
+    setResumeBeingReady(true);
     const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
 
     const img = new Image();
@@ -53,6 +56,7 @@ const Resume = () => {
     img.onerror = (err) => {
       console.error("Error loading image", err);
     };
+    setResumeBeingReady(false);
   };
 
   return (
@@ -71,6 +75,8 @@ const Resume = () => {
           and how I can contribute to your team.
         </p>
       </div>
+      {resumeBeingReady === true ? <ComponentSpinner /> :
+      <>
       {previewOpen === true ? (
         <ResumePreview
           resumeResponse={resumeData}
@@ -80,14 +86,16 @@ const Resume = () => {
       ) : (
         <div className="flex flex-col lg:flex-row justify-center items-center my-16">
           <button aria-label="Preview my resume"
-            className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex  mb-4 lg:mb-0 lg:mr-8"
+            className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex  mb-4 lg:mb-0 lg:mr-8
+               h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50"
             onClick={() => setPreviewOpen(true)}
           >
             <span className="relative z-0 ml-4">Preview Resume</span>
             <VscPreview className="text-2xl font-bold mx-4 relative z-0" />
           </button>
 
-          <button aria-label="Download my resume" className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex">
+          <button aria-label="Download my resume" className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex
+             h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50">
             <span className="relative z-0 ml-4" onClick={downloadResumeHandler}>
               Download Resume
             </span>
@@ -95,6 +103,8 @@ const Resume = () => {
           </button>
         </div>
       )}
+      </>
+}
     </section>
   );
 };

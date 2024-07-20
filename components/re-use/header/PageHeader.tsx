@@ -5,10 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import pageLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 import { usePathname } from "next/navigation";
-// import SideNav from "./SideNav";
-const SideNav = dynamic(() => import('./SideNav'), {
-  loading: () => <p>Loading ...</p>
-});
+import SideNav from "./SideNav";
 import { MdSegment } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 
@@ -146,7 +143,7 @@ const PageHeader: React.FC = () => {
             </ul>
 
             {/* Github and linkdin button  */}
-            <div className="inline-flex items-center">
+            <div className="md:inline-flex lg:inline-flex items-center hidden ">
               <a href='https://github.com/Kunal-Ch-Das-Official' aria-label="github" rel="noopener" target="_blank">
                 <FaGithub className="text-2xl flex items-center mr-5 text-gray-400 hover:text-white"/>
               </a>

@@ -24,7 +24,7 @@ export function AboutMeInfo() {
               <h1 className="bg-black text-orange-500 rounded-full text-xl w-full px-8 flex justify-center items-center py-1 mb-2">
                 {item.badgeFor}
               </h1>
-              <h2 className="bg-black text-white rounded-full text-lg w-1/2 flex justify-center items-center py-1 mb-2">
+              <h2 className="bg-black text-white rounded-full text-lg w-full lg:w-1/2 flex justify-center items-center py-1 mb-2">
                 {item.badge}
               </h2>
               <p className={twMerge("text-white", "text-lg mb-2 px-4")}>
