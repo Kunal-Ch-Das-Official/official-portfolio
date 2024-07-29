@@ -13,6 +13,7 @@ const resumeRouter = require("./routes/resumeRouter");
 const multer = require("multer");
 const reviewRouter = require("./routes/reviewRouter");
 const contactFormRouter = require("./routes/contactFormRouter");
+const blogRouter = require("./routes/blogRouter");
 const app = express();
 
 // Middlewere
@@ -40,6 +41,9 @@ app.use("/api/reviews/v1", reviewRouter);
 
 // Contact form route
 app.use("/api/contact/v1", contactFormRouter);
+
+// Blog Route 
+app.use("/api/blogs/v1", blogRouter);
 
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {

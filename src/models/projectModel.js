@@ -64,6 +64,10 @@ const ProjectSchema = new Schema(
       type: String,
       required: true,
     },
+    technologyUsed: {
+      type: [String],
+      required: true,
+    },
     status: {
       type: Boolean,
       default: 1,

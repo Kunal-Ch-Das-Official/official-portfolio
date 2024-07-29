@@ -49,6 +49,7 @@ const uploadProjectHandler = async (req, res) => {
         thirdViewPublicId: allUploadResults[3].public_id,
         projectUrl: req.body.projectUrl,
         githubLink: req.body.githubLink,
+        technologyUsed: req.body.technologyUsed
       });
       
       await toBePost.save();
