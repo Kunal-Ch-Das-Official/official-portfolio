@@ -7,6 +7,11 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 
+
+const arrayLimit = (val) => {
+  return val.length <= 15;
+}
+
 const ProjectSchema = new Schema(
   {
     projectName: {
@@ -66,6 +71,7 @@ const ProjectSchema = new Schema(
     },
     technologyUsed: {
       type: [String],
+      validate: [arrayLimit],
       required: true,
     },
     status: {
