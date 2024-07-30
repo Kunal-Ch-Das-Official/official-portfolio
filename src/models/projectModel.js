@@ -70,7 +70,7 @@ const ProjectSchema = new Schema(
       required: true,
     },
     technologyUsed: {
-      type: [Number],
+      type: [String],
       validate: [arrayLimit],
       required: true,
     },
