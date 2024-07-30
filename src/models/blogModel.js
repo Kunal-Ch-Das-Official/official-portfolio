@@ -27,23 +27,29 @@ const BlogSchema = new Schema(
      type: String,
      required: true,
     },
-    content: {
+    statementOne: {
       type: String,
       required: true,
     },
     commandLineOne: {
       type: String,
     },
+    statementTwo: {
+      type: String,
+    },
     commandLineTwo: {
+      type: String,
+    },
+    statementThree: {
       type: String,
     },
     commandLineThree: {
       type: String,
     },
-    commandLineFour: {
+    statementFour: {
       type: String,
     },
-    commandLineFive: {
+    commandLineFour: {
       type: String,
     },
     status: {

@@ -23,12 +23,14 @@ const editBlogHandler = async (req, res) => {
       authorName: req.body.authorName,
       supportingImg: uploadnewImage.secure_url,
       supportingImgPublicId: uploadnewImage.public_id,
-      content: req.body.content,
+      statementOne: req.body.statementOne,
       commandLineOne: req.body.commandLineOne,
+      statementTwo: req.body.statementTwo,
       commandLineTwo: req.body.commandLineTwo,
+      statementThree: req.body.statementThree,
       commandLineThree: req.body.commandLineThree,
-      commandLineFour: req.body.commandLineFour,
-      commandLineFive: req.body.commandLineFive,
+      statementFour: req.body.statementThree,
+      commandLineFour: req.body.commandLineThree,
     };
 
     const updateBlog = await blogModel.findByIdAndUpdate(
