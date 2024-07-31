@@ -1,12 +1,13 @@
 /* 
  Project Name: Kunal Chandra Das Official Portfolio,
  Author: Kunal Chandra Das,
- Description : this is the project model to access projects in client.
+ Description : Project Schema.
  Date : 20.06.2024 
  */
-const mongoose = require("mongoose");
-const { Schema } = require("mongoose");
 
+
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const arrayLimit = (val) => {
   return val.length <= 15;
@@ -16,67 +17,70 @@ const ProjectSchema = new Schema(
   {
     projectName: {
       type: String,
-      length: 50,
-      required: true,
+      maxlength: 50, // Enforce max length for projectName
+      required: [true, 'Project name is required'],
     },
     author: {
       type: String,
-      length: 20,
-      required: true,
+      maxlength: 20, // Enforce max length for author
+      required: [true, 'Author name is required'],
     },
     description: {
       type: String,
-      length: 1000,
-      required: true,
+      maxlength: 1000, // Enforce max length for description
+      required: [true, 'Project description is required'],
     },
     projectThumbnail: {
       type: String,
-      required: true,
+      required: [true, 'Project thumbnail is required'],
     },
-    projectThumbnailPublicId:{
+    projectThumbnailPublicId: {
       type: String,
-      required: true,
+      required: [true, 'Project thumbnail public ID is required'],
     },
     firstView: {
       type: String,
-      required: true,
+      required: [true, 'First view image is required'],
     },
     firstViewPublicId: {
       type: String,
-      required: true,
+      required: [true, 'First view public ID is required'],
     },
     secondView: {
       type: String,
-      required: true,
+      required: [true, 'Second view image is required'],
     },
     secondViewPublicId: {
       type: String,
-      required: true,
+      required: [true, 'Second view public ID is required'],
     },
     thirdView: {
       type: String,
-      required: true,
+      required: [true, 'Third view image is required'],
     },
     thirdViewPublicId: {
       type: String,
-      required: true,
+      required: [true, 'Third view public ID is required'],
     },
     projectUrl: {
       type: String,
-      required: true,
+      required: [true, 'Project URL is required'],
     },
     githubLink: {
       type: String,
-      required: true,
+      required: [true, 'GitHub link is required'],
     },
     technologyUsed: {
       type: [String],
-      validate: [arrayLimit],
-      required: true,
+      validate: {
+        validator: arrayLimit,
+        message: 'Technology list exceeds the limit of 15'
+      },
+      required: [true, 'Technology used is required'],
     },
     status: {
       type: Boolean,
-      default: 1,
+      default: true, // Set default as boolean
     },
   },
   { timestamps: true }
