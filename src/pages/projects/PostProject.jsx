@@ -5,25 +5,63 @@ import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
 
-
 const PostProject = () => {
-  const [storedProjectName, setProjectName] = useState('');
-  const [storedOwnerName, setOwnerName] = useState('');
-  const [storedProjectUrl, setProjctUrl] = useState('');
-  const [storedGithubRepo, setGithubRepo] = useState('');
+  const [storedProjectName, setProjectName] = useState("");
+  const [storedOwnerName, setOwnerName] = useState("");
+  const [storedProjectUrl, setProjctUrl] = useState("");
+  const [storedGithubRepo, setGithubRepo] = useState("");
   const [storedThumbnailImg, setThumbnailImg] = useState(null);
   const [storedFirstPageImg, setFirstPageImg] = useState(null);
   const [storedSecondPageImg, setSecondPageImg] = useState(null);
   const [storedThirdPageImg, setThirdPageImg] = useState(null);
-  const [storedDescription, setDescription] = useState('');
+  const [storedDescription, setDescription] = useState("");
   const [loadingState, setLoadingState] = useState(false);
   const [customAlert, setCustomAlert] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
+  const [usedTechnology, setUsedTechnology] = useState([]);
   const formRef = useRef();
 
+  const technologyArray = [
+    "html",
+    "ejs",
+    "css",
+    "bootstrap",
+    "tailwind",
+    "react",
+    "angular",
+    "vue",
+    "next",
+    "node",
+    "javascript",
+    "typescript",
+    "java",
+    "python",
+    "php",
+    "ruby",
+    "express",
+    "cloudflare",
+    "django",
+    "flusk",
+    "spring",
+    "laravel",
+    "rails",
+    "mongodb",
+    "mysql",
+    "postgres",
+  ];
 
+  const addTechnology = (technology) => {
+    if (!usedTechnology.includes(technology)) {
+      setUsedTechnology([...usedTechnology, technology]);
+    } else {
+      setUsedTechnology(usedTechnology.filter(item => item !== technology));
+    }
+  };
 
-  const handleOnSubmit = async(event) => {
+  console.log(usedTechnology);
+
+  
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
     setLoadingState(true);
     const formData = new FormData();
@@ -36,17 +74,20 @@ const PostProject = () => {
     formData.append("thirdView", storedThirdPageImg);
     formData.append("projectUrl", storedProjectUrl);
     formData.append("githubLink", storedGithubRepo);
-
+    usedTechnology.forEach((tech) => {
+      formData.append("technologyUsed[]", tech);
+    });
 
     try {
-      await axios.post(envConfig.postProjectApiUrl, formData, {
-        'Content-Type': 'multipart/form-data'
-      })
-      .then(() => {
-        setLoadingState(false);
-        setMessage("Project has been successfully added!");
-        setCustomAlert(true);
-      })
+      await axios
+        .post(envConfig.postProjectApiUrl, formData, {
+          'Content-Type': 'multipart/form-data',
+        })
+        .then(() => {
+          setLoadingState(false);
+          setMessage("Project has been successfully added!");
+          setCustomAlert(true);
+        });
     } catch (error) {
       setLoadingState(false);
       setMessage(`Unable to post your project due to: ${error}`);
@@ -54,14 +95,13 @@ const PostProject = () => {
       console.error("Error uploading file:", error.response || error.message);
     }
     formRef.current.reset();
-
-  }
+    setUsedTechnology([]);
+  };
 
   const handleSuccessCloseEvent = useCallback(() => {
     setCustomAlert(false);
   }, []);
-  
- 
+
   return (
     <div className="w-5/6 float-right">
       {loadingState === true && <LoadingSpiner />}
@@ -89,8 +129,11 @@ const PostProject = () => {
             </p>
           </div>
 
-
-          <form onSubmit={handleOnSubmit} ref={formRef} className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+          <form
+            onSubmit={handleOnSubmit}
+            ref={formRef}
+            className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2"
+          >
             {/* Project name input  */}
             <div>
               <label
@@ -101,7 +144,8 @@ const PostProject = () => {
               </label>
               <input
                 name="projectName"
-                id="projectName" onChange={(event) => setProjectName(event.target.value)}
+                id="projectName"
+                onChange={(event) => setProjectName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Enter Your Project Name Here"
               />
@@ -117,7 +161,8 @@ const PostProject = () => {
               </label>
               <input
                 name="author"
-                id="author" onChange={(event) => setOwnerName(event.target.value)}
+                id="author"
+                onChange={(event) => setOwnerName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Enter Project Owner Name"
               />
@@ -133,7 +178,8 @@ const PostProject = () => {
               </label>
               <input
                 name="projectUrl"
-                id="projectUrl" onChange={(event) => setProjctUrl(event.target.value)}
+                id="projectUrl"
+                onChange={(event) => setProjctUrl(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Provide Us Your Project Host Url"
               />
@@ -149,7 +195,8 @@ const PostProject = () => {
               </label>
               <input
                 name="githubLink"
-                id="githubLink" onChange={(event) => setGithubRepo(event.target.value)}
+                id="githubLink"
+                onChange={(event) => setGithubRepo(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Provide Us Your Github Repository"
               />
@@ -167,7 +214,8 @@ const PostProject = () => {
                 <input
                   type="file"
                   name="projectThumbnail"
-                  id="projectThumbnail" onChange={(event) => setThumbnailImg(event.target.files[0])}
+                  id="projectThumbnail"
+                  onChange={(event) => setThumbnailImg(event.target.files[0])}
                   className="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-blue-100 file:hover:bg-blue-200 file:text-gray-500 rounded"
                 />
                 <p className="text-xs text-gray-400 mt-2">
@@ -188,7 +236,8 @@ const PostProject = () => {
                 <input
                   type="file"
                   name="firstView"
-                  id="firstView" onChange={(event) => setFirstPageImg(event.target.files[0])}
+                  id="firstView"
+                  onChange={(event) => setFirstPageImg(event.target.files[0])}
                   className="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-blue-100 file:hover:bg-blue-200 file:text-gray-500 rounded"
                 />
                 <p className="text-xs text-gray-400 mt-2">
@@ -209,7 +258,8 @@ const PostProject = () => {
                 <input
                   type="file"
                   name="secondView"
-                  id="secondView" onChange={(event) => setSecondPageImg(event.target.files[0])}
+                  id="secondView"
+                  onChange={(event) => setSecondPageImg(event.target.files[0])}
                   className="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-blue-100 file:hover:bg-blue-200 file:text-gray-500 rounded"
                 />
                 <p className="text-xs text-gray-400 mt-2">
@@ -230,13 +280,44 @@ const PostProject = () => {
                 <input
                   type="file"
                   name="thirdView"
-                  id="thirdView" onChange={(event) => setThirdPageImg(event.target.files[0])}
+                  id="thirdView"
+                  onChange={(event) => setThirdPageImg(event.target.files[0])}
                   className="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-blue-100 file:hover:bg-blue-200 file:text-gray-500 rounded"
                 />
                 <p className="text-xs text-gray-400 mt-2">
                   PNG, JPG SVG, WEBP, and GIF are Allowed.
                 </p>
               </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-lg font-bold text-blue-700">
+                Choose Technology
+              </h3>
+              <ul className="bg-blue-50 w-[550px] grid grid-flow-cols grid-cols-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg">
+                {technologyArray.map((technology, index) => (
+                  <li
+                    key={index}
+                    className="w-full "
+                  >
+                    <div className="flex items-center ps-8">
+                      <input
+                        id={technology}
+                        type="checkbox"
+                        value={technology}
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                        onChange={() => addTechnology(technology)}
+                      />
+                      <label
+                        htmlFor={technology}
+                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 "
+                      >
+                        {technology}
+                      </label>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Project description input  */}
@@ -249,15 +330,19 @@ const PostProject = () => {
               </label>
               <textarea
                 name="description"
-                id="description" onChange={(event) => setDescription(event.target.value)}
+                id="description"
+                onChange={(event) => setDescription(event.target.value)}
                 className="h-64 w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Write A Project Description Here"
               ></textarea>
             </div>
 
-             {/* Project submit button  */}
+            {/* Project submit button  */}
             <div className="flex items-center justify-between sm:col-span-2">
-              <button type="submit" className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-blue-800 focus-visible:ring active:bg-indigo-700 md:text-base">
+              <button
+                type="submit"
+                className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-blue-800 focus-visible:ring active:bg-indigo-700 md:text-base"
+              >
                 Post This Project
               </button>
 

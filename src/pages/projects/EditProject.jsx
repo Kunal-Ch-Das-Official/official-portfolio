@@ -16,8 +16,48 @@ const EditProject = () => {
   const [updatedThirdPageImg, setThirdPageImg] = useState("");
   const [updatedDescription, setDescription] = useState("");
   const [loadingState, setLoadingState] = useState(false);
+  const [usedTechnology, setUsedTechnology] = useState([]);
   const formRef = useRef();
   const navigate = useNavigate();
+
+
+  const technologyArray = [
+    "html",
+    "ejs",
+    "css",
+    "bootstrap",
+    "tailwind",
+    "react",
+    "angular",
+    "vue",
+    "next",
+    "node",
+    "javascript",
+    "typescript",
+    "java",
+    "python",
+    "php",
+    "ruby",
+    "express",
+    "cloudflare",
+    "django",
+    "flusk",
+    "spring",
+    "laravel",
+    "rails",
+    "mongodb",
+    "mysql",
+    "postgres",
+  ];
+
+
+  const editTechnology = (technology) => {
+    if (!usedTechnology.includes(technology)) {
+      setUsedTechnology([...usedTechnology, technology]);
+    } else {
+      setUsedTechnology(usedTechnology.filter(item => item !== technology));
+    }
+  };
 
   const handleOnSubmit = async (event) => {
     setLoadingState(true);
@@ -33,6 +73,9 @@ const EditProject = () => {
     updatedFormData.append("thirdView", updatedThirdPageImg);
     updatedFormData.append("projectUrl", updatedProjectUrl);
     updatedFormData.append("githubLink", updatedGithubRepo);
+    usedTechnology.forEach((tech) => {
+      updatedFormData.append("technologyUsed[]", tech);
+    });
 
     try {
       await axios
@@ -48,6 +91,7 @@ const EditProject = () => {
     }
 
     formRef.current.reset();
+    setUsedTechnology([]);
   };
 
   return (
@@ -226,6 +270,37 @@ const EditProject = () => {
                   PNG, JPG SVG, WEBP, and GIF are Allowed.
                 </p>
               </div>
+            </div>
+
+            {/* Technology used section  */}
+            <div>
+              <h3 className="mb-4 text-lg font-bold text-blue-700">
+                Edit Technology
+              </h3>
+              <ul className="bg-blue-50 w-[550px] grid grid-flow-cols grid-cols-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg">
+                {technologyArray.map((technology, index) => (
+                  <li
+                    key={index}
+                    className="w-full "
+                  >
+                    <div className="flex items-center ps-8">
+                      <input
+                        id={technology}
+                        type="checkbox"
+                        value={technology}
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                        onChange={() => editTechnology(technology)}
+                      />
+                      <label
+                        htmlFor={technology}
+                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 "
+                      >
+                        {technology}
+                      </label>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Project description input  */}
