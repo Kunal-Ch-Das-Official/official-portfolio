@@ -19,6 +19,11 @@ import DeleteReview from "./pages/reviews/DeleteReview";
 import SingleReview from "./pages/reviews/SingleReview";
 import ManageEmails from "./pages/emails/ManageEmails";
 import DedicatedEmail from "./pages/emails/DedicatedEmail";
+import ManageBlogs from "./pages/blogs/ManageBlogs";
+import UploadBlogs from "./pages/blogs/UploadBlogs";
+import EditBlogs from "./pages/blogs/EditBlogs";
+import DeleteBlogs from "./pages/blogs/DeleteBlogs";
+import BlogOverView from "./pages/blogs/BlogOverView";
 
 const App = () => {
   return (
@@ -46,6 +51,12 @@ const App = () => {
               <Route path="/dashboard/resume-edit/:id" exact element={<EditResume />} />
               <Route path="/dashboard/resume-delete/:id" exact element={<DeleteResume />} />
 
+
+              <Route path="/dashboard/blog-manage" exact element={<ManageBlogs />} />
+              <Route path="/dashboard/blog-post" exact element={<UploadBlogs />} />
+              <Route path="/dashboard/blog-overview/:id" exact element={<BlogOverView />} />
+              <Route path="/dashboard/blog-edit/:id" exact element={<EditBlogs />} />
+              <Route path="/dashboard/blog-delete/:id" exact element={<DeleteBlogs />} />
 
 
               <Route path="/dashboard/review-manage" exact element={< ManageReviews/>} />

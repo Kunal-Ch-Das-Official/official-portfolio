@@ -24,12 +24,14 @@ const PostProject = () => {
   const technologyArray = [
     "html",
     "ejs",
+    "jsx",
     "css",
     "bootstrap",
     "tailwind",
     "react",
     "angular",
     "vue",
+    "vite",
     "next",
     "node",
     "javascript",
@@ -40,6 +42,7 @@ const PostProject = () => {
     "ruby",
     "express",
     "cloudflare",
+    "prisma",
     "django",
     "flusk",
     "spring",
@@ -58,7 +61,7 @@ const PostProject = () => {
     }
   };
 
-  console.log(usedTechnology);
+ 
 
   
   const handleOnSubmit = async (event) => {
@@ -290,6 +293,7 @@ const PostProject = () => {
               </div>
             </div>
 
+            {/* Technology used section  */}
             <div>
               <h3 className="mb-4 text-lg font-bold text-blue-700">
                 Choose Technology
@@ -298,19 +302,19 @@ const PostProject = () => {
                 {technologyArray.map((technology, index) => (
                   <li
                     key={index}
-                    className="w-full "
+                    className="w-full cursor-pointer"
                   >
-                    <div className="flex items-center ps-8">
+                    <div className="flex items-center ps-8 cursor-pointer">
                       <input
                         id={technology}
                         type="checkbox"
                         value={technology}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer"
                         onChange={() => addTechnology(technology)}
                       />
                       <label
                         htmlFor={technology}
-                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 "
+                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 cursor-pointer"
                       >
                         {technology}
                       </label>

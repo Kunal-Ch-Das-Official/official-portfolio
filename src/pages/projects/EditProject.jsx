@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import envConfig from "../../../envConfig";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 
 const EditProject = () => {
   const { id } = useParams();
+  const [prevProjectData, setPrevProjectData] = useState({});
   const [updatedProjectName, setProjectName] = useState("");
   const [updatedOwnerName, setOwnerName] = useState("");
   const [updatedProjectUrl, setProjctUrl] = useState("");
@@ -20,10 +21,23 @@ const EditProject = () => {
   const formRef = useRef();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const getPrevProject = async () => {
+      try {
+        await axios.get(`${envConfig.getProjectApiUrl}/${id}`).then((res) => {
+          setPrevProjectData(res.data);
+        });
+      } catch (error) {
+        console.log(`Unable to get projects due to:${error}`);
+      }
+    };
+    getPrevProject();
+  }, []);
 
   const technologyArray = [
     "html",
     "ejs",
+    "jsx",
     "css",
     "bootstrap",
     "tailwind",
@@ -31,6 +45,7 @@ const EditProject = () => {
     "angular",
     "vue",
     "next",
+    "vite",
     "node",
     "javascript",
     "typescript",
@@ -40,6 +55,7 @@ const EditProject = () => {
     "ruby",
     "express",
     "cloudflare",
+    "prisma",
     "django",
     "flusk",
     "spring",
@@ -50,12 +66,11 @@ const EditProject = () => {
     "postgres",
   ];
 
-
   const editTechnology = (technology) => {
     if (!usedTechnology.includes(technology)) {
       setUsedTechnology([...usedTechnology, technology]);
     } else {
-      setUsedTechnology(usedTechnology.filter(item => item !== technology));
+      setUsedTechnology(usedTechnology.filter((item) => item !== technology));
     }
   };
 
@@ -80,7 +95,7 @@ const EditProject = () => {
     try {
       await axios
         .patch(`${envConfig.editProjectApiUrl}/${id}`, updatedFormData)
-        .then((res) => {
+        .then(() => {
           setLoadingState(false);
           navigate("/dashboard/project-manage");
         });
@@ -101,7 +116,7 @@ const EditProject = () => {
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
           <div className="mb-10 md:mb-16">
             <h2 className="mb-4 text-center text-2xl font-bold text-blue-600 md:mb-6 lg:text-3xl">
-              Update Your Projects
+              Update Your Existing Projects
             </h2>
 
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
@@ -122,14 +137,14 @@ const EditProject = () => {
                 htmlFor="projectName"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                New Project Name{" "}
+                Change Existing Project Name{" "}
               </label>
               <input
                 name="projectName"
                 id="projectName"
                 onChange={(event) => setProjectName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Enter Your Project Name Here"
+                defaultValue={prevProjectData.projectName}
               />
             </div>
 
@@ -139,14 +154,14 @@ const EditProject = () => {
                 htmlFor="author"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                New Project Owner Name
+                Change Existing Project Owner Name
               </label>
               <input
                 name="author"
                 id="author"
                 onChange={(event) => setOwnerName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Enter Project Owner Name"
+                defaultValue={prevProjectData.author}
               />
             </div>
 
@@ -156,14 +171,14 @@ const EditProject = () => {
                 htmlFor="projectUrl"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                New Project Url
+                Change Existing Project Url
               </label>
               <input
                 name="projectUrl"
                 id="projectUrl"
                 onChange={(event) => setProjctUrl(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Provide Us Your Project Host Url"
+                defaultValue={prevProjectData.projectUrl}
               />
             </div>
 
@@ -173,14 +188,14 @@ const EditProject = () => {
                 htmlFor="githubLink"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                New Github Repository
+                Change Existing Github Repository
               </label>
               <input
                 name="githubLink"
                 id="githubLink"
                 onChange={(event) => setGithubRepo(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Provide Us Your Github Repository"
+                defaultValue={prevProjectData.githubLink}
               />
             </div>
 
@@ -191,7 +206,7 @@ const EditProject = () => {
                   className="text-base text-blue-600 font-semibold mb-2 block"
                   htmlFor="projectThumbnail"
                 >
-                  Upload New Projects Thumbnail View
+                  Change Existing Projects Thumbnail View
                 </label>
                 <input
                   type="file"
@@ -213,7 +228,7 @@ const EditProject = () => {
                   className="text-base text-blue-600 font-semibold mb-2 block"
                   htmlFor="firstView"
                 >
-                  Upload New Projects First Page View
+                  Change Existing Projects First Page View
                 </label>
                 <input
                   type="file"
@@ -235,7 +250,7 @@ const EditProject = () => {
                   className="text-base text-blue-600 font-semibold mb-2 block"
                   htmlFor="secondView"
                 >
-                  Upload New Projects Second Page View
+                  Change Existing Projects Second Page View
                 </label>
                 <input
                   type="file"
@@ -257,7 +272,7 @@ const EditProject = () => {
                   className="text-base text-blue-600 font-semibold mb-2 block"
                   htmlFor="thirdView"
                 >
-                  Upload New Projects Third Page View
+                  Change Existing Projects Third Page View
                 </label>
                 <input
                   type="file"
@@ -275,25 +290,22 @@ const EditProject = () => {
             {/* Technology used section  */}
             <div>
               <h3 className="mb-4 text-lg font-bold text-blue-700">
-                Edit Technology
+              Change Existing Used Technology
               </h3>
               <ul className="bg-blue-50 w-[550px] grid grid-flow-cols grid-cols-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg">
                 {technologyArray.map((technology, index) => (
-                  <li
-                    key={index}
-                    className="w-full "
-                  >
-                    <div className="flex items-center ps-8">
+                  <li key={index} className="w-full cursor-pointer">
+                    <div className="flex items-center ps-8 cursor-pointer">
                       <input
                         id={technology}
                         type="checkbox"
                         value={technology}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded cursor-pointer"
                         onChange={() => editTechnology(technology)}
                       />
                       <label
                         htmlFor={technology}
-                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 "
+                        className="w-full py-3 mr-28 ml-2 text-sm font-medium text-gray-900 cursor-pointer"
                       >
                         {technology}
                       </label>
@@ -309,14 +321,14 @@ const EditProject = () => {
                 htmlFor="description"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                New Project Description
+                Change Existing Project Description
               </label>
               <textarea
                 name="description"
                 id="description"
                 onChange={(event) => setDescription(event.target.value)}
                 className="h-64 w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Write A Project Description Here"
+                defaultValue={prevProjectData.description}
               ></textarea>
             </div>
 

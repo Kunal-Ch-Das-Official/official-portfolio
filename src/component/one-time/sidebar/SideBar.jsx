@@ -9,12 +9,14 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdMarkEmailUnread } from "react-icons/md";
+import { TbLogs } from "react-icons/tb";
 import profilePic from '../../../assets/favicon.webp';
 
 const SideBar = () => {
 
   const [showProjects, setShowProjects] = useState(false);
   const [showResume, setShowResume] = useState(false);
+  const [showBlogs, setShowBlogs] = useState(false);
   
 
   const handleProjectDropdown = useCallback(() => {
@@ -25,6 +27,9 @@ const SideBar = () => {
     setShowResume((showResume) => !showResume);
   }, []);
 
+  const handleBlogsDropdown = useCallback(() => {
+    setShowBlogs((showBlogs) => !showBlogs);
+  }, []);
 
 
 
@@ -117,6 +122,33 @@ const SideBar = () => {
         </ol>
 
 
+
+
+{/* Dashboard/Blog Link  */}
+<ol className='cursor-pointer'>
+          <li onClick={handleBlogsDropdown}>
+          <div className="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+             <TbLogs className="text-2xl mr-3"/>
+            <span>Blogs</span>
+            <IoMdArrowDropdown className='ml-2'/>
+          </div>
+          </li>
+
+
+          <div className={`${showBlogs === true ? 'flex' : 'hidden'} flex-col font-semibold text-sm my-2 text-[#3949ab]
+          shadow-xl py-2 cursor-pointer`}>
+
+          <Link to={'/dashboard/blog-manage'} className='mb-2 inline-flex items-center p-2'>
+            <MdOutlineManageAccounts className="text-2xl mr-3"/>
+            <span>Manage</span>
+          </Link>
+
+          <Link to={'/dashboard/blog-post'} className='mb-2 inline-flex items-center p-2'>
+            <FaCloudUploadAlt className="text-2xl mr-3"/>
+            <span>Post</span>
+          </Link>
+          </div>
+        </ol>
 
 
 

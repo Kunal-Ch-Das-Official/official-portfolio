@@ -9,6 +9,7 @@ const EditReview = () => {
   const { id } = useParams();
   const [newUserName, setNewUserName] = useState('');
   const [newReviewContent, setNewReviewContent] = useState('');
+  const [existingReview, setExistingReview] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,8 +17,9 @@ const EditReview = () => {
     // Fetch existing data for the review
     const fetchReviewData = async () => {
       try {
-        const response = await axios.get(`${envConfig.getReviewApiUrl}/${id}`);
+        const response = await axios.get(`${envConfig.getReviewsApiUrl}/${id}`)
         const review = response.data;
+        setExistingReview(review);
         setNewUserName(review.userName);
         setNewReviewContent(review.reviewContent);
       } catch (error) {
@@ -25,7 +27,7 @@ const EditReview = () => {
       }
     };
     fetchReviewData();
-  }, [id]);
+  }, []);
 
   const handleOnSubmit = async (event) => {
     setLoading(true);
@@ -37,7 +39,7 @@ const EditReview = () => {
     };
 
     try {
-      const response = await axios.patch(`${envConfig.editReviewApiUrl}/${id}`, updatedData, {
+ await axios.patch(`${envConfig.editReviewApiUrl}/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -58,7 +60,7 @@ const EditReview = () => {
         <form onSubmit={handleOnSubmit}>
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="text-base font-semibold leading-7 text-gray-900">Change User Review</h2>
+              <h2 className="text-base font-semibold leading-7 text-gray-900">Change Existing User Review</h2>
               <p className="mt-1 text-sm leading-6 text-gray-600">
                 This information will be displayed publicly so be careful what you share.
               </p>
@@ -69,12 +71,13 @@ const EditReview = () => {
                     htmlFor="username"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Change User Name
+                    Change Existing User Name
                   </label>
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
                         type="text"
+                        defaultValue={existingReview.userName}
                         name="username"
                         id="username"
                         onChange={(event) => setNewUserName(event.target.value)}
@@ -90,11 +93,12 @@ const EditReview = () => {
                     htmlFor="review-content"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Change Review
+                    Change Existing Review
                   </label>
                   <div className="mt-2">
                     <textarea
                       name="review-content"
+                      defaultValue={existingReview.reviewContent}
                       id="review-content"
                       onChange={(event) => setNewReviewContent(event.target.value)}
                       rows="3"
