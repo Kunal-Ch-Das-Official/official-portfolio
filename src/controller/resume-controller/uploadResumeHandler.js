@@ -11,9 +11,6 @@ const resumeModel = require("../../models/resumeModel");
 const cloudConfig = require("../../config/cloudConfig");
 
 const uploadResumeHandler = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   try {
     if (req.file) {
       // File uploaded locally, now upload to Cloudinary

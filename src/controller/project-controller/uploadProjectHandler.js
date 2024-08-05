@@ -10,9 +10,6 @@ const projectModel = require("../../models/projectModel");
 const fs = require("fs");
 
 const uploadProjectHandler = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   const projectPathArray = [
     req.files.projectThumbnail[0].path,
     req.files.firstView[0].path,

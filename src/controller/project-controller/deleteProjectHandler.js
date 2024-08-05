@@ -9,19 +9,15 @@ const cloudConfig = require("../../config/cloudConfig");
 const projectModel = require("../../models/projectModel");
 
 const deleteProjectHandler = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
   try {
     const findProjectById = await projectModel.findById(req.params.id);
     const allPublicId = [
       findProjectById.projectThumbnailPublicId,
       findProjectById.firstViewPublicId,
       findProjectById.secondViewPublicId,
-      findProjectById.thirdViewPublicId
-  ]
-    const currentPublicId = allPublicId.map((id) => id)
+      findProjectById.thirdViewPublicId,
+    ];
+    const currentPublicId = allPublicId.map((id) => id);
     await cloudConfig.api.delete_resources(currentPublicId);
 
     const deleteProject = await projectModel.findByIdAndDelete(req.params.id);
@@ -31,9 +27,7 @@ const deleteProjectHandler = async (req, res) => {
       res.status(200).json({ message: "Project deleted successfully!" });
     }
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Technical error!", details: error.message });
+    res.status(500).json({ error: "Technical error!", details: error.message });
   }
 };
 
