@@ -32,17 +32,22 @@ const Home = () => {
       <LandingBanner />
       <StackOverview />
       <SectionHeading
-        mainHeading="My best projects of all time"
+        darkTitle="Real"
+        semiDarkTitle="World"
+        lightTitle="Projects"
         subHeading="Explore a curated selection of my recent work and innovative projects, demonstrating my skills and expertise in web development and design."
       />
       <AllProjectsDisplayer sliceFrom={0} sliceTo={3}/>
       <div className="mt-28">
         <SectionHeading
-          mainHeading="Hear What My Client Say's"
+          darkTitle="Hear"
+          semiDarkTitle="What My"
+          lightTitle="Client Say's"
           subHeading="Hear what my clients have to say about working with me and the impact of my projects on their businesses."
         />
       </div>
       <TesimonialBody />
+      
     </main>
   );
 };

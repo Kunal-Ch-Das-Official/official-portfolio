@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css"; 
 import PageHeader from "@/components/re-use/header/PageHeader";
 import dynamic from "next/dynamic";
+import { ThemeContextProvider } from "@/utils/theme-context/ThemeContext";
 const PageFooter = dynamic(() => import("@/components/re-use/footer/PageFooter"),
 {
   loading: () => <p>Loading ...</p>
@@ -34,9 +35,12 @@ export default  function RootLayout({
 }>) {
   return (
     <html lang="en">
+    
       <body className={inter.className}>
         <PageHeader />
+        <ThemeContextProvider>
         {children}
+        </ThemeContextProvider>
         <PageFooter />
         </body>
     </html>

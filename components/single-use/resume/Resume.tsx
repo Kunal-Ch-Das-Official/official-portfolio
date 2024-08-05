@@ -8,11 +8,12 @@ import envConfig from "@/envConfig";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import jsPDF from "jspdf";
+import ReviewFormLoadingState from "@/utils/loading-state/form-submission-state/ReviewFormLoadingState";
 import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 
 const Resume = () => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
-  const [resumeBeingReady, setResumeBeingReady] = useState<boolean>(false);
+  const [resumeLoading, setResumeLoading] = useState<boolean>(false);
   const [resumeData, setResumeData] = useState<any>([]);
 
   useEffect(() => {
@@ -33,31 +34,38 @@ const Resume = () => {
   };
 
   const downloadResumeHandler = () => {
-    setResumeBeingReady(true);
-    const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
-
-    const img = new Image();
-    img.crossOrigin = "Anonymous"; // Handle CORS if necessary
-    img.src = imgUrl;
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx: any = canvas.getContext("2d");
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("Kunal-Chandra-Das-Resume.pdf");
-    };
-    img.onerror = (err) => {
-      console.error("Error loading image", err);
-    };
-    setResumeBeingReady(false);
+    try {
+      setResumeLoading(true);
+      const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
+      const img = new Image();
+      img.crossOrigin = "Anonymous"; // Handle CORS if necessary
+      img.src = imgUrl;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx: any = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+  
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF();
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save("Kunal-Chandra-Das-Resume.pdf");
+        setResumeLoading(false);
+      };
+      img.onerror = (err) => {
+        console.error("Error loading image", err);
+      };
+    } catch (error) {
+      console.log("error", error);
+      setResumeLoading(false);
+    }
+    
   };
+
+  
 
   return (
     <section className="my-28" id="getResume">
@@ -75,7 +83,7 @@ const Resume = () => {
           and how I can contribute to your team.
         </p>
       </div>
-      {resumeBeingReady === true ? <ComponentSpinner /> :
+      {resumeLoading === true && <h1 className="text-center text-xl mt-4 text-orange-500 font-bold">Please Wait.....</h1> }
       <>
       {previewOpen === true ? (
         <ResumePreview
@@ -104,7 +112,7 @@ const Resume = () => {
         </div>
       )}
       </>
-}
+
     </section>
   );
 };

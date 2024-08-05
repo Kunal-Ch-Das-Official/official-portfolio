@@ -97,19 +97,17 @@ body {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: rgb(255, 255, 255);
-  color: #000000;
+  background-color: black;
+  color: #ffffff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  font-size: 12px;
-
+  
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
+  top: -5px;
+  left: 105%;
 }
 
 .tooltip:hover .tooltiptext {

@@ -21,7 +21,9 @@ const Projects = () => {
       <ProjectBanner />
       <div className="my-12">
       <SectionHeading
-        mainHeading="Innovative Creations Unveiled"
+        darkTitle="Innovative"
+        semiDarkTitle="Creations"
+        lightTitle="Unveiled"
         subHeading="Discover the full range of my work, from web development to design, showcasing my dedication to quality and creativity."
       />
       </div>

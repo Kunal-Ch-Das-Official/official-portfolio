@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import pageLogo from "@/public/images/header-footer/Potfolio-logo.webp";

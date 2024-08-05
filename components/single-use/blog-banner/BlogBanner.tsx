@@ -5,8 +5,8 @@ import Image from 'next/image';
 const BlogBanner = () => {
   return (
     <section>
-        <div className="bg-transparent relative max-w-full mx-auto rounded overflow-hidden mt-4">
-      <div className="grid sm:grid-cols-2 items-center max-sm:gap-10 py-40">
+        <div className="bg-transparent relative max-w-full mx-auto rounded overflow-hidden bannerBackground">
+      <div className="grid sm:grid-cols-2 items-center max-sm:gap-10 pt-40">
 
 
       <div className="bg-gradient-to-tl from-orange-400 to-orange-600 rounded-tr-full rounded-br-full w-full h-max">
@@ -22,7 +22,7 @@ const BlogBanner = () => {
            &
            <span className="text-orange-300"> Inspirations</span>
            </h3>
-          <h6 className="text-2xl text-gray-50 mt-2">Bolgs will be added in future</h6>
+          <h6 className="text-2xl text-gray-50 mt-2">Kunal Chandra Das Technical Blogs</h6>
           <p className="text-gray-50 text-base leading-relaxed mt-4">Explore my latest blog posts on industry trends, design tips, and personal insights. Stay updated with articles that offer valuable knowledge and spark creative ideas.</p>
         </div>
 

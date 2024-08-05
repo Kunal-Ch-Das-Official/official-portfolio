@@ -1,4 +1,5 @@
 import BlogBanner from '@/components/single-use/blog-banner/BlogBanner';
+import BlogCanvas from '@/components/single-use/blog-canvas/BlogCanvas';
 import React from 'react';
 
 
@@ -20,6 +21,7 @@ const Blogs = () => {
   return (
     <main>
       <BlogBanner />
+      <BlogCanvas />
     </main>
   )
 }

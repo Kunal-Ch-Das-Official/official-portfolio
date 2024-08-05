@@ -13,6 +13,7 @@ export function AllProjectCard({
   projectsId,
   projectName,
   projectLogo,
+  projectType,
   projectOwner,
   previewLink,
   projectImage,
@@ -21,6 +22,7 @@ export function AllProjectCard({
   projectsId?: string,
   projectLogo?:string,
   projectName?: string,
+  projectType?: string,
   projectOwner?: string,
   previewLink?: string,
   projectImage?: string,
@@ -34,14 +36,21 @@ export function AllProjectCard({
           className="text-xl font-bold text-white inline-flex items-center"
         >
           <Image src={projectLogo || alternativeImage} height={50} width={50} alt={projectName || "Project Logo"} className="rounded-full"/>
-          <span className="ml-2 text-orange-500">{projectName}</span>
+          <span className="ml-2 text-white">{projectName}</span>
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-sm max-w-sm mt-2 text-neutral-300"
         >
-         <span className="font-bold text-orange-500 mr-2">Own-By:</span>{projectOwner}
+         <span className="font-bold text-orange-300 mr-2">Own-By:</span>{projectOwner}
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-sm max-w-sm mt-2 text-neutral-300"
+        >
+         <span className="font-bold text-orange-300 mr-2">Project-Type:</span>{projectType}
         </CardItem>
         <CardItem
           translateZ="100"

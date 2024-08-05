@@ -14,10 +14,7 @@ const StackOverview:React.FC = () => {
               <SiMongodb className="text-5xl text-green-600" />
             </span>
           </div>
-          <h3 className="mb-3 font-bold text-primary text-center">Mongo DB</h3>
-          <h4 className="mb-0 font-normal text-neutral-50 text-center">
-            60%
-          </h4>
+          <h3 className="mb-3 font-bold text-primary text-center"><span className="text-2xl text-green-600">M</span>ongo DB</h3>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent to-transparent opacity-25 via-neutral-400 lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -27,11 +24,8 @@ const StackOverview:React.FC = () => {
             </span>
           </div>
           <h3 className="mb-3 font-bold text-primary text-center">
-            Express JS
+          <span className="text-2xl text-white">E</span>xpress JS
           </h3>
-          <h4 className="mb-0 font-normal text-neutral-50 text-center">
-            70%
-          </h4>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-400 to-transparent opacity-25  lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -40,10 +34,7 @@ const StackOverview:React.FC = () => {
               <RiReactjsLine className="text-5xl text-blue-400" />
             </span>
           </div>
-          <h3 className="mb-3 font-bold text-primary text-center">React Js</h3>
-          <h4 className="mb-0 font-normal text-neutral-50 text-center">
-            95%
-          </h4>
+          <h3 className="mb-3 font-bold text-primary text-center"><span className="text-2xl text-blue-400">R</span>eact Js</h3>
           <div className="absolute right-0 top-0 hidden h-full min-h-[1em] w-px self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-400 to-transparent opacity-25 lg:block"></div>
         </div>
         <div className="relative mb-12 px-3 lg:mb-0">
@@ -52,10 +43,7 @@ const StackOverview:React.FC = () => {
               <RiNodejsLine className="text-5xl text-green-600 " />
             </span>
           </div>
-          <h3 className="mb-3 font-bold text-primary text-center">Node JS</h3>
-          <h4 className="mb-0 font-normal text-neutral-50 text-center">
-            80%
-          </h4>
+          <h3 className="mb-3 font-bold text-primary text-center"><span className="text-2xl text-green-600">N</span>ode JS</h3>
         </div>
       </div>
     </section>

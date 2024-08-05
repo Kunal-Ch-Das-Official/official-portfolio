@@ -8,7 +8,8 @@ import React, { useEffect, useState } from 'react';
 interface AllProjectData {
     _id: string,
     projectName: string,
-    author: string,
+    projectType:string,
+    owner:string,
     projectUrl: string,
     projectThumbnail: string,
     firstView: string,
@@ -47,7 +48,8 @@ const AllProjectsDisplayer:React.FC<ProjectDisplayerProps> = ({sliceFrom, sliceT
          <AllProjectCard 
          key={project._id}
          projectName={project.projectName}
-         projectOwner={project.author}
+         projectOwner={project.owner}
+         projectType={project.projectType}
          previewLink={project.projectUrl}
          projectLogo={project.projectThumbnail}
          projectImage={project.firstView}

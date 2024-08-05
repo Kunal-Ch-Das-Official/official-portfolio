@@ -3,33 +3,58 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { BsExclamationOctagonFill } from "react-icons/bs";
 import Link from "next/link";
-import { FaRegHandPointRight } from "react-icons/fa6";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { ImHtmlFive } from "react-icons/im";
+import { SiEjs } from "react-icons/si";
+import { PiFileJsxBold } from "react-icons/pi";
 import { IoLogoCss3 } from "react-icons/io5";
-import { SiJavascript } from "react-icons/si";
+import { FaBootstrap } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { RiReactjsLine } from "react-icons/ri";
+import { FaAngular } from "react-icons/fa";
+import { FaVuejs } from "react-icons/fa6";
 import { SiNextdotjs } from "react-icons/si";
+import { SiVite } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
+import { SiJavascript } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { SiPython } from "react-icons/si";
+import { SiPhp } from "react-icons/si";
+import { DiRuby } from "react-icons/di";
 import { SiExpress } from "react-icons/si";
+import { FaCloudflare } from "react-icons/fa";
+import { SiPrisma } from "react-icons/si";
+import { DiDjango } from "react-icons/di";
+import { BiLogoFlask } from "react-icons/bi";
+import { SiSpring } from "react-icons/si";
+import { TbBrandLaravel } from "react-icons/tb";
+import { SiRubyonrails } from "react-icons/si";
+import { SiMysql } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
 import { SiMongodb } from "react-icons/si";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 interface SingleProjectProps {
-  projectId: string,
-  projectName: string,
-  projectOwner: string,
-  projectDescription: string,
-  projectThumbnail: string,
-  firstPageView: string,
-  secondPageView: string,
-  thirdPageView: string,
-  githubLink: string
+  projectId: string;
+  projectName: string;
+  projectAuthor: string;
+  projectType: string;
+  projectOwner: string;
+  projectDescription: string;
+  projectThumbnail: string;
+  firstPageView: string;
+  secondPageView: string;
+  thirdPageView: string;
+  githubLink: string;
+  usedStack: string[];
 }
 
 const SingleProject: React.FC<SingleProjectProps> = ({
   projectId,
   projectName,
+  projectAuthor,
+  projectType,
   projectOwner,
   projectDescription,
   projectThumbnail,
@@ -37,70 +62,93 @@ const SingleProject: React.FC<SingleProjectProps> = ({
   secondPageView,
   thirdPageView,
   githubLink,
+  usedStack,
 }) => {
   const [isClick, setClick] = useState<number>(1);
   const [imgClick, setImgClick] = useState<number>(1);
+
   const handleDescriptionTab = (id: number) => {
-    if (id === 1) {
-      setClick(1);
-    } else if (id === 2) {
-      setClick(2);
-    }
+    setClick(id);
   };
+
   const handleImgClick = (id: number) => {
-    if (id === 1) {
-      setImgClick(1);
-    } else if (id === 2) {
-      setImgClick(2);
-    } else if (id === 3) {
-      setImgClick(3);
-    }
+    setImgClick(id);
   };
 
-  const technologies = [
-    {
-      name: "Html",
-      icon: <ImHtmlFive className="text-4xl text-orange-500" />,
-    },
-    {
-      name: "Css",
-      icon: <IoLogoCss3 className="text-4xl text-blue-500" />,
-    },
-    {
-      name: "Tailwind",
-      icon: <SiTailwindcss className="text-4xl text-blue-400" />,
-    },
-    {
-      name: "Javascript",
-      icon: <SiJavascript className="text-4xl text-yellow-500" />,
-    },
-
-    {
-      name: "React Js",
-      icon: <RiReactjsLine className="text-4xl text-blue-300" />,
-    },
-    {
-      name: "Next Js",
-      icon: <SiNextdotjs className="text-4xl text-black" />,
-    },
-    {
-      name: "Node Js",
-      icon: <FaNodeJs className="text-4xl text-green-500" />,
-    },
-    {
-      name: "Express Js",
-      icon: <SiExpress className="text-4xl text-black" />,
-    },
-    {
-      name: "Mongo Db",
-      icon: <SiMongodb className="text-4xl text-green-500" />,
-    },
-  ];
+  const renderTechnologyIcon = (tech: string) => {
+    switch (tech.toLowerCase()) {
+      case "html":
+        return <ImHtmlFive className="text-4xl text-orange-500" />;
+      case "ejs":
+        return <SiEjs className="text-4xl text-red-400" />;
+      case "jsx":
+        return <PiFileJsxBold className="text-4xl text-blue-300" />;
+      case "css":
+        return <IoLogoCss3 className="text-4xl text-blue-500" />;
+      case "bootstrap":
+        return <FaBootstrap className="text-4xl text-purple-500" />;
+      case "tailwind":
+        return <SiTailwindcss className="text-4xl text-blue-400" />;
+      case "react":
+        return <RiReactjsLine className="text-4xl text-blue-300" />;
+      case "angular":
+        return <FaAngular className="text-4xl text-red-500" />;
+      case "vue":
+        return <FaVuejs className="text-4xl text-green-500" />;
+      case "next":
+        return <SiNextdotjs className="text-4xl text-black" />;
+      case "vite":
+        return <SiVite className="text-4xl text-purple-500" />;
+      case "node":
+        return <FaNodeJs className="text-4xl text-green-500" />;
+      case "javascript":
+        return <SiJavascript className="text-4xl text-yellow-500" />;
+      case "typescript":
+        return <SiTypescript className="text-4xl text-blue-600" />;
+      case "java":
+        return <FaJava className="text-4xl text-orange-300" />;
+      case "python":
+        return <SiPython className="text-4xl text-yellow-500" />;
+      case "php":
+        return <SiPhp className="text-4xl text-violet-800" />;
+      case "ruby":
+        return <DiRuby className="text-4xl text-red-600" />;
+      case "express":
+        return <SiExpress className="text-4xl text-black" />;
+      case "cloudflare":
+        return <FaCloudflare className="text-4xl text-orange-500" />;
+      case "prisma":
+        return <SiPrisma className="text-4xl text-gray-900 bg-white rounded-3xl" />;
+      case "django":
+        return <DiDjango className="text-4xl text-green-900" />;
+      case "flusk":
+        return <BiLogoFlask className="text-4xl text-black" />;
+      case "spring":
+        return <SiSpring className="text-4xl text-green-600" />;
+      case "laravel":
+        return <TbBrandLaravel className="text-4xl text-red-600" />;
+      case "rails":
+        return <SiRubyonrails className="text-4xl text-red-600" />;
+      case "mongodb":
+        return <SiMongodb className="text-4xl text-green-500" />;
+      case "mysql":
+        return <SiMysql className="text-4xl text-blue-500" />;
+      case "postgres":
+        return <BiLogoPostgresql className="text-4xl text-blue-600" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <main className="py-36 blurBackgroundItem">
       <div className="font-sans">
+      
         <div className="p-4 max-w-6xl max-md:max-w-xl mx-auto">
+          <Link href={"/"} className="bottomTooltip">
+        <IoArrowBackCircleSharp className="text-white text-5xl mb-6 hover:text-orange-500 cursor-pointer" />
+        <span className="bottomTooltipText mt-3 cursor-pointer">Back To Home</span>
+        </Link>
           <div className="grid items-start grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-full lg:sticky top-0 flex gap-3">
               <Image
@@ -156,74 +204,29 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 />
                 {projectName}
               </h2>
-              <ul className="flex flex-col mt-2 ml-4">
-                <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
-                  <span className="mb-2">
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </span>
-                </li>
 
-                <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
-                  <span className="mb-2">
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </span>
-                </li>
-
-                <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
-                  <span className="mb-2">
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </span>
-                </li>
-
-                <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
-                  <span className="mb-2">
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </span>
-                </li>
-
-                <li className="inline-flex items-center my-1.5 text-md font-semibold">
-                  <FaRegHandPointRight className="text-2xl text-orange-300 mr-2" />
-                  <span className="mb-2">
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </span>
-                </li>
-              </ul>
-
+              <div>
+                If you like my work, please do not forget to leave a review. If
+                you are interested in hiring me, feel free to send an email. I
+                will get in touch with you via email or WhatsApp shortly.
+              </div>
               <div className="mt-10 flex flex-col lg:flex-row gap-4">
                 <Link
                   href="/hire"
                   className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex mx-auto lg:mx-0"
                 >
                   <span className="relative z-10 inline-flex">
-                    {" "}
-                    <FaUsersViewfinder
-                      className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3
-                  "
-                    />
+                    <FaUsersViewfinder className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
                     Hire Me
                   </span>
                 </Link>
 
-
                 <Link
                   href="/about"
-                  className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold  hover:shadow-orange-600 hover:text-white rounded-lg inline-flex "
+                  className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
                 >
                   <span className="relative z-10 inline-flex">
-                    {" "}
-                    <BsExclamationOctagonFill
-                      className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3
-                  "
-                    />
+                    <BsExclamationOctagonFill className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
                     About Me
                   </span>
                 </Link>
@@ -231,7 +234,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
 
               <ul className="grid grid-cols-2 mt-10">
                 <li
-                  className={`font-semibold text-base text-center py-3  px-4 border-b-2 ${
+                  className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
                     isClick === 1
                       ? "border-gray-800 bg-gray-50 text-black"
                       : "text-gray-50"
@@ -241,7 +244,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                   Technology Used
                 </li>
                 <li
-                  className={`font-semibold text-base text-center py-3  px-4 border-b-2 ${
+                  className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
                     isClick === 2
                       ? "border-gray-800 bg-gray-50 text-black"
                       : "text-gray-50"
@@ -253,23 +256,37 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               </ul>
 
               {isClick === 1 ? (
-                <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-gray-900 ">
-                  {technologies.map((technology) => (
-                    <li
-                      key={technology.name}
-                      className="flex flex-col items-center my-6"
-                    >
-                      <div>{technology.icon}</div>
+                <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-gray-900">
+                  {usedStack.map((tech, index) => (
+                    <li key={index} className="flex flex-col items-center my-6">
+                      <div>{renderTechnologyIcon(tech)}</div>
                       <h6 className="ml-2 mt-2 font-semibold text-gray-300">
-                        {technology.name}
+                        {tech}
                       </h6>
                     </li>
                   ))}
                 </ul>
               ) : (
                 <ul className="space-y-2 text-sm text-gray-300 bg-gray-900 mt-8 p-6">
-                  <li className="text-gray-300 text-lg font-bold">Visit Github: {githubLink}</li>
-                  <li className="text-gray-300 text-lg font-bold">Project Owner: {projectOwner}</li>
+                  <li className="text-gray-300 text-lg font-bold">
+                    Visit Github:{" "}
+                    <a
+                      href={githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {githubLink}
+                    </a>
+                  </li>
+                  <li className="text-gray-300 text-lg font-bold">
+                    Project Owner: {projectAuthor}
+                  </li>
+                  <li className="text-gray-300 text-lg font-bold">
+                    Project Author: {projectType}
+                  </li>
+                  <li className="text-gray-300 text-lg font-bold">
+                    Project Type: {projectOwner}
+                  </li>
                   <p className="text-sm font-semibold">{projectDescription}</p>
                 </ul>
               )}
