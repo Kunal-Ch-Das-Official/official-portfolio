@@ -9,8 +9,9 @@ const resumeModel = require("../../models/resumeModel");
 const fs = require("fs");
 
 const editResumeHandler = async(req, res) => {
-    // {$set: req.body},
-    // {new: true, runValidators: true}
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     
     try {
         const getCurrentResume = await resumeModel.findById(req.params.id);
