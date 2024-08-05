@@ -16,8 +16,18 @@ const contactFormRouter = require("./routes/contactFormRouter");
 const blogRouter = require("./routes/blogRouter");
 const app = express();
 
+
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5174',
+  origin: 'http://localhost:3000',
+  origin: 'https://www.kunalchandradas.tech',
+  origin: 'https://adminportal.kunalchandradas.tech',
+  optionsSuccessStatus: 200
+};
+
 // Middlewere
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
