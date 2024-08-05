@@ -19,7 +19,7 @@
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type, Authorization"
         },
-        "dest": "/api/projects/v1/project-upload"
+        "dest": "server.js"
       }
   ]
 }
