@@ -41,6 +41,8 @@ const uploadProjectHandler = async (req, res) => {
     const toBePost = new projectModel({
       projectName: req.body.projectName,
       author: req.body.author,
+      projectType: req.body.projectType,
+      owner: req.body.owner,
       description: req.body.description,
       projectThumbnail: allUploadResults[0].secure_url,
       projectThumbnailPublicId: allUploadResults[0].public_id,

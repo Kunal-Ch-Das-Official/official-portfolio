@@ -19,39 +19,70 @@ const BlogSchema = new Schema(
       length: 20,
       required: true,
     },
+
     supportingImg: {
       type: String,
       required: true,
     },
     supportingImgPublicId: {
-     type: String,
-     required: true,
+      type: String,
+      required: true,
+    },
+
+    statementHeadingOne: {
+      type: String,
+      required: true,
     },
     statementOne: {
       type: String,
       required: true,
     },
+    corespondingCodeOne: {
+      type: String,
+    },
     commandLineOne: {
+      type: String,
+    },
+
+    statementHeadingTwo: {
       type: String,
     },
     statementTwo: {
       type: String,
     },
+    corespondingCodeTwo: {
+      type: String,
+    },
     commandLineTwo: {
+      type: String,
+    },
+
+    statementHeadingThree: {
       type: String,
     },
     statementThree: {
       type: String,
     },
+    corespondingCodeThree: {
+      type: String,
+    },
     commandLineThree: {
+      type: String,
+    },
+
+    statementHeadingFour: {
       type: String,
     },
     statementFour: {
       type: String,
     },
+    corespondingCodeFour: {
+      type: String,
+    },
     commandLineFour: {
       type: String,
     },
+
     status: {
       type: Boolean,
       default: 1,
