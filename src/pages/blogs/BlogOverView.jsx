@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
+import { FaArrowCircleLeft } from "react-icons/fa";
+
+
 
 const BlogOverView = () => {
   const { id } = useParams();
@@ -20,12 +23,14 @@ const BlogOverView = () => {
     };
     getSingleBlog();
   }, []);
- 
 
   return (
     <div className="w-5/6 float-right">
       <div className="bg-blue-50 py-6 sm:py-8 lg:py-12 ml-8">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <Link to={"/dashboard/blog-manage"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
+        </Link>
           <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div className="absolute inset-0 -z-10 overflow-hidden">
               <svg
@@ -82,14 +87,21 @@ const BlogOverView = () => {
                 <div className="lg:pr-4">
                   <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
 
+                    <h4 className="text-lg font-bold">{resStorage.statementHeading}</h4>
+                    <div id="first-content" className="mt-2 mb-12">
+                      <p>{resStorage.statement}</p>
 
-                    <div id="first-content" className="my-12">
-                      <p>{resStorage.statementOne}</p>
-                      <div className="w-full">
+
+                      
+                      <div className="w-full mt-20">
+                      <h5 className="text-lg font-bold">Enter this command in terminal:</h5>
                         <div
                           className="coding inverse-toggle px-5  shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased 
-              bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden"
+                        bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden"
                         >
+
+                          
+                          
                           <div className="top mb-2 flex">
                             <div className="h-3 w-3 bg-red-500 rounded-full"></div>
                             <div className="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
@@ -98,7 +110,7 @@ const BlogOverView = () => {
                           <div className="mt-4 flex">
                             <span className="text-green-400">computer:~$</span>
                             <p className="flex-1 typing items-center pl-2">
-                              {resStorage.commandLineOne}
+                              {resStorage.commandLine}
                               <br />
                             </p>
                           </div>
@@ -106,73 +118,18 @@ const BlogOverView = () => {
                       </div>
                     </div>
 
-                    <div id="second-content" className="my-12">
-                      <p>{resStorage.statementTwo}</p>
-                      <div className="w-full">
-                        <div
-                          className="coding inverse-toggle px-5  shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased 
-              bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden"
-                        >
-                          <div className="top mb-2 flex">
-                            <div className="h-3 w-3 bg-red-500 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
-                          </div>
-                          <div className="mt-4 flex">
-                            <span className="text-green-400">computer:~$</span>
-                            <p className="flex-1 typing items-center pl-2">
-                              {resStorage.commandLineTwo}
-                              <br />
-                            </p>
-                          </div>
-                        </div>
+                    <h5 className="text-lg font-bold">Copy the code from here:</h5>
+                    <div className="bg-black rounded-md p-4 max-w-md mx-auto mt-2">
+                      <div className="flex items-center mb-2">
+                        <div className="h-3 w-3 rounded-full mr-2 bg-red-500"></div>
+                        <div className="h-3 w-3 rounded-full mr-2 bg-yellow-500"></div>
+                        <div className="h-3 w-3 rounded-full bg-green-500"></div>
                       </div>
-                    </div>
-
-                    <div id="third-content" className="my-12">
-                      <p>{resStorage.statementThree}</p>
-                      <div className="w-full">
-                        <div
-                          className="coding inverse-toggle px-5  shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased 
-              bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden"
-                        >
-                          <div className="top mb-2 flex">
-                            <div className="h-3 w-3 bg-red-500 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
-                          </div>
-                          <div className="mt-4 flex">
-                            <span className="text-green-400">computer:~$</span>
-                            <p className="flex-1 typing items-center pl-2">
-                              {resStorage.commandLineThree}
-                              <br />
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="fourth-content" className="my-12">
-                      <p>{resStorage.statementFour}</p>
-                      <div className="w-full">
-                        <div
-                          className="coding inverse-toggle px-5  shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased 
-              bg-gray-800  pb-6 pt-4 rounded-lg leading-normal overflow-hidden"
-                        >
-                          <div className="top mb-2 flex">
-                            <div className="h-3 w-3 bg-red-500 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
-                            <div className="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
-                          </div>
-                          <div className="mt-4 flex">
-                            <span className="text-green-400">computer:~$</span>
-                            <p className="flex-1 typing items-center pl-2">
-                              {resStorage.commandLineFour}
-                              <br />
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                      
+                     <div className="text-white">
+                     {resStorage.corespondingCode}
+                     </div>
+                    
                     </div>
                   </div>
                 </div>

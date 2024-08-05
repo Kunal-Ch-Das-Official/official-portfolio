@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import { Editor } from "primereact/editor";
+import { FaArrowCircleLeft } from "react-icons/fa";
 import { MdSubtitles } from "react-icons/md";
 import { SiLibreofficewriter } from "react-icons/si";
 import { HiCommandLine } from "react-icons/hi2";
@@ -8,7 +9,7 @@ import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const EditBlogs = () => {
   const { id } = useParams();
@@ -19,14 +20,12 @@ const EditBlogs = () => {
     "Edit Existing Image"
   );
   const [imagePath, setImagePath] = useState(null);
-  const [statementOne, setStatementOne] = useState("");
-  const [firstCommand, setFirstCommand] = useState("");
-  const [statementTwo, setStatementTwo] = useState("");
-  const [secondCommand, setSecondCommand] = useState("");
-  const [statementThree, setStatementThree] = useState("");
-  const [thirdCommand, setThirdCommand] = useState("");
-  const [statementFour, setStatementFour] = useState("");
-  const [fourthCommand, setFourthCommand] = useState("");
+
+  const [statementHeading, setStatementHeading] = useState("");
+  const [statement, setStatement] = useState("");
+  const [command, setCommand] = useState("");
+  const [codeInp, setCodeInp] = useState("");
+
   const [message, setMessage] = useState("");
   const [customAlert, setCustomAlert] = useState(false);
   const [uploadingState, setUploadingState] = useState(false);
@@ -60,14 +59,10 @@ const EditBlogs = () => {
     formData.append("blogTitle", blogTitle);
     formData.append("authorName", authorName);
     formData.append("supportingImg", imagePath);
-    formData.append("statementOne", statementOne);
-    formData.append("commandLineOne", firstCommand);
-    formData.append("statementTwo", statementTwo);
-    formData.append("commandLineTwo", secondCommand);
-    formData.append("statementThree", statementThree);
-    formData.append("commandLineThree", thirdCommand);
-    formData.append("statementFour", statementFour);
-    formData.append("commandLineFour", fourthCommand);
+    formData.append("statementHeading", statementHeading);
+    formData.append("statement", statement);
+    formData.append("commandLine", command);
+    formData.append("corespondingCode", codeInp);
 
     try {
       await axios
@@ -78,10 +73,7 @@ const EditBlogs = () => {
           setUploadingState(false);
           setCustomAlert(true);
           setMessage("Blog Has Been Successfully Updated!!");
-          setStatementOne("");
-          setStatementTwo("");
-          setStatementThree("");
-          setStatementFour("");
+          setStatement("");
           setImagePath(null);
           setImageNameDisplayer("Edit Existing Image");
         });
@@ -90,10 +82,7 @@ const EditBlogs = () => {
       setUploadingState(false);
       setCustomAlert(true);
       setMessage("Unable To Update This Blog!!");
-      setStatementOne("");
-      setStatementTwo("");
-      setStatementThree("");
-      setStatementFour("");
+      setStatement("");
       setImagePath(null);
       setImageNameDisplayer("Edit Existing Image");
     }
@@ -120,6 +109,9 @@ const EditBlogs = () => {
       <div className="w-5/6 float-right">
         <div className="bg-blue-50 py-6 sm:py-8 lg:py-12 ml-8">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <Link to={"/dashboard/blog-manage"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
+        </Link>
             <div className="text-center">
               <h1 className="text-2xl text-blue-500 font-bold">
                 Edit Existing Technical Blog
@@ -218,130 +210,43 @@ const EditBlogs = () => {
 
               {/* First Statement Section  */}
               <div className="my-12" id="First_Statement">
+                {/* Coresponding Heading  */}
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="statementHeading"
+                    className="mb-2 inline-block text-lg text-blue-700  font-bold "
+                  >
+                    Coresponding Heading:
+                  </label>
+                  <input
+                    name="statementHeading"
+                    id="statementHeading"
+                    defaultValue={getPrevBlog.statementHeading}
+                    onChange={(event) =>
+                      setStatementHeading(event.target.value)
+                    }
+                    className="w-full rounded border bg-white px-3 py-2 text-gray-800 outline-none
+                 ring-indigo-300 transition duration-100 focus:ring"
+                  />
+                </div>
+
                 {/* First Statement Text Box  */}
                 <h2 className="text-blue-700 font-bold text-lg mb-1">
-                Change Existing  First Blog Statement:
+                  Change Existing First Blog Statement:
                 </h2>
                 <div className="card" id="first-blog-statement">
                   <Editor
                     className="bg-white"
-                    value={getPrevBlog.statementOne}
-                    onTextChange={(e) => setStatementOne(e.textValue)}
+                    value={getPrevBlog.statement}
+                    onTextChange={(e) => setStatement(e.textValue)}
                     style={{ height: "320px" }}
                   />
                 </div>
 
+                {/* Coresponding command line  */}
                 <div>
                   <label
                     htmlFor="first-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
-                  >
-                   Change Existing  Coresponding Command Line:
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="first-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      defaultValue={getPrevBlog.commandLineOne}
-                      onChange={(event) => setFirstCommand(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Second Statement Section  */}
-              <div className="my-12" id="Second_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                Change Existing  Second Blog Statement:
-                </h2>
-                <div className="card" id="second-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={getPrevBlog.statementTwo}
-                    onTextChange={(e) => setStatementTwo(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="second-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
-                  >
-                  Change Existing Coresponding Command Line:
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="second-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      defaultValue={getPrevBlog.commandLineTwo}
-                      onChange={(event) => setSecondCommand(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Third Statement Section  */}
-              <div className="my-12" id="Third_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                Change Existing  Third Blog Statement:
-                </h2>
-                <div className="card" id="third-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={getPrevBlog.statementThree}
-                    onTextChange={(e) => setStatementThree(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="third-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
-                  >
-                   Change Existing Coresponding Command Line:
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="third-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      defaultValue={getPrevBlog.commandLineThree}
-                      onChange={(event) => setThirdCommand(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Fourth Statement Section  */}
-              <div className="my-12" id="Fourth_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                Change Existing  Fourth Blog Statement:
-                </h2>
-                <div className="card" id="fourth-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={getPrevBlog.statementFour}
-                    onTextChange={(e) => setStatementFour(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="fourth-command-input"
                     className="block mb-2 text-md font-bold mt-1 text-blue-700"
                   >
                     Change Existing Coresponding Command Line:
@@ -352,12 +257,30 @@ const EditBlogs = () => {
                     </span>
                     <input
                       type="text"
-                      id="fourth-command-input"
+                      id="first-command-input"
                       className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      defaultValue={getPrevBlog.commandLineFour}
-                      onChange={(event) => setFourthCommand(event.target.value)}
+                      defaultValue={getPrevBlog.commandLine}
+                      onChange={(event) => setCommand(event.target.value)}
                     />
                   </div>
+                </div>
+
+                {/* Coresponding Code input  */}
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="codeOne"
+                    className="my-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
+                  >
+                    Coresponding Code:
+                  </label>
+                  <textarea
+                    name="codeOne"
+                    id="codeOne"
+                    defaultValue={getPrevBlog.corespondingCode}
+                    onChange={(event) => setCodeInp(event.target.value)}
+                    className="h-64 w-full rounded border bg-white px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                    placeholder="Write Your Code Explaination"
+                  ></textarea>
                 </div>
               </div>
 

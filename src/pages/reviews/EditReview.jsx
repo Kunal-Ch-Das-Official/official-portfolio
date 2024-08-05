@@ -1,14 +1,14 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import envConfig from '../../../envConfig';
-import LoadingSpiner from '../../utils/loading-spinner/LoadingSpiner';
-
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import envConfig from "../../../envConfig";
+import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 const EditReview = () => {
   const { id } = useParams();
-  const [newUserName, setNewUserName] = useState('');
-  const [newReviewContent, setNewReviewContent] = useState('');
+  const [newUserName, setNewUserName] = useState("");
+  const [newReviewContent, setNewReviewContent] = useState("");
   const [existingReview, setExistingReview] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const EditReview = () => {
     // Fetch existing data for the review
     const fetchReviewData = async () => {
       try {
-        const response = await axios.get(`${envConfig.getReviewsApiUrl}/${id}`)
+        const response = await axios.get(`${envConfig.getReviewsApiUrl}/${id}`);
         const review = response.data;
         setExistingReview(review);
         setNewUserName(review.userName);
@@ -39,14 +39,14 @@ const EditReview = () => {
     };
 
     try {
- await axios.patch(`${envConfig.editReviewApiUrl}/${id}`, updatedData, {
+      await axios.patch(`${envConfig.editReviewApiUrl}/${id}`, updatedData, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
-     
+
       setLoading(false);
-      navigate('/dashboard/review-manage');
+      navigate("/dashboard/review-manage");
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -57,12 +57,18 @@ const EditReview = () => {
     <div className="w-5/6 float-right">
       {loading && <LoadingSpiner />}
       <div className="w-4/5 mx-auto mt-14">
+        <Link to={"/dashboard/review-manage"}>
+          <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer" />
+        </Link>
         <form onSubmit={handleOnSubmit}>
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="text-base font-semibold leading-7 text-gray-900">Change Existing User Review</h2>
+              <h2 className="text-base font-semibold leading-7 text-gray-900">
+                Change Existing User Review
+              </h2>
               <p className="mt-1 text-sm leading-6 text-gray-600">
-                This information will be displayed publicly so be careful what you share.
+                This information will be displayed publicly so be careful what
+                you share.
               </p>
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -100,7 +106,9 @@ const EditReview = () => {
                       name="review-content"
                       defaultValue={existingReview.reviewContent}
                       id="review-content"
-                      onChange={(event) => setNewReviewContent(event.target.value)}
+                      onChange={(event) =>
+                        setNewReviewContent(event.target.value)
+                      }
                       rows="3"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       placeholder="Change Review"

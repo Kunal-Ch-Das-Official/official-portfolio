@@ -1,9 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
 import { FaStar } from "react-icons/fa";
 import SingleReviewSkeleton from "../../utils/skeleton/SingleReviewSkeleton";
+import { FaArrowCircleLeft } from "react-icons/fa";
+
+
+
+
+
 const SingleReview = () => {
   const [apiResponse, setApiResponse] = useState({});
   const [ratings, setRatings] = useState([]);
@@ -32,6 +38,9 @@ const SingleReview = () => {
   return (
     <div className="w-5/6 float-right">
       <div className="w-4/5 mx-auto mt-14">
+      <Link to={"/dashboard/review-manage"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
+        </Link>
         <div className=" max-w-[410px] h-auto p-6 rounded-lg mx-auto shadow-[0_6px_18px_-6px_rgba(193,195,248)] bg-white relative mt-12">
          {displaySkeleton === true ? <SingleReviewSkeleton /> :
           <div className="mt-6 text-center">

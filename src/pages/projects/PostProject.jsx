@@ -4,9 +4,14 @@ import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import { FaArrowCircleLeft } from "react-icons/fa";
+
 
 const PostProject = () => {
   const [storedProjectName, setProjectName] = useState("");
+  const [storedAuthorName, setAuthorName] = useState("");
+  const [storedProjectType, setProjectType] = useState("");
   const [storedOwnerName, setOwnerName] = useState("");
   const [storedProjectUrl, setProjctUrl] = useState("");
   const [storedGithubRepo, setGithubRepo] = useState("");
@@ -57,19 +62,18 @@ const PostProject = () => {
     if (!usedTechnology.includes(technology)) {
       setUsedTechnology([...usedTechnology, technology]);
     } else {
-      setUsedTechnology(usedTechnology.filter(item => item !== technology));
+      setUsedTechnology(usedTechnology.filter((item) => item !== technology));
     }
   };
 
- 
-
-  
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     setLoadingState(true);
     const formData = new FormData();
     formData.append("projectName", storedProjectName);
-    formData.append("author", storedOwnerName);
+    formData.append("author", storedAuthorName);
+    formData.append("projectType", storedProjectType);
+    formData.append("owner", storedOwnerName);
     formData.append("description", storedDescription);
     formData.append("projectThumbnail", storedThumbnailImg);
     formData.append("firstView", storedFirstPageImg);
@@ -84,7 +88,7 @@ const PostProject = () => {
     try {
       await axios
         .post(envConfig.postProjectApiUrl, formData, {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         })
         .then(() => {
           setLoadingState(false);
@@ -120,6 +124,9 @@ const PostProject = () => {
 
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <Link to={"/dashboard"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer"/>
+        </Link>
           <div className="mb-10 md:mb-16">
             <h2 className="mb-4 text-center text-2xl font-bold text-blue-600 md:mb-6 lg:text-3xl">
               Post Your Projects Here
@@ -150,21 +157,55 @@ const PostProject = () => {
                 id="projectName"
                 onChange={(event) => setProjectName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                placeholder="Enter Your Project Name Here"
+                placeholder="Enter Your Project Name"
               />
             </div>
 
-            {/* Project owner input  */}
+            {/* Project author input  */}
             <div>
               <label
                 htmlFor="author"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                Project Owner
+                Author of the project
               </label>
               <input
                 name="author"
                 id="author"
+                onChange={(event) => setAuthorName(event.target.value)}
+                className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                placeholder="Enter The Author Name"
+              />
+            </div>
+
+            {/* Project type input */}
+            <div>
+              <label
+                htmlFor="type"
+                className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
+              >
+                Project Type
+              </label>
+              <input
+                name="type"
+                id="type"
+                onChange={(event) => setProjectType(event.target.value)}
+                className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                placeholder="Enter Project Type"
+              />
+            </div>
+
+            {/* Project current owner input */}
+            <div>
+              <label
+                htmlFor="owner"
+                className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
+              >
+                Project Owner
+              </label>
+              <input
+                name="owner"
+                id="owner"
                 onChange={(event) => setOwnerName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 placeholder="Enter Project Owner Name"
@@ -300,10 +341,7 @@ const PostProject = () => {
               </h3>
               <ul className="bg-blue-50 w-[550px] grid grid-flow-cols grid-cols-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg">
                 {technologyArray.map((technology, index) => (
-                  <li
-                    key={index}
-                    className="w-full cursor-pointer"
-                  >
+                  <li key={index} className="w-full cursor-pointer">
                     <div className="flex items-center ps-8 cursor-pointer">
                       <input
                         id={technology}

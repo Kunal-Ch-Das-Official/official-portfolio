@@ -8,6 +8,8 @@ import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const UploadBlogs = () => {
   const [blogTitle, setBlogTitle] = useState("");
@@ -16,14 +18,12 @@ const UploadBlogs = () => {
     "Upload Coresponding Image"
   );
   const [imagePath, setImagePath] = useState(null);
-  const [statementOne, setStatementOne] = useState("");
-  const [firstCommand, setFirstCommand] = useState("");
-  const [statementTwo, setStatementTwo] = useState("");
-  const [secondCommand, setSecondCommand] = useState("");
-  const [statementThree, setStatementThree] = useState("");
-  const [thirdCommand, setThirdCommand] = useState("");
-  const [statementFour, setStatementFour] = useState("");
-  const [fourthCommand, setFourthCommand] = useState("");
+
+  const [statementHeading, setStatementHeading] = useState("");
+  const [statement, setStatement] = useState("");
+  const [command, setCommand] = useState("");
+  const [codeInp, setCodeInp] = useState("");
+
   const [message, setMessage] = useState("");
   const [customAlert, setCustomAlert] = useState(false);
   const [uploadingState, setUploadingState] = useState(false);
@@ -42,14 +42,12 @@ const UploadBlogs = () => {
     formData.append("blogTitle", blogTitle);
     formData.append("authorName", authorName);
     formData.append("supportingImg", imagePath);
-    formData.append("statementOne", statementOne);
-    formData.append("commandLineOne", firstCommand);
-    formData.append("statementTwo", statementTwo);
-    formData.append("commandLineTwo", secondCommand);
-    formData.append("statementThree", statementThree);
-    formData.append("commandLineThree", thirdCommand);
-    formData.append("statementFour", statementFour);
-    formData.append("commandLineFour", fourthCommand);
+
+    formData.append("statementHeading", statementHeading);
+    formData.append("statement", statement);
+    formData.append("commandLine", command);
+    formData.append("corespondingCode", codeInp);
+
 
     try {
       await axios
@@ -60,10 +58,7 @@ const UploadBlogs = () => {
           setUploadingState(false);
           setCustomAlert(true);
           setMessage("Blog Has Been Successfully Posted!!");
-          setStatementOne("");
-          setStatementTwo("");
-          setStatementThree("");
-          setStatementFour("");
+          setStatement("");
           setImagePath(null);
           setImageNameDisplayer("Upload Coresponding Image");
         });
@@ -72,10 +67,7 @@ const UploadBlogs = () => {
       setUploadingState(false);
       setCustomAlert(true);
       setMessage("Unable To Post This Blog!!");
-      setStatementOne("");
-      setStatementTwo("");
-      setStatementThree("");
-      setStatementFour("");
+      setStatement("");
       setImagePath(null);
       setImageNameDisplayer("Upload Coresponding Image");
     }
@@ -89,8 +81,6 @@ const UploadBlogs = () => {
 
   return (
     <main>
-
-      
       {uploadingState === true && <LoadingSpiner />}
       <CustomAlert
         showOrHide={customAlert === true ? "flex" : "hidden"}
@@ -104,11 +94,17 @@ const UploadBlogs = () => {
       <div className="w-5/6 float-right">
         <div className="bg-blue-50 py-6 sm:py-8 lg:py-12 ml-8">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-
-          <div className="text-center">
-            <h1 className="text-2xl text-blue-500 font-bold">Write A Technical Blog</h1>
-            <p className="text-gray-600 text-sm mt-2">Shere your learning and skills to the world</p>
-          </div>
+          <Link to={"/dashboard"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
+        </Link>
+            <div className="text-center">
+              <h1 className="text-2xl text-blue-500 font-bold">
+                Write A Technical Blog
+              </h1>
+              <p className="text-gray-600 text-sm mt-2">
+                Shere your learning and skills to the world
+              </p>
+            </div>
 
             <form onSubmit={handleSubmission} ref={formRef}>
               {/* Blog Title And Author Input  */}
@@ -197,8 +193,29 @@ const UploadBlogs = () => {
                 </label>
               </div>
 
+
               {/* First Statement Section  */}
-              <div className="my-12" id="First_Statement">
+              <div className="my-20" id="First_Statement">
+                {/* Coresponding Heading  */}
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="firstStatementHeading"
+                    className="mb-2 inline-block text-lg text-blue-700  font-bold "
+                  >
+                    Coresponding Heading:
+                  </label>
+                  <input
+                    name="firstStatementHeading"
+                    id="firstStatementHeading"
+                    onChange={(event) =>
+                      setStatementHeading(event.target.value)
+                    }
+                    className="w-full rounded border bg-white px-3 py-2 text-gray-800 outline-none
+                 ring-indigo-300 transition duration-100 focus:ring"
+                    placeholder="Provide A Coresponding Heading"
+                  />
+                </div>
+
                 {/* First Statement Text Box  */}
                 <h2 className="text-blue-700 font-bold text-lg mb-1">
                   Write First Blog Statement:
@@ -206,12 +223,13 @@ const UploadBlogs = () => {
                 <div className="card" id="first-blog-statement">
                   <Editor
                     className="bg-white"
-                    value={statementOne}
-                    onTextChange={(e) => setStatementOne(e.textValue)}
+                    value={statement}
+                    onTextChange={(e) => setStatement(e.textValue)}
                     style={{ height: "320px" }}
                   />
                 </div>
 
+                {/* Coresponding CommandLine  */}
                 <div>
                   <label
                     htmlFor="first-command-input"
@@ -228,119 +246,32 @@ const UploadBlogs = () => {
                       id="first-command-input"
                       className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
                       placeholder="Enter://Coresponding/Terminal/Command>"
-                      onChange={(event) => setFirstCommand(event.target.value)}
+                      onChange={(event) => setCommand(event.target.value)}
                     />
                   </div>
                 </div>
-              </div>
 
-              {/* Second Statement Section  */}
-              <div className="my-12" id="Second_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                  Write Second Blog Statement:
-                </h2>
-                <div className="card" id="second-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={statementTwo}
-                    onTextChange={(e) => setStatementTwo(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
 
-                <div>
+
+                {/* Coresponding Code input  */}
+                <div className="sm:col-span-2">
                   <label
-                    htmlFor="second-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
+                    htmlFor="codeOne"
+                    className="my-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
                   >
-                    Coresponding Command Line:
+                    Coresponding Code:
                   </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="second-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      placeholder="Enter://Coresponding/Terminal/Command>"
-                      onChange={(event) => setSecondCommand(event.target.value)}
-                    />
-                  </div>
+                  <textarea
+                    name="codeOne"
+                    id="codeOne"
+                    onChange={(event) => setCodeInp(event.target.value)}
+                    className="h-64 w-full rounded border bg-white px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                    placeholder="Write Your Code Explaination"
+                  ></textarea>
                 </div>
               </div>
 
-              {/* Third Statement Section  */}
-              <div className="my-12" id="Third_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                  Write Third Blog Statement:
-                </h2>
-                <div className="card" id="third-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={statementThree}
-                    onTextChange={(e) => setStatementThree(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="third-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
-                  >
-                    Coresponding Command Line:
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="third-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      placeholder="Enter://Coresponding/Terminal/Command>"
-                      onChange={(event) => setThirdCommand(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Fourth Statement Section  */}
-              <div className="my-12" id="Fourth_Statement">
-                <h2 className="text-blue-700 font-bold text-lg">
-                  Write Fourth Blog Statement:
-                </h2>
-                <div className="card" id="fourth-blog-statement">
-                  <Editor
-                    className="bg-white"
-                    value={statementFour}
-                    onTextChange={(e) => setStatementFour(e.textValue)}
-                    style={{ height: "320px" }}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="fourth-command-input"
-                    className="block mb-2 text-md font-bold mt-1 text-blue-700"
-                  >
-                    Coresponding Command Line:
-                  </label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
-                      <HiCommandLine className="text-2xl text-gray-600" />
-                    </span>
-                    <input
-                      type="text"
-                      id="fourth-command-input"
-                      className="rounded-none rounded-e-lg bg-white border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
-                      placeholder="Enter://Coresponding/Terminal/Command>"
-                      onChange={(event) => setFourthCommand(event.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
 
               {/* Submit Button  */}
               <div className="flex items-center justify-between sm:col-span-2">

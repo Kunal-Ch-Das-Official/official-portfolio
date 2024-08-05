@@ -1,13 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import envConfig from "../../../envConfig";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 const EditProject = () => {
   const { id } = useParams();
   const [prevProjectData, setPrevProjectData] = useState({});
   const [updatedProjectName, setProjectName] = useState("");
+  const [updatedAuthorrName, setAuthorrName] = useState("");
+  const [updateProjectType, setProjectType] = useState("");
   const [updatedOwnerName, setOwnerName] = useState("");
   const [updatedProjectUrl, setProjctUrl] = useState("");
   const [updatedGithubRepo, setGithubRepo] = useState("");
@@ -80,7 +83,9 @@ const EditProject = () => {
 
     const updatedFormData = new FormData();
     updatedFormData.append("projectName", updatedProjectName);
-    updatedFormData.append("author", updatedOwnerName);
+    updatedFormData.append("author", updatedAuthorrName);
+    updatedFormData.append("projectType", updateProjectType);
+    updatedFormData.append("owner", updatedOwnerName);
     updatedFormData.append("description", updatedDescription);
     updatedFormData.append("projectThumbnail", updatedThumbnailImg);
     updatedFormData.append("firstView", updatedFirstPageImg);
@@ -114,6 +119,9 @@ const EditProject = () => {
       {loadingState === true && <LoadingSpiner />}
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <Link to={"/dashboard/project-manage"}>
+        <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer"/>
+        </Link>
           <div className="mb-10 md:mb-16">
             <h2 className="mb-4 text-center text-2xl font-bold text-blue-600 md:mb-6 lg:text-3xl">
               Update Your Existing Projects
@@ -148,20 +156,54 @@ const EditProject = () => {
               />
             </div>
 
-            {/* Project owner input  */}
+            {/* Project author input  */}
             <div>
               <label
                 htmlFor="author"
                 className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
               >
-                Change Existing Project Owner Name
+                Change Existing Project Author Name
               </label>
               <input
                 name="author"
                 id="author"
-                onChange={(event) => setOwnerName(event.target.value)}
+                onChange={(event) => setAuthorrName(event.target.value)}
                 className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
                 defaultValue={prevProjectData.author}
+              />
+            </div>
+
+            {/* Project type input */}
+            <div>
+              <label
+                htmlFor="type"
+                className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
+              >
+                Project Type
+              </label>
+              <input
+                name="type"
+                id="type"
+                onChange={(event) => setProjectType(event.target.value)}
+                className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                defaultValue={prevProjectData.projectType}
+              />
+            </div>
+
+            {/* Project current owner input */}
+            <div>
+              <label
+                htmlFor="owner"
+                className="mb-2 inline-block text-lg text-blue-600 sm:text-base font-bold "
+              >
+                Project Owner
+              </label>
+              <input
+                name="owner"
+                id="owner"
+                onChange={(event) => setOwnerName(event.target.value)}
+                className="w-full rounded border bg-blue-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                defaultValue={prevProjectData.owner}
               />
             </div>
 
@@ -290,7 +332,7 @@ const EditProject = () => {
             {/* Technology used section  */}
             <div>
               <h3 className="mb-4 text-lg font-bold text-blue-700">
-              Change Existing Used Technology
+                Change Existing Used Technology
               </h3>
               <ul className="bg-blue-50 w-[550px] grid grid-flow-cols grid-cols-4 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg">
                 {technologyArray.map((technology, index) => (

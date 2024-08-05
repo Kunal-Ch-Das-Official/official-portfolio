@@ -69,7 +69,7 @@ const DeleteProject = () => {
                 {project.projectName}
               </h3>
               <h6 className="text-lg text-gray-800 mt-4">
-                Owner: {project.author}
+                Owner: {project.owner}
               </h6>
               <h6 className="text-lg text-green-600 mt-4">Id: {project._id}</h6>
 
