@@ -29,60 +29,20 @@ const BlogSchema = new Schema(
       required: true,
     },
 
-    statementHeadingOne: {
+    statementHeading: {
       type: String,
       required: true,
     },
-    statementOne: {
+    statement: {
       type: String,
       required: true,
     },
-    corespondingCodeOne: {
+    corespondingCode: {
       type: String,
     },
-    commandLineOne: {
+    commandLine: {
       type: String,
     },
-
-    statementHeadingTwo: {
-      type: String,
-    },
-    statementTwo: {
-      type: String,
-    },
-    corespondingCodeTwo: {
-      type: String,
-    },
-    commandLineTwo: {
-      type: String,
-    },
-
-    statementHeadingThree: {
-      type: String,
-    },
-    statementThree: {
-      type: String,
-    },
-    corespondingCodeThree: {
-      type: String,
-    },
-    commandLineThree: {
-      type: String,
-    },
-
-    statementHeadingFour: {
-      type: String,
-    },
-    statementFour: {
-      type: String,
-    },
-    corespondingCodeFour: {
-      type: String,
-    },
-    commandLineFour: {
-      type: String,
-    },
-
     status: {
       type: Boolean,
       default: 1,

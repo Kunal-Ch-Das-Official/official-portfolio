@@ -32,25 +32,11 @@ const uploadBlogsHandler = async (req, res) => {
         supportingImg: blogImage.secure_url,
         supportingImgPublicId: blogImage.public_id,
 
-        statementHeadingOne: req.body.statementHeadingOne,
-        statementOne: req.body.statementOne,
-        corespondingCodeOne: req.body.corespondingCodeOne,
-        commandLineOne: req.body.commandLineOne,
+        statementHeading: req.body.statementHeading,
+        statement: req.body.statement,
+        corespondingCode: req.body.corespondingCode,
+        commandLine: req.body.commandLine,
 
-        statementHeadingTwo: req.body.statementHeadingTwo,
-        statementTwo: req.body.statementTwo,
-        corespondingCodeTwo: req.body.corespondingCodeTwo,
-        commandLineTwo: req.body.commandLineTwo,
-
-        statementHeadingThree: req.body.statementHeadingThree,
-        statementThree: req.body.statementThree,
-        corespondingCodeThree: req.body.corespondingCodeThree,
-        commandLineThree: req.body.commandLineThree,
-
-        statementHeadingFour: req.body.statementHeadingFour,
-        statementFour: req.body.statementThree,
-        corespondingCodeFour: req.body.corespondingCodeFour,
-        commandLineFour: req.body.commandLineThree,
       });
 
       await blogInfo.save();
