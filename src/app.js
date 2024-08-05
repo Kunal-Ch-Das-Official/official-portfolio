@@ -16,19 +16,10 @@ const contactFormRouter = require("./routes/contactFormRouter");
 const blogRouter = require("./routes/blogRouter");
 const app = express();
 
-const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://localhost:3000",
-    "https://www.kunalchandradas.tech",
-    "https://adminportal.kunalchandradas.tech",
-  ],
-  optionsSuccessStatus: 200,
-};
+
 
 // Middlewere
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
