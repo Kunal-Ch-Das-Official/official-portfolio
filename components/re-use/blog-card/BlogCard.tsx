@@ -22,7 +22,7 @@ const BlogCard: React.FC<BlogCardDataProps> = ({
   const getProperDate = createdAT.split("T")[0];
 
   return (
-    <section className="mx-12 hover:border my-12 border-white">
+    <section className="mx-auto md:mx-12 lg:mx-12 hover:border my-12 border-white">
       <article className="flex transition hover:shadow-xl">
         <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
           <time
@@ -57,10 +57,10 @@ const BlogCard: React.FC<BlogCardDataProps> = ({
             </p>
           </div>
 
-          <div className="sm:flex sm:items-end sm:justify-end">
+          <div className="sm:flex w-40 sm:w-auto sm:items-end sm:justify-end">
             <Link
               href={`/blogs/${uniqeId}`}
-              className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase transition hover:bg-yellow-400"
+              className="block bg-orange-500 px-5 py-3 text-center text-xs font-bold uppercase transition hover:bg-orange-700 text-black"
             >
               Read Article
             </Link>

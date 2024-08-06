@@ -17,13 +17,13 @@ const BlogBanner = () => {
 
 
         <div className="text-center px-6">
-          <h3 className="font-extrabold text-5xl text-white leading-tight">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl mb-4 font-bold text-white">
             <span className="text-orange-500">Insights  </span>
            &
            <span className="text-orange-300"> Inspirations</span>
            </h3>
-          <h6 className="text-2xl text-gray-50 mt-2">Kunal Chandra Das Technical Blogs</h6>
-          <p className="text-gray-50 text-base leading-relaxed mt-4">Explore my latest blog posts on industry trends, design tips, and personal insights. Stay updated with articles that offer valuable knowledge and spark creative ideas.</p>
+          <h6 className="text-lg md:text-xl lg:text-2xl mb-4 text-white">Technical Blogs By Kunal</h6>
+          <p className="flex flex-col lg:w-3/4 md:w-full w-full text-sm md:text-sm lg:text-md">Explore my latest blog posts on industry trends, design tips, and personal insights. Stay updated with articles that offer valuable knowledge and spark creative ideas.</p>
         </div>
 
 

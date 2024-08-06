@@ -1,7 +1,6 @@
 import AboutBanner from '@/components/single-use/about-banner/AboutBanner';
 import { AboutMeInfo } from '@/components/single-use/about-me-info/AboutMeInfo';
 import Resume from '@/components/single-use/resume/Resume';
-import SkillsMarquee from '@/components/single-use/skills-marquee/SkillsMarquee';
 import React from 'react';
 
 
@@ -24,9 +23,9 @@ const About = () => {
   return (
     <main>
       <AboutBanner />
-      <SkillsMarquee />
       <AboutMeInfo />
       <Resume />      
+      
     </main>
   )
 }

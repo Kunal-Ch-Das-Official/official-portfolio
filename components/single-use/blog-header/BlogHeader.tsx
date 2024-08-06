@@ -24,7 +24,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
           {/* Total Blogs  */}
           <section
             id="blog-count"
-            className="bg-white px-2 justify-center py-2 rounded-full inline-flex items-center"
+            className="bg-white px-2 justify-center py-2 rounded-full min-[430px]:inline-flex sm:inline-flex md:inline-flex items-center hidden"
           >
             <div className="px-2 inline-flex justify-center items-center">
               <span className="text-black text-sm mr-1 ">Total </span>

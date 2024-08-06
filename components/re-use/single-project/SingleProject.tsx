@@ -118,7 +118,9 @@ const SingleProject: React.FC<SingleProjectProps> = ({
       case "cloudflare":
         return <FaCloudflare className="text-4xl text-orange-500" />;
       case "prisma":
-        return <SiPrisma className="text-4xl text-gray-900 bg-white rounded-3xl" />;
+        return (
+          <SiPrisma className="text-4xl text-gray-900 bg-white rounded-3xl" />
+        );
       case "django":
         return <DiDjango className="text-4xl text-green-900" />;
       case "flusk":
@@ -143,12 +145,13 @@ const SingleProject: React.FC<SingleProjectProps> = ({
   return (
     <main className="py-36 blurBackgroundItem">
       <div className="font-sans">
-      
         <div className="p-4 max-w-6xl max-md:max-w-xl mx-auto">
           <Link href={"/"} className="bottomTooltip">
-        <IoArrowBackCircleSharp className="text-white text-5xl mb-6 hover:text-orange-500 cursor-pointer" />
-        <span className="bottomTooltipText mt-3 cursor-pointer">Back To Home</span>
-        </Link>
+            <IoArrowBackCircleSharp className="text-white text-5xl mb-6 hover:text-orange-500 cursor-pointer" />
+            <span className="bottomTooltipText mt-3 cursor-pointer">
+              Back To Home
+            </span>
+          </Link>
           <div className="grid items-start grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-full lg:sticky top-0 flex gap-3">
               <Image
@@ -161,21 +164,29 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 }
                 alt="Product"
                 height={500}
+                quality={50}
                 width={500}
                 className="w-3/4 rounded-xl object-cover"
-                priority={true}
+                priority
+                loading="eager"
               />
               <div className="w-20 flex flex-col max-sm:mb-4 gap-3">
                 <Image
+                  priority
+                  loading="eager"
                   src={firstPageView}
                   alt="Product1"
                   height={500}
+                  quality={50}
                   width={500}
                   className="w-full cursor-pointer rounded-lg"
                   onClick={() => handleImgClick(1)}
                 />
                 <Image
+                  priority
+                  loading="eager"
                   src={secondPageView}
+                  quality={50}
                   alt="Product2"
                   height={500}
                   width={500}
@@ -183,7 +194,10 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                   onClick={() => handleImgClick(2)}
                 />
                 <Image
+                  priority
+                  loading="eager"
                   src={thirdPageView}
+                  quality={50}
                   alt="Product3"
                   height={500}
                   width={500}
@@ -200,7 +214,10 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                   alt={projectId}
                   height={50}
                   width={50}
+                  quality={50}
                   className="rounded-full mr-4"
+                  priority
+                  loading="eager"
                 />
                 {projectName}
               </h2>
@@ -213,7 +230,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               <div className="mt-10 flex flex-col lg:flex-row gap-4">
                 <Link
                   href="/hire"
-                  className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-white rounded-lg inline-flex mx-auto lg:mx-0"
+                  className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mx-auto lg:mx-0"
                 >
                   <span className="relative z-10 inline-flex">
                     <FaUsersViewfinder className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
@@ -223,7 +240,7 @@ const SingleProject: React.FC<SingleProjectProps> = ({
 
                 <Link
                   href="/about"
-                  className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold hover:shadow-orange-600 hover:text-white rounded-lg inline-flex"
+                  className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold hover:shadow-orange-600 hover:text-black rounded-lg inline-flex"
                 >
                   <span className="relative z-10 inline-flex">
                     <BsExclamationOctagonFill className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
