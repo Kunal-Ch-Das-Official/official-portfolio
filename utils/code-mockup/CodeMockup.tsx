@@ -20,7 +20,7 @@ const CodeMockup: React.FC<CodeMockupProps> = ({ minifiedCode }) => {
   }, [minifiedCode]);
 
   return (
-    <CodeMirror
+    <CodeMirror className='text-sm'
       value={formattedCode}
       options={{
         mode: 'javascript',

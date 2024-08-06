@@ -47,8 +47,7 @@ const Home = () => {
         />
       </div>
       <TesimonialBody />
-      
-    </main>
+    </main> 
   );
 };
 

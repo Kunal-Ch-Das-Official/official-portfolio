@@ -99,7 +99,7 @@ const BlogCanvas = () => {
     }
   };
 
- 
+
   return (
     <main>
       <BlogHeader
@@ -110,6 +110,8 @@ const BlogCanvas = () => {
         searchInput={(e: any) => getSearchInput(e)}
       />
 
+      {filteredOutput.length === 0 && searchQuery.length !== 0 ? <h2 className="text-center text-orange-500 font-bold mt-8">Please Provide A Valid Input!</h2>: 
+      <>
       {searchQuery ? (
         <BlogContainer
           backgroundColor={
@@ -129,7 +131,7 @@ const BlogCanvas = () => {
             <>
               {allBlogs.length === 0 ? (
                 <h1 className="text-center font-bold text-orange-500 text-xl">
-                  Currently no abogs are available. It will upload soon
+                  Currently bogs are not available. It will upload soon
                 </h1>
               ) : (
                 <BlogContainer
@@ -151,6 +153,8 @@ const BlogCanvas = () => {
           )}
         </>
       )}
+      </>
+}
     </main>
   );
 };
