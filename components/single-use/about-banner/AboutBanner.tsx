@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import BannerIllustration from "@/public/images/about/Skills-Illustration.webp";
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
@@ -8,9 +8,11 @@ import SkillSet from "../skill-set/SkillSet";
 
 const AboutBanner = () => {
   const [skillVisable, setSkillVisable] = useState<boolean>(false);
-  const handleSkillOpenAndClose = () => {
+
+  
+  const handleSkillOpenAndClose = useCallback(() => {
     skillVisable === false ? setSkillVisable(true) : setSkillVisable(false);
-  };
+  }, [skillVisable]);
   return (
     <section className="text-gray-100 body-font pt-24 mb-10 lg:mb-10">
       <div className="container mx-auto flex px-5 py-24 lg:flex-row md:flex-col flex-col justify-between items-center w-full">
@@ -80,4 +82,4 @@ const AboutBanner = () => {
   );
 };
 
-export default AboutBanner;
+export default memo(AboutBanner);

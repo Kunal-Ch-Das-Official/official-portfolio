@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaStar } from "react-icons/fa";
 // Import Swiper styles
@@ -96,4 +96,5 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
   );
 };
 
-export default SwiperCard;
+
+export default memo(SwiperCard);

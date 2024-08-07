@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import envConfig from "@/envConfig";
 import SwiperCard from "@/components/re-use/swiper-card/SwiperCard";
@@ -42,13 +42,13 @@ const TesimonialBody: React.FC = () => {
     AOS.init();
   }, []);
 
-  const handleOpenSubmitOption = () => {
+  const handleOpenSubmitOption = useCallback(() => {
     setReviewPostOption(true);
-  };
+  }, []);
 
-  const handleCloseSubmitOption = () => {
+  const handleCloseSubmitOption = useCallback(() => {
     setReviewPostOption(false);
-  };
+  },[]);
 
   return (
     <section>

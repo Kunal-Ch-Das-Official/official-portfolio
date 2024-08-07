@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useMemo } from "react";
 import brandLogo from "@/public/images/header-footer/Potfolio-logo.webp";
 import { usePathname } from "next/navigation";
 import { BsExclamationOctagonFill } from "react-icons/bs";
@@ -15,7 +15,10 @@ interface SideNavProps {
 }
 
 const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
-  const pathname = usePathname();
+
+  const normalPath = usePathname();
+  const pathname = useMemo(() => normalPath, [normalPath]);
+
   return (
     <nav className="blurBackground shadow-2xl h-screen fixed top-0 left-0 min-w-[320px] py-6 px-4 overflow-auto">
       <div className="mt-0">
@@ -95,4 +98,4 @@ const SideNav: React.FC<SideNavProps> = ({ closeMenu }) => {
   );
 };
 
-export default SideNav;
+export default React.memo(SideNav);

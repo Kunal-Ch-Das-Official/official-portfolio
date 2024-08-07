@@ -1,9 +1,13 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import "./ProjectBanner.css";
 import Image from "next/image";
 import BannerImage from "@/public/images/project/project-banner-img.webp";
+
+
 const ProjectBanner: React.FC = () => {
+
+  
   useEffect(() => {
     const bannerBody: Element | null | any =
       document.querySelector(".projectBanner");
@@ -62,18 +66,15 @@ const ProjectBanner: React.FC = () => {
 
           <div className=" text-center lg:justify-center lg:text-center lg:w-1/2 md:w-3/4 w-full mt-10">
             <h1 className="text-2xl md:text-3xl lg:inline-block lg:w-full lg:text-4xl mb-4 font-bold text-white">
-              <span className="text-orange-700 mb-2">All </span>
+              <span className="text-orange-700 mb-2">Exploring </span>
               <span className="text-orange-500 mb-2"> My </span>
-              <span className="text-orange-400 mb-2"> Creative </span>
-              <span className="text-orange-400 mb-2"> Odyssey </span>
+              <span className="text-orange-400 mb-2"> Web Development </span>
+              <span className="text-orange-400 mb-2"> Journey: </span>
               <br className="hidden lg:inline-block" />
-              Of Web Development
+                 A Creative Odyssey
             </h1>
             <p className="flex flex-col lg:w-full md:w-full w-full text-sm md:text-sm lg:text-md lg:text-center">
-              I help business owners and busy web developers to design & develop
-              creative websites that fits their vision and attracts the visitors
-              to stay for ever. Technologies and tools that I use to create such
-              awesome websites.
+            Journey through a curated collection of my web development projects, where creativity meets technical skill. This showcase highlights key milestones, innovative solutions. Explore the evolution of my work, from initial ideas to final implementations, and see how each project reflects my commitment to excellence and continuous learning. Each piece is a testament to my dedication to crafting unique and effective web experiences.
             </p>
           </div>
         </div>
@@ -82,4 +83,4 @@ const ProjectBanner: React.FC = () => {
   );
 };
 
-export default ProjectBanner;
+export default memo(ProjectBanner);

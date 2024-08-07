@@ -32,18 +32,18 @@ const Home = () => {
       <LandingBanner />
       <StackOverview />
       <SectionHeading
-        darkTitle="Real"
-        semiDarkTitle="World"
-        lightTitle="Projects"
-        subHeading="Explore a curated selection of my recent work and innovative projects, demonstrating my skills and expertise in web development and design."
+        darkTitle="Showcasing"
+        semiDarkTitle="Practical Applications"   
+        lightTitle="and Impactful Solutions"
+        subHeading="Explore a selection of my projects that demonstrate real-world problem-solving and innovative design. Each project reflects my commitment to delivering effective and user-centric web solutions tailored to meet diverse client needs."
       />
       <AllProjectsDisplayer sliceFrom={0} sliceTo={3}/>
       <div className="mt-28">
         <SectionHeading
-          darkTitle="Hear"
-          semiDarkTitle="What My"
-          lightTitle="Client Say's"
-          subHeading="Hear what my clients have to say about working with me and the impact of my projects on their businesses."
+          darkTitle="Client"   
+          semiDarkTitle="Testimonials"
+          lightTitle="and Feedbacks"
+          subHeading="Discover the experiences and insights shared by those I've worked with. Their testimonials provide a glimpse into the quality, reliability, and impact of my work, showcasing the results and satisfaction achieved through our collaboration."
         />
       </div>
       <TesimonialBody />

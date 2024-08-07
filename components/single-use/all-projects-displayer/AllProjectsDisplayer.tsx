@@ -3,7 +3,7 @@ import { AllProjectCard } from '@/components/re-use/all-project-card/AllProjectC
 import envConfig from '@/envConfig';
 import ComponentSpinner from '@/utils/loading-state/component-loading/ComponentSpinner';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 interface AllProjectData {
     _id: string,
@@ -67,4 +67,4 @@ const AllProjectsDisplayer:React.FC<ProjectDisplayerProps> = ({sliceFrom, sliceT
   )
 }
 
-export default AllProjectsDisplayer;
+export default memo(AllProjectsDisplayer);

@@ -3,7 +3,7 @@ import React from 'react';
 
 const NotFound = () => {
   return (
-    <div className='min-h-screen w-full'>
+    <div className='min-h-screen w-full mt-32'>
     <CustomNotFound />
     </div>
   )

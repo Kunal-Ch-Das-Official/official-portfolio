@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
 import dynamic from "next/dynamic";
 import { MdDownload } from "react-icons/md";
@@ -36,10 +36,7 @@ const LandingBanner: React.FC = () => {
             </span>
           </h2>
           <p className="flex flex-col lg:w-3/4 md:w-full w-full text-sm md:text-sm lg:text-md">
-            I help business owners and busy web developers to design & develop
-            creative websites that fits their vision and attracts the visitors
-            to stay for ever. Technologies and tools that I use to create such
-            awesome websites.
+          I assist business owners and busy web developers in designing and developing creative websites that align with their vision and engage visitors effectively. My expertise ensures that each website not only meets aesthetic and functional requirements but also drives long-term user engagement and satisfaction. As a freelance web developer, I offer personalized solutions and dedicated support to bring your digital presence to life, tailored to your unique needs and goals.
           </p>
 
           <div className="flex justify-center lg:justify-normal mt-8">
@@ -61,7 +58,7 @@ const LandingBanner: React.FC = () => {
             height={430}
             width={430}
             priority
-            quality={75}
+            quality={50}
             loading="eager"
             src={profilePicture}
           />
@@ -71,4 +68,4 @@ const LandingBanner: React.FC = () => {
   );
 };
 
-export default LandingBanner;
+export default memo(LandingBanner);

@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import React, { memo, useEffect, useState } from "react";
 import { BsExclamationOctagonFill } from "react-icons/bs";
 import Link from "next/link";
 import { FaUsersViewfinder } from "react-icons/fa6";
@@ -34,6 +36,7 @@ import { SiMysql } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { SiMongodb } from "react-icons/si";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 interface SingleProjectProps {
   projectId: string;
@@ -66,6 +69,15 @@ const SingleProject: React.FC<SingleProjectProps> = ({
 }) => {
   const [isClick, setClick] = useState<number>(1);
   const [imgClick, setImgClick] = useState<number>(1);
+  const [isContentOpen, setIsContentOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const handleContentSection = () => {
+    isContentOpen === true ? setIsContentOpen(false) : setIsContentOpen(true);
+  };
 
   const handleDescriptionTab = (id: number) => {
     setClick(id);
@@ -146,14 +158,29 @@ const SingleProject: React.FC<SingleProjectProps> = ({
     <main className="py-36 blurBackgroundItem">
       <div className="font-sans">
         <div className="p-4 max-w-6xl max-md:max-w-xl mx-auto">
-          <Link href={"/"} className="bottomTooltip">
+          <Link href={"/"} className="bottomTooltip" aria-label="Back-to-home">
             <IoArrowBackCircleSharp className="text-white text-5xl mb-6 hover:text-orange-500 cursor-pointer" />
             <span className="bottomTooltipText mt-3 cursor-pointer">
               Back To Home
             </span>
           </Link>
-          <div className="grid items-start grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="w-full lg:sticky top-0 flex gap-3">
+          <div className="justify-start mb-2 mt-8">
+            <h1 className="text-xl mb-3 sm:text-2xl lg:text-3xl font-bold text-orange-500 inline-flex items-center justify-start">
+              <Image
+                src={projectThumbnail}
+                alt={projectId}
+                height={50}
+                width={50}
+                quality={50}
+                className="rounded-full mr-4"
+                priority
+                loading="eager"
+              />
+              {projectName}
+            </h1>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="w-full mx-auto flex gap-3 mb-12">
               <Image
                 src={
                   imgClick === 1
@@ -164,13 +191,13 @@ const SingleProject: React.FC<SingleProjectProps> = ({
                 }
                 alt="Product"
                 height={500}
-                quality={50}
+                quality={60}
                 width={500}
                 className="w-3/4 rounded-xl object-cover"
                 priority
                 loading="eager"
               />
-              <div className="w-20 flex flex-col max-sm:mb-4 gap-3">
+              <div className="w-72 flex flex-col max-sm:mb-4 gap-3">
                 <Image
                   priority
                   loading="eager"
@@ -207,107 +234,123 @@ const SingleProject: React.FC<SingleProjectProps> = ({
               </div>
             </div>
 
-            <div>
-              <h2 className="text-3xl max-sm:text-2xl font-bold text-orange-500 inline-flex items-center">
-                <Image
-                  src={projectThumbnail}
-                  alt={projectId}
-                  height={50}
-                  width={50}
-                  quality={50}
-                  className="rounded-full mr-4"
-                  priority
-                  loading="eager"
-                />
-                {projectName}
-              </h2>
-
-              <div>
-                If you like my work, please do not forget to leave a review. If
-                you are interested in hiring me, feel free to send an email. I
-                will get in touch with you via email or WhatsApp shortly.
-              </div>
-              <div className="mt-10 flex flex-col lg:flex-row gap-4">
-                <Link
-                  href="/hire"
-                  className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mx-auto lg:mx-0"
-                >
-                  <span className="relative z-10 inline-flex">
-                    <FaUsersViewfinder className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
-                    Hire Me
-                  </span>
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold hover:shadow-orange-600 hover:text-black rounded-lg inline-flex"
-                >
-                  <span className="relative z-10 inline-flex">
-                    <BsExclamationOctagonFill className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
-                    About Me
-                  </span>
-                </Link>
-              </div>
-
-              <ul className="grid grid-cols-2 mt-10">
-                <li
-                  className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
-                    isClick === 1
-                      ? "border-gray-800 bg-gray-50 text-black"
-                      : "text-gray-50"
-                  } cursor-pointer`}
-                  onClick={() => handleDescriptionTab(1)}
-                >
-                  Technology Used
-                </li>
-                <li
-                  className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
-                    isClick === 2
-                      ? "border-gray-800 bg-gray-50 text-black"
-                      : "text-gray-50"
-                  } cursor-pointer`}
-                  onClick={() => handleDescriptionTab(2)}
-                >
-                  Details
-                </li>
-              </ul>
-
-              {isClick === 1 ? (
-                <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-gray-900">
-                  {usedStack.map((tech, index) => (
-                    <li key={index} className="flex flex-col items-center my-6">
-                      <div>{renderTechnologyIcon(tech)}</div>
-                      <h6 className="ml-2 mt-2 font-semibold text-gray-300">
-                        {tech}
-                      </h6>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <ul className="space-y-2 text-sm text-gray-300 bg-gray-900 mt-8 p-6">
-                  <li className="text-gray-300 text-lg font-bold">
-                    Visit Github:{" "}
-                    <a
-                      href={githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {githubLink}
-                    </a>
-                  </li>
-                  <li className="text-gray-300 text-lg font-bold">
-                    Project Owner: {projectAuthor}
-                  </li>
-                  <li className="text-gray-300 text-lg font-bold">
-                    Project Author: {projectType}
-                  </li>
-                  <li className="text-gray-300 text-lg font-bold">
-                    Project Type: {projectOwner}
-                  </li>
-                  <p className="text-sm font-semibold">{projectDescription}</p>
-                </ul>
-              )}
+            <div id="button" onClick={handleContentSection}>
+              <button className="inline-flex items-center font-bold border border-white w-60 h-8 rounded-full justify-center hover:text-black hover:bg-white text-white">
+                <span className="mr-3">
+                  {isContentOpen === true ? "Close" : "Read About..."}
+                </span>
+                <span>
+                  <FaArrowRightLong className="font-bold text-xl" />
+                </span>
+              </button>
             </div>
+
+            {isContentOpen === true && (
+              <div id="content" data-aos="fade-up">
+                <div className="text-center font-bold mt-6">
+                  If you like my work, please do not forget to leave a review.
+                  If you are interested in hiring me, feel free to send an
+                  email. I will get in touch with you via email or WhatsApp
+                  shortly.
+                </div>
+                <ul className="grid grid-cols-2 mt-5">
+                  <li
+                    className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
+                      isClick === 1
+                        ? "border-gray-800 bg-gray-50 text-black"
+                        : "text-gray-50"
+                    } cursor-pointer`}
+                    onClick={() => handleDescriptionTab(1)}
+                  >
+                    Technology Used
+                  </li>
+                  <li
+                    className={`font-semibold text-base text-center py-3 px-4 border-b-2 ${
+                      isClick === 2
+                        ? "border-gray-800 bg-gray-50 text-black"
+                        : "text-gray-50"
+                    } cursor-pointer`}
+                    onClick={() => handleDescriptionTab(2)}
+                  >
+                    Details
+                  </li>
+                </ul>
+
+                {isClick === 1 ? (
+                  <ul className="grid grid-cols-2 lg:grid-cols-3 mt-4 bg-gray-900">
+                    {usedStack.map((tech, index) => (
+                      <li
+                        key={index}
+                        className="flex flex-col items-center my-6"
+                      >
+                        <div>{renderTechnologyIcon(tech)}</div>
+                        <p className="ml-2 mt-2 text-md font-semibold text-gray-300">
+                          {tech}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul className="space-y-2 text-sm text-gray-300 bg-gray-900 mt-8 p-6">
+                    <li className="text-gray-300 text-lg font-bold">
+                      <span className="text-orange-500 mr-2">
+                        Visit Github:
+                      </span>
+                      <a
+                        href={githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {githubLink}
+                      </a>
+                    </li>
+                    <li className="text-gray-300 text-lg font-bold">
+                      <span className="text-orange-500 mr-2">
+                        Project Owner:{" "}
+                      </span>
+                      {projectAuthor}
+                    </li>
+                    <li className="text-gray-300 text-lg font-bold">
+                      <span className="text-orange-500 mr-2">
+                        Project Author:{" "}
+                      </span>
+                      {projectType}
+                    </li>
+                    <li className="text-gray-300 text-lg font-bold">
+                      <span className="text-orange-500 mr-2">
+                        Project Type:{" "}
+                      </span>
+                      {projectOwner}
+                    </li>
+                    <p className="text-sm font-semibold">
+                      {projectDescription}
+                    </p>
+                  </ul>
+                )}
+
+                <div className="mt-10 flex flex-col lg:flex-row gap-4">
+                  <Link
+                    href="/hire"
+                    className="relative 2xl:flex xl:flex lg:flex h-[50px] w-50 items-center justify-between px-8 overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mx-auto lg:mx-0"
+                  >
+                    <span className="relative z-10 inline-flex">
+                      <FaUsersViewfinder className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
+                      Hire Me
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/about"
+                    className="mx-auto lg:mx-0 relative 2xl:flex xl:flex lg:flex h-[50px] w-56 items-center justify-center overflow-hidden bg-tranparent hover:bg-orange-500 border-2 border-orange-500 text-orange-500 shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold hover:shadow-orange-600 hover:text-black rounded-lg inline-flex"
+                  >
+                    <span className="relative z-10 inline-flex">
+                      <BsExclamationOctagonFill className="w-6 h-6 cursor-pointer fill-current inline-flex mr-3" />
+                      About Me
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -315,4 +358,4 @@ const SingleProject: React.FC<SingleProjectProps> = ({
   );
 };
 
-export default SingleProject;
+export default memo(SingleProject);

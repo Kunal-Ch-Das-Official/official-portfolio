@@ -37,18 +37,20 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
 
           {/* Search Bar filtering  */}
           <section id="search-bar">
-            <form onSubmit={(event) => getSearchResult(event)}>
+            <form onSubmit={(event) => getSearchResult(event)} id="searchBar">
               <div className="flex">
                 <div className="relative w-full ">
+                  <label htmlFor="blogSearchInput">
                   <input
                     type="search"
-                    id="search-dropdown"
+                    id="blogSearchInput"
                     className="rounded-lg block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg rounded-s-gray-100 rounded-s-2 border border-gray-300 focus:outline-none"
                     placeholder="Search Blogs..."
                     onChange={(event: any) => searchInput(event)}
                   />
+                  </label>
                   <button
-                    type="submit"
+                    type="submit" aria-label="blog-search-button"
                     className="absolute top-0 end-0 p-2.5 h-full text-sm font-medium text-white bg-orange-400 rounded-e-lg border border-orange-700 hover:bg-orange-800 "
                   >
                     <BsSearch className="font-bold text-lg" />
@@ -63,10 +65,11 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
             id="theme-changer"
             className="inline-block border-gray-300 border-l-2 pl-6 cursor-pointer"
           >
-            <label className="swap swap-rotate">
+            <label htmlFor="themeController" className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
+                 id="themeController"
                 className="theme-controller"
                 value={inputValue}
                 onChange={inputHandler}

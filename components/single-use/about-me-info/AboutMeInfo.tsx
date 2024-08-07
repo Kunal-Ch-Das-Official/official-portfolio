@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import { twMerge } from "tailwind-merge";
 import { AboutInfoUi } from "../../user-interface/about-info-ui/AboutInfoUi";
 
-export function AboutMeInfo() {
+const  AboutMeInfo = () => {
   return (
     <div className="min-h-screen mt-12" id="about">
       <div className="text-center mb-10">
@@ -187,3 +187,5 @@ const myInformation = [
     location: "London App Brewery",
   },
 ];
+
+export default memo(AboutMeInfo);

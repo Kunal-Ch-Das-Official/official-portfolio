@@ -35,7 +35,7 @@ export function AllProjectCard({
           translateZ="50"
           className="text-xl font-bold text-white inline-flex items-center"
         >
-          <Image src={projectLogo || alternativeImage} height={50} width={50} alt={projectName || "Project Logo"} className="rounded-full"/>
+          <Image src={projectLogo || alternativeImage} height={50} width={50} quality={50} alt={projectName || "Project Logo"} className="rounded-full"/>
           <span className="ml-2 text-white">{projectName}</span>
         </CardItem>
         <CardItem

@@ -1,7 +1,7 @@
 "use client";
 import envConfig from "@/envConfig";
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { TiWarning } from "react-icons/ti";
 import { MdDownloadDone } from "react-icons/md";
@@ -76,7 +76,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
     };
 
     try {
-      const response = await axios.post(envConfig.postReviewApiUrl, formData);
+       await axios.post(envConfig.postReviewApiUrl, formData);
       setIsSubmitSuccessful(false);
       setResMessage({
         heading: "Thank You For Your Valuable Rating!",
@@ -109,10 +109,10 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
   };
 
   // Alert Close Handler
-  const handleAlertClose = () => {
+  const handleAlertClose = useCallback(() => {
     setFormStatus(false);
     closePostBox();
-  }
+  }, [closePostBox])
 
   return (
     <main id="postReview">
@@ -120,7 +120,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
         <div className="container blurBackgroundForm px-5 w-full lg:w-1/2 mx-auto border-2 border-white rounded-lg hover:border-orange-500">
           <RiCloseCircleFill
             onClick={closePostBox}
-            className="text-black text-4xl bg-white float-end mt-6 rounded-full hover:transition-transform hover:scale-110 hover:bg-orange-500 hover:text-black"
+            className="text-black text-4xl bg-white float-end mt-6 rounded-full hover:transition-transform hover:scale-110 hover:bg-orange-500 hover:text-black cursor-pointer"
           />
           <div className="py-10">
             <div className="flex flex-col text-center w-full mb-12">

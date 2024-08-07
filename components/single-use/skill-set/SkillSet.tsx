@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const SkillSet: React.FC = () => {
   const skillSet = [
@@ -44,4 +44,4 @@ const SkillSet: React.FC = () => {
   );
 };
 
-export default SkillSet;
+export default memo(SkillSet);

@@ -1,14 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import { VscPreview } from "react-icons/vsc";
-import ResumePreview from "@/components/single-use/resume/ResumePreview";
 import axios from "axios";
 import envConfig from "@/envConfig";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import jsPDF from "jspdf";
 import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
+import dynamic from "next/dynamic";
+const ResumePreview = dynamic(
+  () => import("@/components/single-use/resume/ResumePreview"),
+  {
+    loading: () => <ComponentSpinner />,
+  }
+);
 
 const Resume = () => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
@@ -35,7 +41,7 @@ const Resume = () => {
     setPreviewOpen(false);
   };
 
-  const downloadResumeHandler = () => {
+  const downloadResumeHandler = useCallback(() => {
     try {
       setResumeLoading(true);
       const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
@@ -64,7 +70,7 @@ const Resume = () => {
       console.log("error", error);
       setResumeLoading(false);
     }
-  };
+  }, [resumeData.resume, setResumeLoading]);
 
   return (
     <section className="my-28" id="getResume">

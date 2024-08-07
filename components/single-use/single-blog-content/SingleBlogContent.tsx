@@ -1,10 +1,15 @@
 "use client";
-import CodeMockup from "@/utils/code-mockup/CodeMockup";
+import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
+// import CodeMockup from "@/utils/code-mockup/CodeMockup";
 import { useThemeContext } from "@/utils/theme-context/ThemeContext";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { memo } from "react";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
+const CodeMockup = dynamic(() => import("@/utils/code-mockup/CodeMockup"), {
+  loading: () => <ComponentSpinner />,
+})
 
 interface SingleBlogProps {
   authorName: string;
@@ -95,6 +100,7 @@ const SingleBlogContent: React.FC<SingleBlogProps> = ({
               <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                 <Image width={500} height={500}
                 priority
+                quality={50}
                 loading="eager"
                   className="w-fit object-cover md:h-full md:w-full max-w-screen rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
                   src={supportingImg}
@@ -148,4 +154,4 @@ const SingleBlogContent: React.FC<SingleBlogProps> = ({
   );
 };
 
-export default SingleBlogContent;
+export default memo(SingleBlogContent);
