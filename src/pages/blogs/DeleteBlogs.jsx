@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import getSingleBlog from "../../../apis/GET/getSingleBlog";
 
 const DeleteBlogs = () => {
   const { id } = useParams();
@@ -11,18 +12,10 @@ const DeleteBlogs = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getBlogData = async () => {
-      try {
-        await axios
-          .get(`${envConfig.getSingleBlogApiUrl}/${id}`)
-          .then((res) => {
-            setExistingBlog(res.data);
-          });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getBlogData();
+    (async () => {
+      const res = await getSingleBlog(id);
+      setExistingBlog(res);
+    })();
   }, []);
 
   const handleDeleteRequest = async () => {

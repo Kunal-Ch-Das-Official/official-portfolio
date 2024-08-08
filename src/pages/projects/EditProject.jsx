@@ -4,6 +4,7 @@ import envConfig from "../../../envConfig";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import getProjects from "../../../apis/GET/getProjects";
 
 const EditProject = () => {
   const { id } = useParams();
@@ -25,16 +26,10 @@ const EditProject = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getPrevProject = async () => {
-      try {
-        await axios.get(`${envConfig.getProjectApiUrl}/${id}`).then((res) => {
-          setPrevProjectData(res.data);
-        });
-      } catch (error) {
-        console.log(`Unable to get projects due to:${error}`);
-      }
-    };
-    getPrevProject();
+    (async () => {
+      const res = await getProjects(id);
+      setPrevProjectData(res.data);
+    })();
   }, []);
 
   const technologyArray = [
@@ -119,9 +114,9 @@ const EditProject = () => {
       {loadingState === true && <LoadingSpiner />}
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <Link to={"/dashboard/project-manage"}>
-        <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer"/>
-        </Link>
+          <Link to={"/dashboard/project-manage"}>
+            <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer" />
+          </Link>
           <div className="mb-10 md:mb-16">
             <h2 className="mb-4 text-center text-2xl font-bold text-blue-600 md:mb-6 lg:text-3xl">
               Update Your Existing Projects

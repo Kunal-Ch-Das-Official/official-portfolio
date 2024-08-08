@@ -6,34 +6,28 @@ import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import ConfirmAlert from "../../utils/confirm-alert/ConfirmAlert";
 import ProductSkeleton from "../../utils/skeleton/ProductSkeleton";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import getEmails from "../../../apis/GET/getEmails";
 
 const DedicatedEmail = () => {
   const { id } = useParams();
   const [singleEmail, setSingleEmail] = useState({});
   const [loadingState, setLoadingState] = useState(false);
   const [confirmAlert, setConfirmAlert] = useState(false);
-  const [displaySkeleton, setDisplaySkeleton] = useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getSingleEmail = async () => {
-      setDisplaySkeleton(true);
-      try {
-        await axios.get(`${envConfig.getAllEmailsApiUrl}/${id}`).then((res) => {
-          setSingleEmail(res.data);
-          setDisplaySkeleton(false);
-        });
-      } catch (error) {
-        console.log(`Error: ${error}`);
-      }
-    };
-    getSingleEmail();
+    (async () => {
+      const res = await getEmails(id);
+      setSingleEmail(res.data);
+      setDisplaySkeleton(res ? false : true);
+    })();
   }, []);
 
   const handleDelete = async () => {
     setLoadingState(true);
     try {
-      const res = await axios.delete(`${envConfig.deleteEmailsApiUrl}/${id}`);
+      await axios.delete(`${envConfig.deleteEmailsApiUrl}/${id}`);
       setLoadingState(false);
       navigate("/dashboard/emails-manage");
     } catch (error) {

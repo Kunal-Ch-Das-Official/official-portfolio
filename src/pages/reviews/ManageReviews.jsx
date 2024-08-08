@@ -1,35 +1,22 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
-import envConfig from "../../../envConfig";
 import { Link } from "react-router-dom";
 import ListSkeleton from "../../utils/skeleton/ListSkeleton";
-
+import getReviews from "../../../apis/GET/getReviews";
 
 const ManageReviews = () => {
   const [apiResponse, setApiResponse] = useState([]);
-  const [displaySkeleton, setDisplaySkeleton] = useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(true);
 
   useEffect(() => {
-
-    const getAllreviews = async () => {
-      setDisplaySkeleton(true);
-      try {
-        await axios.get(envConfig.getReviewsApiUrl)
-        .then((res) => {
-          setApiResponse(res.data);
-          setDisplaySkeleton(false);
-        })
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getAllreviews();
+    (async () => {
+      const res = await getReviews();
+      setApiResponse(res.data);
+      setDisplaySkeleton(res ? false : true);
+    })();
   }, []);
-
-
 
   return (
     <div className="w-5/6 float-right">
@@ -39,104 +26,112 @@ const ManageReviews = () => {
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div className="overflow-hidden border border-gray-200 md:rounded-lg">
-                  {displaySkeleton === true ? <ListSkeleton /> :
-                  <table className="min-w-full divide-y divide-gray-200 ">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th
-                          scope="col"
-                          className="py-3.5 px-4 text-left rtl:text-right"
-                        >
-                          <div className="flex items-center gap-x-3 pl-6">
-                                <span className="text-md font-bold">Publisher</span>
-                          </div>
-                        </th>
-
-                        <th
-                          scope="col"
-                          className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                        >
-                          
-                        </th>
-
-                        <th scope="col" className="relative py-3.5 pr-8 text-gray-800">
-                          Post Date
-                        </th>
-
-                        <th
-                          scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                        >
-                        
-                        </th>
-
-                        <th scope="col" className="relative py-3.5 pr-8 text-gray-800">
-                          Ratings
-                        </th>
-
-                        <th scope="col" className="relative py-3.5 pr-8 text-gray-800">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                     {
-                      apiResponse.map((reviews) => 
-                        <tbody className="bg-white divide-y divide-gray-200" key={reviews._id}>
-                      <tr>
-                        <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                          <div className="inline-flex items-center gap-x-3 pl-6">
-
-                            <div className="flex items-center gap-x-2">
-                              <div>
-                                <h2 className="font-normal text-gray-800  ">
-                                  { reviews.userName}
-                                </h2>
-                              </div>
+                  {displaySkeleton === true ? (
+                    <ListSkeleton />
+                  ) : (
+                    <table className="min-w-full divide-y divide-gray-200 ">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th
+                            scope="col"
+                            className="py-3.5 px-4 text-left rtl:text-right"
+                          >
+                            <div className="flex items-center gap-x-3 pl-6">
+                              <span className="text-md font-bold">
+                                Publisher
+                              </span>
                             </div>
-                          </div>
-                        </td>
-                        <td className="px-12 py-4 text-md font-semibold">
-                         
-                        </td>
-                        <td className="px-4 py-4 text-sm ">
-                          {reviews.date}
-                        </td>
-                        <td className="px-4 py-4 text-sm ">
-                        
-                        </td>
-                        <td className="px-4 py-4 text-sm ">
-                          {reviews.rating.length}
-                        </td>
-                        <td className="px-4 py-4 inline-flex">
-                          <Link to={`/dashboard/review-edit/${reviews._id}`}
-                           className="px-2 mx-2 py-1 transition-colors duration-200 rounded-lg  hover:bg-black">
-                             <FaUserEdit className="text-2xl text-green-600"/>
-                          </Link>
+                          </th>
 
-                          <Link to={`/dashboard/review-delete/${reviews._id}`}
-                            className="px-2 mx-4 py-1 rounded-lg hover:bg-black transition-colors duration-200">
-                             <MdDeleteSweep className="text-2xl text-red-600"/>
-                             </Link>
+                          <th
+                            scope="col"
+                            className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          ></th>
 
-                             <Link to={`/dashboard/review/${reviews._id}`} className="px-2 py-1 transition-colors duration-200 rounded-lg 
-                              hover:bg-black">
-                             <MdVisibility className="text-2xl text-blue-600"/>
-                             </Link>
+                          <th
+                            scope="col"
+                            className="relative py-3.5 pr-8 text-gray-800"
+                          >
+                            Post Date
+                          </th>
 
-                             
-                        </td>
-                      </tr>
+                          <th
+                            scope="col"
+                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          ></th>
 
-                    </tbody>)
-                     }
+                          <th
+                            scope="col"
+                            className="relative py-3.5 pr-8 text-gray-800"
+                          >
+                            Ratings
+                          </th>
 
-                  </table>
-}
+                          <th
+                            scope="col"
+                            className="relative py-3.5 pr-8 text-gray-800"
+                          >
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      {apiResponse.map((reviews) => (
+                        <tbody
+                          className="bg-white divide-y divide-gray-200"
+                          key={reviews._id}
+                        >
+                          <tr>
+                            <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                              <div className="inline-flex items-center gap-x-3 pl-6">
+                                <div className="flex items-center gap-x-2">
+                                  <div>
+                                    <h2 className="font-normal text-gray-800  ">
+                                      {reviews.userName}
+                                    </h2>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-12 py-4 text-md font-semibold"></td>
+                            <td className="px-4 py-4 text-sm ">
+                              {reviews.date}
+                            </td>
+                            <td className="px-4 py-4 text-sm "></td>
+                            <td className="px-4 py-4 text-sm ">
+                              {reviews.rating.length}
+                            </td>
+                            <td className="px-4 py-4 inline-flex">
+                              <Link title="Edit"
+                                to={`/dashboard/review-edit/${reviews._id}`}
+                                className="px-2 mx-2 py-1 transition-colors duration-200 rounded-lg  hover:bg-black"
+                              >
+                                <FaUserEdit className="text-2xl text-green-600" />
+                              </Link>
+
+                              <Link title="Delete"
+                                to={`/dashboard/review-delete/${reviews._id}`}
+                                className="px-2 mx-4 py-1 rounded-lg hover:bg-black transition-colors duration-200"
+                              >
+                                <MdDeleteSweep className="text-2xl text-red-600" />
+                              </Link>
+
+                              <Link title="View"
+                                to={`/dashboard/review/${reviews._id}`}
+                                className="px-2 py-1 transition-colors duration-200 rounded-lg 
+                              hover:bg-black"
+                              >
+                                <MdVisibility className="text-2xl text-blue-600" />
+                              </Link>
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
+                    </table>
+                  )}
                 </div>
               </div>
             </div>
           </div>
-
         </section>
       </div>
     </div>

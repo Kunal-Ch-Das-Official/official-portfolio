@@ -1,27 +1,21 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { RiFileEditFill } from "react-icons/ri";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import envConfig from "../../../envConfig";
 import { Link } from "react-router-dom";
 import ListSkeleton from "../../utils/skeleton/ListSkeleton";
+import getProjects from "../../../apis/GET/getProjects";
 
 const ManageProject = () => {
   const [apiResponse, setApiResponse] = useState([]);
-  const [displaySkeleton, setDisplaySkeleton] = useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(true);
+
+
   useEffect(() => {
-    const fetchProjects = async () => {
-      setDisplaySkeleton(true);
-      try {
-        await axios.get(envConfig.getProjectApiUrl).then((res) => {
-          setApiResponse(res.data);
-          setDisplaySkeleton(false);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProjects();
+    (async () => {
+      const res = await getProjects();
+      setApiResponse(res.data);
+      setDisplaySkeleton(res ? false : true);
+    })()
   }, []);
 
   return (

@@ -25,6 +25,7 @@ import EditBlogs from "./pages/blogs/EditBlogs";
 import DeleteBlogs from "./pages/blogs/DeleteBlogs";
 import BlogOverView from "./pages/blogs/BlogOverView";
 
+
 const App = () => {
   return (
     <AuthProvider>
@@ -38,36 +39,104 @@ const App = () => {
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
-            }>
-              <Route index element={<DashboardBody />} />
-              <Route path="/dashboard/project-manage" element={<ManageProject />}/>
-              <Route path="/dashboard/project-post" element={<PostProject />}/>
-              <Route path="/dashboard/project-edit/:id" exact element={<EditProject />} />
-              <Route path="/dashboard/project-delete/:id" exact element={<DeleteProject />} />
+            }
+          >
+            <Route index element={<DashboardBody />} />
+            <Route
+              path="/dashboard/project-manage"
+              element={<ManageProject />}
+            />
+            <Route path="/dashboard/project-post" element={<PostProject />} />
+            <Route
+              path="/dashboard/project-edit/:id"
+              exact
+              element={<EditProject />}
+            />
+            <Route
+              path="/dashboard/project-delete/:id"
+              exact
+              element={<DeleteProject />}
+            />
 
+            <Route
+              path="/dashboard/resume-manage"
+              exact
+              element={<ManageResume />}
+            />
+            <Route
+              path="/dashboard/resume-post"
+              exact
+              element={<PostResume />}
+            />
+            <Route
+              path="/dashboard/resume-edit/:id"
+              exact
+              element={<EditResume />}
+            />
+            <Route
+              path="/dashboard/resume-delete/:id"
+              exact
+              element={<DeleteResume />}
+            />
 
-              <Route path="/dashboard/resume-manage" exact element={<ManageResume />} />
-              <Route path="/dashboard/resume-post" exact element={<PostResume />} />
-              <Route path="/dashboard/resume-edit/:id" exact element={<EditResume />} />
-              <Route path="/dashboard/resume-delete/:id" exact element={<DeleteResume />} />
+            <Route
+              path="/dashboard/blog-manage"
+              exact
+              element={<ManageBlogs />}
+            />
+            <Route
+              path="/dashboard/blog-post"
+              exact
+              element={<UploadBlogs />}
+            />
+            <Route
+              path="/dashboard/blog-overview/:id"
+              exact
+              element={<BlogOverView />}
+            />
+            <Route
+              path="/dashboard/blog-edit/:id"
+              exact
+              element={<EditBlogs />}
+            />
+            <Route
+              path="/dashboard/blog-delete/:id"
+              exact
+              element={<DeleteBlogs />}
+            />
 
+            <Route
+              path="/dashboard/review-manage"
+              exact
+              element={<ManageReviews />}
+            />
+            <Route
+              path="/dashboard/review/:id"
+              exact
+              element={<SingleReview />}
+            />
+            <Route
+              path="/dashboard/review-edit/:id"
+              exact
+              element={<EditReview />}
+            />
+            <Route
+              path="/dashboard/review-delete/:id"
+              exact
+              element={<DeleteReview />}
+            />
 
-              <Route path="/dashboard/blog-manage" exact element={<ManageBlogs />} />
-              <Route path="/dashboard/blog-post" exact element={<UploadBlogs />} />
-              <Route path="/dashboard/blog-overview/:id" exact element={<BlogOverView />} />
-              <Route path="/dashboard/blog-edit/:id" exact element={<EditBlogs />} />
-              <Route path="/dashboard/blog-delete/:id" exact element={<DeleteBlogs />} />
-
-
-              <Route path="/dashboard/review-manage" exact element={< ManageReviews/>} />
-              <Route path="/dashboard/review/:id" exact element={< SingleReview/>} />
-              <Route path="/dashboard/review-edit/:id" exact element={< EditReview/>} />
-              <Route path="/dashboard/review-delete/:id" exact element={< DeleteReview/>} />
-
-              <Route path="/dashboard/emails-manage" exact element={< ManageEmails/>} />
-              <Route path="/dashboard/email/:id" exact element={< DedicatedEmail/>} />
-            </Route>
-
+            <Route
+              path="/dashboard/emails-manage"
+              exact
+              element={<ManageEmails />}
+            />
+            <Route
+              path="/dashboard/email/:id"
+              exact
+              element={<DedicatedEmail />}
+            />
+          </Route>
         </Routes>
       </Router>
     </AuthProvider>

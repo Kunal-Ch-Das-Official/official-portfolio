@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import getReviews from "../../../apis/GET/getReviews";
 
 const EditReview = () => {
   const { id } = useParams();
@@ -14,19 +15,12 @@ const EditReview = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch existing data for the review
-    const fetchReviewData = async () => {
-      try {
-        const response = await axios.get(`${envConfig.getReviewsApiUrl}/${id}`);
-        const review = response.data;
-        setExistingReview(review);
-        setNewUserName(review.userName);
-        setNewReviewContent(review.reviewContent);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchReviewData();
+    (async () => {
+      const res = await getReviews(id);
+      setExistingReview(res.data);
+      setNewUserName(res.data.userName);
+      setNewReviewContent(res.data.reviewContent);
+    })();
   }, []);
 
   const handleOnSubmit = async (event) => {

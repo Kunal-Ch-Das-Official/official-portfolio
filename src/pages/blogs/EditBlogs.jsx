@@ -10,6 +10,7 @@ import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
 import { Link, useParams } from "react-router-dom";
+import getSingleBlog from "../../../apis/GET/getSingleBlog";
 
 const EditBlogs = () => {
   const { id } = useParams();
@@ -32,18 +33,10 @@ const EditBlogs = () => {
   const formRef = useRef();
 
   useEffect(() => {
-    const getPrevBlogData = async () => {
-      try {
-        await axios
-          .get(`${envConfig.getSingleBlogApiUrl}/${id}`)
-          .then((res) => {
-            setGetPrevBlog(res.data);
-          });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    getPrevBlogData();
+    (async () => {
+      const res = await getSingleBlog(id);
+      setGetPrevBlog(res.data);
+    })();
   }, []);
 
   const handleImageOperation = (event) => {
@@ -109,9 +102,9 @@ const EditBlogs = () => {
       <div className="w-5/6 float-right">
         <div className="bg-blue-50 py-6 sm:py-8 lg:py-12 ml-8">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <Link to={"/dashboard/blog-manage"}>
-        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
-        </Link>
+            <Link to={"/dashboard/blog-manage"}>
+              <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer" />
+            </Link>
             <div className="text-center">
               <h1 className="text-2xl text-blue-500 font-bold">
                 Edit Existing Technical Blog

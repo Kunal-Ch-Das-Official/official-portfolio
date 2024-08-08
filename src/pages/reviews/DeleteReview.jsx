@@ -6,6 +6,7 @@ import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import ConfirmAlert from "../../utils/confirm-alert/ConfirmAlert";
 import DeleteReviewSkeleton from "../../utils/skeleton/DeleteReviewSkeleton";
+import getReviews from "../../../apis/GET/getReviews";
 const DeleteReview = () => {
   const [apiResponse, setApiResponse] = useState({});
   const [ratings, setApiRatings] = useState([]);
@@ -13,23 +14,17 @@ const DeleteReview = () => {
   const [loadingState, setLoadingState] = useState(false);
   const [confirmAlert, setConfirmAlert] = useState(false);
   const navigate = useNavigate();
-  const [displaySkeleton, setDisplaySkeleton] = useState(false);
+  const [displaySkeleton, setDisplaySkeleton] = useState(true);
 
   useEffect(() => {
-    const getSingleReview = async () => {
-      setDisplaySkeleton(true);
-      try {
-        await axios.get(`${envConfig.getReviewsApiUrl}/${id}`).then((res) => {
-          setApiResponse(res.data);
-          setApiRatings(res.data.rating);
-          setDisplaySkeleton(false);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getSingleReview();
-  }, [id]);
+    (async() => {
+      const res = await getReviews(id);
+      setApiResponse(res.data);
+      setApiRatings(res.data.rating);
+      setDisplaySkeleton(res ? false : true);
+      
+    })()
+  },[])
 
   const deleteReview = async () => {
     setLoadingState(true);
