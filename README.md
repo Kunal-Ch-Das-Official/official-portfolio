@@ -3,7 +3,7 @@
 ## Project: Kunal Chandra Das official portfolio.
 
 
-## Branch => 
+## Branch:
   1. Client: User interface,
   2. Admin: Project admin portal
   3. server: Backend apis
@@ -13,74 +13,75 @@
 1. Download Resume,
 2. Upload Review,
 3. Connect through email,
-   and lot more. it's a fullstack application. you can get access letest project and blog from here. etc,
+*  And lot more. it's a fullstack application. you can get access letest project and blog from here. etc,
    visit the site and see it. and check if you find bugs don't forget to raise an issue on github.
    thankyou very much.
 
 
 
-## API Reference =>
+## API Reference:
     1. Get Request: https://official-portfolio-99ro.vercel.app
     2. Post Request: https://kunal-chandra-das-portfolio-backend-api.onrender.com
 
-## Deployment-preview: www.kunalchandradas.tech
+## Deployment-preview: 
+* Visit:  www.kunalchandradas.tech
 
 ## TOOLS AND TECHNOLOGY USED:
 
- Deployment: Vercel
- Server: Express
- Database: Mongo.Db
- Cloud-Storage: Cloudinary
- File-downloader: Pdf-lib, file-saver
- Animation-Lib: Aceternity-Ui, framer-motion, aos
- Mockups: Codemirror, Js-beautify
- Icons: React-icons
- User-interface-lib: daisyUI, Aceternity-Ui,
- User-interface: Tailwind,
- User-interaction: Typescript
- Api-Request: Axios, Fetch
- Core-Lib: React.JS__18++
- Frameworks: Next.JS__14++
+ 1. Deployment: Vercel
+ 2. Server: Express
+ 3. Database: Mongo.Db
+ 4. Cloud-Storage: Cloudinary
+ 5. File-downloader: Pdf-lib, file-saver
+ 6. Animation-Lib: Aceternity-Ui, framer-motion, aos
+ 7. Mockups: Codemirror, Js-beautify
+ 8. Icons: React-icons
+ 9. User-interface-lib: daisyUI, Aceternity-Ui,
+ 10. User-interface: Tailwind,
+ 11. User-interaction: Typescript
+ 12. Api-Request: Axios, Fetch
+ 13. Core-Lib: React.JS__18++
+ 14. Frameworks: Next.JS__14++
 # visit package.json for dependencies
 
 
 
-## Run Locally
+## Run Locally:
 
-# Clone the project
+# Clone the project:
 
 ```bash
   git clone https://github.com/Kunal-Ch-Das-Official/official-portfolio.git
 ```
 
-# Go to the project directory
+# Go to the project directory:
 
 ```bash
   cd official-portfolio
 ```
 
-# Install dependencies
+# Install dependencies:
 
 ```bash
   npm install
   yarn install
 ```
 
-# Start development environment
+# Start development environment:
 
 ```bash
   npm run dev
   yarn dev
 ```
 
-# Build for Production
+# Build for Production:
 
 ```bash
   npm run build
   yarn build
 ```
 
-# Start prouction environment
+# Start prouction environment:
 
 ```bash
   npm start
