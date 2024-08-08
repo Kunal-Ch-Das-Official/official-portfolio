@@ -128,8 +128,7 @@ const SendReview: React.FC<SendReviewProps> = ({ closePostBox, mount }) => {
                 Write a review for me
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-                gentrify.
+              Your feedback will be valuable for future improvements and i will help others understand the quality of my work.
               </p>
             </div>
 

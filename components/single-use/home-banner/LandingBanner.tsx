@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { memo } from "react";
 import profilePicture from "@/public/images/kunal-chandra-das/Banner-Image.webp";
 import dynamic from "next/dynamic";
-import { MdDownload } from "react-icons/md";
+import { FaPersonWalkingArrowRight } from "react-icons/fa6";
 import Link from "next/link";
 import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 const TypeWriter = dynamic(() => import("@/utils/type-writter/TypeWritter"), {
@@ -46,7 +46,7 @@ const LandingBanner: React.FC = () => {
               className="relative 2xl:flex xl:flex lg:flex w-50 items-center justify-center overflow-hidden bg-tranparent hover:bg-transparent border-2 border-orange-500 text-black shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:duration-100 before:ease-linear font-semibold bg-orange-500 hover:shadow-orange-600 hover:text-orange-500 rounded-lg inline-flex mb-4 lg:mb-0 lg:mr-8 h-[40px] w-45 text-sm md:text-md md:h-[45px] md:w-50 lg:text-lg lg:h-[50px] lg:w-50" 
             >
               <span className="relative z-0 ml-4">Download Resume</span>
-              <MdDownload className="text-2xl font-bold mx-4 relative z-0" />
+              <FaPersonWalkingArrowRight className="text-2xl font-bold mx-4 relative z-0" />
             </Link>
           </div>
         </div>

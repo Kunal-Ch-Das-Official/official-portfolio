@@ -1,10 +1,10 @@
-import ReviewFormLoadingState from "@/utils/loading-state/form-submission-state/ReviewFormLoadingState";
+import PageLoadingState from "@/utils/loading-state/page-loading/PageLoading";
 import React from "react";
 
 const loading = () => {
   return (
     <div>
-      <ReviewFormLoadingState />
+      <PageLoadingState/>
     </div>
   );
 };

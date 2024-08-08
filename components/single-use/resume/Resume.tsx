@@ -6,7 +6,8 @@ import axios from "axios";
 import envConfig from "@/envConfig";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import jsPDF from "jspdf";
+import { PDFDocument } from 'pdf-lib';
+import { saveAs } from 'file-saver';
 import ComponentSpinner from "@/utils/loading-state/component-loading/ComponentSpinner";
 import dynamic from "next/dynamic";
 const ResumePreview = dynamic(
@@ -15,6 +16,8 @@ const ResumePreview = dynamic(
     loading: () => <ComponentSpinner />,
   }
 );
+
+
 
 const Resume = () => {
   const [previewOpen, setPreviewOpen] = useState<boolean>(false);
@@ -41,36 +44,105 @@ const Resume = () => {
     setPreviewOpen(false);
   };
 
-  const downloadResumeHandler = useCallback(() => {
-    try {
-      setResumeLoading(true);
-      const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
-      const img = new Image();
-      img.crossOrigin = "Anonymous"; // Handle CORS if necessary
-      img.src = imgUrl;
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx: any = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
+//  Download Resume Handler 
+const downloadResumeHandler = useCallback(async () => {
+  try {
+    setResumeLoading(true);
+    const imgUrl = resumeData.resume; // Assuming resumeData.resume contains the image URL
 
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-        pdf.save("Kunal-Chandra-Das-Resume.pdf");
-        setResumeLoading(false);
-      };
-      img.onerror = (err) => {
-        console.error("Error loading image", err);
-      };
-    } catch (error) {
-      console.log("error", error);
-      setResumeLoading(false);
+    // Fetch the image data
+    const imgResponse = await fetch(imgUrl);
+    const imgBytes = await imgResponse.arrayBuffer();
+
+    // Get MIME type from response headers
+    const contentType = imgResponse.headers.get('Content-Type') || '';
+
+    // List of supported image MIME types
+    const supportedImageTypes = [
+      'image/png',
+      'image/jpeg',
+      'image/jpg',
+      'image/gif',
+      'image/bmp',
+      'image/webp',
+      'image/tiff',
+      'image/svg+xml'
+    ];
+
+    // Validate if the MIME type is supported
+    if (!supportedImageTypes.includes(contentType)) {
+      throw new Error('Unsupported image format. Supported formats are PNG, JPEG, GIF, BMP, WEBP, TIFF, and SVG.');
     }
-  }, [resumeData.resume, setResumeLoading]);
+
+    // Create a new PDF document
+    const pdfDoc = await PDFDocument.create();
+
+    // Embed the image based on its MIME type
+    let img;
+    let imageWidth, imageHeight;
+    if (contentType === 'image/png') {
+      img = await pdfDoc.embedPng(imgBytes);
+    } else if (contentType === 'image/jpeg' || contentType === 'image/jpg') {
+      img = await pdfDoc.embedJpg(imgBytes);
+    } else {
+      // Convert other image types to PNG if necessary
+      const image = new Image();
+      const url = URL.createObjectURL(new Blob([imgBytes], { type: contentType }));
+      image.src = url;
+
+      await new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = reject;
+      });
+
+      const canvas = document.createElement('canvas');
+      const scaleFactor = 5; // Scaling factor for higher resolution
+      canvas.width = image.width * scaleFactor;
+      canvas.height = image.height * scaleFactor;
+      const ctx = canvas.getContext('2d');
+
+      if (!ctx) {
+        throw new Error('Failed to get 2D context');
+      }
+
+      ctx.scale(scaleFactor, scaleFactor);
+      ctx.drawImage(image, 0, 0);
+
+      const imgData = canvas.toDataURL('image/png');
+      img = await pdfDoc.embedPng(imgData);
+      URL.revokeObjectURL(url);
+    }
+
+    // Get the dimensions of the image
+    const { width: imgWidth, height: imgHeight } = img.scale(1);
+
+    // Create a new page with the image dimensions
+    const page = pdfDoc.addPage([imgWidth, imgHeight]);
+
+    // Draw the image on the PDF
+    page.drawImage(img, {
+      x: 0,
+      y: 0,
+      width: imgWidth,
+      height: imgHeight,
+    });
+
+    // Serialize the PDF to bytes
+    const pdfBytes = await pdfDoc.save();
+
+    // Save the PDF to the user's computer
+    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    saveAs(blob, 'Kunal-Chandra-Das-Resume.pdf');
+    setResumeLoading(false);
+  } catch (error) {
+    console.error('Error:', error);
+    setResumeLoading(false);
+  }
+}, [resumeData.resume, setResumeLoading]);
+
+
+
+
 
   return (
     <section className="my-28" id="getResume">
@@ -100,7 +172,7 @@ const Resume = () => {
             <>
               {resumeLoading === true && (
                 <h1 className="text-center text-xl mt-4 text-orange-500 font-bold">
-                  Please Wait Resume Being Ready.....
+                  Please Wait Resume Getting Ready.....
                 </h1>
               )}
               <>
