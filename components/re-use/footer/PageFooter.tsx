@@ -7,6 +7,8 @@ import { FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import Image from "next/image";
 import footerLogo from "@/public/images/header-footer/Potfolio-logo.webp";
+import howrahBridge from '@/public/images/header-footer/Howrah-Bridge.png';
+import buidingsKolkata from '@/public/images/header-footer/kolkata-buildings.png';
 
 const PageFooter: React.FC = () => {
   return (
@@ -14,11 +16,9 @@ const PageFooter: React.FC = () => {
       <main className={footerStyle.body}>
         <div className={footerStyle.loopWrapper}>
           <div className="md:bg-[#00000093] bg-transparent"></div>
-          <div className={footerStyle.mountain}></div>
+          <Image src={howrahBridge} width={500} height={500} alt="Howrah-Bridge" className={footerStyle.howrahBridge}></Image>
+          <Image src={buidingsKolkata} width={500} height={500} alt="Howrah-Bridge" className={footerStyle.movingBuildings}></Image>
           <div className={footerStyle.hill}></div>
-          <div className={footerStyle.tree}></div>
-          <div className={footerStyle.tree}></div>
-          <div className={footerStyle.tree}></div>
           <div className={footerStyle.rock}></div>
           <div className={footerStyle.truck}></div>
           <div className={footerStyle.wheels}></div>
