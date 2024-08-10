@@ -9,9 +9,10 @@ import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
 import { FaArrowCircleLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UploadBlogs = () => {
+  const navigate = useNavigate();
   const [blogTitle, setBlogTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [imageNameDisplayer, setImageNameDisplayer] = useState(
@@ -48,7 +49,6 @@ const UploadBlogs = () => {
     formData.append("commandLine", command);
     formData.append("corespondingCode", codeInp);
 
-
     try {
       await axios
         .post(envConfig.postBlogApiUrl, formData, {
@@ -77,6 +77,7 @@ const UploadBlogs = () => {
 
   const handleSuccessCloseEvent = useCallback(() => {
     setCustomAlert(false);
+    navigate("/dashboard/blog-manage");
   }, []);
 
   return (
@@ -94,9 +95,9 @@ const UploadBlogs = () => {
       <div className="w-5/6 float-right">
         <div className="bg-blue-50 py-6 sm:py-8 lg:py-12 ml-8">
           <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <Link to={"/dashboard"}>
-        <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer"/>
-        </Link>
+            <Link to={"/dashboard"}>
+              <FaArrowCircleLeft className="text-3xl mb-4 cursor-pointer" />
+            </Link>
             <div className="text-center">
               <h1 className="text-2xl text-blue-500 font-bold">
                 Write A Technical Blog
@@ -193,7 +194,6 @@ const UploadBlogs = () => {
                 </label>
               </div>
 
-
               {/* First Statement Section  */}
               <div className="my-20" id="First_Statement">
                 {/* Coresponding Heading  */}
@@ -251,8 +251,6 @@ const UploadBlogs = () => {
                   </div>
                 </div>
 
-
-
                 {/* Coresponding Code input  */}
                 <div className="sm:col-span-2">
                   <label
@@ -271,15 +269,13 @@ const UploadBlogs = () => {
                 </div>
               </div>
 
-
-
               {/* Submit Button  */}
               <div className="flex items-center justify-between sm:col-span-2">
                 <button
                   type="submit"
                   className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-blue-800 focus-visible:ring active:bg-indigo-700 md:text-base"
                 >
-                  Post Blog
+                  Post Article
                 </button>
 
                 <span className="text-sm text-gray-500">*Required</span>

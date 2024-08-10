@@ -27,7 +27,7 @@ const CustomAlert = ({
           </p>
           <button
             onClick={closeButton}
-            className={`px-6 py-2.5 mt-8 w-full rounded text-white text-sm font-semibold border-none outline-none ${buttonColor}`}
+            className={`px-6 py-2.5 mt-8 w-full rounded cursor-pointer text-white text-sm font-semibold border-none outline-none ${buttonColor}`}
           >
             {buttonText}
           </button>

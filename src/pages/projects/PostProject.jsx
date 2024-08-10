@@ -4,9 +4,8 @@ import envConfig from "../../../envConfig";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
-
 
 const PostProject = () => {
   const [storedProjectName, setProjectName] = useState("");
@@ -25,7 +24,7 @@ const PostProject = () => {
   const [message, setMessage] = useState("");
   const [usedTechnology, setUsedTechnology] = useState([]);
   const formRef = useRef();
-
+  const navigate = useNavigate();
   const technologyArray = [
     "html",
     "ejs",
@@ -107,6 +106,7 @@ const PostProject = () => {
 
   const handleSuccessCloseEvent = useCallback(() => {
     setCustomAlert(false);
+    navigate("/dashboard/project-manage");
   }, []);
 
   return (
@@ -124,18 +124,17 @@ const PostProject = () => {
 
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <Link to={"/dashboard"}>
-        <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer"/>
-        </Link>
+          <Link to={"/dashboard"}>
+            <FaArrowCircleLeft className="text-3xl mb-4 ml-8 cursor-pointer" />
+          </Link>
           <div className="mb-10 md:mb-16">
             <h2 className="mb-4 text-center text-2xl font-bold text-blue-600 md:mb-6 lg:text-3xl">
-              Post Your Projects Here
+              Upload New Project
             </h2>
 
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
+              Complete the form and add your project files to upload and submit
+              your project
             </p>
           </div>
 

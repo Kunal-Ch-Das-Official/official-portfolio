@@ -25,7 +25,6 @@ import EditBlogs from "./pages/blogs/EditBlogs";
 import DeleteBlogs from "./pages/blogs/DeleteBlogs";
 import BlogOverView from "./pages/blogs/BlogOverView";
 
-
 const App = () => {
   return (
     <AuthProvider>

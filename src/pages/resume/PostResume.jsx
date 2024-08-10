@@ -5,8 +5,10 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import CustomAlert from "../../utils/custom-alert/CustomAlert";
 import { IoCloudDoneSharp } from "react-icons/io5";
 import LoadingSpiner from "../../utils/loading-spinner/LoadingSpiner";
+import { useNavigate } from "react-router-dom";
 
 const PostResume = () => {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
   const formRef = useRef(null);
@@ -45,6 +47,7 @@ const PostResume = () => {
   };
 
   const handleSuccessCloseEvent = useCallback(() => {
+    navigate("/dashboard/resume-manage");
     setSuccess(false);
   }, []);
 

@@ -9,11 +9,11 @@ import getReviews from "../../../apis/GET/getReviews";
 import getProjects from "../../../apis/GET/getProjects";
 import getBlogs from "../../../apis/GET/getBlogs";
 import getEmails from "../../../apis/GET/getEmails";
-import DashboardSkeleton from "../../utils/skeleton/DashboardSkeleton";
+import ComponentSpinner from "../../utils/component-loading/ComponentSpinner";
 
 const DashboardBody = () => {
   const [allProjects, setAllProjects] = useState([]);
-  const [resError, setResError] = useState(false);
+  const [projectResError, setProjectResError] = useState(false);
   const [lastEditDate, setLastEditDate] = useState("");
 
   const [allResume, setAllResume] = useState([]);
@@ -50,7 +50,7 @@ const DashboardBody = () => {
       } catch (error) {
         setCommonLoadingState(error ? false : true);
         console.log(`internal server error: ${error}`);
-        setResumeResError(true);
+        setResumeResError(error ? true : false);
       }
     })();
   }, []);
@@ -87,7 +87,7 @@ const DashboardBody = () => {
       } catch (error) {
         setCommonLoadingState(error ? false : true);
         console.log(`Internal server error ${error}`);
-        setReviewsResError(true);
+        setReviewsResError(error ? true : false);
       }
     })();
   }, []);
@@ -123,7 +123,7 @@ const DashboardBody = () => {
         }
       } catch (error) {
         setCommonLoadingState(error ? false : true);
-        setResError(true);
+        setProjectResError(error ? true : false);
         console.log(`Internal server error ${error}`);
       }
     })();
@@ -161,7 +161,7 @@ const DashboardBody = () => {
       } catch (error) {
         setCommonLoadingState(error ? false : true);
         console.log(`Internal server error ${error}`);
-        setBlogResError(true);
+        setBlogResError(error ? true : false);
       }
     })();
   }, []);
@@ -198,425 +198,334 @@ const DashboardBody = () => {
       } catch (error) {
         setCommonLoadingState(error ? false : true);
         console.log(`Internal server error ${error}`);
-        setEmailsResError(true);
+        setEmailsResError(error ? true : false);
       }
     })();
   }, []);
 
   return (
     <div className="w-5/6 float-right bg-blue-50 min-h-screen">
-      {commonLoadingState === true? <DashboardSkeleton /> :
-      <div className="w-4/5 mx-auto mt-14 pb-28">
-        <div className="text-center my-12">
-          <h1 className="text-3xl text-blue-600 font-bold">
-            Portfolio Dashboard
-          </h1>
-        </div>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-          {/* Emails Report  */}
-          <div className="w-full">
-            <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
-              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
-                    <BsWindowDock className="text-xl " />
-                  </div>
-                  <div>
-                    <h5 className="leading-none text-2xl font-bold text-black  pb-1">
-                      {allEmails.length}
-                    </h5>
-                    <p className="text-sm font-normal text-gray-500">
-                      Total Emails
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  {/* Live Text  */}
-                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
-                    <RiLiveFill className="mr-2" />
-                    Live
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Client Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {emailsResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allEmails.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
-
-                <dl className="flex items-center justify-end">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Last Update:
-                  </dt>
-                  <dd className="text-green-400 font-bold text-sm ">
-                    {!emailsUpdateDate ? (
-                      <p className="text-red-500">N/A</p>
-                    ) : (
-                      emailsUpdateDate
-                    )}
-                  </dd>
-                </dl>
-              </div>
-
-              <hr className="my-2" />
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Server Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {emailsResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allEmails.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
-                <dl className="flex items-center justify-end">
-                  <Link
-                   title="Manage"
-                    to={"/dashboard/emails-manage"}
-                    className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
-                  >
-                    Manage
-                  </Link>
-                </dl>
-              </div>
-            </div>
+      {commonLoadingState === true ? (
+        <ComponentSpinner />
+      ) : (
+        <div className="w-4/5 mx-auto mt-14 pb-28">
+          <div className="text-center my-12">
+            <h1 className="text-3xl text-blue-600 font-bold">
+              Admin Control Panel
+            </h1>
+            <p>Access all administrative tools and resources</p>
           </div>
-
-          {/* Reviews Report  */}
-          <div className="w-full">
-            <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
-              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
-                    <BsWindowDock className="text-xl " />
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+            {/* Emails Report  */}
+            <div className="w-full">
+              <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
+                <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
+                      <BsWindowDock className="text-xl " />
+                    </div>
+                    <div>
+                      <h5 className="leading-none text-2xl font-bold text-black  pb-1">
+                        {allEmails.length}
+                      </h5>
+                      <p className="text-sm font-normal text-gray-500">
+                        Total Emails
+                      </p>
+                    </div>
                   </div>
                   <div>
-                    <h5 className="leading-none text-2xl font-bold text-black  pb-1">
-                      {allReviews.length}
-                    </h5>
-                    <p className="text-sm font-normal text-gray-500">
-                      Total Reviews
-                    </p>
+                    {/* Live Text  */}
+                    <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
+                      <RiLiveFill className="mr-2" />
+                      Live
+                    </span>
                   </div>
                 </div>
-                <div>
-                  {/* Live Text  */}
-                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
-                    <RiLiveFill className="mr-2" />
-                    Live
-                  </span>
-                </div>
-              </div>
 
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Client Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {reviewsResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allReviews.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
-
-                <dl className="flex items-center justify-end">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Last Update:
-                  </dt>
-                  <dd className="text-green-400 font-bold text-sm ">
-                    {!reviewsUpdateDate ? (
-                      <p className="text-red-500">N/A</p>
-                    ) : (
-                      reviewsUpdateDate
-                    )}
-                  </dd>
-                </dl>
-              </div>
-
-              <hr className="my-2" />
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Server Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {reviewsResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allReviews.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
-                <dl className="flex items-center justify-end">
-                  <Link
-                   title="Manage"
-                    to={"/dashboard/review-manage"}
-                    className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
-                  >
-                    Manage
-                  </Link>
-                </dl>
-              </div>
-            </div>
-          </div>
-
-          {/* All Projects Report  */}
-          <div className="w-full">
-            <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
-              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
-                    <GoProjectSymlink className="text-xl " />
-                  </div>
-                  <div>
-                    <h5 className="leading-none text-2xl font-bold text-gray-900  pb-1">
-                      {allProjects.length}
-                    </h5>
-                    <p className="text-sm font-normal text-gray-500">
-                      Total projects
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  {/* Live Text  */}
-                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
-                    <RiLiveFill className="mr-2" />
-                    Live
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Server Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {resError == true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : (
-                      <p className="text-green-400">OK</p>
-                    )}
-                  </dd>
-                </dl>
-
-                <dl className="flex items-center justify-end">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Last Update:
-                  </dt>
-                  <dd className="text-green-400 font-bold text-sm ">
-                    {!lastEditDate ? (
-                      <p className="text-red-500">N/A</p>
-                    ) : (
-                      lastEditDate
-                    )}
-                  </dd>
-                </dl>
-              </div>
-
-              <hr className="my-2" />
-
-              <div className="flex flex-row justify-between">
-                <dl className="inline-flex">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Client Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {resError == true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : (
-                      <p className="text-green-400">OK</p>
-                    )}
-                  </dd>
-                </dl>
-                <dl>
-                  <Link
-                   title="Manage"
-                    to={"/dashboard/project-manage"}
-                    className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
-                  >
-                    Manage
-                  </Link>
-                </dl>
-              </div>
-            </div>
-          </div>
-
-          {/* Resume Report  */}
-          <div className="w-full">
-            <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
-              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
-                    <IoDocumentAttachSharp className="text-xl " />
-                  </div>
-                  <div>
-                    <h5 className="leading-none text-2xl font-bold  pb-1">
-                      {resumeResError === true ? (
-                        <p className="text-red-500">500/Error</p>
-                      ) : allResume.length === 0 ? (
-                        <p className="text-red-500">404/Not-Found</p>
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Client Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {emailsResError === true ? (
+                        <p className="text-red-500">Error</p>
                       ) : (
-                        <p className="text-green-500">Available</p>
+                        <p className="text-green-500">OK</p>
                       )}
-                    </h5>
-                    <p className="text-sm font-normal text-gray-500">
-                      Resume status
-                    </p>
-                  </div>
+                    </dd>
+                  </dl>
+
+                  <dl className="flex items-center justify-end">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Last Update:
+                    </dt>
+                    <dd className="text-green-400 font-bold text-sm ">
+                      {!emailsUpdateDate ? (
+                        <p className="text-red-500">N/A</p>
+                      ) : (
+                        emailsUpdateDate
+                      )}
+                    </dd>
+                  </dl>
                 </div>
-                <div>
-                  {/* Live Text  */}
-                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
-                    <RiLiveFill className="mr-2" />
-                    Live
-                  </span>
+
+                <hr className="my-2" />
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Server Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {emailsResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+                  <dl className="flex items-center justify-end">
+                    <Link
+                      title="Manage"
+                      to={"/dashboard/emails-manage"}
+                      className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
+                    >
+                      Manage
+                    </Link>
+                  </dl>
                 </div>
               </div>
-
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Server Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {allResume.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : resumeResError ? (
-                      <p className="text-red-500">Error</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
-
-                <dl className="flex items-center justify-end">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Last Update:
-                  </dt>
-                  <dd className="text-green-400 font-bold text-sm ">
-                    {!resumeUpdateDate ? (
-                      <p className="text-red-500">N/A</p>
-                    ) : (
-                      resumeUpdateDate
-                    )}
-                  </dd>
-                </dl>
-              </div>
-
-              <hr className="my-2" />
-
-              <dl className="flex items-center justify-end">
-                <Link
-                title="Manage"
-                  to={"/dashboard/resume-manage"}
-                  className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
-                >
-                  Manage
-                </Link>
-              </dl>
             </div>
-          </div>
 
-          {/* Blogs Report  */}
-          <div className="w-full">
-            <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
-              <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
-                    <BsWindowDock className="text-xl " />
+            {/* Reviews Report  */}
+            <div className="w-full">
+              <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
+                <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
+                      <BsWindowDock className="text-xl " />
+                    </div>
+                    <div>
+                      <h5 className="leading-none text-2xl font-bold text-black  pb-1">
+                        {allReviews.length}
+                      </h5>
+                      <p className="text-sm font-normal text-gray-500">
+                        Total Reviews
+                      </p>
+                    </div>
                   </div>
                   <div>
-                    <h5 className="leading-none text-2xl font-bold text-black  pb-1">
-                      {allBlogs.length}
-                    </h5>
-                    <p className="text-sm font-normal text-gray-500">
-                      Total Blogs
-                    </p>
+                    {/* Live Text  */}
+                    <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
+                      <RiLiveFill className="mr-2" />
+                      Live
+                    </span>
                   </div>
                 </div>
-                <div>
-                  {/* Live Text  */}
-                  <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
-                    <RiLiveFill className="mr-2" />
-                    Live
-                  </span>
+
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Client Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {reviewsResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+
+                  <dl className="flex items-center justify-end">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Last Update:
+                    </dt>
+                    <dd className="text-green-400 font-bold text-sm ">
+                      {!reviewsUpdateDate ? (
+                        <p className="text-red-500">N/A</p>
+                      ) : (
+                        reviewsUpdateDate
+                      )}
+                    </dd>
+                  </dl>
+                </div>
+
+                <hr className="my-2" />
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Server Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {reviewsResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+                  <dl className="flex items-center justify-end">
+                    <Link
+                      title="Manage"
+                      to={"/dashboard/review-manage"}
+                      className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
+                    >
+                      Manage
+                    </Link>
+                  </dl>
                 </div>
               </div>
+            </div>
 
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Client Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {blogResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allBlogs.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
+            {/* All Projects Report  */}
+            <div className="w-full">
+              <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
+                <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
+                      <GoProjectSymlink className="text-xl " />
+                    </div>
+                    <div>
+                      <h5 className="leading-none text-2xl font-bold text-gray-900  pb-1">
+                        {allProjects.length}
+                      </h5>
+                      <p className="text-sm font-normal text-gray-500">
+                        Total projects
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    {/* Live Text  */}
+                    <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
+                      <RiLiveFill className="mr-2" />
+                      Live
+                    </span>
+                  </div>
+                </div>
 
-                <dl className="flex items-center justify-end">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Last Update:
-                  </dt>
-                  <dd className="text-green-400 font-bold text-sm ">
-                    {!blogsUpdateDate ? (
-                      <p className="text-red-500">N/A</p>
-                    ) : (
-                      blogsUpdateDate
-                    )}
-                  </dd>
-                </dl>
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Server Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {projectResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-400">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+
+                  <dl className="flex items-center justify-end">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Last Update:
+                    </dt>
+                    <dd className="text-green-400 font-bold text-sm ">
+                      {!lastEditDate ? (
+                        <p className="text-red-500">N/A</p>
+                      ) : (
+                        lastEditDate
+                      )}
+                    </dd>
+                  </dl>
+                </div>
+
+                <hr className="my-2" />
+
+                <div className="flex flex-row justify-between">
+                  <dl className="inline-flex">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Client Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {projectResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-400">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+                  <dl>
+                    <Link
+                      title="Manage"
+                      to={"/dashboard/project-manage"}
+                      className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
+                    >
+                      Manage
+                    </Link>
+                  </dl>
+                </div>
               </div>
+            </div>
 
-              <hr className="my-2" />
-              <div className="grid grid-cols-2">
-                <dl className="flex items-center">
-                  <dt className="text-gray-700  text-sm font-bold me-1">
-                    Server Response:
-                  </dt>
-                  <dd className="font-bold text-sm ">
-                    {blogResError === true ? (
-                      <p className="text-red-500">Error</p>
-                    ) : allBlogs.length === 0 ? (
-                      <p className="text-orange-500">N/A</p>
-                    ) : (
-                      <p className="text-green-500">OK</p>
-                    )}
-                  </dd>
-                </dl>
+            {/* Resume Report  */}
+            <div className="w-full">
+              <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
+                <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
+                      <IoDocumentAttachSharp className="text-xl " />
+                    </div>
+                    <div>
+                      <h5 className="leading-none text-2xl font-bold  pb-1">
+                        {resumeResError === true ? (
+                          <p className="text-red-500">500/Error</p>
+                        ) : allResume.length === 0 ? (
+                          <p className="text-red-500">404/Not-Found</p>
+                        ) : (
+                          <p className="text-green-500">Available</p>
+                        )}
+                      </h5>
+                      <p className="text-sm font-normal text-gray-500">
+                        Resume status
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    {/* Live Text  */}
+                    <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
+                      <RiLiveFill className="mr-2" />
+                      Live
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Server Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {resumeResError ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+
+                  <dl className="flex items-center justify-end">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Last Update:
+                    </dt>
+                    <dd className="text-green-400 font-bold text-sm ">
+                      {!resumeUpdateDate ? (
+                        <p className="text-red-500">N/A</p>
+                      ) : (
+                        resumeUpdateDate
+                      )}
+                    </dd>
+                  </dl>
+                </div>
+
+                <hr className="my-2" />
+
                 <dl className="flex items-center justify-end">
                   <Link
-                  title="Manage"
-                    to={"/dashboard/blog-manage"}
+                    title="Manage"
+                    to={"/dashboard/resume-manage"}
                     className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
                   >
                     Manage
@@ -624,13 +533,91 @@ const DashboardBody = () => {
                 </dl>
               </div>
             </div>
+
+            {/* Blogs Report  */}
+            <div className="w-full">
+              <div className="max-w-sm w-full bg-white rounded-lg shadow p-4 md:p-6">
+                <div className="flex justify-between pb-4 mb-4 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center me-3">
+                      <BsWindowDock className="text-xl " />
+                    </div>
+                    <div>
+                      <h5 className="leading-none text-2xl font-bold text-black  pb-1">
+                        {allBlogs.length}
+                      </h5>
+                      <p className="text-sm font-normal text-gray-500">
+                        Total Blogs
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    {/* Live Text  */}
+                    <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md">
+                      <RiLiveFill className="mr-2" />
+                      Live
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Client Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {blogResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+
+                  <dl className="flex items-center justify-end">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Last Update:
+                    </dt>
+                    <dd className="text-green-400 font-bold text-sm ">
+                      {!blogsUpdateDate ? (
+                        <p className="text-red-500">N/A</p>
+                      ) : (
+                        blogsUpdateDate
+                      )}
+                    </dd>
+                  </dl>
+                </div>
+
+                <hr className="my-2" />
+                <div className="grid grid-cols-2">
+                  <dl className="flex items-center">
+                    <dt className="text-gray-700  text-sm font-bold me-1">
+                      Server Response:
+                    </dt>
+                    <dd className="font-bold text-sm ">
+                      {blogResError === true ? (
+                        <p className="text-red-500">Error</p>
+                      ) : (
+                        <p className="text-green-500">OK</p>
+                      )}
+                    </dd>
+                  </dl>
+                  <dl className="flex items-center justify-end">
+                    <Link
+                      title="Manage"
+                      to={"/dashboard/blog-manage"}
+                      className="text-gray-700 border border-gray-200 px-2 bg-green-200 hover:bg-green-400 cursor-pointer rounded-full text-sm font-bold me-1"
+                    >
+                      Manage
+                    </Link>
+                  </dl>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-}
+      )}
     </div>
-
-    
   );
 };
 
