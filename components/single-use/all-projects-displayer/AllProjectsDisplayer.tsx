@@ -43,7 +43,7 @@ const AllProjectsDisplayer:React.FC<ProjectDisplayerProps> = ({sliceFrom, sliceT
     {responseComming === true ? <ComponentSpinner /> :
     <section>
       {projectData.length === 0 ? <h2 className="text-orange-500 text-center text-xl font-bold">Currently projects are unavailable!!</h2> :
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-2 xl:w-full 2xl:w-[70%] 2xl:mx-auto'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:w-[80%] lg:mx-auto xl:grid-cols-3 2xl:grid-cols-3 gap-2 xl:w-full 2xl:w-[90%] 2xl:mx-auto'>
         {projectData.slice(sliceFrom, sliceTo).map((project) =>(
          <AllProjectCard 
          key={project._id}

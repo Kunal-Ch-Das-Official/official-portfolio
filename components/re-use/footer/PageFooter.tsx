@@ -1,5 +1,4 @@
 import React from "react";
-import footerStyle from "./FooterStyle.module.css";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
@@ -7,24 +6,27 @@ import { FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import Image from "next/image";
 import footerLogo from "@/public/images/header-footer/Potfolio-logo.webp";
-import howrahBridge from '@/public/images/header-footer/Howrah-Bridge.png';
-import buidingsKolkata from '@/public/images/header-footer/kolkata-buildings.png';
+
+
 
 const PageFooter: React.FC = () => {
   return (
     <footer className="mt-12">
-      <main className={footerStyle.body}>
-        <div className={footerStyle.loopWrapper}>
-          <div className="md:bg-[#00000093] bg-transparent"></div>
-          <Image src={howrahBridge} width={500} height={500} alt="Howrah-Bridge" className={footerStyle.howrahBridge}></Image>
-          <Image src={buidingsKolkata} width={500} height={500} alt="Howrah-Bridge" className={footerStyle.movingBuildings}></Image>
-          <div className={footerStyle.hill}></div>
-          <div className={footerStyle.rock}></div>
-          <div className={footerStyle.truck}></div>
-          <div className={footerStyle.wheels}></div>
+       <div className="new_footer_area bg_color">
+            <div className="new_footer_top">
+                <div className="footer_bg w-screen">
+                  <div className="vc_bg">
+                    <div className="footer_bg_one"></div>
+                    <div className="footer_bg_two" ></div>
+                    </div>
+                </div>
+            </div>
+        
         </div>
-      </main>
-      <div className="footer flex flex-col md:justify-around md:flex-row h-full md:h-24 bannerBackground text-neutral-content items-center p-4 pb-6 lg:pb-0">
+
+
+
+      <div className="footer border-t-4 border-gray-50 flex flex-col md:justify-around md:flex-row h-full md:h-24 bannerBackground text-neutral-content items-center p-4 pb-6 lg:pb-0">
         <aside className="flex flex-col">
           <Image
             src={footerLogo}

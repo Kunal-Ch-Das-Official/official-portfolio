@@ -102,7 +102,7 @@ body {
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  
+
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
@@ -154,5 +154,83 @@ body {
 @media screen and (max-width: 1024px) {
   .canvasStyle {
     height: 100%;
+  }
+}
+
+.new_footer_top {
+  padding: 120px 0px 270px;
+  position: relative;
+  overflow-x: hidden;
+}
+.new_footer_top .company_widget {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  color: #6a7695;
+  margin-bottom: 20px;
+}
+
+.new_footer_top .footer_bg {
+  position: absolute;
+  bottom: 0;
+  background: url(../../public/images/header-footer/Kolkata.png) no-repeat
+    scroll center 0;
+  width: 100%;
+  height: 110%;
+}
+.footer_bg {
+  background: #000;
+}
+
+.new_footer_top .footer_bg .footer_bg_one {
+  background: url(../../public/images/header-footer/taxi-unscreen.gif) no-repeat
+    center center;
+  width: 100px;
+  height: 50px;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  -webkit-animation: myfirst 22s linear infinite;
+  animation: myfirst 22s linear infinite;
+}
+
+.new_footer_top .footer_bg .footer_bg_two {
+  background: url(../../public/images/header-footer/cyclist.gif) no-repeat
+    center center;
+  width: 40px;
+  height: 50px;
+  background-size: 100%;
+  bottom: 0;
+  left: 38%;
+  position: absolute;
+  -webkit-animation: myfirst 30s linear infinite;
+  animation: myfirst 30s linear infinite;
+}
+
+@-moz-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
   }
 }

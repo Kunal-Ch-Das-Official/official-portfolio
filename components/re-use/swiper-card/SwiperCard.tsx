@@ -28,7 +28,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ content }) => {
   return (
     <main className="my-12 w-4/5 lg:w-1/2 xl:w-[700px] 2xl:w-[700px] mx-auto lg:mx-auto flex justify-center items-center">
       {
-        content.length === 0 ?  <h1 className="text-xl font-bold text-orange-400">Currently I Do not Have Any Review Please Write A Review For Me</h1> : 
+        content.length === 0 ?  <h1 className="text-xl text-center font-bold text-orange-400">Currently No Reviews Are Available!! Please Write A Review For Me</h1> : 
    
       <Swiper
         effect={"coverflow"}
