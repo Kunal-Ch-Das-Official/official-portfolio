@@ -76,7 +76,7 @@ const ContactForm = () => {
   const handleAlertClose = () => setAlertDisplayer(false);
   return (
     <div>
-      <div className="background mt-20">
+      <div className="background pt-40">
         <div className="container">
           <div className="screen">
             <div className="screen-header">

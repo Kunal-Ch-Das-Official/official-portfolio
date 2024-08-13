@@ -48,7 +48,7 @@ const ProjectBanner: React.FC = () => {
   }, []);
 
   return (
-    <main className="h-full w-full pb-12 mt-8 lg:mt-0 projectBanner">
+    <main className="h-full w-full pb-12 pt-20 lg:pt-0 projectBanner">
       <section className="text-gray-100 body-font pt-12 mb-10 lg:mb-10">
         <div className="container mx-auto flex px-5 py-24 lg:flex-row md:flex-col flex-col justify-between items-center w-full">
           <div className="lg:w-1/2 md:w-1/2 w-5/6 flex justify-center lg:justify-start lg:mb-0 mt-12 lg:mt-8 order-last lg:order-none ">

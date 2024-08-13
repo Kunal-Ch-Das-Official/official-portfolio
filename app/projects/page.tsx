@@ -17,7 +17,7 @@ export const metadata: ProjectMetaData = {
 
 const Projects = () => {
   return (
-    <main className="">
+    <main>
       <ProjectBanner />
       <div className="my-12">
       <SectionHeading
