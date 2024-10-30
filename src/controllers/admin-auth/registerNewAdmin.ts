@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import envConfig from "../../config/envConfig";
 import authAdminUserModel from "../../models/authAdminCollection";
 
-class RegisterNewAdmin {
+class NewAdmin {
   public async register(req: Request, res: Response): Promise<void> {
     const {
       adminUserName,
@@ -100,4 +100,4 @@ class RegisterNewAdmin {
   }
 }
 
-export default new RegisterNewAdmin();
+export default new NewAdmin();

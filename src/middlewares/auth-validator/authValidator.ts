@@ -14,7 +14,7 @@ declare module "express-serve-static-core" {
 }
 
 class AuthValidator {
-  public async validator(
+  public async validate(
     req: Request,
     res: Response,
     next: NextFunction

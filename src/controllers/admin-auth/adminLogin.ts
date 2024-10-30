@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import authAdminUserModel from "../../models/authAdminCollection";
 import envConfig from "../../config/envConfig";
 
-class AdminLogin {
+class AdminUser {
   public async login(req: Request, res: Response): Promise<void> {
     const { adminUserEmail, adminUserPassword } = req.body;
     try {
@@ -58,13 +58,18 @@ class AdminLogin {
           }
         }
       } else {
-        res.status(400).json({
+        return <any>res.status(400).json({
           issue: "Bad Request!",
           details: "Email and password required.",
         });
       }
-    } catch (error) {}
+    } catch (error) {
+      return <any>res.status(500).json({
+        issue: "Internal Server Error!",
+        details: "Something went wrong, please try again later.",
+      });
+    }
   }
 }
 
-export default new AdminLogin();
+export default new AdminUser();

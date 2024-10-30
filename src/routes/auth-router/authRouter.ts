@@ -17,24 +17,33 @@
  */
 
 import { Router } from "express";
-import resgisterNewAdmin from "../../controllers/admin-auth/registerNewAdmin";
-import adminLogin from "../../controllers/admin-auth/adminLogin";
-import authValidator from "../../middlewares/auth-validator/authValidator";
-import loggedInUser from "../../controllers/admin-auth/loggedInUser";
+
+import AuthValidator from "../../middlewares/auth-validator/authValidator";
+import LoggedIn from "../../controllers/admin-auth/loggedInUser";
+import Change from "../../controllers/admin-auth/changePassword";
+import NewAdmin from "../../controllers/admin-auth/registerNewAdmin";
+import AdminUser from "../../controllers/admin-auth/adminLogin";
 
 const admiAuthenticationRouter = Router();
 
 // Register As An Admin
-admiAuthenticationRouter.post("/register", resgisterNewAdmin.register);
+admiAuthenticationRouter.post("/register", NewAdmin.register);
 
 // Login As An Admin
-admiAuthenticationRouter.post("/login", adminLogin.login);
+admiAuthenticationRouter.post("/login", AdminUser.login);
 
 // Get Current Admin User
 admiAuthenticationRouter.get(
   "/current-user",
-  authValidator.validator,
-  loggedInUser.currentUser
+  AuthValidator.validate,
+  LoggedIn.currentUser
+);
+
+// Change Password
+admiAuthenticationRouter.post(
+  "/change-password",
+  AuthValidator.validate,
+  Change.password
 );
 
 export default admiAuthenticationRouter;

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-class LoggedInUser {
+class LoggedIn {
   public async currentUser(req: Request, res: Response): Promise<void> {
     try {
       if (req.currentUser) {
@@ -21,4 +21,4 @@ class LoggedInUser {
     }
   }
 }
-export default new LoggedInUser();
+export default new LoggedIn();
