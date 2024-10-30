@@ -20,22 +20,20 @@
  for client interactions with the backend services.
  */
 
-import express, { Request, Response, Application } from "express";
-import { json } from "express";
+import express, { Request, Response, Application, NextFunction } from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
 import admiAuthenticationRouter from "./routes/auth-router/authRouter";
-// import multer from "multer";
+import projectsRouter from "./routes/projects-router/projectsRouter";
+import multer from "multer";
 
 const server: Application = express();
 
-// Middlewere
+// Middleware
 server.use(cors());
-server.use(json());
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
+server.use(express.json()); // Using Express's built-in JSON middleware
+server.use(express.urlencoded({ extended: true })); // URL-encoded data
 
-// slash route
+// Root route
 server.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "Welcome to (kunalchandradas.tech) backend server",
@@ -46,17 +44,21 @@ server.get("/", (req: Request, res: Response) => {
   });
 });
 
-// Register admin authentication router
-server.use("/api/v2/auth/admin", admiAuthenticationRouter);
+// Register routers
+server.use("/api/v2/auth/admin", admiAuthenticationRouter); // Admin authentication routes
+server.use("/api/v2/all/projects", projectsRouter); // Projects routes
 
-//  app.use((err, req, res, next) => {
-//    if (err instanceof multer.MulterError) {
-//      // Handle Multer-specific errors
-//      res.status(500).send(err.message);
-//    } else if (err) {
-//      // Handle other errors
-//      res.status(400).send(err.message);
-//    }
-//  });
+// Error handling middleware
+server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  if (err instanceof multer.MulterError) {
+    // Handle Multer-specific errors
+    res.status(500).send(err.message);
+  } else if (err) {
+    // Handle other errors
+    res.status(400).send(err.message);
+  } else {
+    next(); // Pass to the next middleware if no error
+  }
+});
 
 export default server;

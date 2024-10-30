@@ -17,7 +17,6 @@
  */
 
 import { Router } from "express";
-
 import AuthValidator from "../../middlewares/auth-validator/authValidator";
 import LoggedIn from "../../controllers/admin-auth/loggedInUser";
 import Change from "../../controllers/admin-auth/changePassword";

@@ -121,6 +121,6 @@ const ProjectSchema = new Schema(
   { timestamps: true }
 );
 
-const projectModel = mongoose.model<IProject>("Project", ProjectSchema);
+const projectModel = mongoose.model<IProject>("Project-Work", ProjectSchema);
 
 export default projectModel;
