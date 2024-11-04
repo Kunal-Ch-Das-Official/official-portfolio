@@ -145,7 +145,7 @@ class ExistingProject {
         );
 
         if (updateProject) {
-          return <any>res.status(204).json({
+          return <any>res.status(200).json({
             message: "Patch successful!",
             details: "Requested resources updated successfully.",
           });

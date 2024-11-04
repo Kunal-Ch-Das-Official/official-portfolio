@@ -14,7 +14,7 @@ class CloudinaryUploader {
     try {
       return new Promise<UploadResult>((resolve, reject) => {
         const uploadStream = cloudinaryConfig.uploader.upload_stream(
-          { folder: folderName, resource_type: "auto" },
+          { folder: folderName, resource_type: "image" },
           (error: any, result: any) => {
             if (error) {
               reject(error);
