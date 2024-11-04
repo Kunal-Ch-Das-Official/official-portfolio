@@ -34,6 +34,10 @@ interface EnvType {
   cloudinaryApiKey: string;
   cloudinaryCloudSecret: string;
   jwtSecretKey: string;
+  emailHostProtocol: string;
+  emailPort: any;
+  emailHostUser: string;
+  emailHostPassword: string;
 }
 
 const environment: EnvType = {
@@ -43,6 +47,11 @@ const environment: EnvType = {
   cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || "",
   cloudinaryCloudSecret: process.env.CLOUDINARY_API_SECRET || "",
   jwtSecretKey: process.env.JWT_SECRET_KEY || "",
+
+  emailHostProtocol: process.env.EMAIL_HOST_PROTOCOL || "",
+  emailPort: process.env.EMAIL_PORT,
+  emailHostUser: process.env.EMAIL_HOST_USER || "",
+  emailHostPassword: process.env.EMAIL_HOST_PASSWORD || "",
 };
 
 const envConfig = Object.freeze(environment);
