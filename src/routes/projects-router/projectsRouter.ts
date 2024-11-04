@@ -16,7 +16,7 @@ const requiredProjectImage = multerUploader.fields([
 //1. Upload new project route
 projectsRouter.post(
   "/operation/url",
-  // authValidator.validate,
+  authValidator.validate,
   requiredProjectImage,
   NewProject.uploadCtrl
 );
@@ -24,12 +24,17 @@ projectsRouter.post(
 //2. Update existing project route
 projectsRouter.patch(
   "/operation/url/:id",
+  authValidator.validate,
   requiredProjectImage,
   ExistingProject.updateCtrl
 );
 
 //3. Delete existing project route
-projectsRouter.delete("/operation/url/:id", RequestedProject.deleteCtrl);
+projectsRouter.delete(
+  "/operation/url/:id",
+  authValidator.validate,
+  RequestedProject.deleteCtrl
+);
 
 //4. get all projects route
 projectsRouter.get("/operation/url", ProjectsInfo.getProjectCtrl);
