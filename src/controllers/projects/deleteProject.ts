@@ -54,10 +54,10 @@ class RequestedProject {
           });
         }
       }
-    } catch (error) {
+    } catch (error: any) {
       return <any>res.status(500).json({
         issue: "Internal server error!",
-        details: "Something went wrong, please try again later.",
+        details: error.message,
       });
     }
   }

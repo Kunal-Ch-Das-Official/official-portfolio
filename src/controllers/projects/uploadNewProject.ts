@@ -111,10 +111,9 @@ class NewProject {
         }
       }
     } catch (error: any) {
-      console.log(error);
       return <any>res.status(500).json({
-        issue: error.message,
-        details: "Something went wrong, please try again later.",
+        issue: "Internal server error!",
+        details: error.message,
       });
     }
   }

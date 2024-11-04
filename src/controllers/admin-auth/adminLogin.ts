@@ -63,10 +63,10 @@ class AdminUser {
           details: "Email and password required.",
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       return <any>res.status(500).json({
         issue: "Internal Server Error!",
-        details: "Something went wrong, please try again later.",
+        details: error.message,
       });
     }
   }

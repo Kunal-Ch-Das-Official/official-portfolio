@@ -50,11 +50,11 @@ class AuthValidator {
           req.currentUser = user;
           next();
         }
-      } catch (error) {
+      } catch (error: any) {
         return <any>(
           res
             .status(401)
-            .json({ issue: "Unauthorized!", details: "Invalid token." })
+            .json({ issue: "Unauthorized!", details: error.message })
         );
       }
     } else {
