@@ -63,5 +63,8 @@ const ContactSchema = new Schema(
   { timestamps: true }
 );
 
-const contactModel = mongoose.model<IContact>("ContactInfo", ContactSchema);
+const contactModel = mongoose.model<IContact>(
+  "Contact-application",
+  ContactSchema
+);
 export default contactModel;

@@ -28,15 +28,16 @@ import multer from "multer";
 import reviewsRouter from "./routes/reviews-router/reviewsRouter";
 import resumeRouter from "./routes/resume-router/resumeRouter";
 import blogRouter from "./routes/blog-router/blogRouter";
+import contactsRouter from "./routes/contacts-router/contactsRouter";
 
 const server: Application = express();
 
-// Middleware
+// Genaral Middleware
 server.use(cors());
 server.use(express.json()); // Using Express's built-in JSON middleware
 server.use(express.urlencoded({ extended: true })); // URL-encoded data
 
-// Root route
+// Base Route Endpoint
 server.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message: "Welcome to (kunalchandradas.tech) backend server",
@@ -53,6 +54,7 @@ server.use("/api/v2/all/projects", projectsRouter); // Projects routes
 server.use("/api/v2/reviews", reviewsRouter); // Reviews routes
 server.use("/api/v2/resume", resumeRouter); // Resume routes
 server.use("/api/v2/blogs", blogRouter); // Blogs routes
+server.use("/api/v2/contacts", contactsRouter); // Contacts routes
 // Error handling middleware
 server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof multer.MulterError) {
