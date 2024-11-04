@@ -6,7 +6,7 @@ class Destroyer {
       await cloudinaryConfig.uploader.destroy(requiredPublicId).then(() => {
         console.log({
           message: "Requested file has been removed from cloudinary!",
-          messageOrigin: "custom single destroyer.",
+          result: requiredPublicId,
         });
       });
     } catch (error: any) {

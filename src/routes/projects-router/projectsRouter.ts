@@ -2,6 +2,7 @@ import { Router } from "express";
 import NewProject from "../../controllers/projects/uploadNewProject";
 import multerUploader from "../../middlewares/muter/multerUploader";
 import authValidator from "../../middlewares/auth-validator/authValidator";
+import ExistingProject from "../../controllers/projects/updateProject";
 
 const projectsRouter = Router();
 const requiredProjectImage = multerUploader.fields([
@@ -10,12 +11,19 @@ const requiredProjectImage = multerUploader.fields([
   { name: "secondPageImageUrl", maxCount: 1 },
   { name: "thirdPageImageUrl", maxCount: 1 },
 ]);
-// Upload new project route
+//1. Upload new project route
 projectsRouter.post(
   "/operation/url",
-  authValidator.validate,
+  // authValidator.validate,
   requiredProjectImage,
-  NewProject.upload
+  NewProject.uploadCtrl
+);
+
+//2. Update existing project route
+projectsRouter.patch(
+  "/operation/url/:id",
+  requiredProjectImage,
+  ExistingProject.updateCtrl
 );
 
 export default projectsRouter;

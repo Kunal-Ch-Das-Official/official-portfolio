@@ -10,7 +10,7 @@ interface FileUploadFields {
   thirdPageImageUrl?: Express.Multer.File[];
 }
 class NewProject {
-  public async upload(req: Request, res: Response): Promise<void> {
+  public async uploadCtrl(req: Request, res: Response): Promise<void> {
     const {
       projectName,
       author,
