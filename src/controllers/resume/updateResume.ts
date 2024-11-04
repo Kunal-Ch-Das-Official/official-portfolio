@@ -41,7 +41,8 @@ class ExistingResume {
             resumeUrl: storedDataAccessUrl,
             resumePublicId: storedDataAccessId,
           };
-
+          const { resumePublicId } = existingResume;
+          await destroyer.cloudAssets(resumePublicId);
           const resumeUpdate = await resumeModel.findByIdAndUpdate(
             id,
             updatedResume,
@@ -53,8 +54,6 @@ class ExistingResume {
               details: "Unable to upload resume, please try again later.",
             });
           } else {
-            const { resumePublicId } = existingResume;
-            await destroyer.cloudAssets(resumePublicId);
             return <any>res.status(201).json({
               message: "Update Successful!",
               details: "New resume has been successfully updated.",

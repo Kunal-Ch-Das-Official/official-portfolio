@@ -27,6 +27,7 @@ import projectsRouter from "./routes/projects-router/projectsRouter";
 import multer from "multer";
 import reviewsRouter from "./routes/reviews-router/reviewsRouter";
 import resumeRouter from "./routes/resume-router/resumeRouter";
+import blogRouter from "./routes/blog-router/blogRouter";
 
 const server: Application = express();
 
@@ -51,6 +52,7 @@ server.use("/api/v2/auth/admin", admiAuthenticationRouter); // Admin authenticat
 server.use("/api/v2/all/projects", projectsRouter); // Projects routes
 server.use("/api/v2/reviews", reviewsRouter); // Reviews routes
 server.use("/api/v2/resume", resumeRouter); // Resume routes
+server.use("/api/v2/blogs", blogRouter); // Blogs routes
 // Error handling middleware
 server.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof multer.MulterError) {
