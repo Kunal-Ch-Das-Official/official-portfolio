@@ -23,6 +23,7 @@ import Change from "../../controllers/admin-auth/changePassword";
 import NewAdmin from "../../controllers/admin-auth/registerNewAdmin";
 import AdminUser from "../../controllers/admin-auth/adminLogin";
 import ResetForgottenPassword from "../../controllers/admin-auth/resetPasswordLink";
+import ForgottenPassword from "../../controllers/admin-auth/resetForgottenPassword";
 
 const admiAuthenticationRouter = Router();
 
@@ -40,7 +41,7 @@ admiAuthenticationRouter.get(
 );
 
 // Change Password
-admiAuthenticationRouter.post(
+admiAuthenticationRouter.put(
   "/change-password",
   AuthValidator.validate,
   Change.password
@@ -50,6 +51,12 @@ admiAuthenticationRouter.post(
 admiAuthenticationRouter.post(
   "/reset-password-link",
   ResetForgottenPassword.sendLink
+);
+
+// Reset password
+admiAuthenticationRouter.put(
+  "/reset-password/:id/:token",
+  ForgottenPassword.resetPassword
 );
 
 export default admiAuthenticationRouter;
