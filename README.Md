@@ -1,6 +1,6 @@
 # Kunal Portfolio Server
 
-## Author: Kiunal Chandra Das.
+## Author: Kunal Chandra Das.
 
 ## Description
 
