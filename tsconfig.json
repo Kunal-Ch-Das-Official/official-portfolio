@@ -1,31 +1,14 @@
-// {
-//   "compilerOptions": {
-//     "outDir": "./dist",
-//     "allowJs": true,
-//     "target": "ES6",
-//     "module": "commonjs",
-//     "esModuleInterop": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "strict": true,
-//     "strictNullChecks": true,
-//     "skipLibCheck": true
-//   },
-//   "include": ["index.ts"]
-// }
-
 {
   "compilerOptions": {
-    "outDir": "./dist", // Output compiled JS files to `dist/`
-    "rootDir": "./", // Set the root directory to the project root (to include `index.ts`)
-    "target": "ES6", // Set the target JavaScript version
-    "module": "commonjs", // Use CommonJS module resolution
-    "esModuleInterop": true
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true
   },
-  "include": [
-    "index.ts", // Include the entry point `index.ts` outside `src`
-    "src/**/*.ts" // Include all `.ts` files inside the `src` folder
-  ],
-  "exclude": [
-    "node_modules" // Exclude `node_modules` from compilation
-  ]
+  "include": ["*"]
 }
