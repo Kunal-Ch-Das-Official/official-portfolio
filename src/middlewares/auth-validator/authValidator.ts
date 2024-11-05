@@ -1,3 +1,25 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Validate user authentication
+ * Author      : Kunal Chandra Das
+ * Date        : 01.11.2024
+ * Version     : 2.0.0
+ * Details     : This middleware handles the authentication validation for
+ *               protected routes. It checks the validity of the JWT token
+ *               provided in the request header.
+ *
+ *               The middleware first extracts the token from the `Authorization`
+ *               header. If the token is missing or invalid, it returns a `401 Unauthorized`
+ *               response, indicating that the user is not authenticated.
+ *
+ *               If the token is valid, the middleware decodes the token and adds
+ *               the user’s information (e.g., user ID) to the request object, allowing
+ *               the next middleware or route handler to access it.
+ *
+ *               In case of any issues with decoding or verification, a `403 Forbidden`
+ *               response is returned, signaling that the user does not have access.
+ */
+
 import { Request, NextFunction, Response } from "express";
 import jwt from "jsonwebtoken";
 import envConfig from "../../config/envConfig";

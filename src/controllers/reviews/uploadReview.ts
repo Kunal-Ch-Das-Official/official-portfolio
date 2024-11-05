@@ -1,3 +1,23 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Post review by clients
+ * Author      : Kunal Chandra Das
+ * Date        : 30.10.2024
+ * Version     : 2.0.0
+ * Details     : This controller handles posting a review by a client.
+ *
+ *               The controller validates the incoming review data, including
+ *               fields such as rating, feedback, and client information. If
+ *               any required fields are missing or invalid, a `400 Bad Request`
+ *               response is returned.
+ *
+ *               Once validated, the review is stored in the database. A `201 Created`
+ *               response is returned, including the newly created review's details.
+ *
+ *               In case of any errors during the process (e.g., database failures),
+ *               a `500 Internal Server Error` response is returned.
+ */
+
 import { Request, Response } from "express";
 import reviewModel from "../../models/reviewCollection";
 

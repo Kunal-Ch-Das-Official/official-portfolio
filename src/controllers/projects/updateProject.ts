@@ -1,3 +1,45 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Update project
+ * Author      : Kunal Chandra Das
+ * Date        : 05.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for updating an existing
+ *               project in the system. The controller allows authorized users
+ *               (e.g., admins or project owners) to modify the details of an
+ *               existing project, including fields such as project name,
+ *               description, status, milestones, and associated files.
+ *
+ *               The controller first checks if the user making the request
+ *               has the necessary authorization to update the project. This
+ *               typically involves verifying that the user is either the project
+ *               owner or an admin. If the user is not authorized, a `403 Forbidden`
+ *               response is returned.
+ *
+ *               The controller then attempts to find the project in the database
+ *               using the unique project ID provided in the request. If the project
+ *               is not found, a `404 Not Found` response is returned, indicating
+ *               that the project does not exist.
+ *
+ *               If the project exists and the user is authorized to update it,
+ *               the controller proceeds to update the project fields with the
+ *               new data provided in the request body. The update operation
+ *               may involve updating project metadata such as name, description,
+ *               or other attributes. Once the update is successful, a `200 OK`
+ *               response is returned with the updated project details.
+ *
+ *               If the request is missing required fields or contains invalid data,
+ *               the controller returns a `400 Bad Request` response with an appropriate
+ *               error message detailing what went wrong.
+ *
+ *               In case of any errors during the update process (e.g., database issues),
+ *               the controller returns a `500 Internal Server Error` response.
+ *
+ *               This controller is essential for keeping project data up-to-date,
+ *               allowing users to modify their project details and reflect any changes
+ *               in the project's lifecycle, status, or associated data.
+ */
+
 import { Request, Response } from "express";
 import CloudinaryUploader from "../../utils/cloud-uploader/cloudUploader";
 import projectModel from "../../models/projectsCollection";

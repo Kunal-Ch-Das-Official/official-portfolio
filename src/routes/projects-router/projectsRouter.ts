@@ -1,7 +1,28 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Projects router
+ * Author      : Kunal Chandra Das
+ * Date        : 05.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the routes for managing projects in the
+ *               system. The router defines the HTTP endpoints for creating,
+ *               retrieving, updating, and deleting projects.
+ *
+ *               1. **GET /projects**: Retrieves a list of all projects (accessible to all users).
+ *               2. **GET /projects/:id**: Retrieves a specific project by its unique ID (accessible to all users).
+ *               3. **POST /projects**: Allows authenticated users (admins) to create a new project by submitting project details.
+ *               4. **PATCH /projects/:id**: Allows authenticated users (admins) to update details of an existing project.
+ *               5. **DELETE /projects/:id**: Allows authenticated users (admins) to delete a specific project by its ID.
+ *
+ *               The router ensures proper project data handling, including
+ *               validation, authentication, and authorization checks where
+ *               necessary (e.g., only authenticated admins can create, update, or delete projects).
+ */
+
 import { Router } from "express";
 import NewProject from "../../controllers/projects/uploadNewProject";
 import multerUploader from "../../middlewares/muter/multerUploader";
-import authValidator from "../../middlewares/auth-validator/authValidator";
+import AuthValidator from "../../middlewares/auth-validator/authValidator";
 import ExistingProject from "../../controllers/projects/updateProject";
 import RequestedProject from "../../controllers/projects/deleteProject";
 import ProjectsInfo from "../../controllers/projects/getProject";
@@ -16,7 +37,7 @@ const requiredProjectImage = multerUploader.fields([
 //1. Upload new project route
 projectsRouter.post(
   "/operation/url",
-  authValidator.validate,
+  AuthValidator.validate,
   requiredProjectImage,
   NewProject.uploadCtrl
 );
@@ -24,7 +45,7 @@ projectsRouter.post(
 //2. Update existing project route
 projectsRouter.patch(
   "/operation/url/:id",
-  authValidator.validate,
+  AuthValidator.validate,
   requiredProjectImage,
   ExistingProject.updateCtrl
 );
@@ -32,7 +53,7 @@ projectsRouter.patch(
 //3. Delete existing project route
 projectsRouter.delete(
   "/operation/url/:id",
-  authValidator.validate,
+  AuthValidator.validate,
   RequestedProject.deleteCtrl
 );
 

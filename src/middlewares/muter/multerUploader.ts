@@ -1,8 +1,8 @@
 /**
  * Multer File Upload Handler
- * Project: CBS-Research-Group-Backend
+ * Project: Kunal Chandra Das Portfolio Backend
  * Author: Kunal Chandra Das
- * Date: 17/08/2024
+ * Date: 30.10.2024
  *
  * Description:
  * This configuration file sets up Multer for handling image uploads

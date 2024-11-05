@@ -1,3 +1,28 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Reset forgotten password
+ * Author      : Kunal Chandra Das
+ * Date        : 01.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for handling the password reset
+ *               process for admin users. It allows admins to reset their password
+ *               by providing a valid ID and reset token.
+ *
+ *               The controller first checks if the admin user exists in the system by their ID.
+ *               If the user exists, it verifies the provided reset token included in the request.
+ *               The token is time-limited and used to ensure secure password resetting.
+ *
+ *               Once the token is verified, the new password is securely hashed using **bcrypt**
+ *               before being stored in the database.
+ *
+ *               If the provided reset token is invalid or expired, or if there are issues with
+ *               updating the password, appropriate error messages are returned.
+ *
+ *               This controller helps admins recover access to their accounts
+ *               securely by providing a mechanism for resetting their forgotten
+ *               or compromised passwords.
+ */
+
 import { Request, Response } from "express";
 import authAdminUserModel from "../../models/authAdminCollection";
 import envConfig from "../../config/envConfig";

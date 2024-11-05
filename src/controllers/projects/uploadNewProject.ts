@@ -1,3 +1,42 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Upload project
+ * Author      : Kunal Chandra Das
+ * Date        : 05.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for uploading a new project
+ *               to the system. The controller allows authorized users (e.g.,
+ *               admins or project owners) to submit a new project to be stored
+ *               and managed in the platform’s database.
+ *
+ *               The controller first validates the incoming request to ensure
+ *               that all necessary fields for the project are included in the
+ *               request body. Required fields typically include project name,
+ *               description, and any other relevant data such as start date,
+ *               milestones, associated team members, or project files.
+ *
+ *               If any required fields are missing or contain invalid data,
+ *               the controller returns a `400 Bad Request` response, with an
+ *               appropriate error message explaining what is missing or incorrect.
+ *
+ *               Once the data is validated, the controller proceeds to create
+ *               a new project entry in the database, storing all the provided
+ *               information along with any necessary metadata (e.g., project
+ *               creation date, user ID of the creator). If the project is successfully
+ *               uploaded, a `201 Created` response is returned, including the details
+ *               of the newly created project (e.g., project ID, name, description).
+ *
+ *               In case of any failure during the upload process (e.g., database errors,
+ *               missing data), the controller returns an appropriate error message.
+ *               If the project creation fails for any reason, a `500 Internal Server Error`
+ *               response is returned.
+ *
+ *               This controller is crucial for initiating new projects within
+ *               the system. It ensures that only properly validated project data is
+ *               uploaded, allowing users to add projects in a structured and secure
+ *               manner while ensuring smooth project creation workflows.
+ */
+
 import { Request, Response } from "express";
 import projectModel from "../../models/projectsCollection";
 import CloudinaryUploader from "../../utils/cloud-uploader/cloudUploader";

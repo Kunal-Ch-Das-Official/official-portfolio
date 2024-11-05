@@ -1,10 +1,13 @@
 /**
- * Project Name: Kunal Chandra Das Portfolio
+ * Project Name: Kunal Chandra Das Portfolio Backend
  * Author      : Kunal Chandra Das
  * Date        : 29/10/2024
  * Version     : 2.0.0
- * Details     : This file contains the configuration settings for Cloudinary,
- *               an assets management tool.
+ * Details     : This file configures the Cloudinary service for managing
+ *               assets (e.g., images, videos) by setting up the necessary
+ *               credentials (API key, secret, cloud name) from environment
+ *               variables. It initializes and exports the Cloudinary instance
+ *               for use in the project.
  */
 
 import envConfig from "./envConfig";

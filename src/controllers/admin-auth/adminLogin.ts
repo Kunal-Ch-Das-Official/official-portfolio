@@ -1,3 +1,19 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Admin login controller
+ * Author      : Kunal Chandra Das
+ * Date        : 01.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for handling admin user
+ *               authentication, specifically the login process.
+ *               It verifies the admin's credentials (email and password),
+ *               generates a JWT token upon successful login, and handles
+ *               various error scenarios with appropriate HTTP responses.
+ *               The JWT token (with a 1-day expiration) is used to authenticate
+ *               the admin for subsequent requests to protected resources such as
+ *               the admin dashboard.
+ */
+
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";

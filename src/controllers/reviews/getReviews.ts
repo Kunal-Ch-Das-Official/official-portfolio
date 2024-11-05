@@ -1,3 +1,12 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Get all reviews
+ * Author      : Kunal Chandra Das
+ * Date        : 30.10.2024
+ * Version     : 2.0.0
+ * Details     : This controller handles fetching reviews posted by clients.
+ **/
+
 import { Request, Response } from "express";
 import reviewModel from "../../models/reviewCollection";
 

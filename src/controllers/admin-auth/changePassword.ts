@@ -1,3 +1,26 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Password change controller
+ * Author      : Kunal Chandra Das
+ * Date        : 01.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for handling the admin user's
+ *               password change functionality. It allows authenticated admins
+ *               to change their password by providing a new password and confirming it.
+ *
+ *               The controller checks if the new password and the confirm password match.
+ *               It then securely hashes the new password using bcrypt, generating a salt
+ *               with a strength of 15 rounds. After hashing the password, it updates the
+ *               admin's password in the database.
+ *
+ *               If the update is successful, a success response is returned. If any errors
+ *               occur (e.g., mismatched passwords, missing fields, or database issues),
+ *               appropriate error messages are returned.
+ *
+ *               This functionality helps admins maintain secure access by allowing
+ *               them to change their password whenever necessary.
+ */
+
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import authAdminUserModel from "../../models/authAdminCollection";

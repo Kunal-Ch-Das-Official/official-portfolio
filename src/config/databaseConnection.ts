@@ -8,20 +8,23 @@
  * Description:
  * This module handles the connection to the MongoDB database using Mongoose.
  * It imports the necessary environment configuration for the database connection
- * string and establishes the connection when called. It also sets up event listeners
- * to log connection status and handle any errors that may occur.
+ * string and attempts to establish the connection when called. Event listeners
+ * are set up to log connection status and handle errors. The connection process
+ * is asynchronous and will exit the process with an error code if the connection
+ * fails.
  *
  * Functionality:
  * - Checks if the database connection string is defined in the environment variables.
  * - Sets up event listeners for successful connection and error handling.
- * - Attempts to connect to the database using the provided connection string.
+ * - Asynchronously attempts to connect to the database using the provided connection string.
  * - Logs messages to the console indicating the connection status.
  * - Exits the process with an error code if the connection fails.
  *
  * Usage:
  * Import this module and call the `connectDb` function to establish a connection
- * to the database when starting the application. Ensure that the environment
- * variables are properly configured to include the database connection string.
+ * to the database when starting the application. The `connectDb` function is asynchronous,
+ * so it should be called using `await` or within an async function. Ensure that the
+ * environment variables are properly configured to include the database connection string.
  */
 
 import mongoose from "mongoose";

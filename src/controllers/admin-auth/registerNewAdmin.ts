@@ -1,3 +1,30 @@
+/**
+ * Project Name: Kunal Chandra Das Portfolio backend
+ * File Name:    Register new admin
+ * Author      : Kunal Chandra Das
+ * Date        : 01.11.2024
+ * Version     : 2.0.0
+ * Details     : This file contains the controller for handling the registration
+ *               of a new admin user. It allows the creation of an admin account
+ *               by accepting the admin's details (such as name, email, and password)
+ *               from the client.
+ *
+ *               The controller first validates the input data to ensure all required
+ *               fields (e.g., name, email, and password) are provided. It checks if the
+ *               provided email or username is already in use in the system, and if it is,
+ *               it returns a `409 Conflict` response. If the email or username is unique, the
+ *               password is hashed using **bcrypt** before storing it securely in the database.
+ *
+ *               After successfully registering the admin, the controller returns
+ *               a success response with a message confirming the new admin account
+ *               creation. If there are any validation errors or unexpected issues
+ *               (e.g., database failure), the controller will respond with an
+ *               appropriate error message.
+ *
+ *               This controller helps system administrators securely create
+ *               new admin accounts and manage access control to the system.
+ */
+
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
