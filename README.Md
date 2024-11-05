@@ -116,18 +116,18 @@ following npm
 
 # Folder Structure
 
-/kunal-portfolio-server
-/controllers # Controller files for handling requests
-/middlewares # Middlewares like auth validation file uploader
-/models # Mongoose models for MongoDB
-/routes # API routes
-/utils # Utility functions (e.g., email sender)
-/config # Configuration files (e.g., environment variables, cloud config etc)
-/dist # Compiled JavaScript files (after build)
-.env # Environment configuration file
-package.json # Project dependencies and scripts
-tsconfig.json # TypeScript configuration
-README.md # Project documentation
+- /kunal-portfolio-server
+- /controllers # Controller files for handling requests
+- /middlewares # Middlewares like auth validation file uploader
+- /models # Mongoose models for MongoDB
+- /routes # API routes
+- /utils # Utility functions (e.g., email sender)
+- /config # Configuration files (e.g., environment variables, cloud config etc)
+- /dist # Compiled JavaScript files (after build)
+- .env # Environment configuration file
+- package.json # Project dependencies and scripts
+- tsconfig.json # TypeScript configuration
+- README.md # Project documentation
 
 ---
 
