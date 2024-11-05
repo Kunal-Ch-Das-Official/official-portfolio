@@ -8,8 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/dist/(.*)",
+      "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
