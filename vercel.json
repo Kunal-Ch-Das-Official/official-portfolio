@@ -5,14 +5,14 @@
       "src": "index.ts",
       "use": "@vercel/node",
       "config": {
-        "distDir": "dist"
+        "distDir": "build"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/index.js"
+      "dest": "/build/index.js"
     }
   ]
 }
