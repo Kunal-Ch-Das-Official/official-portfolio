@@ -38,6 +38,7 @@ interface EnvType {
   emailPort: any;
   emailHostUser: string;
   emailHostPassword: string;
+  clientSideUrl: string;
 }
 
 const environment: EnvType = {
@@ -52,6 +53,7 @@ const environment: EnvType = {
   emailPort: process.env.EMAIL_PORT,
   emailHostUser: process.env.EMAIL_HOST_USER || "",
   emailHostPassword: process.env.EMAIL_HOST_PASSWORD || "",
+  clientSideUrl: process.env.CLIENT_FACING_URL || "",
 };
 
 const envConfig = Object.freeze(environment);
