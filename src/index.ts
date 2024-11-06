@@ -21,9 +21,9 @@
  * the database connection is established before the server begins accepting requests.
  */
 
-import envConfig from "./src/config/envConfig";
-import connectDb from "./src/config/databaseConnection";
-import server from "./src/server";
+import envConfig from "./config/envConfig";
+import connectDb from "./config/databaseConnection";
+import server from "./server";
 async function startServer() {
   const serverConf = {
     port: envConfig.port,
