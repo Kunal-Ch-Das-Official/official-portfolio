@@ -1,8 +1,9 @@
 {
   "version": 2,
+  "outputDirectory": "dist",
   "builds": [
     {
-      "src": "index.ts",
+      "src": "dist/index.js",
       "use": "@vercel/node"
     }
   ],
@@ -11,13 +12,6 @@
       "src": "/(.*)",
       "dest": "dist/index.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    }
-  ],
-  "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/dist/index.js"
     }
   ]
 }
