@@ -5,6 +5,12 @@
       "src": "index.ts",
       "use": "@vercel/node",
       "config": { "includeFiles": ["dist/**"] }
+    },
+    {
+      "buildCommand": "run build"
+    },
+    {
+      "outputDirectory": "dist"
     }
   ],
   "routes": [
@@ -12,6 +18,5 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "dist/index.js" }]
+  ]
 }
