@@ -200,7 +200,7 @@ class ResetPasswordLink {
         border-bottom: 10px solid #3869d4;
         border-left: 18px solid #3869d4;
         display: inline-block;
-        color: #fff;
+        color: #fff !important;
         text-decoration: none;
         border-radius: 3px;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
@@ -214,6 +214,7 @@ class ResetPasswordLink {
         border-right: 18px solid #22bc66;
         border-bottom: 10px solid #22bc66;
         border-left: 18px solid #22bc66;
+        color: #fff !important;
       }
 
       .button--red {
@@ -222,11 +223,13 @@ class ResetPasswordLink {
         border-right: 18px solid #ff6136;
         border-bottom: 10px solid #ff6136;
         border-left: 18px solid #ff6136;
+         color: #fff !important;
       }
 
       @media only screen and (max-width: 500px) {
         .button {
           width: 100% !important;
+           color: #fff !important;
           text-align: center !important;
         }
       }
