@@ -28,7 +28,7 @@ The **Kunal Portfolio Server** is the backend of the official portfolio of **Kun
 - **POST** `/api/v2/auth/admin/reset-password-link`: Send a password reset link to the admin's email.
 - **PUT** `/api/v2/auth/admin/reset-password/:id/:token`: Reset the admin password with the token.
 - **GET** `/api/v2/auth/admin/current-user`: Get the currently logged-in admin user details.
-- **PUT** ``/api/v2/auth/admin/change-password`: Change the admin's password.
+- **PUT** `/api/v2/auth/admin/change-password`: Change the admin's password.
 
 ### 2. **Projects Routes**
 
@@ -70,7 +70,7 @@ The **Kunal Portfolio Server** is the backend of the official portfolio of **Kun
 
 ## Requirements
 
-- **Node.js** (>= 16.x.x)
+- **Node.js** (>= 20.x.x)
 - **MongoDB** (for database storage)
 - **Cloudinary** (for storing images and files)
 - **Nodemailer** (for sending email responses)
@@ -89,10 +89,10 @@ following npm
    cd kunal-portfolio-server
    ```
 
-2. **Install npm**:
+2. **Install npm and nodemon**:
 
    ```bash
-    npm install
+    npm install nodemon
    ```
 
 3. **Add environment variable**:
