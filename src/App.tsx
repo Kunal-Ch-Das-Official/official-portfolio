@@ -6,8 +6,9 @@ import NotFoundRouter from "./routes/not-found-route/NotFoundRouter";
 import ForgotPasswordRouter from "./routes/forgot-password-route/ForgotPasswordRouter";
 import ResetPasswordRouter from "./routes/reset-password-route/ResetPasswordRouter";
 import PrivateRoute from "./private/PrivateRouter";
-import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
+// import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
 import RegisterRouter from "./routes/register-route/RegisterRouter";
+import AdminConsole from "./Console";
 
 function App() {
   const publicRoutes = [
@@ -48,7 +49,7 @@ function App() {
             path="/admin-console"
             element={
               <PrivateRoute>
-                <DashboardRouter />
+                <AdminConsole />
               </PrivateRoute>
             }
           />
