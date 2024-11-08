@@ -177,8 +177,11 @@ const RegisterForm = () => {
           />
           <p className="text-medium-tone-text">
             Already have an acount ?{" "}
-            <Link to={"/"} className="text-blue-600 hover:underline">
-              Signin
+            <Link
+              to={"/"}
+              className="text-blue-600 hover:underline font-semibold"
+            >
+              Sign-in
             </Link>{" "}
           </p>
         </form>
