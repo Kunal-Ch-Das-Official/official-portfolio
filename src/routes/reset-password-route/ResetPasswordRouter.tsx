@@ -1,5 +1,7 @@
+import ResetPasswordForm from "../../components/authentication/ResetPasswordForm";
+
 const ResetPasswordRouter = () => {
-  return <div>ResetPasswordRouter</div>;
+  return <ResetPasswordForm />;
 };
 
 export default ResetPasswordRouter;
