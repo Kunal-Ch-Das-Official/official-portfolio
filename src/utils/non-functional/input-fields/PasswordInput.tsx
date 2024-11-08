@@ -56,6 +56,11 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           />
         )}
       </div>
+      {validationError && (
+        <p className="ml-2 text-red-500 font-sm text-xs my-0 py-0">
+          Please check the password fields
+        </p>
+      )}
     </div>
   );
 };

@@ -1,7 +1,9 @@
 interface Environment {
+  registerUrl: string;
   loginUrl: string;
 }
 const variable: Environment = {
+  registerUrl: import.meta.env.VITE_APP_ADMIN_REGISTRATION_URL as string,
   loginUrl: import.meta.env.VITE_APP_ADMIN_LOGIN_URL as string,
 };
 const envConfig = Object.freeze(variable);

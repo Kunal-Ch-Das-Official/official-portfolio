@@ -1,5 +1,7 @@
+import RegisterForm from "../../components/authentication/RegisterForm";
+
 const RegisterRouter = () => {
-  return <div>RegisterRouter</div>;
+  return <RegisterForm />;
 };
 
 export default RegisterRouter;
