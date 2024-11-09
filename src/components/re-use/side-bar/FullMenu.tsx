@@ -7,25 +7,39 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ProfileBox from "../../../utils/non-functional/current-user-profile/ProfileBox";
 import { MdOutlineArrowBackIos } from "react-icons/md";
+import PropfileCardSk from "../../../utils/non-functional/skeleton/PropfileCardSk";
 interface FullMenuProps {
-  handleSideBarMountUnmount: () => void;
+  handleSideBarUnmount: () => void;
+  userName: string | null;
+  email: string | null;
+  responseState: boolean;
 }
 
-const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
+const FullMenu: React.FC<FullMenuProps> = ({
+  handleSideBarUnmount,
+  userName,
+  email,
+  responseState,
+}) => {
   useEffect(() => {
     AOS.init();
   }, []);
+
   return (
     <div
-      className="flex min-h-screen flex-1 flex-col justify-between border-e bg-white max-w-[230px]"
+      className="flex min-h-screen flex-1 flex-col justify-between border-e bg-white max-w-[300px] fixed left-0 md:left-16"
       data-aos="fade-right"
     >
       <div className="py-3">
-        <ProfileBox />
+        {responseState === true ? (
+          <PropfileCardSk />
+        ) : (
+          <ProfileBox currentUsername={userName} registerEmail={email} />
+        )}
 
-        <ul className="mt-2 space-y-1">
+        <ul className="mt-3 space-y-[5px]">
           {/* Dashboard  full menu*/}
-          <li>
+          <li onClick={handleSideBarUnmount}>
             <a
               href="#"
               className="block rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium text-gray-700"
@@ -39,7 +53,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
             <details className="group [&_summary::-webkit-details-marker]">
               <summary
                 className="flex cursor-pointer items-center justify-between 
-              rounded-lg px-4 py-2 mt-3 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+              rounded-lg px-4 py-2  text-gray-500 hover:bg-primary-color hover:text-gray-700"
               >
                 <span className="text-sm font-medium"> Projets</span>
 
@@ -59,7 +73,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
                 </span>
               </summary>
               {/* Routes path  */}
-              <ul className="mt-2 space-y-1">
+              <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_projects">
                   <a
                     href="#"
@@ -108,7 +122,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
                 </span>
               </summary>
               {/* Routes path  */}
-              <ul className="mt-2 space-y-1">
+              <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_resume">
                   <a
                     href="#"
@@ -154,7 +168,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
                 </span>
               </summary>
               {/* Routes path  */}
-              <ul className="mt-2 space-y-1">
+              <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_article">
                   <a
                     href="#"
@@ -203,7 +217,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
                 </span>
               </summary>
               {/* Routes path  */}
-              <ul className="mt-2 space-y-1">
+              <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_all_users">
                   <a
                     href="#"
@@ -228,7 +242,7 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
           </li>
 
           {/* Reviews full menu*/}
-          <li id="reviews-section">
+          <li onClick={handleSideBarUnmount} id="reviews-section">
             <a
               href="#"
               className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
@@ -237,22 +251,39 @@ const FullMenu: React.FC<FullMenuProps> = ({ handleSideBarMountUnmount }) => {
             </a>
           </li>
 
-          <li id="queries-message-section">
+          {/* Contact enquery full menu*/}
+          <li onClick={handleSideBarUnmount} id="queries-message-section">
             <a
               href="#"
               className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
             >
-              Queries
+              Emails
+            </a>
+          </li>
+
+          {/* small screen logout button full menu*/}
+          <li
+            onClick={handleSideBarUnmount}
+            id="logout-section-for-sm-device"
+            className="block md:hidden"
+          >
+            <a
+              href="#"
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+            >
+              Logout
             </a>
           </li>
         </ul>
       </div>
+
+      {/* Close menu arrow*/}
       <li
         id="close_sidebar_section"
         className="align-bottom list-none bg-gray-50 border-t border-gray-200 "
       >
-        <p className="flex justify-end py-[17px] text-sm font-medium  hover:text-gray-700">
-          <button onClick={handleSideBarMountUnmount}>
+        <p className="flex justify-end py-[17px] text-sm font-medium pr-2 hover:text-gray-700">
+          <button onClick={handleSideBarUnmount}>
             <MdOutlineArrowBackIos className="text-lg transform translate-6 hover:scale-110 cursor-pointer" />
           </button>
         </p>

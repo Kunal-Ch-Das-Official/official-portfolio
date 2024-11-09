@@ -1,11 +1,66 @@
-import { useEffect, useState } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import FullMenu from "./FullMenu";
 import HalfMenu from "./HalfMenu";
 import MobileNav from "./MobileNav";
+import axios from "../../../../axios/axios";
+import envConfig from "../../../../config/envConfig";
+import { useAuth } from "../../../context/useAuth";
+interface ICurrentUser {
+  adminUserEmail: string | null;
+  adminUserName: string | null;
+}
 const SideBar = () => {
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
   const [screenWidth, setScreenWidth] = useState<number>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [iSidebarOpen, setISidebarOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const { logout } = useAuth();
+  const [currentUser, setCurrentUser] = useState<ICurrentUser>({
+    adminUserEmail: null,
+    adminUserName: null,
+  });
+
+  // Fetch Current User
+  useEffect(() => {
+    const getCurrentAccountHolder = async () => {
+      setLoading(true);
+      const authToken = localStorage.getItem("auth-token");
+      const visitorToken = localStorage.getItem("visitor-token");
+      const token = authToken || visitorToken;
+      try {
+        const response = await axios.get(envConfig.getCurrentUserUrl, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (response) {
+          setCurrentUser({
+            adminUserEmail: response.data.userDetails.adminUserEmail,
+            adminUserName: response.data.userDetails.adminUserName,
+          });
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        if (error.status === 401) {
+          const authToken = localStorage.getItem("auth-token") || null;
+          if (authToken) {
+            localStorage.removeItem("auth-token");
+            logout();
+            window.location.href = "/";
+          } else {
+            throw new Error("Something went wrong, please try again later");
+          }
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    getCurrentAccountHolder();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Identify the screen width
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -26,15 +81,55 @@ const SideBar = () => {
     };
   }, [screenWidth]);
 
+  // Side bar mount and unmount handler
   const handleOpenSidebar = () => {
     setISidebarOpen((prev) => !prev);
   };
-  console.log(iSidebarOpen);
+
+  // Main function for handle click outside side bar
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        if (window.innerWidth) {
+          if (iSidebarOpen === true) {
+            setISidebarOpen(false);
+          }
+        } else {
+          setISidebarOpen(true);
+        }
+      }
+    },
+    [iSidebarOpen]
+  );
+
+  // Is side bar is open then listen the event otherwise remove listener
+  useEffect(() => {
+    if (iSidebarOpen === true) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    // Clean up event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [iSidebarOpen, handleClickOutside]);
+
   return (
-    <div className="flex w-[200px] z-[1001] opacity-100">
+    <div className="flex w-[200px] z-[1001] opacity-100" ref={sidebarRef}>
       {/* Full Menu  */}
+
       {iSidebarOpen === true && (
-        <FullMenu handleSideBarMountUnmount={handleOpenSidebar} />
+        <FullMenu
+          handleSideBarUnmount={handleOpenSidebar}
+          userName={currentUser.adminUserName}
+          email={currentUser.adminUserEmail}
+          responseState={loading}
+        />
       )}
 
       {/* Half Menu  */}
@@ -42,6 +137,7 @@ const SideBar = () => {
         <HalfMenu
           handleSidebarMount={handleOpenSidebar}
           sideBarStatus={iSidebarOpen}
+          profileLogo={currentUser.adminUserName}
         />
       )}
 

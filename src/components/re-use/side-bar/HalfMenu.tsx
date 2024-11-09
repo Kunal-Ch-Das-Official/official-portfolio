@@ -11,17 +11,21 @@ import React from "react";
 interface HalfMenuProps {
   handleSidebarMount: () => void;
   sideBarStatus: boolean;
+  profileLogo: string | null;
 }
 const HalfMenu: React.FC<HalfMenuProps> = ({
   handleSidebarMount,
   sideBarStatus,
+  profileLogo,
 }) => {
+  const firstChar = profileLogo && profileLogo[0].toUpperCase();
   return (
-    <div className="flex min-h-screen w-16 flex-col justify-between border-e bg-white">
+    <div className="fixed left-0 top-0 flex min-h-screen w-16 flex-col justify-between border-e bg-white">
+      {/* Profile avatar  */}
       <div>
         <div className="inline-flex size-[71px] items-center justify-center">
           <span className="grid mt-3 size-10 place-content-center rounded-full font-bold bg-primary-color text-sm text-gray-600">
-            K
+            {firstChar}
           </span>
         </div>
 
@@ -31,7 +35,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
             <div className="pt-2">
               <a
                 href="#"
-                className="t group relative flex justify-center rounded px-2 py-1.5 hover:bg-primary-color"
+                className="t group relative flex justify-center rounded px-2 py-2 hover:bg-primary-color"
               >
                 <MdDashboardCustomize className="text-xl mt-1 text-gray-500 hover:text-gray-700" />
 
@@ -41,13 +45,13 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               </a>
             </div>
 
-            <ul className="space-y-1 pt-3">
+            <ul className="space-y-1 ">
               {/* Projects half menu*/}
-              <li>
+              <li className="mt-[0.17rem]">
                 <a
                   href="#"
                   className="group relative flex justify-center
-                   rounded px-2 py-1.5 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                   rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <GrCatalog className="text-xl " />
 
@@ -63,7 +67,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               <li>
                 <a
                   href="#"
-                  className="group relative flex justify-center rounded px-2 pt-2 pb-1 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                  className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <TbFileCv className="text-2xl" />
 
@@ -77,7 +81,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               <li>
                 <a
                   href="#"
-                  className="group relative flex justify-center rounded px-2 pt-3 pb-1 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                  className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <RiArticleFill className="text-xl leading-3" />
 
@@ -112,16 +116,16 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   </span>
                 </a>
               </li>
-              {/* Queries */}
+              {/* Enquiry */}
               <li>
                 <a
                   href="#"
-                  className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                  className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <SiGooglemessages className="text-xl" />
 
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
-                    Queries
+                    Emails
                   </span>
                 </a>
               </li>
