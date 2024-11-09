@@ -6,9 +6,9 @@ import NotFoundRouter from "./routes/not-found-route/NotFoundRouter";
 import ForgotPasswordRouter from "./routes/forgot-password-route/ForgotPasswordRouter";
 import ResetPasswordRouter from "./routes/reset-password-route/ResetPasswordRouter";
 import PrivateRoute from "./private/PrivateRouter";
-// import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
 import RegisterRouter from "./routes/register-route/RegisterRouter";
 import AdminConsole from "./Console";
+import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
 
 function App() {
   const publicRoutes = [
@@ -45,6 +45,7 @@ function App() {
           {publicRoutes.map((item, index) => (
             <Route key={index} path={item.path} element={item.element} />
           ))}
+
           <Route
             path="/admin-console"
             element={
@@ -52,7 +53,9 @@ function App() {
                 <AdminConsole />
               </PrivateRoute>
             }
-          />
+          >
+            <Route index element={<DashboardRouter />} />
+          </Route>
         </Routes>
       </Router>
     </AuthProvider>

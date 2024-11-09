@@ -5,6 +5,8 @@ import MobileNav from "./MobileNav";
 import axios from "../../../../axios/axios";
 import envConfig from "../../../../config/envConfig";
 import { useAuth } from "../../../context/useAuth";
+import { IoLogOut } from "react-icons/io5";
+import ConfirmModel from "../../../utils/non-functional/modals/ConfirmModal";
 interface ICurrentUser {
   adminUserEmail: string | null;
   adminUserName: string | null;
@@ -15,7 +17,9 @@ const SideBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [iSidebarOpen, setISidebarOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const { logout } = useAuth();
+  const [isLogoutEventOccure, setIsLogoutEventOccure] =
+    useState<boolean>(false);
+  const { logout, isAuthenticated } = useAuth();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({
     adminUserEmail: null,
     adminUserName: null,
@@ -26,7 +30,7 @@ const SideBar = () => {
     const getCurrentAccountHolder = async () => {
       setLoading(true);
       const authToken = localStorage.getItem("auth-token");
-      const visitorToken = localStorage.getItem("visitor-token");
+      const visitorToken = sessionStorage.getItem("visitor-token");
       const token = authToken || visitorToken;
       try {
         const response = await axios.get(envConfig.getCurrentUserUrl, {
@@ -119,34 +123,63 @@ const SideBar = () => {
     };
   }, [iSidebarOpen, handleClickOutside]);
 
+  // Handle logout
+  const handleLogout = () => {
+    setIsLogoutEventOccure(true);
+  };
+  // Confirm logout handler
+  const confirmLogout = () => {
+    const authToken = localStorage.getItem("auth-token");
+    const visitorToken = sessionStorage.getItem("visitor-token");
+    if (authToken) {
+      localStorage.removeItem("auth-token");
+    }
+    if (visitorToken) {
+      sessionStorage.removeItem("visitor-token");
+    }
+    logout();
+  };
+  console.log(isAuthenticated);
   return (
-    <div className="flex w-[200px] z-[1001] opacity-100" ref={sidebarRef}>
-      {/* Full Menu  */}
+    <>
+      <div className="flex w-[200px] z-[1001] opacity-100" ref={sidebarRef}>
+        {/* Full Menu  */}
 
-      {iSidebarOpen === true && (
-        <FullMenu
-          handleSideBarUnmount={handleOpenSidebar}
-          userName={currentUser.adminUserName}
-          email={currentUser.adminUserEmail}
-          responseState={loading}
+        {iSidebarOpen === true && (
+          <FullMenu
+            handleSideBarUnmount={handleOpenSidebar}
+            userName={currentUser.adminUserName}
+            email={currentUser.adminUserEmail}
+            responseState={loading}
+          />
+        )}
+
+        {/* Half Menu  */}
+        {isMenuOpen === true && (
+          <HalfMenu
+            handleSidebarMount={handleOpenSidebar}
+            sideBarStatus={iSidebarOpen}
+            profileLogo={currentUser.adminUserName}
+            handleLogoutEvent={handleLogout}
+          />
+        )}
+
+        {/* Nav bar  */}
+        <MobileNav
+          opnCloseHandler={handleOpenSidebar}
+          isSidebarVisable={iSidebarOpen}
         />
-      )}
-
-      {/* Half Menu  */}
-      {isMenuOpen === true && (
-        <HalfMenu
-          handleSidebarMount={handleOpenSidebar}
-          sideBarStatus={iSidebarOpen}
-          profileLogo={currentUser.adminUserName}
-        />
-      )}
-
-      {/* Nav bar  */}
-      <MobileNav
-        opnCloseHandler={handleOpenSidebar}
-        isSidebarVisable={iSidebarOpen}
+      </div>
+      <ConfirmModel
+        showOrHide={isLogoutEventOccure}
+        confirmHandler={confirmLogout}
+        cancelHandler={() => setIsLogoutEventOccure(false)}
+        statusIcon={<IoLogOut className="text-4xl text-accent-color" />}
+        alertHead={"Are you sure you want to logout this time?"}
+        confirmHandlerColor={"bg-primary-button-background"}
+        cancelHandlerColor={"bg-white text-gray-500"}
       />
-    </div>
+    </>
   );
 };
 

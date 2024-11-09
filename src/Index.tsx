@@ -12,6 +12,7 @@ const Index: React.FC = () => {
   useEffect(() => {
     const pageLoadHandler = () => {
       const adminToken = localStorage.getItem("admin-token");
+
       if (adminToken) {
         localStorage.removeItem("admin-token");
       }
@@ -21,8 +22,13 @@ const Index: React.FC = () => {
 
   useEffect(() => {
     const isAuth = localStorage.getItem("auth-token");
-
+    const isVisitor = sessionStorage.getItem("visitor-token");
     if (isAuth && modelOpen === false) {
+      navigate("/admin-console");
+      login();
+      setAuthAdmin(true);
+    }
+    if (isVisitor && modelOpen === false) {
       navigate("/admin-console");
       login();
       setAuthAdmin(true);

@@ -12,9 +12,11 @@ interface HalfMenuProps {
   handleSidebarMount: () => void;
   sideBarStatus: boolean;
   profileLogo: string | null;
+  handleLogoutEvent: () => void;
 }
 const HalfMenu: React.FC<HalfMenuProps> = ({
   handleSidebarMount,
+  handleLogoutEvent,
   sideBarStatus,
   profileLogo,
 }) => {
@@ -150,9 +152,9 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
       </div>
       {/* Logout  */}
       <div className="sticky inset-x-0 bottom-0 border-t border-gray-200 bg-gray-50 p-2">
-        <form action="#">
+        <div>
           <button
-            type="submit"
+            onClick={handleLogoutEvent}
             className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-primary-color hover:text-gray-700"
           >
             <IoLogOutSharp className="text-2xl" />
@@ -161,7 +163,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               Logout
             </span>
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

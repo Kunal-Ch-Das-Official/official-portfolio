@@ -32,11 +32,11 @@ const CustomModel: React.FC<CustomModelProps> = ({
     <div
       className={`${showOrHide} min-h-screen fixed inset-0 px-4 flex-wrap justify-center items-center w-full h-full z-[9999] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto ${alertStyle.overlay}`}
     >
-      <div className="w-full md:w-2/5 lg:w-2/5 xl:w-2/5 2xl:w-2/5 bg-white shadow-lg rounded-md px-5 py-10 relative mx-auto text-center">
+      <div className="w-4/5 md:max-w-md h-[250px]  bg-white shadow-lg rounded-md px-5 pt-4 relative mx-auto text-center">
         <div className="flex flex-col justify-center items-center">
           <div>{statusIcon}</div>
         </div>
-        <div className="mt-8">
+        <div className="mt-2">
           <h3 className="text-2xl font-semibold flex-1">{alertHead}</h3>
           <p className="text-md text-gray-500 mt-2">
             {message1}
@@ -45,7 +45,7 @@ const CustomModel: React.FC<CustomModelProps> = ({
           </p>
           <button
             onClick={closeButton}
-            className={`px-6 py-2.5 mt-8 w-full rounded cursor-pointer text-white text-sm font-semibold border-none outline-none ${buttonColor}`}
+            className={`px-6 py-2.5 mt-4 w-full rounded cursor-pointer text-white text-sm font-semibold border-none outline-none ${buttonColor}`}
           >
             {buttonText}
           </button>

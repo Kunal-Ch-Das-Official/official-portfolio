@@ -58,15 +58,15 @@ const LoginForm: React.FC = () => {
           message: res.data.message,
           details: res.data.details,
           statusIcon: (
-            <PiShieldCheckFill className="text-7xl font-bold text-green-600" />
+            <PiShieldCheckFill className="text-7xl font-bold text-primary-button-background" />
           ),
-          buttonColor: "bg-green-600",
+          buttonColor: "bg-primary-button-background",
         });
 
         if (isRememberMeChecked) {
           localStorage.setItem("auth-token", res.data.authentication_sign);
         } else {
-          localStorage.setItem("visitor-token", res.data.authentication_sign);
+          sessionStorage.setItem("visitor-token", res.data.authentication_sign);
         }
         setIsLoading(false);
         setModelOpen(true);
@@ -77,7 +77,7 @@ const LoginForm: React.FC = () => {
           message: error.response?.data?.issue || "An error occurred",
           details: error.response?.data?.details || "Please try again later",
           statusIcon: (
-            <BsShieldFillExclamation className="text-7xl font-bold text-red-600" />
+            <BsShieldFillExclamation className="text-7xl font-bold text-red-700" />
           ),
           buttonColor: "bg-red-600",
         });

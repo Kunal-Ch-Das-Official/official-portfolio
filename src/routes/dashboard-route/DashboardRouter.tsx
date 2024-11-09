@@ -1,5 +1,5 @@
 const DashboardRouter = () => {
-  return <div>DashboardRouter</div>;
+  return <div className="min-h-screen text-center">Dashboard Page</div>;
 };
 
 export default DashboardRouter;
