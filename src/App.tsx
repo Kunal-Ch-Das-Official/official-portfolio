@@ -9,6 +9,8 @@ import PrivateRoute from "./private/PrivateRouter";
 import RegisterRouter from "./routes/register-route/RegisterRouter";
 import AdminConsole from "./Console";
 import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
+import UploadNewProject from "./routes/projects-route/UploadNewProject";
+import ManageProjects from "./routes/projects-route/ManageProjects";
 
 function App() {
   const publicRoutes = [
@@ -37,6 +39,16 @@ function App() {
       element: <ResetPasswordRouter />,
     },
   ];
+  const privateRoutes = [
+    {
+      path: "/upload-project",
+      element: <UploadNewProject />,
+    },
+    {
+      path: "/manage-projects",
+      element: <ManageProjects />,
+    },
+  ];
   return (
     <AuthProvider>
       <Router>
@@ -55,6 +67,13 @@ function App() {
             }
           >
             <Route index element={<DashboardRouter />} />
+            {privateRoutes.map((item, index) => (
+              <Route
+                key={index}
+                path={`/admin-console/${item.path}`}
+                element={item.element}
+              />
+            ))}
           </Route>
         </Routes>
       </Router>

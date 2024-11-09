@@ -30,7 +30,7 @@ const ConfirmModel: React.FC<ConfirmModelProps> = ({
         <div className="flex flex-col justify-center items-center">
           <div> {statusIcon} </div>
         </div>
-        <div className="mt-2 sm:mt-8">
+        <div className="mt-2 ">
           <h3 className="text-xl font-medium text-gray-600 flex-1">
             {alertHead}
           </h3>

@@ -19,7 +19,7 @@ const SideBar = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isLogoutEventOccure, setIsLogoutEventOccure] =
     useState<boolean>(false);
-  const { logout, isAuthenticated } = useAuth();
+  const { logout } = useAuth();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({
     adminUserEmail: null,
     adminUserName: null,
@@ -139,7 +139,6 @@ const SideBar = () => {
     }
     logout();
   };
-  console.log(isAuthenticated);
   return (
     <>
       <div className="flex w-[200px] z-[1001] opacity-100" ref={sidebarRef}>
@@ -174,7 +173,9 @@ const SideBar = () => {
         showOrHide={isLogoutEventOccure}
         confirmHandler={confirmLogout}
         cancelHandler={() => setIsLogoutEventOccure(false)}
-        statusIcon={<IoLogOut className="text-4xl text-accent-color" />}
+        statusIcon={
+          <IoLogOut className="text-5xl text-primary-button-background" />
+        }
         alertHead={"Are you sure you want to logout this time?"}
         confirmHandlerColor={"bg-primary-button-background"}
         cancelHandlerColor={"bg-white text-gray-500"}

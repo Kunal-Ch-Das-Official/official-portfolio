@@ -4,7 +4,7 @@ import Footer from "./components/re-use/footer/Footer";
 
 const AdminConsole = () => {
   return (
-    <main className="min-w-full min-h-screen">
+    <main className="w-full h-screen">
       <SideBar />
       <Outlet />
       <Footer />

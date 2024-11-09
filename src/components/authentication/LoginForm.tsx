@@ -54,14 +54,16 @@ const LoginForm: React.FC = () => {
       };
       try {
         const res = await axios.post(envConfig.loginUrl, loginCredentials);
-        setLoginResponse({
-          message: res.data.message,
-          details: res.data.details,
-          statusIcon: (
-            <PiShieldCheckFill className="text-7xl font-bold text-primary-button-background" />
-          ),
-          buttonColor: "bg-primary-button-background",
-        });
+        if (res) {
+          setLoginResponse({
+            message: res.data.message,
+            details: res.data.details,
+            statusIcon: (
+              <PiShieldCheckFill className="text-7xl font-bold text-primary-button-background" />
+            ),
+            buttonColor: "bg-primary-button-background",
+          });
+        }
 
         if (isRememberMeChecked) {
           localStorage.setItem("auth-token", res.data.authentication_sign);
@@ -113,7 +115,7 @@ const LoginForm: React.FC = () => {
       />
       <section>
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-500 md:text-2xl">
                 Sign In As An Admin

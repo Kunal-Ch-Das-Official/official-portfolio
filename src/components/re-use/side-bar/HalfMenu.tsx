@@ -8,6 +8,7 @@ import { MdAccountCircle } from "react-icons/md";
 import { IoLogOutSharp } from "react-icons/io5";
 import { MdArrowForwardIos } from "react-icons/md";
 import React from "react";
+import { Link } from "react-router-dom";
 interface HalfMenuProps {
   handleSidebarMount: () => void;
   sideBarStatus: boolean;
@@ -35,8 +36,8 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
           <div className="px-2">
             {/* Dashboard  half menu*/}
             <div className="pt-2">
-              <a
-                href="#"
+              <Link
+                to={"/admin-console"}
                 className="t group relative flex justify-center rounded px-2 py-2 hover:bg-primary-color"
               >
                 <MdDashboardCustomize className="text-xl mt-1 text-gray-500 hover:text-gray-700" />
@@ -44,14 +45,14 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                 <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                   Dashboard
                 </span>
-              </a>
+              </Link>
             </div>
 
             <ul className="space-y-1 ">
               {/* Projects half menu*/}
               <li className="mt-[0.17rem]">
-                <a
-                  href="#"
+                <Link
+                  to={"/admin-console/manage-projects"}
                   className="group relative flex justify-center
                    rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
@@ -63,7 +64,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   >
                     Projects
                   </span>
-                </a>
+                </Link>
               </li>
               {/* Resume half menu*/}
               <li>

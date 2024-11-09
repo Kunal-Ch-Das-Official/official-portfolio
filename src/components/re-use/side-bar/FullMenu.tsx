@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import ProfileBox from "../../../utils/non-functional/current-user-profile/ProfileBox";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import PropfileCardSk from "../../../utils/non-functional/skeleton/PropfileCardSk";
+import { Link } from "react-router-dom";
 interface FullMenuProps {
   handleSideBarUnmount: () => void;
   userName: string | null;
@@ -40,12 +41,12 @@ const FullMenu: React.FC<FullMenuProps> = ({
         <ul className="mt-3 space-y-[5px]">
           {/* Dashboard  full menu*/}
           <li onClick={handleSideBarUnmount}>
-            <a
-              href="#"
-              className="block rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium text-gray-700"
+            <Link
+              to={"/admin-console"}
+              className="block rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
             >
               Dashboard
-            </a>
+            </Link>
           </li>
 
           {/* Projets  full menu*/}
@@ -75,23 +76,23 @@ const FullMenu: React.FC<FullMenuProps> = ({
               {/* Routes path  */}
               <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_projects">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/manage-projects"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
-                  </a>
+                  </Link>
                 </li>
 
                 <li id="upload_project">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/upload-project"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Upload New
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </details>

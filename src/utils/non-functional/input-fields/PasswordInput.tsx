@@ -37,7 +37,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           id={inputId}
           placeholder="••••••••••••••"
           className={`bg-white border text-gray-900
-           rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5
+           rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 text-sm
            ${validationError === true ? "border-red-600" : "border-gray-300"}`}
           required
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
