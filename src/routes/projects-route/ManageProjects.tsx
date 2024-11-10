@@ -34,7 +34,7 @@ const ManageProjects: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Pagination Hooks
-  const projectsPerPage: number = 5;
+  const [projectsPerPage, setProjectsPerPage] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   // Fetch project data
@@ -56,6 +56,9 @@ const ManageProjects: React.FC = () => {
     getAllProject();
   }, []);
 
+  const showAndHideAllData = () => {
+    setProjectsPerPage(responseLength);
+  };
   // Get current page alogrithm
   const indexOfLastBlog = currentPage * projectsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - projectsPerPage;
@@ -131,18 +134,18 @@ const ManageProjects: React.FC = () => {
                   <nav>
                     <ul
                       role="tablist"
-                      className="relative flex flex-row p-1 rounded-lg bg-blue-gray-50 bg-opacity-60"
+                      className="relative flex flex-row p-1 rounded-lg bg-blue-gray-50"
                     >
-                      <li
-                        role="tab"
-                        className="relative flex items-center justify-center w-full h-full px-2 py-1 font-sans text-base antialiased font-normal leading-relaxed text-center bg-transparent cursor-pointer select-none text-blue-gray-900"
-                        data-value="all"
+                      <button
+                        onClick={showAndHideAllData}
+                        className="flex items-center justify-center 
+                     text-base font-normal
+                       text-center cursor-pointer 
+                        bg-primary-button-background px-4 py-1 text-white rounded-lg 
+                        focus:outline-1 outline-blue-700 transform translate-2 hover:scale-110"
                       >
-                        <div className="z-20 text-inherit">
-                          &nbsp;&nbsp;All&nbsp;&nbsp;
-                        </div>
-                        <div className="absolute inset-0 z-10 h-full bg-white rounded-md shadow"></div>
-                      </li>
+                        See All
+                      </button>
                     </ul>
                   </nav>
                 </div>
