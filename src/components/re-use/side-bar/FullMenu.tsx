@@ -28,7 +28,8 @@ const FullMenu: React.FC<FullMenuProps> = ({
 
   return (
     <div
-      className="flex min-h-screen flex-1 flex-col justify-between border-e bg-white max-w-[300px] fixed left-0 md:left-16"
+      className="flex min-h-screen flex-1 flex-col justify-between border-e z-[1001]
+       bg-white max-w-[300px] fixed left-0 md:left-16"
       data-aos="fade-right"
     >
       <div className="py-3">

@@ -11,6 +11,9 @@ import AdminConsole from "./Console";
 import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
 import UploadNewProject from "./routes/projects-route/UploadNewProject";
 import ManageProjects from "./routes/projects-route/ManageProjects";
+import UpdateProject from "./routes/projects-route/UpdateProject";
+import PreviewProject from "./routes/projects-route/PreviewProject";
+import DeleteProject from "./routes/projects-route/DeleteProject";
 
 function App() {
   const publicRoutes = [
@@ -43,6 +46,18 @@ function App() {
     {
       path: "/upload-project",
       element: <UploadNewProject />,
+    },
+    {
+      path: "/update-project/:id",
+      element: <UpdateProject />,
+    },
+    {
+      path: "/preview-project/:id",
+      element: <PreviewProject />,
+    },
+    {
+      path: "/delete-project/:id",
+      element: <DeleteProject />,
     },
     {
       path: "/manage-projects",

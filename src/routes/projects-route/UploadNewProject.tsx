@@ -119,15 +119,11 @@ const UploadNewProject: React.FC = () => {
       const authToken = localStorage.getItem("auth-token");
       const visitorToken = sessionStorage.getItem("visitor-token");
       const token = authToken || visitorToken;
-      const response = await axios.post(
-        envConfig.postNewProjectUrl,
-        projectFormData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(envConfig.projectUrl, projectFormData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (response) {
         setUploadResponse({
           message: response.data.message,
@@ -301,8 +297,8 @@ const UploadNewProject: React.FC = () => {
                 Choose tech stack
               </h3>
               <ul
-                className="bg-white w-full  grid grid-flow-cols grid-cols-4 text-sm font-normal
-             text-gray-900 border border-gray-200 rounded-lg"
+                className="bg-white w-full grid grid-flow-cols grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 text-sm font-normal
+             text-gray-700 border border-gray-200 rounded-lg"
               >
                 {technologyArray.map((technology, index) => (
                   <li key={index} className="w-full cursor-pointer">
@@ -316,7 +312,7 @@ const UploadNewProject: React.FC = () => {
                       />
                       <label
                         htmlFor={technology}
-                        className="w-full py-3 mr-28 ml-2 text-sm font-base text-gray-900 cursor-pointer"
+                        className="w-full py-3 mr-2 ml-2 text-sm font-base text-gray-900 cursor-pointer"
                       >
                         {technology}
                       </label>

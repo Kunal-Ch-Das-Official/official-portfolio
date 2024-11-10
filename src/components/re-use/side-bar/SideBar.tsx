@@ -141,7 +141,7 @@ const SideBar = () => {
   };
   return (
     <>
-      <div className="flex w-[200px] z-[1001] opacity-100" ref={sidebarRef}>
+      <div className="flex w-[200px] z-[10001] opacity-100" ref={sidebarRef}>
         {/* Full Menu  */}
 
         {iSidebarOpen === true && (
