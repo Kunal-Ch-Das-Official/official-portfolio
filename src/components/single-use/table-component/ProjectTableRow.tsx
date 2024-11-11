@@ -56,6 +56,7 @@ const ProjectTableRow: React.FC<TableRowProps> = ({
         <td className="p-4 border-b border-blue-gray-50">
           <div className="flex flex-row gap-4">
             <a
+              title="Github repository"
               href={`https://${gitHubAccess}`}
               target="_blank"
               className="block font-sans text-sm antialiased font-normal
@@ -64,6 +65,7 @@ const ProjectTableRow: React.FC<TableRowProps> = ({
               <FaGithub className="text-xl" />
             </a>
             <a
+              title="Visit website"
               href={`https://${extarnalProjectUrl}`}
               target="_blank"
               className="block font-sans text-sm antialiased font-normal
@@ -100,6 +102,7 @@ const ProjectTableRow: React.FC<TableRowProps> = ({
           <div className="flex flex-row gap-4">
             {/* Delete  */}
             <Link
+              title="Preview"
               to={previewLink}
               className="text-xl text-yellow-700 hover:text-yellow-800 transform translate-1 hover:scale-110"
             >
@@ -107,6 +110,7 @@ const ProjectTableRow: React.FC<TableRowProps> = ({
             </Link>
             {/* Update  */}
             <Link
+              title="Update"
               to={updateLink}
               className="text-xl text-primary-button-background
   hover:text-primary-button-background-hover
@@ -117,6 +121,7 @@ const ProjectTableRow: React.FC<TableRowProps> = ({
             </Link>
             {/* Remove  */}
             <Link
+              title="Remove"
               to={removeLink}
               className="text-lg text-red-500
   hover:text-red-700

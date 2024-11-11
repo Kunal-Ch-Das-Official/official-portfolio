@@ -275,8 +275,20 @@ const UploadNewProject: React.FC = () => {
               id="project_images_one_block"
               className="flex justify-around gap-3 mt-4"
             >
-              <FileInputMini getFileValue={setThumbnail} isRequired={true} />
-              <FileInputMini getFileValue={setPageOneView} isRequired={true} />
+              <FileInputMini
+                fileInput={thumbnail}
+                getFileValue={setThumbnail}
+                isRequired={true}
+                fieldlabel="Choose thumbnail"
+                defaultValue={undefined}
+              />
+              <FileInputMini
+                fileInput={pageOneView}
+                getFileValue={setPageOneView}
+                isRequired={true}
+                fieldlabel="Choose first page"
+                defaultValue={undefined}
+              />
             </div>
 
             {/*5. Project first view and project second view input container  */}
@@ -284,10 +296,19 @@ const UploadNewProject: React.FC = () => {
               id="project_images_two_block"
               className="flex justify-around gap-3 mt-4"
             >
-              <FileInputMini getFileValue={setPageTwoView} isRequired={true} />
               <FileInputMini
+                fileInput={pageTwoView}
+                getFileValue={setPageTwoView}
+                isRequired={true}
+                fieldlabel="Choose second page"
+                defaultValue={undefined}
+              />
+              <FileInputMini
+                fileInput={pageThreeView}
                 getFileValue={setPageThreeView}
                 isRequired={true}
+                fieldlabel="Choose third page"
+                defaultValue={undefined}
               />
             </div>
 

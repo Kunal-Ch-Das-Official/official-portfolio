@@ -3,7 +3,7 @@ import React from "react";
 
 interface TextAreaProps {
   editorLabel: string;
-  eventValue: string;
+  eventValue: string | undefined;
   eventHandler: (value: string) => void;
 }
 
