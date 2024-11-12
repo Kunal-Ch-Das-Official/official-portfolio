@@ -221,23 +221,23 @@ const FullMenu: React.FC<FullMenuProps> = ({
               {/* Routes path  */}
               <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_all_users">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/all-registerd-users"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <FaUsersCog className="text-xl mr-2 pl-1" />
                     Manage All Users
-                  </a>
+                  </Link>
                 </li>
 
                 <li id="change_password">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/change-password"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <RiExchangeLine className="text-xl mr-2 pl-1" />
                     Change Password
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </details>

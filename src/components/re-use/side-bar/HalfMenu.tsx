@@ -95,8 +95,8 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               </li>
               {/* Admin half menu*/}
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/admin-console/all-registerd-users"}
                   className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <MdAccountCircle className="text-[1.4rem] leading-3" />
@@ -104,7 +104,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Admin
                   </span>
-                </a>
+                </Link>
               </li>
               {/* Reviews half menu*/}
               <li>

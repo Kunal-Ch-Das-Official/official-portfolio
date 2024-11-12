@@ -19,6 +19,8 @@ import ManageArticle from "./routes/article-route/ManageArticle";
 import PreviewArticle from "./routes/article-route/PreviewArticle";
 import UpdateArticle from "./routes/article-route/UpdateArticle";
 import DeleteArticle from "./routes/article-route/DeleteArticle";
+import ChangePassword from "./routes/admin-route/ChangePassword";
+import AllAdminAccount from "./routes/admin-route/AllAdminAccount";
 
 function App() {
   const publicRoutes = [
@@ -90,6 +92,16 @@ function App() {
     {
       path: "/remove-article/:id",
       element: <DeleteArticle />,
+    },
+
+    // Admin Route
+    {
+      path: "/change-password",
+      element: <ChangePassword />,
+    },
+    {
+      path: "all-registerd-users",
+      element: <AllAdminAccount />,
     },
   ];
   return (

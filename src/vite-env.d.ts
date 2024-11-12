@@ -8,6 +8,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_GET_CURRENT_ADMIN_USER_URL: string;
   readonly VITE_APP_PROJECT_URL: string;
   readonly VITE_APP_BLOG_ARTICLE_URL: string;
+  readonly VITE_APP_PASSWORD_CHANGE_URL: string;
 }
 
 interface ImportMeta {

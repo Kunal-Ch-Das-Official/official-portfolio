@@ -55,6 +55,20 @@ const LoginForm: React.FC = () => {
       try {
         const res = await axios.post(envConfig.loginUrl, loginCredentials);
         if (res) {
+          if (res.status === 200) {
+            if (isRememberMeChecked) {
+              localStorage.setItem("auth-token", res.data.authentication_sign);
+            } else {
+              sessionStorage.setItem(
+                "visitor-token",
+                res.data.authentication_sign
+              );
+            }
+            setIsLoading(false);
+            setModelOpen(true);
+            login();
+            setToken(res.data.authentication_sign);
+          }
           setLoginResponse({
             message: res.data.message,
             details: res.data.details,
@@ -64,16 +78,6 @@ const LoginForm: React.FC = () => {
             buttonColor: "bg-primary-button-background",
           });
         }
-
-        if (isRememberMeChecked) {
-          localStorage.setItem("auth-token", res.data.authentication_sign);
-        } else {
-          sessionStorage.setItem("visitor-token", res.data.authentication_sign);
-        }
-        setIsLoading(false);
-        setModelOpen(true);
-        login();
-        setToken(res.data.authentication_sign);
       } catch (error: any) {
         setLoginResponse({
           message: error.response?.data?.issue || "An error occurred",
