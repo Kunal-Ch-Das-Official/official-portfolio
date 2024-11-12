@@ -16,6 +16,9 @@ import PreviewProject from "./routes/projects-route/PreviewProject";
 import DeleteProject from "./routes/projects-route/DeleteProject";
 import PostArticle from "./routes/article-route/PostArticle";
 import ManageArticle from "./routes/article-route/ManageArticle";
+import PreviewArticle from "./routes/article-route/PreviewArticle";
+import UpdateArticle from "./routes/article-route/UpdateArticle";
+import DeleteArticle from "./routes/article-route/DeleteArticle";
 
 function App() {
   const publicRoutes = [
@@ -75,6 +78,18 @@ function App() {
     {
       path: "/manage-articles",
       element: <ManageArticle />,
+    },
+    {
+      path: "/preview-article/:id",
+      element: <PreviewArticle />,
+    },
+    {
+      path: "/edit-article/:id",
+      element: <UpdateArticle />,
+    },
+    {
+      path: "/remove-article/:id",
+      element: <DeleteArticle />,
     },
   ];
   return (

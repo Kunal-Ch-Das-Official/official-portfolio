@@ -61,9 +61,12 @@ const ManageProjects: React.FC = () => {
     setProjectsPerPage(responseLength);
   };
   // Get current page alogrithm
-  const indexOfLastBlog = currentPage * projectsPerPage;
-  const indexOfFirstBlog = indexOfLastBlog - projectsPerPage;
-  const currentPageData = projectData?.slice(indexOfFirstBlog, indexOfLastBlog);
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentPageData = projectData?.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
 
   // Onsearch getting result feature
   const getSearchInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -109,7 +112,7 @@ const ManageProjects: React.FC = () => {
               {/* Page Heading */}
               <div>
                 <h5 className="block text-xl text-left antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                  Project Management console
+                  Projects Management console
                 </h5>
                 <p className="block mt-1 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
                   Add, Update, View, And Delete your existing project form here.
@@ -145,6 +148,10 @@ const ManageProjects: React.FC = () => {
                     >
                       See All
                     </button>
+                    <div className="border rounded-md border-gray-300 ml-4 px-4 inline-flex items-center">
+                      <span className="mr-2">Total Projects:</span>
+                      <span>{responseLength}</span>
+                    </div>
                   </ul>
                 </nav>
               </div>
