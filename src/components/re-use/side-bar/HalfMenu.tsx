@@ -23,7 +23,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
 }) => {
   const firstChar = profileLogo && profileLogo[0].toUpperCase();
   return (
-    <div className="fixed left-0 top-0 flex min-h-screen w-16 flex-col justify-between border-e bg-white">
+    <nav className="fixed left-0 top-0 flex min-h-screen w-16 flex-col justify-between border-e bg-white shadow-xl">
       {/* Profile avatar  */}
       <div>
         <div className="inline-flex size-[71px] items-center justify-center">
@@ -82,8 +82,8 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
 
               {/* Blogs half menu*/}
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/admin-console/manage-articles"}
                   className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <RiArticleFill className="text-xl leading-3" />
@@ -91,7 +91,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Article
                   </span>
-                </a>
+                </Link>
               </li>
               {/* Admin half menu*/}
               <li>
@@ -166,7 +166,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

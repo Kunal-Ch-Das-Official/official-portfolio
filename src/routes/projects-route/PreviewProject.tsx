@@ -209,6 +209,14 @@ const PreviewProject: React.FC = () => {
         technology: "django",
         icon: <DiDjango className="text-green-600 text-2xl" />,
       },
+      {
+        technology: "c",
+        icon: <span className="text-md text-blue-600 font-bold">C++</span>,
+      },
+      {
+        technology: ".net",
+        icon: <span className="text-md text-blue-600 font-bold">.Net</span>,
+      },
     ];
   }, []);
 
@@ -328,16 +336,18 @@ const PreviewProject: React.FC = () => {
             {/* Technology used  */}
             <div className="bg-gray-50 max-h-[222px] py-6 rounded-lg">
               <h2 className="font-medium  mb-4">Technology used:</h2>
-              <div className="flex flex-col-7 justify-center items-center gap-3">
-                {requestedProjectInfo?.technologyUsed &&
-                  requestedProjectInfo.technologyUsed.map((tech, index) => {
-                    const matchedIcon = techStackLogo.find(
-                      (item) => item.technology === tech
-                    );
-                    return matchedIcon ? (
-                      <div key={index}>{matchedIcon.icon}</div>
-                    ) : null;
-                  })}
+              <div className="flex justify-center items-center">
+                <div className="grid grid-cols-7 gap-3">
+                  {requestedProjectInfo?.technologyUsed &&
+                    requestedProjectInfo.technologyUsed.map((tech, index) => {
+                      const matchedIcon = techStackLogo.find(
+                        (item) => item.technology === tech
+                      );
+                      return matchedIcon ? (
+                        <div key={index}>{matchedIcon.icon}</div>
+                      ) : null;
+                    })}
+                </div>
               </div>
             </div>
           </div>

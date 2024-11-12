@@ -14,6 +14,8 @@ import ManageProjects from "./routes/projects-route/ManageProjects";
 import UpdateProject from "./routes/projects-route/UpdateProject";
 import PreviewProject from "./routes/projects-route/PreviewProject";
 import DeleteProject from "./routes/projects-route/DeleteProject";
+import PostArticle from "./routes/article-route/PostArticle";
+import ManageArticle from "./routes/article-route/ManageArticle";
 
 function App() {
   const publicRoutes = [
@@ -43,6 +45,7 @@ function App() {
     },
   ];
   const privateRoutes = [
+    // Project route
     {
       path: "/upload-project",
       element: <UploadNewProject />,
@@ -62,6 +65,16 @@ function App() {
     {
       path: "/manage-projects",
       element: <ManageProjects />,
+    },
+
+    // Blog article route
+    {
+      path: "/post-article",
+      element: <PostArticle />,
+    },
+    {
+      path: "/manage-articles",
+      element: <ManageArticle />,
     },
   ];
   return (

@@ -27,8 +27,8 @@ const FullMenu: React.FC<FullMenuProps> = ({
   }, []);
 
   return (
-    <div
-      className="flex min-h-screen flex-1 flex-col justify-between border-e z-[1001]
+    <nav
+      className="flex min-h-screen flex-1 flex-col justify-between border-e z-[1001] shadow-xl
        bg-white max-w-[300px] fixed left-0 md:left-16"
       data-aos="fade-right"
     >
@@ -172,23 +172,23 @@ const FullMenu: React.FC<FullMenuProps> = ({
               {/* Routes path  */}
               <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_article">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/manage-articles"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
-                  </a>
+                  </Link>
                 </li>
 
                 <li id="upload_article">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/post-article"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Post New
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </details>
@@ -290,7 +290,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
           </button>
         </p>
       </li>
-    </div>
+    </nav>
   );
 };
 

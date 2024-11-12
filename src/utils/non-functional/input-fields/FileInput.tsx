@@ -2,8 +2,8 @@ import React from "react";
 
 interface FileInputProps {
   givenFile: File | undefined;
-  fileName: string;
-  fileSize: number;
+  fileName: string | undefined;
+  fileSize: number | 0;
   setFile: (file: File | undefined) => void;
   isRequired: boolean;
   previousImage?: string | undefined;

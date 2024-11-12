@@ -7,6 +7,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_RESET_FORGOTTEN_PASSWORD: string;
   readonly VITE_APP_GET_CURRENT_ADMIN_USER_URL: string;
   readonly VITE_APP_PROJECT_URL: string;
+  readonly VITE_APP_BLOG_ARTICLE_URL: string;
 }
 
 interface ImportMeta {
