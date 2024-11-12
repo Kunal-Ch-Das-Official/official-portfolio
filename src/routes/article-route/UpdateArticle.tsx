@@ -5,7 +5,6 @@ import TextArea from "../../utils/non-functional/input-fields/Textarea";
 import ColorButton from "../../utils/non-functional/buttons/ColorButton";
 import { TbWorldUpload } from "react-icons/tb";
 import TransparentLink from "../../utils/non-functional/anchor/TransparentLink";
-import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import FileInput from "../../utils/non-functional/input-fields/FileInput";
 import CommandInput from "../../utils/non-functional/input-fields/CommandInput";
 import CodeEditor from "../../utils/non-functional/code-editor/CodeEditor";
@@ -15,6 +14,7 @@ import { AiOutlineFileDone, AiOutlineFileExclamation } from "react-icons/ai";
 import LoadingSpinner from "../../utils/non-functional/loading-spinner/LoadingSpinner";
 import PrivateScreenModal from "../../utils/non-functional/modals/PrivateScreenModal";
 import { useNavigate, useParams } from "react-router-dom";
+import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 
 interface IBlogArticleResponse {
   _id: string;
@@ -250,6 +250,9 @@ const UpdateArticle: React.FC = () => {
             {/*5 Require code  */}
             <div id="require_code_update">
               <CodeEditor
+                caption="Update existing algorithm"
+                themeColor="visual-studio"
+                readOnlyOption={false}
                 initialValue={requireCode}
                 onChange={(value) => setRequireCode(value || "")}
               />
@@ -270,7 +273,7 @@ const UpdateArticle: React.FC = () => {
                 path="/admin-console/manage-articles"
                 linkText="Back to Manage"
                 icon={
-                  <MdOutlineTipsAndUpdates className="text-gray-600 text-xl" />
+                  <LiaLongArrowAltRightSolid className="text-gray-600 text-xl" />
                 }
               />
             </div>

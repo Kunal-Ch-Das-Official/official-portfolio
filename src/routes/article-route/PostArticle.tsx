@@ -210,6 +210,9 @@ const PostArticle: React.FC = () => {
             {/*5 Require code  */}
             <div id="require_code">
               <CodeEditor
+                caption="Add require algorithm"
+                themeColor="visual-studio"
+                readOnlyOption={false}
                 initialValue={requireCode}
                 onChange={(value) => setRequireCode(value || "")}
               />
@@ -227,7 +230,7 @@ const PostArticle: React.FC = () => {
                 icon={<TbWorldUpload className="text-black text-xl" />}
               />
               <TransparentLink
-                path="/admin-console/manage-projects"
+                path="/admin-console/manage-articles"
                 linkText="Manage Existing"
                 icon={
                   <MdOutlineTipsAndUpdates className="text-gray-600 text-xl" />
