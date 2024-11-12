@@ -47,9 +47,12 @@ const ManageProjects: React.FC = () => {
           setProjectData(response.data);
           setReponseLength(response.data.length);
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         console.log(error);
-        throw new Error("Something went wrong, please try again later.");
+        throw new Error(
+          `Something went wrong due to:${error.message}, please try again later.`
+        );
       } finally {
         setLoading(false);
       }

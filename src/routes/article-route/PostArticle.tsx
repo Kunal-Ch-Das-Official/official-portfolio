@@ -198,6 +198,8 @@ const PostArticle: React.FC = () => {
             {/*4. Require command  */}
             <div id="require_command">
               <CommandInput
+                placeHoderText="sudo --add command"
+                defaultCommand={undefined}
                 setValue={setRequireCommand}
                 isRequired={false}
                 inputId="commandLine"

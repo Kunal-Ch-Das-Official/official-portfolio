@@ -4,12 +4,16 @@ interface CommandInputProps {
   isRequired: boolean;
   inputId: string;
   inputLabel: string;
+  placeHoderText: string | undefined;
+  defaultCommand: string | undefined;
 }
 const CommandInput: React.FC<CommandInputProps> = ({
   setValue,
   isRequired,
   inputId,
   inputLabel,
+  placeHoderText,
+  defaultCommand,
 }) => {
   return (
     <>
@@ -27,7 +31,8 @@ const CommandInput: React.FC<CommandInputProps> = ({
         </p>
         <input
           className="bg-transparent w-full border-none outline-none text-black placeholder:text-gray-600"
-          placeholder="sudo -add command"
+          placeholder={placeHoderText}
+          defaultValue={defaultCommand}
           required={isRequired}
           id={inputId}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

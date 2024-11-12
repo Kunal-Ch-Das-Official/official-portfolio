@@ -82,9 +82,10 @@ const PreviewProject: React.FC = () => {
         if (response) {
           setRequestedProjectInfo(response.data);
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         console.log(error);
-        throw new Error(`Unable to fetch due to: ${error}`);
+        throw new Error(`Unable to fetch due to: ${error.message}`);
       } finally {
         setLoading(false);
       }

@@ -53,7 +53,9 @@ const SideBar = () => {
             logout();
             window.location.href = "/";
           } else {
-            throw new Error("Something went wrong, please try again later");
+            throw new Error(
+              `Something went wrong due to: ${error.message}, please try again later`
+            );
           }
         }
       } finally {

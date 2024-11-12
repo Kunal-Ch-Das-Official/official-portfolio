@@ -6,7 +6,11 @@ type CodeEditorProps = {
   onChange: (value: string | undefined) => void;
 };
 
-const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
+const CodeEditor: React.FC<CodeEditorProps> = ({
+  initialValue,
+
+  onChange,
+}) => {
   return (
     <div className="h-full w-full mt-4">
       <label className="block mb-2 text-sm font-medium text-gray-900">
@@ -15,7 +19,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       <Editor
         height={"300px"}
         defaultLanguage="typescript"
-        defaultValue={initialValue}
+        value={initialValue}
         onChange={onChange}
         theme="visual-studio" // Dark theme; you can also use "light" or customize your theme
         options={{
