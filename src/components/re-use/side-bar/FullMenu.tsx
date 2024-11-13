@@ -128,23 +128,23 @@ const FullMenu: React.FC<FullMenuProps> = ({
               {/* Routes path  */}
               <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_resume">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/manage-resume"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
-                  </a>
+                  </Link>
                 </li>
 
                 <li id="upload_resume">
-                  <a
-                    href="#"
+                  <Link
+                    to={"/admin-console/upload-resume"}
                     className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Upload New
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </details>

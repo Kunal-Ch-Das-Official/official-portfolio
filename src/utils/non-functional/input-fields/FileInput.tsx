@@ -18,7 +18,7 @@ const FileInput: React.FC<FileInputProps> = ({
   previousImage,
 }) => {
   return (
-    <div className="flex items-center justify-center w-full mb-4">
+    <div className="flex items-center justify-center h-full w-full mb-4">
       <div
         className="w-full h-44 relative border-2 bg-white border-gray-300 border-dashed rounded-lg p-8"
         id="dropzone"

@@ -68,8 +68,8 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               </li>
               {/* Resume half menu*/}
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/admin-console/manage-resume"}
                   className="group relative flex justify-center rounded px-2 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700"
                 >
                   <TbFileCv className="text-2xl" />
@@ -77,7 +77,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Resume
                   </span>
-                </a>
+                </Link>
               </li>
 
               {/* Blogs half menu*/}
@@ -132,6 +132,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                   </span>
                 </Link>
               </li>
+              {/* Sidebar mount button  */}
               <li
                 className={`${sideBarStatus === true && "hidden"} pt-4`}
                 id="sidebar_mount_button"

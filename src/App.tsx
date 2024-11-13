@@ -26,6 +26,8 @@ import DeleteFeedback from "./routes/feedback-route/DeleteFeedback";
 import ManageAllEmails from "./routes/emails-route/ManageAllEmails";
 import SendResponse from "./routes/emails-route/SendResponse";
 import DeleteEmail from "./routes/emails-route/DeleteEmail";
+import UploadResume from "./routes/resume-route/UploadResume";
+import ManageResume from "./routes/resume-route/ManageResume";
 
 function App() {
   const publicRoutes = [
@@ -77,6 +79,15 @@ function App() {
       element: <ManageProjects />,
     },
 
+    // Resume route
+    {
+      path: "upload-resume",
+      element: <UploadResume />,
+    },
+    {
+      path: "manage-resume",
+      element: <ManageResume />,
+    },
     // Blog article route
     {
       path: "/post-article",

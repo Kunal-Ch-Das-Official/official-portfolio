@@ -12,6 +12,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_ALL_FEEDBACKS_URL: string;
   readonly VITE_APP_ALL_CONTACT_ENQUIRY_URL: string;
   readonly VITE_APP_ALL_CONTACT_ENQUIRY_RESPONSE_SEND_URL: string;
+  readonly VITE_APP_RESUME_MANAGEMENT_URL: string;
 }
 
 interface ImportMeta {
