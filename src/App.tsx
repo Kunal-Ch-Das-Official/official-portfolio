@@ -21,6 +21,8 @@ import UpdateArticle from "./routes/article-route/UpdateArticle";
 import DeleteArticle from "./routes/article-route/DeleteArticle";
 import ChangePassword from "./routes/admin-route/ChangePassword";
 import AllAdminAccount from "./routes/admin-route/AllAdminAccount";
+import ManageAllFeedback from "./routes/feedback-route/ManageAllFeedback";
+import DeleteFeedback from "./routes/feedback-route/DeleteFeedback";
 
 function App() {
   const publicRoutes = [
@@ -102,6 +104,16 @@ function App() {
     {
       path: "all-registerd-users",
       element: <AllAdminAccount />,
+    },
+
+    // Feedbacks route
+    {
+      path: "/manage-feedbacks",
+      element: <ManageAllFeedback />,
+    },
+    {
+      path: "/remove-feedback/:id",
+      element: <DeleteFeedback />,
     },
   ];
   return (

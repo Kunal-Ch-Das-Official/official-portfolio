@@ -7,6 +7,7 @@ interface Environment {
   projectUrl: string;
   blogArticleUrl: string;
   changePasswordUrl: string;
+  feedbacksUrl: string;
 }
 const variable: Environment = {
   registerUrl: import.meta.env.VITE_APP_ADMIN_REGISTRATION_URL as string,
@@ -19,6 +20,7 @@ const variable: Environment = {
   projectUrl: import.meta.env.VITE_APP_PROJECT_URL as string,
   blogArticleUrl: import.meta.env.VITE_APP_BLOG_ARTICLE_URL as string,
   changePasswordUrl: import.meta.env.VITE_APP_PASSWORD_CHANGE_URL as string,
+  feedbacksUrl: import.meta.env.VITE_APP_ALL_FEEDBACKS_URL as string,
 };
 const envConfig = Object.freeze(variable);
 export default envConfig;
