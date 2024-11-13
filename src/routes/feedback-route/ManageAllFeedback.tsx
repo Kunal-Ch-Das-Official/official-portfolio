@@ -6,7 +6,7 @@ import LoadingSpinner from "../../utils/non-functional/loading-spinner/LoadingSp
 import ReviewTableRow from "../../components/single-use/table-component/ReviewTableRow";
 
 interface IAllFeedbackResponse {
-  id: string;
+  _id: string;
   userName: string;
   organization: string;
   gender: string;
@@ -210,7 +210,7 @@ const ManageFeedback: React.FC = () => {
                           reviewContent={output.reviewContent}
                           rating={output.rating}
                           date={output.date}
-                          removeLink={`/admin-console/remove-feedback/${output.id}`}
+                          removeLink={`/admin-console/remove-feedback/${output._id}`}
                         />
                       ))}
                     </>
@@ -224,7 +224,7 @@ const ManageFeedback: React.FC = () => {
                           reviewContent={feedback.reviewContent}
                           rating={feedback.rating}
                           date={feedback.date}
-                          removeLink={`/admin-console/remove-feedback/${feedback.id}`}
+                          removeLink={`/admin-console/remove-feedback/${feedback._id}`}
                         />
                       ))}
                     </>
