@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LuImagePlus } from "react-icons/lu";
 import { MdImageNotSupported, MdNoteAdd } from "react-icons/md";
-import initialImageResume from "../../assets/blank_resume.png";
 import SectionHeading from "../../utils/non-functional/common-heading/SectionHeading";
 import TransparentLink from "../../utils/non-functional/anchor/TransparentLink";
 import ColorButton from "../../utils/non-functional/buttons/ColorButton";
@@ -11,26 +10,55 @@ import axios from "../../../axios/axios";
 import envConfig from "../../../config/envConfig";
 import LoadingSpinner from "../../utils/non-functional/loading-spinner/LoadingSpinner";
 import PrivateScreenModal from "../../utils/non-functional/modals/PrivateScreenModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 interface IUploadResponse {
   message: string | null;
   details: string | null;
   statusIcon: React.ReactNode;
   buttonColor: string | null;
 }
-const UploadResume: React.FC = () => {
+
+interface IResume {
+  _id: string;
+  resumeUrl: string;
+}
+const UpdateResume: React.FC = () => {
+  const params = useParams();
   const navigate = useNavigate();
+  const [previousResume, setPreviousResume] = useState<IResume>();
   const [preview, setPreview] = useState<string | null>(null);
   const [resume, setResume] = useState<File | null | undefined>();
   const [isAlertOpen, setIsAlertOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [uploadResponse, setUploadResponse] = useState<IUploadResponse>({
+  const [updateResponse, setUpDateResponse] = useState<IUploadResponse>({
     message: null,
     details: null,
     statusIcon: null,
     buttonColor: null,
   });
+
+  useEffect(() => {
+    const getRequestedResume = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `${envConfig.resumeManagementUrl}/${params.id}`
+        );
+        if (response) {
+          setPreviousResume(response.data);
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        console.log(error);
+        throw new Error("Some thing went wrong, please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    getRequestedResume();
+  }, [params.id]);
+
   // File preview handler
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setResume(event.target.files?.[0]);
@@ -52,9 +80,8 @@ const UploadResume: React.FC = () => {
     setResume(null);
   };
 
-  const handleResumeSubmit = async () => {
+  const handleResumeUpdate = async () => {
     setLoading(true);
-
     if (resume) {
       try {
         const authToken = localStorage.getItem("auth-token");
@@ -62,9 +89,12 @@ const UploadResume: React.FC = () => {
         const token = authToken || visitorToken;
 
         const resumeForm = new FormData();
-        resumeForm.append("resumeUrl", resume as Blob);
-        const uploadResponse = await axios.post(
-          envConfig.resumeManagementUrl,
+        resumeForm.append(
+          "resumeUrl",
+          (resume as Blob) || previousResume?.resumeUrl
+        );
+        const updateResponse = await axios.put(
+          `${envConfig.resumeManagementUrl}/${params.id}`,
           resumeForm,
           {
             headers: {
@@ -72,13 +102,13 @@ const UploadResume: React.FC = () => {
             },
           }
         );
-        if (uploadResponse) {
-          if (uploadResponse.status === 201) {
+        if (updateResponse) {
+          if (updateResponse.status === 201) {
             setIsSuccess(true);
           }
-          setUploadResponse({
-            message: uploadResponse.data.message,
-            details: uploadResponse.data.details,
+          setUpDateResponse({
+            message: updateResponse.data.message,
+            details: updateResponse.data.details,
             statusIcon: (
               <AiOutlineFileDone className="text-7xl font-bold text-primary-button-background" />
             ),
@@ -88,7 +118,7 @@ const UploadResume: React.FC = () => {
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
-        setUploadResponse({
+        setUpDateResponse({
           message: error?.response?.data?.issue || "An error occurred",
           details: error?.response?.data?.details || "Please try again later",
           statusIcon: (
@@ -97,8 +127,6 @@ const UploadResume: React.FC = () => {
           buttonColor: "bg-red-700",
         });
       } finally {
-        setResume(null);
-        setPreview(null);
         setIsAlertOpen(true);
         setLoading(false);
       }
@@ -119,11 +147,11 @@ const UploadResume: React.FC = () => {
         buttonText="Got it"
         showOrHide={isAlertOpen === true ? "visable" : "hidden"}
         closeButton={handleCloseModal}
-        statusIcon={uploadResponse.statusIcon}
-        alertHead={uploadResponse.message}
-        message1={uploadResponse.details}
+        statusIcon={updateResponse.statusIcon}
+        alertHead={updateResponse.message}
+        message1={updateResponse.details}
         message2={null}
-        buttonColor={uploadResponse.buttonColor}
+        buttonColor={updateResponse.buttonColor}
       />
       <main
         className="text-center min-h-screen mx-auto w-full px-10 lg:w-[80%]
@@ -145,6 +173,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur dolore facere 
             accept="image/*"
             onChange={handleFileChange}
             className="hidden"
+            required={true}
           />
 
           {preview ? (
@@ -158,7 +187,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur dolore facere 
           ) : (
             <div className="mt-8">
               <img
-                src={initialImageResume}
+                src={previousResume?.resumeUrl}
                 alt="Uploaded Preview"
                 className="max-w-full max-h-64 rounded-md shadow-sm"
               />
@@ -211,8 +240,8 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur dolore facere 
         <div className="flex flex-col md:flex-row justify-around gap-4 items-center mt-4">
           <ColorButton
             btnType="button"
-            eventHandler={handleResumeSubmit}
-            btnText={!resume ? "Choose resume first" : "Submit Resume"}
+            eventHandler={handleResumeUpdate}
+            btnText={!resume ? "Please select resume" : "Update Resume"}
             icon={<MdNoteAdd className="text-xl" />}
           />
           <TransparentLink
@@ -226,4 +255,4 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur dolore facere 
   );
 };
 
-export default UploadResume;
+export default UpdateResume;

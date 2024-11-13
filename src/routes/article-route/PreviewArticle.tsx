@@ -69,9 +69,9 @@ const PreviewArticle: React.FC = () => {
                 />
               </div>
               {/* Command line  */}
-              <caption className="inline-flex font-semibold mb-1">
+              <label className="inline-flex font-semibold mb-1">
                 Useful command{" "}
-              </caption>
+              </label>
               <aside className="bg-black text-white p-6 rounded-lg w-full max-w-lg font-mono">
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-2 text-red-500">

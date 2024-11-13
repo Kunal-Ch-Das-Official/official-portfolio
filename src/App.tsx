@@ -28,6 +28,8 @@ import SendResponse from "./routes/emails-route/SendResponse";
 import DeleteEmail from "./routes/emails-route/DeleteEmail";
 import UploadResume from "./routes/resume-route/UploadResume";
 import ManageResume from "./routes/resume-route/ManageResume";
+import UpdateResume from "./routes/resume-route/UpdateResume";
+import DeleteResume from "./routes/resume-route/DeleteResume";
 
 function App() {
   const publicRoutes = [
@@ -81,13 +83,22 @@ function App() {
 
     // Resume route
     {
-      path: "upload-resume",
+      path: "/upload-resume",
       element: <UploadResume />,
     },
     {
-      path: "manage-resume",
+      path: "/manage-resume",
       element: <ManageResume />,
     },
+    {
+      path: "/update-resume/:id",
+      element: <UpdateResume />,
+    },
+    {
+      path: "/delete-resume/:id",
+      element: <DeleteResume />,
+    },
+
     // Blog article route
     {
       path: "/post-article",

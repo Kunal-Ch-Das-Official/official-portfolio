@@ -84,7 +84,6 @@ const UpdateArticle: React.FC = () => {
     getPreviousArticle();
   }, [params.id]);
 
-  console.log(requireCode);
   const handleArticleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -96,7 +95,7 @@ const UpdateArticle: React.FC = () => {
       blogArticleData.append("statement", articleStatement);
       blogArticleData.append(
         "supportingImgUrl",
-        (graphicalOverview as Blob) || null
+        (graphicalOverview as Blob) || requestedArticle?.supportingImgUrl
       );
       blogArticleData.append("commandLine", requireCommand);
       blogArticleData.append("corespondingCode", requireCode);
@@ -148,7 +147,6 @@ const UpdateArticle: React.FC = () => {
     setOpenAlert(false);
   };
 
-  console.log(requireCode);
   return (
     <>
       {loading === true && <LoadingSpinner />}
