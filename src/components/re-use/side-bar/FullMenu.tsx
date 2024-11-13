@@ -14,6 +14,7 @@ interface FullMenuProps {
   userName: string | null;
   email: string | null;
   responseState: boolean;
+  handleLogoutEvent: () => void;
 }
 
 const FullMenu: React.FC<FullMenuProps> = ({
@@ -21,6 +22,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
   userName,
   email,
   responseState,
+  handleLogoutEvent,
 }) => {
   useEffect(() => {
     AOS.init();
@@ -255,12 +257,12 @@ const FullMenu: React.FC<FullMenuProps> = ({
 
           {/* Contact enquery full menu*/}
           <li onClick={handleSideBarUnmount} id="queries-message-section">
-            <a
-              href="#"
+            <Link
+              to={"/admin-console/manage-all-emails"}
               className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
             >
               Emails
-            </a>
+            </Link>
           </li>
 
           {/* small screen logout button full menu*/}
@@ -269,12 +271,13 @@ const FullMenu: React.FC<FullMenuProps> = ({
             id="logout-section-for-sm-device"
             className="block md:hidden"
           >
-            <a
-              href="#"
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+            <button
+              onClick={handleLogoutEvent}
+              className="block rounded-lg px-4 py-2 text-sm text-start font-medium w-full
+               text-gray-500 hover:bg-primary-color hover:text-gray-700"
             >
               Logout
-            </a>
+            </button>
           </li>
         </ul>
       </div>

@@ -23,6 +23,9 @@ import ChangePassword from "./routes/admin-route/ChangePassword";
 import AllAdminAccount from "./routes/admin-route/AllAdminAccount";
 import ManageAllFeedback from "./routes/feedback-route/ManageAllFeedback";
 import DeleteFeedback from "./routes/feedback-route/DeleteFeedback";
+import ManageAllEmails from "./routes/emails-route/ManageAllEmails";
+import SendResponse from "./routes/emails-route/SendResponse";
+import DeleteEmail from "./routes/emails-route/DeleteEmail";
 
 function App() {
   const publicRoutes = [
@@ -114,6 +117,20 @@ function App() {
     {
       path: "/remove-feedback/:id",
       element: <DeleteFeedback />,
+    },
+
+    // Email Route
+    {
+      path: "/manage-all-emails",
+      element: <ManageAllEmails />,
+    },
+    {
+      path: "/compose-mail/:id",
+      element: <SendResponse />,
+    },
+    {
+      path: "/delete-mail/:id",
+      element: <DeleteEmail />,
     },
   ];
   return (

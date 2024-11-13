@@ -152,6 +152,7 @@ const SideBar = () => {
             userName={currentUser.adminUserName}
             email={currentUser.adminUserEmail}
             responseState={loading}
+            handleLogoutEvent={handleLogout}
           />
         )}
 
