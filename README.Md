@@ -28,7 +28,9 @@ The **Kunal Portfolio Server** is the backend of the official portfolio of **Kun
 - **POST** `/api/v2/auth/admin/reset-password-link`: Send a password reset link to the admin's email.
 - **PUT** `/api/v2/auth/admin/reset-password/:id/:token`: Reset the admin password with the token.
 - **GET** `/api/v2/auth/admin/current-user`: Get the currently logged-in admin user details.
+- **GET** `/api/v2/auth/admin/all-registered-user`: Get all registered user details.
 - **PUT** `/api/v2/auth/admin/change-password`: Change the admin's password.
+- **DELETE** `/api/v2/auth/admin/deactivate-account/:id`: Deactivate specific admin account.
 
 ### 2. **Projects Routes**
 
@@ -48,11 +50,11 @@ The **Kunal Portfolio Server** is the backend of the official portfolio of **Kun
 
 ### 4. **Resume Routes**
 
-- **POST** `/api/v2/resumes/kunal-chandra-das`: Upload a new resume.
-- **GET** `/api/v2/resumes/kunal-chandra-das`: Get all resumes.
-- **GET** `/api/v2/resumes/kunal-chandra-das/:id`: Get a specific resume by ID.
-- **PUT** `/api/v2/resumes/kunal-chandra-das/:id`: Update an existing resume.
-- **DELETE** `/api/v2/resumes/kunal-chandra-das/:id`: Delete a resume by ID.
+- **POST** `/api/v2/resume/kunal-chandra-das`: Upload a new resume.
+- **GET** `/api/v2/resume/kunal-chandra-das`: Get all resumes.
+- **GET** `/api/v2/resume/kunal-chandra-das/:id`: Get a specific resume by ID.
+- **PUT** `/api/v2/resume/kunal-chandra-das/:id`: Update an existing resume.
+- **DELETE** `/api/v2/resume/kunal-chandra-das/:id`: Delete a resume by ID.
 
 ### 5. **Review Routes**
 

@@ -29,6 +29,8 @@ import NewAdmin from "../../controllers/admin-auth/registerNewAdmin";
 import AdminUser from "../../controllers/admin-auth/adminLogin";
 import ResetForgottenPassword from "../../controllers/admin-auth/resetPasswordLink";
 import ForgottenPassword from "../../controllers/admin-auth/resetForgottenPassword";
+import AllUser from "../../controllers/admin-auth/allRegisteredUser";
+import DeleteAdmin from "../../controllers/admin-auth/deleteAdminUser";
 
 const admiAuthenticationRouter = Router();
 
@@ -43,6 +45,13 @@ admiAuthenticationRouter.get(
   "/current-user",
   AuthValidator.validate,
   LoggedIn.currentUser
+);
+
+// Get Current Admin User
+admiAuthenticationRouter.get(
+  "/all-registered-user",
+  AuthValidator.validate,
+  AllUser.registered
 );
 
 // Change Password
@@ -62,6 +71,13 @@ admiAuthenticationRouter.post(
 admiAuthenticationRouter.put(
   "/reset-password/:id/:token",
   ForgottenPassword.resetPassword
+);
+
+// Reset password
+admiAuthenticationRouter.delete(
+  "/deactivate-account/:id",
+  AuthValidator.validate,
+  DeleteAdmin.account
 );
 
 export default admiAuthenticationRouter;
