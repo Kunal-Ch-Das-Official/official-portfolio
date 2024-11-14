@@ -68,7 +68,7 @@ const DashboardRouter = () => {
     totalData?.[4]?.response?.[totalData[4].response.length - 1];
   const reviewData =
     totalData?.[5]?.response?.[totalData[5].response.length - 1];
-  console.log(contactData);
+
   return (
     <main
       className="text-center min-h-screen mx-auto w-full px-0 lg:w-[80%]

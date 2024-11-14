@@ -54,7 +54,8 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
                   ? "border-green-800 bg-green-100 text-green-900"
                   : "border-yellow-800 bg-yellow-100 text-yellow-900"
               }
-                border rounded-full flex flex-row items-center h-5 gap-[0.15rem] w-20 justify-center text-sm font-semibold `}
+                border rounded-full flex flex-row items-center h-5 gap-[0.15rem]
+                 w-[5.5rem] justify-center text-sm font-semibold `}
             >
               <span>{status}</span>
               {status == "respond" ? (

@@ -183,7 +183,7 @@ const ManageProjects: React.FC = () => {
           <div className="p-6 px-0 overflow-scroll">
             <table className="w-full mt-4 text-left table-auto min-w-max">
               {/* Table heading  */}
-              <thead>
+              <thead className="bg-gray-50">
                 <tr>
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
