@@ -70,6 +70,10 @@ The **Kunal Portfolio Server** is the backend of the official portfolio of **Kun
 - **POST** `/api/v2/contacts/response/:id`: Admin responds to a specific contact inquiry.
 - **POST** `/api/v2/contacts/application/:id`: Delete a specific contact inquiry.
 
+### 7. **Dashboard**
+
+- **GET** `/api/v2/dashboard/all-content`: Get total data of the application.
+
 ## Requirements
 
 - **Node.js** (>= 20.x.x)

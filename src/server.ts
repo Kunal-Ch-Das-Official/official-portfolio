@@ -29,6 +29,7 @@ import reviewsRouter from "./routes/reviews-router/reviewsRouter";
 import resumeRouter from "./routes/resume-router/resumeRouter";
 import blogRouter from "./routes/blog-router/blogRouter";
 import contactsRouter from "./routes/contacts-router/contactsRouter";
+import dashboardRouter from "./routes/dashboard-router/dashboardRouter";
 
 const server: Application = express();
 
@@ -49,6 +50,7 @@ server.get("/", (req: Request, res: Response) => {
 });
 
 // Register routers
+server.use("/api/v2/dashboard", dashboardRouter); // Contacts routes
 server.use("/api/v2/auth/admin", admiAuthenticationRouter); // Admin authentication routes
 server.use("/api/v2/all/projects", projectsRouter); // Projects routes
 server.use("/api/v2/reviews", reviewsRouter); // Reviews routes
