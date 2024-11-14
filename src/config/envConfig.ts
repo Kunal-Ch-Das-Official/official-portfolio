@@ -35,32 +35,59 @@
 
 import "dotenv/config";
 interface EnvType {
+  // 1. Dependency env
   port: number;
   databaseConnectionString: string;
   cloudinaryCloudName: string;
   cloudinaryApiKey: string;
   cloudinaryCloudSecret: string;
   jwtSecretKey: string;
+
+  // 2. Email env
   emailHostProtocol: string;
   emailPort: any;
   emailHostUser: string;
   emailHostPassword: string;
   clientSideUrl: string;
+
+  // 3. Super admin env
+  // superAdminOne: string;
+  // superAdminTwo: string;
+  // superAdminThree: string;
+  // superAdminFour: string;
+  // 4. CORS origin env
+  // originOne: string;
+  // originTwo: string;
+  // originThree: string;
+  // originFour: string;
+  // originFive: string;
 }
 
 const environment: EnvType = {
+  // 1. Dependency ENV
   port: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
   databaseConnectionString: process.env.DB_CONNECTION_STRING || "",
   cloudinaryCloudName: process.env.CLOUD_NAME || "",
   cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || "",
   cloudinaryCloudSecret: process.env.CLOUDINARY_API_SECRET || "",
   jwtSecretKey: process.env.JWT_SECRET_KEY || "",
-
+  // 2. Email ENV
   emailHostProtocol: process.env.EMAIL_HOST_PROTOCOL || "",
   emailPort: process.env.EMAIL_PORT,
   emailHostUser: process.env.EMAIL_HOST_USER || "",
   emailHostPassword: process.env.EMAIL_HOST_PASSWORD || "",
   clientSideUrl: process.env.CLIENT_FACING_URL || "",
+  // 3. Super admin ENV
+  // superAdminOne: process.env.SUPER_ADMIN_ONE || "",
+  // superAdminTwo: process.env.SUPER_ADMIN_TWO || "",
+  // superAdminThree: process.env.SUPER_ADMIN_THREE || "",
+  // superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
+  // 4. CORS origin ENV
+  // originOne: process.env.ORIGIN_ONE || "",
+  // originTwo: process.env.ORIGIN_TWO || "",
+  // originThree: process.env.ORIGIN_THREE || "",
+  // originFour: process.env.ORIGIN_FOUR || "",
+  // originFive: process.env.ORIGIN_FIVE || "",
 };
 
 const envConfig = Object.freeze(environment);

@@ -13,7 +13,7 @@ class Dashboard {
       const getTotalAdmin = await authAdminUserModel.find();
       if (getTotalAdmin) {
         const totalAdmin = {
-          totalUsers: getTotalAdmin,
+          response: getTotalAdmin,
         };
         aggregatedData.push(totalAdmin);
       }
@@ -21,7 +21,7 @@ class Dashboard {
       const getTotalArticle = await blogModel.find();
       if (getTotalArticle) {
         const totalArticle = {
-          totalArticles: getTotalArticle,
+          response: getTotalArticle,
         };
         aggregatedData.push(totalArticle);
       }
@@ -29,7 +29,7 @@ class Dashboard {
       const getTotalContactApplications = await contactModel.find();
       if (getTotalContactApplications) {
         const totalApplications = {
-          totalEmails: getTotalContactApplications,
+          response: getTotalContactApplications,
         };
         aggregatedData.push(totalApplications);
       }
@@ -37,7 +37,7 @@ class Dashboard {
       const getTotalProjects = await projectModel.find();
       if (getTotalProjects) {
         const allProjects = {
-          totalprojects: getTotalProjects,
+          response: getTotalProjects,
         };
         aggregatedData.push(allProjects);
       }
@@ -45,7 +45,7 @@ class Dashboard {
       const getResume = await resumeModel.find();
       if (getResume) {
         const resume = {
-          allResume: getResume,
+          response: getResume,
         };
         aggregatedData.push(resume);
       }
@@ -53,7 +53,7 @@ class Dashboard {
       const getAllFeedbacks = await reviewModel.find();
       if (getAllFeedbacks) {
         const allReviews = {
-          allFeedbacks: getAllFeedbacks,
+          response: getAllFeedbacks,
         };
         aggregatedData.push(allReviews);
       }
