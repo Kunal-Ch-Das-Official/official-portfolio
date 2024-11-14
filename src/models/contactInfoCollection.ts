@@ -52,8 +52,12 @@ const ContactSchema = new Schema(
     },
     message: {
       type: String,
-      length: 1500,
+      length: 2000,
       required: true,
+    },
+    responseStatus: {
+      type: String,
+      default: "recived",
     },
     status: {
       type: Boolean,

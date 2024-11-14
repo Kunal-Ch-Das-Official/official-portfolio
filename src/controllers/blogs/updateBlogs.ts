@@ -47,11 +47,10 @@ interface IFile {
 class ExistingBlog {
   public async updateCtrl(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    const file = req.file as IFile;
-    const imageBuffer = file.buffer;
+    const file = (req.file as IFile) || null;
+    const imageBuffer = file?.buffer;
     let uploader = new CloudinaryUploader();
     let destroyer = new Destroyer();
-
     const {
       blogTitle,
       authorName,
@@ -83,6 +82,7 @@ class ExistingBlog {
         const newCorespondingCode =
           corespondingCode || findExistingBlog.corespondingCode;
         const newCommandLine = commandLine || findExistingBlog.commandLine;
+
         const newImageUrl = file
           ? imageUpload?.storedDataAccessUrl
           : findExistingBlog.supportingImgUrl;
@@ -93,8 +93,9 @@ class ExistingBlog {
         const updatedData = {
           blogTitle: newBlogTitle,
           authorName: newAuthorName,
-          supportingImgUrl: newImageUrl,
-          supportingImgPublicId: newPublicId,
+          supportingImgUrl: newImageUrl || findExistingBlog.supportingImgUrl,
+          supportingImgPublicId:
+            newPublicId || findExistingBlog.supportingImgPublicId,
           statementHeading: newStatementHeading,
           statement: newStatement,
           corespondingCode: newCorespondingCode,
