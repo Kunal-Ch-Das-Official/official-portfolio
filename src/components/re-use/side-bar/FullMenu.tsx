@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import ProfileBox from "../../../utils/non-functional/current-user-profile/ProfileBox";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import PropfileCardSk from "../../../utils/non-functional/skeleton/PropfileCardSk";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 interface FullMenuProps {
   handleSideBarUnmount: () => void;
   userName: string | null;
@@ -24,6 +24,9 @@ const FullMenu: React.FC<FullMenuProps> = ({
   responseState,
   handleLogoutEvent,
 }) => {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const params = useParams();
   useEffect(() => {
     AOS.init();
   }, []);
@@ -43,21 +46,46 @@ const FullMenu: React.FC<FullMenuProps> = ({
 
         <ul className="mt-3 space-y-[5px]">
           {/* Dashboard  full menu*/}
-          <li onClick={handleSideBarUnmount}>
+          <li id="dashboard_fullmenu" onClick={handleSideBarUnmount}>
             <Link
               to={"/admin-console"}
-              className="block rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+              className={`block rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
+               text-gray-500 hover:text-gray-700
+                ${pathname === `/admin-console` && "bg-primary-color"}
+               
+               
+               `}
             >
               Dashboard
             </Link>
           </li>
 
           {/* Projets  full menu*/}
-          <li>
+          <li id="project_link_fullmenu">
             <details className="group [&_summary::-webkit-details-marker]">
               <summary
-                className="flex cursor-pointer items-center justify-between 
-              rounded-lg px-4 py-2  text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                className={`flex cursor-pointer items-center justify-between 
+              rounded-lg px-4 py-2  text-gray-500 hover:bg-primary-color hover:text-gray-700
+              ${
+                pathname === `/admin-console/update-project/${params?.id}` &&
+                "bg-primary-color"
+              }
+                            ${
+                              pathname ===
+                                `/admin-console/preview-project/${params?.id}` &&
+                              "bg-primary-color"
+                            }
+                                                 ${
+                                                   pathname ===
+                                                     `/admin-console/manage-projects` &&
+                                                   "bg-primary-color"
+                                                 }
+                                                                        ${
+                                                                          pathname ===
+                                                                            `/admin-console/upload-project` &&
+                                                                          "bg-primary-color"
+                                                                        }
+              `}
               >
                 <span className="text-sm font-medium"> Projets</span>
 
@@ -81,7 +109,15 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="manage_projects">
                   <Link
                     to={"/admin-console/manage-projects"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 
+                    text-sm font-medium text-gray-500 hover:bg-primary-color
+                     hover:text-gray-700
+                        ${
+                          pathname === `/admin-console/manage-projects` &&
+                          "text-accent-color"
+                        }
+
+                     `}
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
@@ -91,7 +127,14 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="upload_project">
                   <Link
                     to={"/admin-console/upload-project"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium
+                     text-gray-500 hover:bg-primary-color hover:text-gray-700
+                   ${
+                     pathname === `/admin-console/upload-project` &&
+                     "text-accent-color"
+                   }
+                     
+                     `}
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Upload New
@@ -102,11 +145,35 @@ const FullMenu: React.FC<FullMenuProps> = ({
           </li>
 
           {/* Resume  full menu*/}
-          <li>
+          <li id="resume_link_fullmenu">
             <details className="group [&_summary::-webkit-details-marker]">
               <summary
-                className="flex cursor-pointer items-center justify-between 
-              rounded-lg px-4 py-2 mt-1 text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                className={`flex cursor-pointer items-center justify-between 
+              rounded-lg px-4 py-2 mt-1 text-gray-500 hover:bg-primary-color hover:text-gray-700
+              
+               ${
+                 pathname === `/admin-console/update-resume/${params?.id}` &&
+                 "bg-primary-color"
+               }
+                                             ${
+                                               pathname ===
+                                                 `/admin-console/manage-resume` &&
+                                               "bg-primary-color"
+                                             }
+                                                                        ${
+                                                                          pathname ===
+                                                                            `/admin-console/upload-resume` &&
+                                                                          "bg-primary-color"
+                                                                        }
+              
+              
+              
+              
+              
+              
+              
+              
+              `}
               >
                 <span className="text-sm font-medium">Resume</span>
 
@@ -130,7 +197,13 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="manage_resume">
                   <Link
                     to={"/admin-console/manage-resume"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm 
+                      font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
+                      ${
+                        pathname === `/admin-console/manage-resume` &&
+                        "text-accent-color"
+                      }
+                      `}
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
@@ -140,7 +213,13 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="upload_resume">
                   <Link
                     to={"/admin-console/upload-resume"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm
+                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
+                       ${
+                         pathname === `/admin-console/upload-resume` &&
+                         "text-accent-color"
+                       }
+                       `}
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Upload New
@@ -151,9 +230,36 @@ const FullMenu: React.FC<FullMenuProps> = ({
           </li>
 
           {/* Blog Article full menu*/}
-          <li>
+          <li id="blog_article_link_fullmenu">
             <details className="group [&_summary::-webkit-details-marker]">
-              <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700">
+              <summary
+                className={`flex cursor-pointer items-center justify-between rounded-lg 
+              px-4 py-2 text-gray-500 hover:bg-primary-color hover:text-gray-700
+              ${
+                pathname === `/admin-console/preview-article/${params?.id}` &&
+                "bg-primary-color"
+              }              
+                  ${
+                    pathname === `/admin-console/edit-article/${params?.id}` &&
+                    "bg-primary-color"
+                  }   
+                              ${
+                                pathname === `/admin-console/manage-articles` &&
+                                "bg-primary-color"
+                              }   
+                                            ${
+                                              pathname ===
+                                                `/admin-console/post-article` &&
+                                              "bg-primary-color"
+                                            }
+              
+              
+              
+              
+              
+              
+              `}
+              >
                 <span className="text-sm font-medium"> Articles</span>
 
                 <span className="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -176,7 +282,14 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="manage_article">
                   <Link
                     to={"/admin-console/manage-articles"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm 
+                      font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
+                        ${
+                          pathname === `/admin-console/manage-articles` &&
+                          "text-accent-color"
+                        }
+                      
+                      `}
                   >
                     <MdManageAccounts className="text-xl mr-2 pl-1" />
                     Manage All
@@ -186,7 +299,15 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="upload_article">
                   <Link
                     to={"/admin-console/post-article"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium
+                       text-gray-500 hover:bg-primary-color hover:text-gray-700
+                                         ${
+                                           pathname ===
+                                             `/admin-console/post-article` &&
+                                           "text-accent-color"
+                                         }
+                       
+                       `}
                   >
                     <TiUploadOutline className="text-xl mr-2 pl-1" />
                     Post New
@@ -197,11 +318,20 @@ const FullMenu: React.FC<FullMenuProps> = ({
           </li>
 
           {/* Admin full menu*/}
-          <li>
+          <li id="admin_settings_link_fullmenu">
             <details className="group [&_summary::-webkit-details-marker]">
               <summary
-                className="flex cursor-pointer items-center justify-between 
-              rounded-lg px-4 py-2  text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                className={`flex cursor-pointer items-center justify-between 
+              rounded-lg px-4 py-2  text-gray-500 hover:bg-primary-color
+               hover:text-gray-700   
+               ${
+                 pathname === `/admin-console/all-registerd-users` &&
+                 "bg-primary-color"
+               }               ${
+                  pathname === `/admin-console/change-password` &&
+                  "bg-primary-color"
+                }
+                 `}
               >
                 <span className="text-sm font-medium">Admin</span>
 
@@ -225,7 +355,16 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="manage_all_users">
                   <Link
                     to={"/admin-console/all-registerd-users"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm
+                     font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
+                                    ${
+                                      pathname ===
+                                        `/admin-console/all-registerd-users` &&
+                                      "text-accent-color"
+                                    }
+                     
+                     
+                     `}
                   >
                     <FaUsersCog className="text-xl mr-2 pl-1" />
                     Manage All Users
@@ -235,7 +374,15 @@ const FullMenu: React.FC<FullMenuProps> = ({
                 <li id="change_password">
                   <Link
                     to={"/admin-console/change-password"}
-                    className="inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+                    className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm
+                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
+                       
+                       ${
+                         pathname === `/admin-console/change-password` &&
+                         "text-accent-color"
+                       }
+                       
+                       `}
                   >
                     <RiExchangeLine className="text-xl mr-2 pl-1" />
                     Change Password
@@ -249,7 +396,15 @@ const FullMenu: React.FC<FullMenuProps> = ({
           <li onClick={handleSideBarUnmount} id="reviews-section">
             <Link
               to={"/admin-console/manage-feedbacks"}
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+              className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500
+                 hover:bg-primary-color hover:text-gray-700
+                  ${
+                    pathname === `/admin-console/manage-feedbacks` &&
+                    "bg-primary-color"
+                  }
+                 
+                 
+                 `}
             >
               Feedbacks
             </Link>
@@ -259,7 +414,15 @@ const FullMenu: React.FC<FullMenuProps> = ({
           <li onClick={handleSideBarUnmount} id="queries-message-section">
             <Link
               to={"/admin-console/manage-all-emails"}
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700"
+              className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500
+                 hover:bg-primary-color hover:text-gray-700
+                                   ${
+                                     pathname ===
+                                       `/admin-console/manage-all-emails` &&
+                                     "bg-primary-color"
+                                   }
+                 
+                 `}
             >
               Emails
             </Link>
