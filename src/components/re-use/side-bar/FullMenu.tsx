@@ -421,6 +421,11 @@ const FullMenu: React.FC<FullMenuProps> = ({
                                        `/admin-console/manage-all-emails` &&
                                      "bg-primary-color"
                                    }
+                                     ${
+                                       pathname ===
+                                         `/admin-console/compose-mail/${params?.id}` &&
+                                       "bg-primary-color"
+                                     }
                  
                  `}
             >

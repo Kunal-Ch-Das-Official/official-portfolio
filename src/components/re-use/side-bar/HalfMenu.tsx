@@ -262,6 +262,13 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                          ? "bg-primary-color"
                          : ""
                      }
+
+                     ${
+                       sideBarStatus === false &&
+                       pathname === `/admin-console/compose-mail/${params?.id}`
+                         ? "bg-primary-color"
+                         : ""
+                     } 
                      
                      
                      `}
