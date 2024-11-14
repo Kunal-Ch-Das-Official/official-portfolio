@@ -15,6 +15,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_ALL_CONTACT_ENQUIRY_RESPONSE_SEND_URL: string;
   readonly VITE_APP_RESUME_MANAGEMENT_URL: string;
   readonly VITE_APP_DEACTIVATE_USER_ACCOUNT: string;
+  readonly VITE_APP_DASHBOARD_URL: string;
 }
 
 interface ImportMeta {

@@ -13,6 +13,7 @@ interface Environment {
   contactEnquiryResponseSendingUrl: string;
   resumeManagementUrl: string;
   deactivateAccount: string;
+  dashboardUrl: string;
 }
 const variable: Environment = {
   registerUrl: import.meta.env.VITE_APP_ADMIN_REGISTRATION_URL as string,
@@ -33,6 +34,7 @@ const variable: Environment = {
   contactEnquiryResponseSendingUrl: import.meta.env
     .VITE_APP_ALL_CONTACT_ENQUIRY_RESPONSE_SEND_URL as string,
   resumeManagementUrl: import.meta.env.VITE_APP_RESUME_MANAGEMENT_URL as string,
+  dashboardUrl: import.meta.env.VITE_APP_DASHBOARD_URL as string,
 };
 const envConfig = Object.freeze(variable);
 export default envConfig;
