@@ -30,6 +30,7 @@ import UploadResume from "./routes/resume-route/UploadResume";
 import ManageResume from "./routes/resume-route/ManageResume";
 import UpdateResume from "./routes/resume-route/UpdateResume";
 import DeleteResume from "./routes/resume-route/DeleteResume";
+import DeactivateAccount from "./routes/admin-route/DeactivateAccount";
 
 function App() {
   const publicRoutes = [
@@ -127,8 +128,12 @@ function App() {
       element: <ChangePassword />,
     },
     {
-      path: "all-registerd-users",
+      path: "/all-registerd-users",
       element: <AllAdminAccount />,
+    },
+    {
+      path: "/deactivate-account/:id",
+      element: <DeactivateAccount />,
     },
 
     // Feedbacks route

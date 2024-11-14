@@ -4,6 +4,7 @@ interface Environment {
   resetPasswordLinkurl: string;
   resetPasswordUrl: string;
   getCurrentUserUrl: string;
+  getAllRegisteredUser: string;
   projectUrl: string;
   blogArticleUrl: string;
   changePasswordUrl: string;
@@ -11,6 +12,7 @@ interface Environment {
   contactEnquiryUrl: string;
   contactEnquiryResponseSendingUrl: string;
   resumeManagementUrl: string;
+  deactivateAccount: string;
 }
 const variable: Environment = {
   registerUrl: import.meta.env.VITE_APP_ADMIN_REGISTRATION_URL as string,
@@ -20,6 +22,9 @@ const variable: Environment = {
   resetPasswordUrl: import.meta.env.VITE_APP_RESET_FORGOTTEN_PASSWORD as string,
   getCurrentUserUrl: import.meta.env
     .VITE_APP_GET_CURRENT_ADMIN_USER_URL as string,
+  getAllRegisteredUser: import.meta.env
+    .VITE_APP_GET_ALL_REGISERED_ACCOUNT as string,
+  deactivateAccount: import.meta.env.VITE_APP_DEACTIVATE_USER_ACCOUNT as string,
   projectUrl: import.meta.env.VITE_APP_PROJECT_URL as string,
   blogArticleUrl: import.meta.env.VITE_APP_BLOG_ARTICLE_URL as string,
   changePasswordUrl: import.meta.env.VITE_APP_PASSWORD_CHANGE_URL as string,
