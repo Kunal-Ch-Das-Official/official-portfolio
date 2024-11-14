@@ -11,6 +11,7 @@ interface IContactEmails {
   contactEmail: string;
   contactNumber: string;
   message: string;
+  responseStatus: string;
   createdAt: Date;
   sendResponseLink: string;
   removeLink: string;
@@ -141,7 +142,7 @@ const ManageAllEmails: React.FC = () => {
                     </button>
 
                     <div className="border rounded-md border-gray-300 ml-4 px-4 inline-flex items-center">
-                      <span className="mr-2">Total enquiry:</span>
+                      <span className="mr-2">Total emails:</span>
                       <span>{responseLength}</span>
                     </div>
                   </ul>
@@ -172,11 +173,16 @@ const ManageAllEmails: React.FC = () => {
           <div className="p-6 px-0 overflow-scroll">
             <table className="w-full mt-4 text-left table-auto min-w-max">
               {/* Table heading  */}
-              <thead>
+              <thead className="bg-gray-50">
                 <tr>
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
                       Requested user
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Status
                     </p>
                   </th>
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
@@ -186,7 +192,7 @@ const ManageAllEmails: React.FC = () => {
                   </th>
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                      Posted in
+                      Recived date
                     </p>
                   </th>
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
@@ -214,6 +220,7 @@ const ManageAllEmails: React.FC = () => {
                       {filteredOutput?.map((enquiry, index) => (
                         <ContactEmailsTable
                           key={index}
+                          status={enquiry.responseStatus}
                           userName={enquiry.userName}
                           contactEmail={enquiry.contactEmail}
                           contactNumber={enquiry.contactNumber}
@@ -229,6 +236,7 @@ const ManageAllEmails: React.FC = () => {
                       {currentPageData?.map((enquiry, index) => (
                         <ContactEmailsTable
                           key={index}
+                          status={enquiry.responseStatus}
                           userName={enquiry.userName}
                           contactEmail={enquiry.contactEmail}
                           contactNumber={enquiry.contactNumber}

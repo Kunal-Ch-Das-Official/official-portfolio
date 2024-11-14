@@ -1,6 +1,8 @@
 import React from "react";
+import { BiMailSend } from "react-icons/bi";
+import { GrSend } from "react-icons/gr";
 import { ImBin } from "react-icons/im";
-import { MdOutgoingMail } from "react-icons/md";
+import { MdDone, MdOutgoingMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 interface TableRowProps {
@@ -11,6 +13,7 @@ interface TableRowProps {
   message: string;
   sendResponseLink: string;
   removeLink: string;
+  status: string;
 }
 const ContactEmailsTable: React.FC<TableRowProps> = ({
   userName,
@@ -20,6 +23,7 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
   message,
   sendResponseLink,
   removeLink,
+  status,
 }) => {
   return (
     <tbody>
@@ -38,6 +42,27 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
                 {contactEmail}
               </p>
             </div>
+          </div>
+        </td>
+
+        {/* Status  */}
+        <td className="p-4 border-b border-blue-gray-50">
+          <div className="block font-sans text-sm antialiased font-normal leading-normal opacity-70">
+            <p
+              className={` ${
+                status == "respond"
+                  ? "border-green-800 bg-green-100 text-green-900"
+                  : "border-yellow-800 bg-yellow-100 text-yellow-900"
+              }
+                border rounded-full flex flex-row items-center h-5 gap-[0.15rem] w-20 justify-center text-sm font-semibold `}
+            >
+              <span>{status}</span>
+              {status == "respond" ? (
+                <GrSend className="mt-[0.20rem]" />
+              ) : (
+                <BiMailSend className="mt-[0.20rem]" />
+              )}
+            </p>
           </div>
         </td>
 
@@ -66,15 +91,19 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
         <td className="p-4 border-b border-blue-gray-50">
           <div className="inline-flex items-center gap-4">
             {/* Send response to email  */}
-            <Link
-              title="Send Response"
-              to={sendResponseLink}
-              className="text-lg text-green-500
+            {status == "respond" ? (
+              <MdDone className="text-xl" />
+            ) : (
+              <Link
+                title="Send Response"
+                to={sendResponseLink}
+                className="text-lg text-green-500
   hover:text-yellow-500
    transform translate-1 hover:scale-110"
-            >
-              <MdOutgoingMail className="text-2xl" />
-            </Link>
+              >
+                <MdOutgoingMail className="text-2xl" />
+              </Link>
+            )}
             {/* Remove  */}
             <Link
               title="Remove"
