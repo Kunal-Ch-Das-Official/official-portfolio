@@ -56,6 +56,7 @@ const DashboardRouter = () => {
     };
     getDashboardData();
   }, []);
+
   const adminUserLastUpdate =
     totalData?.[0]?.response?.[totalData[0].response.length - 1];
   const articleLastUpdate =
@@ -68,7 +69,9 @@ const DashboardRouter = () => {
     totalData?.[4]?.response?.[totalData[4].response.length - 1];
   const reviewData =
     totalData?.[5]?.response?.[totalData[5].response.length - 1];
-
+  if (!Array.isArray(totalData)) {
+    Array.isArray(totalData);
+  }
   return (
     <main
       className="text-center min-h-screen mx-auto w-full px-0 md:w-[80%]
@@ -82,7 +85,6 @@ const DashboardRouter = () => {
             className={`${cardStyle.cards} grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3`}
           >
             {totalData &&
-              Array.isArray(totalData) &&
               totalData.map((item, index) => (
                 <div
                   className={`${cardStyle.card} border border-gray-50 shadow-xl`}
