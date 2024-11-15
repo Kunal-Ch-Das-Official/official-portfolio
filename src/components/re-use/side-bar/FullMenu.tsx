@@ -113,8 +113,9 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     text-sm font-medium text-gray-500 hover:bg-primary-color
                      hover:text-gray-700
                         ${
-                          pathname === `/admin-console/manage-projects` &&
-                          "text-accent-color"
+                          pathname === `/admin-console/manage-projects`
+                            ? "text-[#ad9e00]"
+                            : ""
                         }
 
                      `}
@@ -131,7 +132,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                      text-gray-500 hover:bg-primary-color hover:text-gray-700
                    ${
                      pathname === `/admin-console/upload-project` &&
-                     "text-accent-color"
+                     "text-[#ad9e00]"
                    }
                      
                      `}
@@ -201,7 +202,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
                       ${
                         pathname === `/admin-console/manage-resume` &&
-                        "text-accent-color"
+                        "text-[#ad9e00]"
                       }
                       `}
                   >
@@ -217,7 +218,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                        font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
                        ${
                          pathname === `/admin-console/upload-resume` &&
-                         "text-accent-color"
+                         "text-[#ad9e00]"
                        }
                        `}
                   >
@@ -286,7 +287,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
                         ${
                           pathname === `/admin-console/manage-articles` &&
-                          "text-accent-color"
+                          "text-[#ad9e00]"
                         }
                       
                       `}
@@ -304,7 +305,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                                          ${
                                            pathname ===
                                              `/admin-console/post-article` &&
-                                           "text-accent-color"
+                                           "text-[#ad9e00]"
                                          }
                        
                        `}
@@ -360,7 +361,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                                     ${
                                       pathname ===
                                         `/admin-console/all-registerd-users` &&
-                                      "text-accent-color"
+                                      "text-[#ad9e00]"
                                     }
                      
                      
@@ -379,7 +380,7 @@ const FullMenu: React.FC<FullMenuProps> = ({
                        
                        ${
                          pathname === `/admin-console/change-password` &&
-                         "text-accent-color"
+                         "text-[#ad9e00]"
                        }
                        
                        `}

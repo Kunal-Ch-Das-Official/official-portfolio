@@ -130,9 +130,8 @@ const UploadResume: React.FC = () => {
     bg-white pt-20 lg:pt-6 z-[-10000] lg:px-20"
       >
         <SectionHeading
-          mainHeading="Upload resume "
-          subHeading="
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur dolore facere necessitatibus quia impedit recusandae accusantium harum voluptatum explicabo deserunt, magni numquam, sunt tempore. Aperiam itaque quibusdam sint placeat aliquam."
+          mainHeading="Upload Resume Here"
+          subHeading="Submit updated resume to showcase latest qualifications and achievements. Ensure all information is accurate for a seamless application process."
         />
 
         <section

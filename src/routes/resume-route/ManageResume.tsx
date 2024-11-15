@@ -44,10 +44,10 @@ const ManageResume: React.FC = () => {
         >
           {/* Page heading  */}
           <div className="mx-auto lg:text-start text-center ">
-            <h1 className="text-xl text-gray-700">Kunal Chandra Das Resume</h1>
+            <h1 className="text-xl text-gray-700">Kunal Chandra Das Resume.</h1>
             <p className="flex flex-col">
-              Resume management console, here we can choose which resume wiil be
-              serve.
+              Select which resumes will be served, allowing for efficient
+              management and organization of available resume data.
             </p>
           </div>
 
