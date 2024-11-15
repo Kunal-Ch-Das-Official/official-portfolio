@@ -27,7 +27,7 @@ interface ItotalData {
   response: IRes[];
 }
 const DashboardRouter = () => {
-  const [totalData, setTotalData] = useState<ItotalData[]>();
+  const [totalData, setTotalData] = useState<ItotalData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const DashboardRouter = () => {
           },
         });
         if (response) {
-          setTotalData(response.data);
+          setTotalData(response.data || []);
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
@@ -82,6 +82,7 @@ const DashboardRouter = () => {
             className={`${cardStyle.cards} grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3`}
           >
             {totalData &&
+              Array.isArray(totalData) &&
               totalData.map((item, index) => (
                 <div
                   className={`${cardStyle.card} border border-gray-50 shadow-xl`}
