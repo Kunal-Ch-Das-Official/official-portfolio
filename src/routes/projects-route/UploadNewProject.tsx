@@ -172,7 +172,7 @@ const UploadNewProject: React.FC = () => {
         buttonColor={uploadResponse.buttonColor}
       />
 
-      <main className="min-h-screen mx-auto w-full px-6 md:px-0 lg:w-[80%] bg-white pt-6">
+      <main className="min-h-screen mx-auto w-full px-8 md:px-0 md:w-[80%] bg-white pt-6">
         <SectionHeading
           mainHeading="Project Submission Portal"
           subHeading="Submit your project details for review and publication. Complete all
@@ -187,7 +187,10 @@ const UploadNewProject: React.FC = () => {
             onSubmit={handleProjectUpload}
           >
             {/*1. Project name and type input container */}
-            <div id="project_name_&_type" className="flex justify-around gap-3">
+            <div
+              id="project_name_&_type"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
+            >
               <div className="w-full">
                 <TextInput
                   inputLabel="Project name"
@@ -223,7 +226,10 @@ const UploadNewProject: React.FC = () => {
             </div>
 
             {/*2. Project author and owner input container  */}
-            <div id="project_ownership" className="flex justify-around gap-3">
+            <div
+              id="project_ownership"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
+            >
               <div className="w-full">
                 <TextInput
                   inputLabel="Project author"
@@ -273,7 +279,7 @@ const UploadNewProject: React.FC = () => {
             {/*4. Project thumbnail and first page view input container  */}
             <div
               id="project_images_one_block"
-              className="flex justify-around gap-3 mt-4"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
             >
               <FileInputMini
                 fileInput={thumbnail}
@@ -294,7 +300,7 @@ const UploadNewProject: React.FC = () => {
             {/*5. Project first view and project second view input container  */}
             <div
               id="project_images_two_block"
-              className="flex justify-around gap-3 mt-4"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
             >
               <FileInputMini
                 fileInput={pageTwoView}

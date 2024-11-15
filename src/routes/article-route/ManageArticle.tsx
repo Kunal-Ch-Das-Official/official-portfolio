@@ -98,7 +98,7 @@ const ManageArticle: React.FC = () => {
       {loading === true && <LoadingSpinner />}
 
       <main
-        className="text-center min-h-screen mx-auto w-full px-0 lg:w-[80%]
+        className="text-center min-h-screen mx-auto w-full px-0 md:w-[80%]
        bg-white pt-20 lg:pt-6 z-[-10000]"
       >
         <div className="relative flex flex-col w-full h-full text-gray-700 bg-white rounded-xl bg-clip-border">
@@ -109,7 +109,7 @@ const ManageArticle: React.FC = () => {
                 <h5 className="block text-xl text-left antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                   Tech Blog Management console
                 </h5>
-                <p className="block mt-1 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+                <p className="block mt-1 text-start font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
                   Add, Update, View, And Delete your existing blog article form
                   here.
                 </p>

@@ -22,7 +22,7 @@ const ReviewTableRow: React.FC<TableRowProps> = ({
     <tbody>
       <tr>
         {/* Article title  */}
-        <td className="p-4 border-b border-blue-gray-50 items-start align-baseline">
+        <td className="p-4 border-b border-blue-gray-50 items-start">
           <div className="flex items-start gap-3">
             <div className="flex flex-col">
               <p

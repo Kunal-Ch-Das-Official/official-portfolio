@@ -46,8 +46,8 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
         </td>
 
         {/* Status  */}
-        <td className="p-4 border-b border-blue-gray-50">
-          <div className="block font-sans text-sm antialiased font-normal leading-normal opacity-70">
+        <td className="p-4 border-b border-blue-gray-50 align-baseline">
+          <div className="block font-sans text-sm antialiased font-normal leading-normal opacity-70 ">
             <p
               className={` ${
                 status == "respond"
@@ -55,7 +55,7 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
                   : "border-yellow-800 bg-yellow-100 text-yellow-900"
               }
                 border rounded-full flex flex-row items-center h-5 gap-[0.15rem]
-                 w-[5.5rem] justify-center text-sm font-semibold `}
+                 w-[5.5rem] justify-center text-sm font-semibold`}
             >
               <span>{status}</span>
               {status == "respond" ? (
@@ -68,13 +68,13 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
         </td>
 
         {/* Phone number Column  */}
-        <td className="p-4 border-b border-blue-gray-50">
+        <td className="p-4 border-b border-blue-gray-50 align-baseline">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
             <span>{contactNumber}</span>
           </p>
         </td>
         {/* Created At Column  */}
-        <td className="p-4 border-b border-blue-gray-50">
+        <td className="p-4 border-b border-blue-gray-50 align-baseline">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
             <span className="text-green-600">
               {new Date(createdAt).toDateString()}
@@ -82,14 +82,14 @@ const ContactEmailsTable: React.FC<TableRowProps> = ({
           </p>
         </td>
 
-        <td className="p-4 border-b border-blue-gray-50 max-w-sm ">
+        <td className="p-4 border-b border-blue-gray-50 max-w-sm align-baseline">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
             <span>{message}</span>
           </p>
         </td>
 
         {/* Manage article  */}
-        <td className="p-4 border-b border-blue-gray-50">
+        <td className="p-4 border-b border-blue-gray-50 ">
           <div className="inline-flex items-center gap-4">
             {/* Send response to email  */}
             {status == "respond" ? (

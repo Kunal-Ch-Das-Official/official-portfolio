@@ -249,7 +249,7 @@ const UpdateProject: React.FC = () => {
         buttonColor={uploadResponse.buttonColor}
       />
 
-      <main className="min-h-screen mx-auto w-full px-6 md:px-0 lg:w-[80%] bg-white pt-6">
+      <main className="min-h-screen mx-auto w-full px-8 md:px-0 md:w-[80%] bg-white pt-6 overflow-x-hidden">
         <SectionHeading
           mainHeading="Project Update Portal"
           subHeading="Submit your project details for review and publication. Complete all
@@ -262,7 +262,7 @@ const UpdateProject: React.FC = () => {
             {/*1. Project name and type input container */}
             <div
               id="update_project_name_&_type"
-              className="flex justify-around gap-3"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
             >
               <div className="w-full">
                 <TextInput
@@ -274,7 +274,7 @@ const UpdateProject: React.FC = () => {
                   fieldId="projectName"
                 />
               </div>
-              <div className="w-full mt-[0.450rem]">
+              <div className="w-full mt-0 md:mt-[0.450rem]">
                 <label
                   htmlFor="project_type"
                   className="block mb-2 text-sm font-medium text-gray-900"
@@ -306,7 +306,7 @@ const UpdateProject: React.FC = () => {
             {/*2. Project author and owner input container  */}
             <div
               id="update_project_ownership"
-              className="flex justify-around gap-3"
+              className="flex flex-col md:flex-row md:justify-around gap-3"
             >
               <div className="w-full">
                 <TextInput
@@ -357,7 +357,7 @@ const UpdateProject: React.FC = () => {
             {/*4. Project thumbnail and first page view input container  */}
             <div
               id="update_project_images_one_block"
-              className="flex justify-around gap-3 mt-4"
+              className="flex flex-col lg:flex-row lg:justify-around gap-3 mt-4"
             >
               <FileInputMini
                 getFileValue={setThumbnail}
@@ -390,7 +390,7 @@ const UpdateProject: React.FC = () => {
             {/*5. Project first view and project second view input container  */}
             <div
               id="update_project_images_two_block"
-              className="flex justify-around gap-3 mt-4"
+              className="flex flex-col lg:flex-row lg:justify-around gap-3 mt-4"
             >
               <FileInputMini
                 fileInput={pageTwoView}

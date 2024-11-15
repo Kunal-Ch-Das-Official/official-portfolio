@@ -71,13 +71,13 @@ const DashboardRouter = () => {
 
   return (
     <main
-      className="text-center min-h-screen mx-auto w-full px-0 lg:w-[80%]
+      className="text-center min-h-screen mx-auto w-full px-0 md:w-[80%]
     bg-white lg:pt-6 z-[-10000] "
     >
       {loading === true && <LoadingSpinner />}
 
       <section id="all_content_box">
-        <div className="px-6  pt-[6.8rem] sm:px-16 md:px-20 lg:px-8 2xl:px-20">
+        <div className="px-6  pt-[6.8rem] sm:px-16 md:px-8 lg:px-2 2xl:px-20">
           <div
             className={`${cardStyle.cards} grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3`}
           >
@@ -170,7 +170,7 @@ const DashboardRouter = () => {
                             <>
                               {reviewData
                                 ? new Date(
-                                    reviewData?.updatedAt
+                                    reviewData?.date
                                   ).toLocaleDateString()
                                 : "N/A"}
                             </>

@@ -28,7 +28,7 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
   return (
     <nav
       className="fixed left-0 top-0 flex min-h-screen w-16 flex-col
-     justify-between border-e bg-white shadow-xl z-[10001]"
+     justify-between border-e bg-white shadow-xl z-[1001]"
     >
       {/* Profile avatar  */}
       <div id="half_menu">

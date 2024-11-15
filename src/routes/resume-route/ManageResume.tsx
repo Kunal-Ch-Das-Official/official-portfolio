@@ -37,13 +37,13 @@ const ManageResume: React.FC = () => {
     <>
       {loading === true && <LoadingSpinner />}
 
-      <main className="min-h-screen mx-auto w-full px-6 md:px-0 lg:w-[80%] bg-white pt-16">
+      <main className="min-h-screen mx-auto w-full px-6 md:px-0 md:w-[80%] bg-white pt-16">
         <section
           className="flex flex-col lg:flex-row justify-between mx-auto px-8
       py-10 border-b border-gray-200"
         >
           {/* Page heading  */}
-          <div className="mx-auto lg:text-start text-center w-1/2">
+          <div className="mx-auto lg:text-start text-center ">
             <h1 className="text-xl text-gray-700">Kunal Chandra Das Resume</h1>
             <p className="flex flex-col">
               Resume management console, here we can choose which resume wiil be

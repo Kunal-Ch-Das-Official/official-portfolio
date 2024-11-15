@@ -120,7 +120,7 @@ const PostArticle: React.FC = () => {
       />
 
       <main
-        className="min-h-screen mx-auto w-full px-0 lg:w-[80%]
+        className="min-h-screen mx-auto w-full px-8 md:px-0 md:w-[80%]
        bg-white pt-20 lg:pt-6 z-[-10000]"
       >
         <SectionHeading

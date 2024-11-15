@@ -126,7 +126,7 @@ const UploadResume: React.FC = () => {
         buttonColor={uploadResponse.buttonColor}
       />
       <main
-        className="text-center min-h-screen mx-auto w-full px-10 lg:w-[80%]
+        className="text-center min-h-screen mx-auto w-full px-10 md:w-[80%]
     bg-white pt-20 lg:pt-6 z-[-10000] lg:px-20"
       >
         <SectionHeading

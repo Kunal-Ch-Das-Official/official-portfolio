@@ -51,7 +51,7 @@ const PreviewArticle: React.FC = () => {
     <>
       {loading === true && <LoadingSpinner />}
 
-      <main className="bg-white min-h-screen mx-auto w-full px-0 lg:w-[80%] pb-8 pt-16 lg:pt-8">
+      <main className="bg-white min-h-screen mx-auto w-full px-0 md:w-[80%] pb-8 pt-16 lg:pt-8">
         <div className="w-[95%] mx-auto">
           <Link to={"/admin-console/manage-articles"}>
             <PiArrowBendUpLeftBold className="transform translate-1 hover:scale-110 text-2xl text-green-600 hover:text-blue-700 cursor-pointer" />

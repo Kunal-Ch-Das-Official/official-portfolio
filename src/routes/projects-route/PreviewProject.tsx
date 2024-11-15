@@ -264,8 +264,8 @@ const PreviewProject: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
             {/* About project  */}
-            <div
-              className="bg-gray-50 h-full overflow-x-scroll text-start px-4 py-6 rounded-lg"
+            <section
+              className="bg-gray-50 h-full overflow-x-scroll text-center md:text-start px-4 py-6 rounded-lg"
               id="about_project"
             >
               <p id="project_owner">
@@ -332,13 +332,13 @@ const PreviewProject: React.FC = () => {
                   <article>{requestedProjectInfo?.description}</article>
                 )}
               </div>
-            </div>
+            </section>
 
             {/* Technology used  */}
-            <div className="bg-gray-50 max-h-[222px] py-6 rounded-lg">
+            <section className="bg-gray-50 max-h-[222px] py-6 rounded-lg">
               <h2 className="font-medium  mb-4">Technology used:</h2>
               <div className="flex justify-center items-center">
-                <div className="grid grid-cols-7 gap-3">
+                <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
                   {requestedProjectInfo?.technologyUsed &&
                     requestedProjectInfo.technologyUsed.map((tech, index) => {
                       const matchedIcon = techStackLogo.find(
@@ -350,7 +350,7 @@ const PreviewProject: React.FC = () => {
                     })}
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </section>
       </main>

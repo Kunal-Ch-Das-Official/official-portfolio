@@ -82,7 +82,7 @@ const SendResponse: React.FC = () => {
     <form
       onSubmit={sendEmailResponse}
       ref={emailFormRef}
-      className="min-h-screen mx-auto w-full px-10 lg:w-[80%]
+      className="min-h-screen mx-auto w-full px-10 md:w-[80%]
     bg-white pt-10 lg:pt-6 z-[-10000] md:px-28"
     >
       {loading && <LoadingSpinner />}
@@ -96,7 +96,10 @@ const SendResponse: React.FC = () => {
         </>
       )}
 
-      <SectionHeading mainHeading="Send response " subHeading="lorem" />
+      <SectionHeading
+        mainHeading="Admin Response Management"
+        subHeading="Efficiently manage and send tailored email responses to client inquiries submitted via the contact form, ensuring timely and professional communication."
+      />
       <div id="Email_subject">
         <TextInput
           inputLabel="Subject"
