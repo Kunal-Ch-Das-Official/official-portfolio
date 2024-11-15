@@ -59,8 +59,10 @@ const ManageResume: React.FC = () => {
             <Link
               to={`/admin-console/update-resume/${resumeData?._id}`}
               id="Change_resume"
-              className="inline-flex items-center bg-blue-500 max-w-xs gap-2 hover:bg-blue-600
-             border border-gray-400 py-1.5 px-4 rounded-lg"
+              className={`inline-flex items-center bg-blue-500 max-w-xs gap-2 hover:bg-blue-600
+             border border-gray-400 py-1.5 px-4 rounded-lg ${
+               !resumeData && "hidden"
+             }`}
             >
               <RiExchangeBoxFill />
               Change
@@ -81,8 +83,8 @@ const ManageResume: React.FC = () => {
             <Link
               to={`/admin-console/delete-resume/${resumeData?._id}`}
               id="Remove_resume"
-              className="inline-flex items-center border bg-red-500 max-w-xs gap-2 hover:bg-red-600
-             border-gray-400 py-1.5 px-4 rounded-lg"
+              className={`inline-flex items-center border bg-red-500 max-w-xs gap-2 hover:bg-red-600
+             border-gray-400 py-1.5 px-4 rounded-lg ${!resumeData && "hidden"}`}
             >
               <MdOutlineFolderDelete />
               Remove
@@ -103,7 +105,7 @@ const ManageResume: React.FC = () => {
             />
           </div>
         ) : (
-          <h6 className="text-center mt-20 text-xl ">
+          <h6 className="p-6 font-semibold text-base text-accent-color">
             Resume are not available
           </h6>
         )}

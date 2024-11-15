@@ -52,7 +52,7 @@ const UserAccountTableRow: React.FC<TableRowProps> = ({
               {createdAt === updatedAt ? (
                 "Not yet"
               ) : (
-                <p>{new Date(createdAt).toDateString()}</p>
+                <span>{new Date(createdAt).toDateString()}</span>
               )}
             </span>
           </p>

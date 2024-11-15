@@ -206,43 +206,54 @@ const ManageArticle: React.FC = () => {
                   </th>
                 </tr>
               </thead>
-
-              {/* Table Body */}
-              {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
-                <h2 className="text-center text-orange-500 font-bold mt-8">
-                  Article Dose Not Exist.
-                </h2>
+              {responseLength === 0 ? (
+                <tbody id="Error_message_blog_article">
+                  <tr>
+                    <td className="p-6 font-semibold text-base text-accent-color">
+                      Articles are not available, please upload one.
+                    </td>
+                  </tr>
+                </tbody>
               ) : (
                 <>
-                  {searchQuery ? (
-                    <>
-                      {filteredOutput?.map((output, index) => (
-                        <BlogTableRow
-                          key={index}
-                          title={output.blogTitle}
-                          authorName={output.authorName}
-                          addedIn={output.createdAt}
-                          editedIn={output.updatedAt}
-                          previewLink={`/admin-console/preview-article/${output._id}`}
-                          updateLink={`/admin-console/edit-article/${output._id}`}
-                          removeLink={`/admin-console/remove-article/${output._id}`}
-                        />
-                      ))}
-                    </>
+                  {/* Table Body */}
+                  {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
+                    <h2 className="text-center text-orange-500 font-bold mt-8">
+                      Article Dose Not Exist.
+                    </h2>
                   ) : (
                     <>
-                      {currentPageData?.map((article, index) => (
-                        <BlogTableRow
-                          key={index}
-                          title={article.blogTitle}
-                          authorName={article.authorName}
-                          addedIn={article.createdAt}
-                          editedIn={article.updatedAt}
-                          previewLink={`/admin-console/preview-article/${article._id}`}
-                          updateLink={`/admin-console/edit-article/${article._id}`}
-                          removeLink={`/admin-console/remove-article/${article._id}`}
-                        />
-                      ))}
+                      {searchQuery ? (
+                        <>
+                          {filteredOutput?.map((output, index) => (
+                            <BlogTableRow
+                              key={index}
+                              title={output.blogTitle}
+                              authorName={output.authorName}
+                              addedIn={output.createdAt}
+                              editedIn={output.updatedAt}
+                              previewLink={`/admin-console/preview-article/${output._id}`}
+                              updateLink={`/admin-console/edit-article/${output._id}`}
+                              removeLink={`/admin-console/remove-article/${output._id}`}
+                            />
+                          ))}
+                        </>
+                      ) : (
+                        <>
+                          {currentPageData?.map((article, index) => (
+                            <BlogTableRow
+                              key={index}
+                              title={article.blogTitle}
+                              authorName={article.authorName}
+                              addedIn={article.createdAt}
+                              editedIn={article.updatedAt}
+                              previewLink={`/admin-console/preview-article/${article._id}`}
+                              updateLink={`/admin-console/edit-article/${article._id}`}
+                              removeLink={`/admin-console/remove-article/${article._id}`}
+                            />
+                          ))}
+                        </>
+                      )}
                     </>
                   )}
                 </>
@@ -256,7 +267,7 @@ const ManageArticle: React.FC = () => {
               {}
               Page {currentPage} of {pageNumber.length}
             </p>
-            <div className="flex gap-2">
+            <div className={`${responseLength === 0 && "hidden"} flex gap-2`}>
               <button
                 className={`rounded-lg border border-gray-900 py-2 px-4 text-center
                    align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all

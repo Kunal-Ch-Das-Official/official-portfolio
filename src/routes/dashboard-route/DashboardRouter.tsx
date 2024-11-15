@@ -119,31 +119,62 @@ const DashboardRouter = () => {
                         </span>
 
                         <span className="text-red-600 font-bold">
-                          {index === 0 &&
-                            new Date(
-                              adminUserLastUpdate?.updatedAt || ""
-                            ).toLocaleDateString()}
-                          {index === 1 &&
-                            new Date(
-                              articleLastUpdate?.updatedAt || ""
-                            ).toLocaleDateString()}
-                          {index === 2 &&
-                            new Date(
-                              contactData?.updatedAt || ""
-                            ).toLocaleDateString()}
-                          {index === 3 &&
-                            new Date(
-                              projectData?.updatedAt || ""
-                            ).toLocaleDateString()}
-                          {index === 4 &&
-                            new Date(
-                              resumeData?.updatedAt || ""
-                            ).toLocaleDateString()}
+                          {index === 0 && (
+                            <>
+                              {adminUserLastUpdate
+                                ? new Date(
+                                    adminUserLastUpdate?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
+                          {index === 1 && (
+                            <>
+                              {articleLastUpdate
+                                ? new Date(
+                                    articleLastUpdate?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
+                          {index === 2 && (
+                            <>
+                              {contactData
+                                ? new Date(
+                                    contactData?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
+                          {index === 3 && (
+                            <>
+                              {projectData
+                                ? new Date(
+                                    projectData?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
 
-                          {index === 5 &&
-                            new Date(
-                              reviewData?.date || ""
-                            ).toLocaleDateString()}
+                          {index === 4 && (
+                            <>
+                              {resumeData
+                                ? new Date(
+                                    resumeData?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
+
+                          {index === 5 && (
+                            <>
+                              {reviewData
+                                ? new Date(
+                                    reviewData?.updatedAt
+                                  ).toLocaleDateString()
+                                : "N/A"}
+                            </>
+                          )}
                         </span>
                       </div>
 
@@ -259,20 +290,31 @@ const DashboardRouter = () => {
                 </th>
               </tr>
             </thead>
-
-            {totalData?.[2]?.response.map((enquiry, index) => (
-              <ContactEmailsTable
-                key={index}
-                status={enquiry.responseStatus}
-                userName={enquiry.userName}
-                contactEmail={enquiry.contactEmail}
-                contactNumber={enquiry.contactNumber}
-                createdAt={enquiry.createdAt}
-                message={enquiry.message}
-                sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
-                removeLink={`/admin-console/delete-mail/${enquiry._id}`}
-              />
-            ))}
+            {totalData?.[2]?.response.length === 0 ? (
+              <tbody id="Error_message_contact_info_in_dashboard">
+                <tr>
+                  <td className="p-6 font-semibold text-base text-accent-color">
+                    Inbox are empty.
+                  </td>
+                </tr>
+              </tbody>
+            ) : (
+              <>
+                {totalData?.[2]?.response.map((enquiry, index) => (
+                  <ContactEmailsTable
+                    key={index}
+                    status={enquiry.responseStatus}
+                    userName={enquiry.userName}
+                    contactEmail={enquiry.contactEmail}
+                    contactNumber={enquiry.contactNumber}
+                    createdAt={enquiry.createdAt}
+                    message={enquiry.message}
+                    sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
+                    removeLink={`/admin-console/delete-mail/${enquiry._id}`}
+                  />
+                ))}
+              </>
+            )}
           </table>
         </div>
       </section>

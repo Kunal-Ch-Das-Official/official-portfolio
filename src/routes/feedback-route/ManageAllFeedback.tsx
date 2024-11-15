@@ -193,40 +193,52 @@ const ManageFeedback: React.FC = () => {
                 </tr>
               </thead>
 
-              {/* Table Body */}
-              {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
-                <h2 className="text-center text-orange-500 font-bold mt-8">
-                  Feedback Dose Not Exist.
-                </h2>
+              {responseLength === 0 ? (
+                <tbody id="Error_message_feedback_page">
+                  <tr>
+                    <td className="p-6 font-semibold text-base text-accent-color">
+                      Feedbacks are not available.
+                    </td>
+                  </tr>
+                </tbody>
               ) : (
                 <>
-                  {searchQuery ? (
-                    <>
-                      {filteredOutput?.map((output, index) => (
-                        <ReviewTableRow
-                          key={index}
-                          userName={output.userName}
-                          organization={output.organization}
-                          reviewContent={output.reviewContent}
-                          rating={output.rating}
-                          date={output.date}
-                          removeLink={`/admin-console/remove-feedback/${output._id}`}
-                        />
-                      ))}
-                    </>
+                  {/* Table Body */}
+                  {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
+                    <h2 className="text-center text-orange-500 font-bold mt-8">
+                      Feedback Dose Not Exist.
+                    </h2>
                   ) : (
                     <>
-                      {currentPageData?.map((feedback, index) => (
-                        <ReviewTableRow
-                          key={index}
-                          userName={feedback.userName}
-                          organization={feedback.organization}
-                          reviewContent={feedback.reviewContent}
-                          rating={feedback.rating}
-                          date={feedback.date}
-                          removeLink={`/admin-console/remove-feedback/${feedback._id}`}
-                        />
-                      ))}
+                      {searchQuery ? (
+                        <>
+                          {filteredOutput?.map((output, index) => (
+                            <ReviewTableRow
+                              key={index}
+                              userName={output.userName}
+                              organization={output.organization}
+                              reviewContent={output.reviewContent}
+                              rating={output.rating}
+                              date={output.date}
+                              removeLink={`/admin-console/remove-feedback/${output._id}`}
+                            />
+                          ))}
+                        </>
+                      ) : (
+                        <>
+                          {currentPageData?.map((feedback, index) => (
+                            <ReviewTableRow
+                              key={index}
+                              userName={feedback.userName}
+                              organization={feedback.organization}
+                              reviewContent={feedback.reviewContent}
+                              rating={feedback.rating}
+                              date={feedback.date}
+                              removeLink={`/admin-console/remove-feedback/${feedback._id}`}
+                            />
+                          ))}
+                        </>
+                      )}
                     </>
                   )}
                 </>
@@ -240,7 +252,7 @@ const ManageFeedback: React.FC = () => {
               {}
               Page {currentPage} of {pageNumber.length}
             </p>
-            <div className="flex gap-2">
+            <div className={`${responseLength === 0 && "hidden"} flex gap-2`}>
               <button
                 className={`rounded-lg border border-gray-900 py-2 px-4 text-center
                    align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all

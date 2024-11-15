@@ -208,44 +208,56 @@ const ManageAllEmails: React.FC = () => {
                 </tr>
               </thead>
 
-              {/* Table Body */}
-              {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
-                <h2 className="text-center text-orange-500 font-bold mt-8">
-                  Enquiry Dose Not Exist.
-                </h2>
+              {responseLength === 0 ? (
+                <tbody id="Error_message_Email_page">
+                  <tr>
+                    <td className="p-6 font-semibold text-base text-accent-color">
+                      Inbox are empty.
+                    </td>
+                  </tr>
+                </tbody>
               ) : (
                 <>
-                  {searchQuery ? (
-                    <>
-                      {filteredOutput?.map((enquiry, index) => (
-                        <ContactEmailsTable
-                          key={index}
-                          status={enquiry.responseStatus}
-                          userName={enquiry.userName}
-                          contactEmail={enquiry.contactEmail}
-                          contactNumber={enquiry.contactNumber}
-                          createdAt={enquiry.createdAt}
-                          message={enquiry.message}
-                          sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
-                          removeLink={`/admin-console/delete-mail/${enquiry._id}`}
-                        />
-                      ))}
-                    </>
+                  {/* Table Body */}
+                  {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
+                    <h2 className="text-center text-orange-500 font-bold mt-8">
+                      Enquiry Dose Not Exist.
+                    </h2>
                   ) : (
                     <>
-                      {currentPageData?.map((enquiry, index) => (
-                        <ContactEmailsTable
-                          key={index}
-                          status={enquiry.responseStatus}
-                          userName={enquiry.userName}
-                          contactEmail={enquiry.contactEmail}
-                          contactNumber={enquiry.contactNumber}
-                          createdAt={enquiry.createdAt}
-                          message={enquiry.message}
-                          sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
-                          removeLink={`/admin-console/delete-mail/${enquiry._id}`}
-                        />
-                      ))}
+                      {searchQuery ? (
+                        <>
+                          {filteredOutput?.map((enquiry, index) => (
+                            <ContactEmailsTable
+                              key={index}
+                              status={enquiry.responseStatus}
+                              userName={enquiry.userName}
+                              contactEmail={enquiry.contactEmail}
+                              contactNumber={enquiry.contactNumber}
+                              createdAt={enquiry.createdAt}
+                              message={enquiry.message}
+                              sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
+                              removeLink={`/admin-console/delete-mail/${enquiry._id}`}
+                            />
+                          ))}
+                        </>
+                      ) : (
+                        <>
+                          {currentPageData?.map((enquiry, index) => (
+                            <ContactEmailsTable
+                              key={index}
+                              status={enquiry.responseStatus}
+                              userName={enquiry.userName}
+                              contactEmail={enquiry.contactEmail}
+                              contactNumber={enquiry.contactNumber}
+                              createdAt={enquiry.createdAt}
+                              message={enquiry.message}
+                              sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
+                              removeLink={`/admin-console/delete-mail/${enquiry._id}`}
+                            />
+                          ))}
+                        </>
+                      )}
                     </>
                   )}
                 </>
@@ -259,7 +271,7 @@ const ManageAllEmails: React.FC = () => {
               {}
               Page {currentPage} of {pageNumber.length}
             </p>
-            <div className="flex gap-2">
+            <div className={`${responseLength === 0 && "hidden"} flex gap-2`}>
               <button
                 className={`rounded-lg border border-gray-900 py-2 px-4 text-center
                    align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all
