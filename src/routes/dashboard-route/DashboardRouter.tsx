@@ -44,7 +44,7 @@ const DashboardRouter = () => {
           },
         });
         if (response) {
-          setTotalData(response.data || []);
+          setTotalData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
