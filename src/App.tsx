@@ -2,162 +2,318 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Index from "./Index";
 import { LoginRouter } from "./routes/login-route/LoginRouter";
-import NotFoundRouter from "./routes/not-found-route/NotFoundRouter";
-import ForgotPasswordRouter from "./routes/forgot-password-route/ForgotPasswordRouter";
-import ResetPasswordRouter from "./routes/reset-password-route/ResetPasswordRouter";
-import PrivateRoute from "./private/PrivateRouter";
-import RegisterRouter from "./routes/register-route/RegisterRouter";
+import { lazy, Suspense } from "react";
 import AdminConsole from "./Console";
+import PrivateRoute from "./private/PrivateRouter";
 import DashboardRouter from "./routes/dashboard-route/DashboardRouter";
-import UploadNewProject from "./routes/projects-route/UploadNewProject";
-import ManageProjects from "./routes/projects-route/ManageProjects";
-import UpdateProject from "./routes/projects-route/UpdateProject";
-import PreviewProject from "./routes/projects-route/PreviewProject";
-import DeleteProject from "./routes/projects-route/DeleteProject";
-import PostArticle from "./routes/article-route/PostArticle";
-import ManageArticle from "./routes/article-route/ManageArticle";
-import PreviewArticle from "./routes/article-route/PreviewArticle";
-import UpdateArticle from "./routes/article-route/UpdateArticle";
-import DeleteArticle from "./routes/article-route/DeleteArticle";
-import ChangePassword from "./routes/admin-route/ChangePassword";
-import AllAdminAccount from "./routes/admin-route/AllAdminAccount";
-import ManageAllFeedback from "./routes/feedback-route/ManageAllFeedback";
-import DeleteFeedback from "./routes/feedback-route/DeleteFeedback";
-import ManageAllEmails from "./routes/emails-route/ManageAllEmails";
-import SendResponse from "./routes/emails-route/SendResponse";
-import DeleteEmail from "./routes/emails-route/DeleteEmail";
-import UploadResume from "./routes/resume-route/UploadResume";
-import ManageResume from "./routes/resume-route/ManageResume";
-import UpdateResume from "./routes/resume-route/UpdateResume";
-import DeleteResume from "./routes/resume-route/DeleteResume";
-import DeactivateAccount from "./routes/admin-route/DeactivateAccount";
+const NotFoundRouter = lazy(
+  () => import("./routes/not-found-route/NotFoundRouter")
+);
+
+const ForgotPasswordRouter = lazy(
+  () => import("./routes/forgot-password-route/ForgotPasswordRouter")
+);
+
+const ResetPasswordRouter = lazy(
+  () => import("./routes/reset-password-route/ResetPasswordRouter")
+);
+const RegisterRouter = lazy(
+  () => import("./routes/register-route/RegisterRouter")
+);
+const UploadNewProject = lazy(
+  () => import("./routes/projects-route/UploadNewProject")
+);
+const PostArticle = lazy(() => import("./routes/article-route/PostArticle"));
+const ChangePassword = lazy(
+  () => import("./routes/admin-route/ChangePassword")
+);
+const SendResponse = lazy(() => import("./routes/emails-route/SendResponse"));
+const UploadResume = lazy(() => import("./routes/resume-route/UploadResume"));
+
+const ManageProjects = lazy(
+  () => import("./routes/projects-route/ManageProjects")
+);
+const UpdateProject = lazy(
+  () => import("./routes/projects-route/UpdateProject")
+);
+const PreviewProject = lazy(
+  () => import("./routes/projects-route/PreviewProject")
+);
+const DeleteProject = lazy(
+  () => import("./routes/projects-route/DeleteProject")
+);
+
+const ManageArticle = lazy(
+  () => import("./routes/article-route/ManageArticle")
+);
+const PreviewArticle = lazy(
+  () => import("./routes/article-route/PreviewArticle")
+);
+const UpdateArticle = lazy(
+  () => import("./routes/article-route/UpdateArticle")
+);
+const DeleteArticle = lazy(
+  () => import("./routes/article-route/DeleteArticle")
+);
+
+const AllAdminAccount = lazy(
+  () => import("./routes/admin-route/AllAdminAccount")
+);
+const DeactivateAccount = lazy(
+  () => import("./routes/admin-route/DeactivateAccount")
+);
+
+const ManageAllFeedback = lazy(
+  () => import("./routes/feedback-route/ManageAllFeedback")
+);
+const DeleteFeedback = lazy(
+  () => import("./routes/feedback-route/DeleteFeedback")
+);
+
+const ManageAllEmails = lazy(
+  () => import("./routes/emails-route/ManageAllEmails")
+);
+const DeleteEmail = lazy(() => import("./routes/emails-route/DeleteEmail"));
+
+const ManageResume = lazy(() => import("./routes/resume-route/ManageResume"));
+const UpdateResume = lazy(() => import("./routes/resume-route/UpdateResume"));
+const DeleteResume = lazy(() => import("./routes/resume-route/DeleteResume"));
+
+import LoadingSpinner from "./utils/non-functional/loading-spinner/LoadingSpinner";
 
 function App() {
   const publicRoutes = [
     {
-      path: "*",
-      element: <NotFoundRouter />,
-    },
-    {
       path: "/",
       element: <Index />,
-    },
-    {
-      path: "/sign-up",
-      element: <RegisterRouter />,
     },
     {
       path: "/sign-in",
       element: <LoginRouter />,
     },
     {
+      path: "*",
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <NotFoundRouter />
+        </Suspense>
+      ),
+    },
+
+    {
+      path: "/sign-up",
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <RegisterRouter />
+        </Suspense>
+      ),
+    },
+
+    {
       path: "/forgot-password",
-      element: <ForgotPasswordRouter />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ForgotPasswordRouter />{" "}
+        </Suspense>
+      ),
     },
     {
       path: "/reset-password/:id/:token",
-      element: <ResetPasswordRouter />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ResetPasswordRouter />
+        </Suspense>
+      ),
     },
   ];
   const privateRoutes = [
     // Project route
     {
       path: "/upload-project",
-      element: <UploadNewProject />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <UploadNewProject />
+        </Suspense>
+      ),
     },
     {
       path: "/update-project/:id",
-      element: <UpdateProject />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <UpdateProject />
+        </Suspense>
+      ),
     },
     {
       path: "/preview-project/:id",
-      element: <PreviewProject />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <PreviewProject />
+        </Suspense>
+      ),
     },
     {
       path: "/delete-project/:id",
-      element: <DeleteProject />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeleteProject />
+        </Suspense>
+      ),
     },
     {
       path: "/manage-projects",
-      element: <ManageProjects />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ManageProjects />
+        </Suspense>
+      ),
     },
 
     // Resume route
     {
       path: "/upload-resume",
-      element: <UploadResume />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <UploadResume />
+        </Suspense>
+      ),
     },
+
     {
       path: "/manage-resume",
-      element: <ManageResume />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ManageResume />
+        </Suspense>
+      ),
     },
     {
       path: "/update-resume/:id",
-      element: <UpdateResume />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <UpdateResume />
+        </Suspense>
+      ),
     },
     {
       path: "/delete-resume/:id",
-      element: <DeleteResume />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeleteResume />
+        </Suspense>
+      ),
     },
 
     // Blog article route
     {
       path: "/post-article",
-      element: <PostArticle />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <PostArticle />
+        </Suspense>
+      ),
     },
     {
       path: "/manage-articles",
-      element: <ManageArticle />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ManageArticle />
+        </Suspense>
+      ),
     },
     {
       path: "/preview-article/:id",
-      element: <PreviewArticle />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <PreviewArticle />
+        </Suspense>
+      ),
     },
     {
       path: "/edit-article/:id",
-      element: <UpdateArticle />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <UpdateArticle />
+        </Suspense>
+      ),
     },
     {
       path: "/remove-article/:id",
-      element: <DeleteArticle />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeleteArticle />
+        </Suspense>
+      ),
     },
 
     // Admin Route
     {
       path: "/change-password",
-      element: <ChangePassword />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ChangePassword />
+        </Suspense>
+      ),
     },
     {
       path: "/all-registerd-users",
-      element: <AllAdminAccount />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <AllAdminAccount />
+        </Suspense>
+      ),
     },
     {
       path: "/deactivate-account/:id",
-      element: <DeactivateAccount />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeactivateAccount />
+        </Suspense>
+      ),
     },
 
     // Feedbacks route
     {
       path: "/manage-feedbacks",
-      element: <ManageAllFeedback />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ManageAllFeedback />
+        </Suspense>
+      ),
     },
     {
       path: "/remove-feedback/:id",
-      element: <DeleteFeedback />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeleteFeedback />
+        </Suspense>
+      ),
     },
 
     // Email Route
     {
       path: "/manage-all-emails",
-      element: <ManageAllEmails />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <ManageAllEmails />
+        </Suspense>
+      ),
     },
     {
       path: "/compose-mail/:id",
-      element: <SendResponse />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <SendResponse />
+        </Suspense>
+      ),
     },
     {
       path: "/delete-mail/:id",
-      element: <DeleteEmail />,
+      element: (
+        <Suspense fallback={<LoadingSpinner />}>
+          <DeleteEmail />
+        </Suspense>
+      ),
     },
   ];
   return (

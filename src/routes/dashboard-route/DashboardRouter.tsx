@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import axios from "../../../axios/axios";
 import envConfig from "../../../config/envConfig";
 import LoadingSpinner from "../../utils/non-functional/loading-spinner/LoadingSpinner";
@@ -321,5 +321,4 @@ const DashboardRouter = () => {
     </main>
   );
 };
-
-export default DashboardRouter;
+export default memo(DashboardRouter);
