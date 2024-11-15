@@ -45,6 +45,8 @@ const DashboardRouter = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+
+        console.log("API Response:", response.data); // <-- Check the structure here
         setTotalData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -76,95 +78,98 @@ const DashboardRouter = () => {
           <div
             className={`${cardStyle.cards} grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3`}
           >
-            {totalData.map((item, index) => (
-              <div
-                className={`${cardStyle.card} border border-gray-50 shadow-xl`}
-                key={index}
-              >
-                <div className="flex justify-between items-center p-2">
-                  <div className="flex flex-col">
-                    <p className="text-lg font-bold text-gray-500">
-                      {
-                        [
-                          "Total User",
-                          "Total Article",
-                          "Contact Applications",
-                          "Total Projects",
-                          "Resume Status",
-                          "Total Feedbacks",
-                        ][index]
-                      }
-                    </p>
-                    {index === 4 && (
-                      <p className="font-semibold text-accent-color">
-                        {totalData?.[4]?.response.length === 1
-                          ? "Available"
-                          : "N/A"}
-                      </p>
-                    )}
-                    <div className="mt-4 text-sm inline-flex items-center text-start">
-                      <span className="text-green-700 font-bold text-center mr-2">
-                        {index === 2 || index === 5
-                          ? "Recent Entry"
-                          : "Last Update"}
-                      </span>
-                      {renderLastUpdate(index)}
-                    </div>
-
-                    <div className="flex-row mt-2">
-                      <Link
-                        to={`/${
+            {Array.isArray(totalData) &&
+              totalData.map((item, index) => (
+                <div
+                  className={`${cardStyle.card} border border-gray-50 shadow-xl`}
+                  key={index}
+                >
+                  <div className="flex justify-between items-center p-2">
+                    <div className="flex flex-col">
+                      <p className="text-lg font-bold text-gray-500">
+                        {
                           [
-                            "all-registerd-users",
-                            "manage-articles",
-                            "manage-all-emails",
-                            "manage-projects",
-                            "manage-resume",
-                            "manage-feedbacks",
+                            "Total User",
+                            "Total Article",
+                            "Contact Applications",
+                            "Total Projects",
+                            "Resume Status",
+                            "Total Feedbacks",
                           ][index]
-                        }`}
-                        className="border border-yellow-300 shadow-lg mt-2 font-semibold text-black rounded-md bg-yellow-300 cursor-pointer hover:bg-yellow-500 w-[80px] px-3 mr-4 py-auto text-sm"
-                      >
-                        Manage
-                      </Link>
-                      {(index === 1 || index === 3 || index === 4) && (
-                        <Link
-                          to={`/${
-                            ["post-article", "upload-project", "upload-resume"][
-                              index - 1
-                            ]
-                          }`}
-                          className="border border-green-300 bg-green-300 shadow-lg mt-2 font-semibold text-black rounded-md cursor-pointer hover:bg-green-500 px-3 w-[80px] item-center text-sm"
-                        >
-                          {index === 1 ? "Post" : "Upload"}
-                        </Link>
+                        }
+                      </p>
+                      {index === 4 && (
+                        <p className="font-semibold text-accent-color">
+                          {totalData?.[4]?.response.length === 1
+                            ? "Available"
+                            : "N/A"}
+                        </p>
                       )}
+                      <div className="mt-4 text-sm inline-flex items-center text-start">
+                        <span className="text-green-700 font-bold text-center mr-2">
+                          {index === 2 || index === 5
+                            ? "Recent Entry"
+                            : "Last Update"}
+                        </span>
+                        {renderLastUpdate(index)}
+                      </div>
+
+                      <div className="flex-row mt-2">
+                        <Link
+                          to={`/admin-console/${
+                            [
+                              "all-registerd-users",
+                              "manage-articles",
+                              "manage-all-emails",
+                              "manage-projects",
+                              "manage-resume",
+                              "manage-feedbacks",
+                            ][index]
+                          }`}
+                          className="border border-yellow-300 shadow-lg mt-2 font-semibold text-black rounded-md bg-yellow-300 cursor-pointer hover:bg-yellow-500 w-[80px] px-3 mr-4 py-auto text-sm"
+                        >
+                          Manage
+                        </Link>
+                        {(index === 1 || index === 3 || index === 4) && (
+                          <Link
+                            to={`/${
+                              [
+                                "post-article",
+                                "upload-project",
+                                "upload-resume",
+                              ][index - 1]
+                            }`}
+                            className="border border-green-300 bg-green-300 shadow-lg mt-2 font-semibold text-black rounded-md cursor-pointer hover:bg-green-500 px-3 w-[80px] item-center text-sm"
+                          >
+                            {index === 1 ? "Post" : "Upload"}
+                          </Link>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <div className="bg-primary-color p-2 md:p-1 xl:p-4 rounded-md">
-                    <p className="flex justify-center mb-2">
-                      {
-                        [
-                          <FaUsersBetweenLines />,
-                          <RiArticleFill />,
-                          <MdContactMail />,
-                          <FaFileCode />,
-                          <SiReaddotcv />,
-                          <MdReviews />,
-                        ][index]
-                      }
-                    </p>
-                    <h3 className="mt-1 text-2xl text-gray-700 font-bold flex item-center">
-                      <CustomKnob
-                        itemLength={item.response.length}
-                        maxItems={index === 4 ? 1 : 50}
-                        size={60}
-                      />
-                    </h3>
+                    <div className="bg-primary-color p-2 md:p-1 xl:p-4 rounded-md">
+                      <p className="flex justify-center mb-2">
+                        {
+                          [
+                            <FaUsersBetweenLines />,
+                            <RiArticleFill />,
+                            <MdContactMail />,
+                            <FaFileCode />,
+                            <SiReaddotcv />,
+                            <MdReviews />,
+                          ][index]
+                        }
+                      </p>
+                      <h3 className="mt-1 text-2xl text-gray-700 font-bold flex item-center">
+                        <CustomKnob
+                          itemLength={item.response.length}
+                          maxItems={index === 4 ? 1 : 50}
+                          size={60}
+                        />
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
