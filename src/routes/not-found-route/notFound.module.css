@@ -1,0 +1,50 @@
+.page404 {
+  padding: 40px 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+}
+
+.page404 img {
+  width: 100%;
+}
+
+.fourZerofourBg {
+  /* https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif */
+  background-image: url("../../assets/not_found_animation.gif");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  object-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+}
+
+.fourZerofourBg h1 {
+  font-size: 80px;
+}
+
+.fourZerofourBg h3 {
+  font-size: 80px;
+}
+
+.link404 {
+  color: #000 !important;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: #66b65d;
+  margin: 20px 0;
+  display: inline-block;
+  border-radius: 10px;
+}
+.link404:hover {
+  background: #599e51;
+}
+
+.contantBox404 {
+  margin-top: -50px;
+}
