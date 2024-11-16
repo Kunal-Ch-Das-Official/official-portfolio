@@ -1,90 +1,36 @@
-## Project owner: Kunal Chandra Das.
-## Developer: Kunal Chandra Das.
-## Project: Kunal Chandra Das official portfolio.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Getting Started
 
-## Branch:
-  1. Client: User interface,
-  2. Admin: Project admin portal
-  3. server: Backend apis
-
-## Description: 
-* This is a portfolio website for kunal chandra das. this site has lots of feature like:
-1. Download Resume,
-2. Upload Review,
-3. Connect through email,
-*  And lot more. it's a fullstack application. you can get access letest project and blog from here. etc,
-   visit the site and see it. and check if you find bugs don't forget to raise an issue on github.
-   thankyou very much.
-
-
-
-## API Reference:
-    1. Get Request: https://official-portfolio-99ro.vercel.app
-    2. Post Request: https://kunal-chandra-das-portfolio-backend-api.onrender.com
-
-## Deployment-preview: 
-* Visit:  www.kunalchandradas.tech
-
-## TOOLS AND TECHNOLOGY USED:
-
- 1. Deployment: Vercel
- 2. Server: Express
- 3. Database: Mongo.Db
- 4. Cloud-Storage: Cloudinary
- 5. File-downloader: Pdf-lib, file-saver
- 6. Animation-Lib: Aceternity-Ui, framer-motion, aos
- 7. Mockups: Codemirror, Js-beautify
- 8. Icons: React-icons
- 9. User-interface-lib: daisyUI, Aceternity-Ui,
- 10. User-interface: Tailwind,
- 11. User-interaction: Typescript
- 12. Api-Request: Axios, Fetch
- 13. Core-Lib: React.JS__18++
- 14. Frameworks: Next.JS__14++
-# visit package.json for dependencies
-
-
-
-## Run Locally:
-
-# Clone the project:
+First, run the development server:
 
 ```bash
-  git clone https://github.com/Kunal-Ch-Das-Official/official-portfolio.git
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-# Go to the project directory:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-  cd official-portfolio
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-# Install dependencies:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-  npm install
-  yarn install
-```
+## Learn More
 
-# Start development environment:
+To learn more about Next.js, take a look at the following resources:
 
-```bash
-  npm run dev
-  yarn dev
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-# Build for Production:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```bash
-  npm run build
-  yarn build
-```
+## Deploy on Vercel
 
-# Start prouction environment:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-  npm start
-  yarn start
-```
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
