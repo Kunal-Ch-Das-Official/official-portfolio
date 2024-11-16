@@ -1,18 +1,23 @@
 import type { Config } from "tailwindcss";
-
-export default {
+import daisyui from "daisyui";
+const config: Config = {
+  theme: {
+    extend: {
+      boxShadow: {
+        'custom-glow': '0 0 20px #ffa125, 0 0 40px #ffa125, 0 0 80px #ffa125',
+      },
+    },
+  },
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
+  plugins: [
+    daisyui,
+  ],
+  daisyui: {
+    themes: [],
   },
-  plugins: [],
-} satisfies Config;
+};
+export default config;

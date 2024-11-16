@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  --s: 22px; /* control the size*/
+  --c1: #000000;
+  --c2: #1c1c1c;
+  --c3: #000000;
+
+  --_g: var(--c1) 10%, var(--c2) 10.5% 19%, #0000 19.5% 80.5%,
+    var(--c2) 81% 89.5%, var(--c3) 90%;
+  --_c: from -90deg at 37.5% 50%, #0000 75%;
+  --_l1: linear-gradient(145deg, var(--_g));
+  --_l2: linear-gradient(35deg, var(--_g));
+  background: var(--_l1), var(--_l1) calc(var(--s) / 2) var(--s), var(--_l2),
+    var(--_l2) calc(var(--s) / 2) var(--s),
+    conic-gradient(var(--_c), var(--c1) 0) calc(var(--s) / 8) 0,
+    conic-gradient(var(--_c), var(--c3) 0) calc(var(--s) / 2) 0,
+    linear-gradient(
+      90deg,
+      var(--c3) 38%,
+      var(--c1) 0 50%,
+      var(--c3) 0 62%,
+      var(--c1) 0
+    );
+  background-size: var(--s) calc(2 * var(--s) / 3);
+
+  color: rgb(250, 235, 207);
+}
+
+.blurBackground {
+  background-color: rgba(0, 0, 0, 0.562);
+  backdrop-filter: blur(8px);
+}
+.blurBackgroundForm {
+  background-color: rgba(0, 0, 0, 0.562);
+  backdrop-filter: blur(28px);
+}
+.blurBackgroundItem {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(1.5px);
+}
+.bannerBackground {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(3px);
+}
+.technologyBg {
+  background-color: rgba(164, 164, 164, 0.5);
+  backdrop-filter: blur(4px);
+}
+#navBar {
+  z-index: 100001 !important;
+}
+.bgStyle {
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ffa125, 0 0 40px #ffa125, 0 0 80px #ffa125;
+}
+
+.greenBgBlob {
+  box-shadow: 0 5px 5px 5px rgba(13, 253, 49, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.whiteBgBlob {
+  box-shadow: 0 5px 5px 5px #fff;
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+.blueBgBlob {
+  box-shadow: 0 5px 5px 5px rgba(13, 253, 225, 0.783);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+.activeLink {
+  color: #ffa125;
+  border-bottom: 2px solid #ffa125;
+}
+
+/* Top Tooltip Style  */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* Bottom Tooltip Style  */
+
+.bottomTooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.bottomTooltip .bottomTooltipText {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(58, 51, 51);
+  color: #ffc20c;
+  font: 900;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.bottomTooltip:hover .bottomTooltipText {
+  visibility: visible;
+}
+
+.canvasStyle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 1024px) {
+  .canvasStyle {
+    height: 100%;
+  }
+}
+
+.new_footer_top {
+  padding: 120px 0px 270px;
+  position: relative;
+  overflow-x: hidden;
+}
+.new_footer_top .company_widget {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  color: #6a7695;
+  margin-bottom: 20px;
+}
+
+.new_footer_top .footer_bg {
+  position: absolute;
+  bottom: 0;
+  background: url(../../public/images/header-footer/Kolkata.png) no-repeat
+    scroll center 0;
+  width: 100%;
+  height: 110%;
+}
+.footer_bg {
+  background: #000;
+}
+
+.new_footer_top .footer_bg .footer_bg_one {
+  background: url(../../public/images/header-footer/taxi-unscreen.gif) no-repeat
+    center center;
+  width: 100px;
+  height: 50px;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  -webkit-animation: myfirst 22s linear infinite;
+  animation: myfirst 22s linear infinite;
+}
+
+.new_footer_top .footer_bg .footer_bg_two {
+  background: url(../../public/images/header-footer/cyclist.gif) no-repeat
+    center center;
+  width: 40px;
+  height: 50px;
+  background-size: 100%;
+  bottom: 0;
+  left: 38%;
+  position: absolute;
+  -webkit-animation: myfirst 30s linear infinite;
+  animation: myfirst 30s linear infinite;
+}
+
+@-moz-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes myfirst {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
