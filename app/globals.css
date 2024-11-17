@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: #130d03;
+}
+.blurBackground {
+  background-color: rgba(0, 0, 0, 0.562);
+  backdrop-filter: blur(8px);
+}
+
+/* Bottom tooltip style  start*/
+
+/* Bottom tooltip style end  */

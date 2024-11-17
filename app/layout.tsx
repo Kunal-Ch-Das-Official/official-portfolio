@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import FloatingNavbar from "@/components/multiple-use/header/FloatingNavbar";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        <FloatingNavbar />
         {children}
       </body>
     </html>
