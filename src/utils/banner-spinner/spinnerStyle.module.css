@@ -1,5 +1,6 @@
 .imageStyle {
   border-radius: 50%;
+  border: none;
   box-shadow: 0 0 5px #ffa125, 0 0 10px #ffa125, 0 0 20px #ffa125;
 }
 

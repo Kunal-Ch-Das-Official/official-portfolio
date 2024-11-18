@@ -13,8 +13,8 @@ import TypeWritter from "../typewriter/Typewriter";
 
 const BannerSpinner: React.FC = () => {
   const texts: string[] = [
-    "I'm Kunal Chandra Das",
     "Welcome To My Portfolio",
+    "I'm Kunal Chandra Das",
     "I'm a Mern Stack Developer",
     "I'm a Web Designer",
     "I'm A Tech Enthusiast",
@@ -24,7 +24,7 @@ const BannerSpinner: React.FC = () => {
     <>
       <div className="relative h-full w-full flex items-center justify-center">
         <div
-          className={`${bannerstyle.spinner} profileCard_container relative p-10 
+          className={`${bannerstyle.spinner} profileCard_container relative p-10
       rounded-full border-spacing-4`}
         >
           {/* Mongo db  */}
@@ -275,7 +275,8 @@ const BannerSpinner: React.FC = () => {
           cursor-pointer transition-all duration-500 absolute`}
         >
           <span
-            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-orange-500 text-white font-normal text-sm`}
+            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-orange-500
+               text-white font-normal text-sm`}
           >
             About Me
           </span>

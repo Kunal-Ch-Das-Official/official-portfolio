@@ -7,7 +7,6 @@
 
 .bottom_tooltip .bottom_tooltip_text {
   visibility: hidden;
-  width: 120px;
   background-color: #7e4700;
   color: #fff;
   text-align: center;
@@ -16,7 +15,6 @@
   position: absolute;
   z-index: 1;
   top: 150%;
-  left: 50%;
   margin-left: -60px;
 }
 
