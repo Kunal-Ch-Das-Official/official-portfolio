@@ -9,7 +9,10 @@ body {
   background-color: rgba(0, 0, 0, 0.562);
   backdrop-filter: blur(8px);
 }
-
+.blurBackgroundLight {
+  backdrop-filter: blur(1px);
+  opacity: 1;
+}
 /* Bottom tooltip style  start*/
 
 /* Bottom tooltip style end  */
