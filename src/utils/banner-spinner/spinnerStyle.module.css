@@ -1,0 +1,62 @@
+.imageStyle {
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ffa125, 0 0 10px #ffa125, 0 0 20px #ffa125;
+}
+
+.spinner {
+  animation: spin 80s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.reverse_spinner {
+  animation: reverse-spin 80s linear infinite;
+}
+@keyframes reverse-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.tooltip_top {
+  position: absolute;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip_top .tooltiptext_top {
+  visibility: hidden;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 289;
+  bottom: 100%;
+  margin-left: -60px;
+}
+
+.tooltip_top .tooltiptext_top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.tooltip_top:hover .tooltiptext_top {
+  visibility: visible;
+}
