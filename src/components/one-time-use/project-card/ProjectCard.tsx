@@ -3,11 +3,28 @@ import { BiSolidDetail } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 import { IoLogoGithub } from "react-icons/io";
+import CustomSlider from "../../../utils/custom-slider/CustomSlider";
 
 const ProjectCard: React.FC = () => {
   const cardRef = useRef<HTMLHtmlElement | null>(null);
   const [showHideDetails, setShowHideDetails] = useState<boolean>(false);
-
+  const images = [
+    {
+      id: 1,
+      src: "https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure-1024x576.webp",
+      alt: "Slide 1",
+    },
+    {
+      id: 2,
+      src: "https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure-1024x576.webp",
+      alt: "Slide 2",
+    },
+    {
+      id: 3,
+      src: "https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure-1024x576.webp",
+      alt: "Slide 3",
+    },
+  ];
   // handle menu open close function
   const handleDetailsShowHide = () => {
     setShowHideDetails((prev) => !prev);
@@ -68,12 +85,12 @@ const ProjectCard: React.FC = () => {
               ref={cardRef}
               onClick={() => setShowHideDetails(false)}
               className={`bg-slate-800 flex flex-col min-w-[150px] px-4 
-          rounded-md absolute top-14 right-0 cursor-pointer text-orange-100`}
+          rounded-xl shadow-xl absolute top-14 right-0 cursor-pointer text-orange-100 z-10`}
             >
               {/* Github repo  */}
               <p
                 className="border-t border-gray-700 inline-flex 
-            items-center gap-2 font-normal transform translate-1 hover:scale-110"
+            items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
                 <IoLogoGithub className="text-md" />
                 github repo
@@ -82,7 +99,7 @@ const ProjectCard: React.FC = () => {
               {/* Visit site  */}
               <p
                 className="border-t border-b border-gray-700 inline-flex 
-                items-center gap-2 font-normal transform translate-1 hover:scale-110"
+                items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
                 <FiExternalLink className="text-md " />
                 visit site
@@ -91,20 +108,17 @@ const ProjectCard: React.FC = () => {
               {/* See more  */}
               <p
                 className="border-b border-gray-700 inline-flex 
-            items-center gap-2 font-normal transform translate-1 hover:scale-110"
+            items-center gap-2  transform translate-1 hover:scale-110 py-1"
               >
                 <BiSolidDetail className="text-md " />
-                see more
+                about
               </p>
             </section>
           )}
         </div>
       </div>
-      <div className="min-h-[210px] min-w-[210px]">
-        <img
-          src="https://readymadeui.com/cardImg.webp"
-          className="w-full rounded-2xl"
-        />
+      <div className="min-h-[210px] min-w-[210px] rounded-2xl">
+        <CustomSlider images={images} />
       </div>
     </div>
   );
