@@ -14,7 +14,7 @@ const CommonHeading: React.FC<CommonHeadingProps> = ({
 }) => {
   return (
     <section className="text-center my-8">
-      <h2 className="text-xl font-semibold inline-flex items-center gap-2">
+      <h2 className="text-2xl font-semibold inline-flex items-center gap-2">
         <span id="less_dark" className="text-orange-500">
           {headingOne}
         </span>

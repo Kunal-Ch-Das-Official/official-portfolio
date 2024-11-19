@@ -181,8 +181,8 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           >
             <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hover:scale-110">
               {sidebarVisability === true ? (
-                <div className="bg-slate-700 w-10 h-10 flex justify-center items-center rounded-full mt-4">
-                  <CgClose className="text-white font-bold text-4xl hover:text-orange-300" />
+                <div className="bg-slate-700 w-10 h-10 flex justify-center items-center rounded-full mt-8 mr-8">
+                  <CgClose className="text-white font-bold text-4xl hover:text-orange-300 z-50" />
                 </div>
               ) : (
                 <TbMenuDeep className="text-white  font-bold text-2xl hover:text-orange-300" />

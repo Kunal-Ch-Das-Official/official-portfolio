@@ -37,7 +37,11 @@ const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
       >
         {images.map((image) => (
           <div className="carousel-item" key={image.id}>
-            <img src={image.src} alt={image.alt} className="carousel-image" />
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="carousel-image  flex items-center align-middle"
+            />
           </div>
         ))}
       </div>
