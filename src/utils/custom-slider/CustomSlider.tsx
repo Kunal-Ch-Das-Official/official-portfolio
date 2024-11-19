@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import sliderStyle from "./sliderStyle.module.css";
 type ImageCarouselProps = {
   images: { id: number; src: string; alt: string }[];
 };
@@ -30,38 +30,46 @@ const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
   }, [images.length]);
 
   return (
-    <div className="carousel">
+    <div className={sliderStyle.carousel}>
       <div
-        className="carousel-inner"
+        className={sliderStyle.carousel_inner}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image) => (
-          <div className="carousel-item" key={image.id}>
+          <div className={sliderStyle.carousel_item} key={image.id}>
             <img
               src={image.src}
               alt={image.alt}
-              className="carousel-image  flex items-center align-middle"
+              className={`${sliderStyle.carousel_image}  flex items-center align-middle`}
             />
           </div>
         ))}
       </div>
 
       {/* Left Arrow Button */}
-      <button className="carousel-arrow left-arrow" onClick={prevSlide}>
+      <button
+        className={`${sliderStyle.carousel_arrow} ${sliderStyle.left_arrow}`}
+        onClick={prevSlide}
+      >
         &#10094;
       </button>
 
       {/* Right Arrow Button */}
-      <button className="carousel-arrow right-arrow" onClick={nextSlide}>
+      <button
+        className={`${sliderStyle.carousel_arrow} ${sliderStyle.right_arrow}`}
+        onClick={nextSlide}
+      >
         &#10095;
       </button>
 
       {/* Indicators */}
-      <div className="carousel-indicators">
+      <div className={sliderStyle.carousel_indicators}>
         {images.map((_, index) => (
           <button
             key={index}
-            className={`indicator ${index === currentIndex ? "active" : ""}`}
+            className={`${sliderStyle.indicator} ${
+              index === currentIndex ? "active" : ""
+            }`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}

@@ -1,0 +1,81 @@
+/* Slider style  */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.carousel_inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Slide effect */
+  width: 100%;
+}
+
+.carousel_item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel_image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.carousel_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  align-content: center;
+  display: flex;
+  color: white;
+  font-size: 24px;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.left_arrow {
+  left: 10px;
+}
+
+.right_arrow {
+  right: 10px;
+}
+
+.carousel_indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #a06000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active,
+.indicator:hover {
+  background-color: #333;
+}
