@@ -42,7 +42,7 @@
   border-radius: 6px;
   padding: 5px 0;
   position: absolute;
-  z-index: 289;
+  z-index: 10001;
   bottom: 100%;
   margin-left: -60px;
 }

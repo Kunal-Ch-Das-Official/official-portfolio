@@ -1,24 +1,12 @@
 import LandingBanner from "../../components/one-time-use/landing-banner/LandingBanner";
+import ProjectCard from "../../components/one-time-use/project-card/ProjectCard";
 
 const Landing = () => {
   return (
     <>
       <LandingBanner />
       <div>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-        aperiam doloremque, praesentium vel soluta minima architecto nulla
-        fugiat, debitis aliquam eius incidunt eveniet ea fuga reiciendis
-        reprehenderit dolores pariatur sit. Lorem ipsum dolor sit, amet
-        consectetur adipisicing elit. Sapiente aperiam doloremque, praesentium
-        vel soluta minima architecto nulla fugiat, debitis aliquam eius incidunt
-        eveniet ea fuga reiciendis reprehenderit dolores pariatur sit. Lorem
-        ipsum dolor sit, amet consectetur adipisicing elit. Sapiente aperiam
-        doloremque, praesentium vel soluta minima architecto nulla fugiat,
-        debitis aliquam eius incidunt eveniet ea fuga reiciendis reprehenderit
-        dolores pariatur sit. Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Sapiente aperiam doloremque, praesentium vel soluta
-        minima architecto nulla fugiat, debitis aliquam eius incidunt eveniet ea
-        fuga reiciendis reprehenderit dolores pariatur sit.
+        <ProjectCard />
       </div>
     </>
   );

@@ -62,6 +62,7 @@ const Pageheader: React.FC = () => {
     };
   }, [isSidebarOpen, handleClickOutside]);
 
+  // Scroll down navbar show
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -88,7 +89,12 @@ const Pageheader: React.FC = () => {
           sidebarVisability={isSidebarOpen}
         />
       )}
-      {isMenuOpen === true && <Sidebar sidebarVisability={isSidebarOpen} />}
+      {isMenuOpen === true && (
+        <Sidebar
+          sidebarVisability={isSidebarOpen}
+          handleShowHide={setSidebarOpen}
+        />
+      )}
     </header>
   );
 };

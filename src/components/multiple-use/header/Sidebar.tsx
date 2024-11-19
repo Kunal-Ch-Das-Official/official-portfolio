@@ -16,9 +16,10 @@ import { FaGithub } from "react-icons/fa6";
 
 interface SidebarI {
   sidebarVisability: boolean;
+  handleShowHide: (arg: boolean) => void;
 }
 
-const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
+const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -52,7 +53,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
               space-y-[10px]"
             >
               {/* Sidebar menu*/}
-              <li id="home" className="flex justify-center">
+              <li
+                id="home"
+                className="flex justify-center"
+                onClick={() => handleShowHide(false)}
+              >
                 <Link
                   to={"/"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -63,7 +68,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                   Home
                 </Link>
               </li>
-              <li id="project" className="flex justify-center">
+              <li
+                id="project"
+                className="flex justify-center"
+                onClick={() => handleShowHide(false)}
+              >
                 <Link
                   to={"/"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -74,7 +83,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                   Projects
                 </Link>
               </li>
-              <li id="about" className="flex justify-center">
+              <li
+                id="about"
+                className="flex justify-center"
+                onClick={() => handleShowHide(false)}
+              >
                 <Link
                   to={"/"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -85,7 +98,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                   About
                 </Link>
               </li>
-              <li id="blog_article" className="flex justify-center">
+              <li
+                id="blog_article"
+                className="flex justify-center"
+                onClick={() => handleShowHide(false)}
+              >
                 <Link
                   to={"/"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -96,7 +113,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                   Articles
                 </Link>
               </li>
-              <li id="contact" className="flex justify-center">
+              <li
+                id="contact"
+                className="flex justify-center"
+                onClick={() => handleShowHide(false)}
+              >
                 <Link
                   to={"/"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -136,7 +157,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                   </summary>
                   {/* Routes path  */}
                   <ul className="mt-2 space-y-1">
-                    <li id="download_resume" className="flex justify-center">
+                    <li
+                      id="download_resume"
+                      className="flex justify-center"
+                      onClick={() => handleShowHide(false)}
+                    >
                       <Link
                         to={"/"}
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -148,7 +173,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                       </Link>
                     </li>
 
-                    <li id="write_blogs" className="flex justify-center">
+                    <li
+                      id="write_blogs"
+                      className="flex justify-center"
+                      onClick={() => handleShowHide(false)}
+                    >
                       <Link
                         to={"/"}
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -160,7 +189,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                       </Link>
                     </li>
 
-                    <li id="linkedin" className="flex justify-center">
+                    <li
+                      id="linkedin"
+                      className="flex justify-center"
+                      onClick={() => handleShowHide(false)}
+                    >
                       <Link
                         to={"/"}
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
@@ -172,7 +205,11 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability }) => {
                       </Link>
                     </li>
 
-                    <li id="github" className="flex justify-center">
+                    <li
+                      id="github"
+                      className="flex justify-center"
+                      onClick={() => handleShowHide(false)}
+                    >
                       <Link
                         to={"/"}
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium

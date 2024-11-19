@@ -22,9 +22,13 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
   return (
     <nav className="flex justify-center items-center">
       <div
-        className="fixed top-0 block mx-auto w-full md:max-w-full z-[10001]
+        className={`${
+          sidebarVisability === true
+            ? "bg-transparent"
+            : "blurBackground border shadow-md"
+        } fixed top-0 block mx-auto w-full md:max-w-full z-[10001] border-slate-800
         lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 py-2
-      blurBackground shadow-md rounded-md lg:px-8 lg:py-3 mt-0 md:mt-0 lg:mt-8"
+        rounded-md lg:px-8 lg:py-3 mt-0 md:mt-0 lg:mt-8`}
       >
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           {/* Heading  */}
@@ -104,8 +108,8 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               {" "}
               {/* Download resume  */}
               <li
-                className={`flex items-center p-1 text-sm gap-x-2 transform translate-1
-           hover:scale-110 tooltip_bottom_text ${navbarStyle.bottom_tooltip}  hover:bg-black hover:border border-slate-800 px-1.5 rounded-md`}
+                className={`flex items-center p-1 text-sm tooltip_bottom_text ${navbarStyle.bottom_tooltip} 
+             rounded-md`}
               >
                 <TbFileCv
                   className="text-2xl  text-white font-bold cursor-pointer
@@ -119,8 +123,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               </li>
               {/* Write article  */}
               <li
-                className={`flex items-center p-1 text-sm gap-x-2 transform 
-              translate-1 hover:scale-110 ${navbarStyle.bottom_tooltip}  hover:bg-black hover:border border-slate-800 px-1.5 rounded-md`}
+                className={`flex items-center p-1 text-sm  ${navbarStyle.bottom_tooltip} `}
               >
                 <VscFileSymlinkDirectory
                   className="text-2xl  text-white font-bold cursor-pointer
@@ -134,8 +137,8 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               </li>
               {/* Linkedin  */}
               <li
-                className={`flex items-center p-1 text-sm gap-x-2 transform translate-1 
-              hover:scale-110 tooltip_bottom_text ${navbarStyle.bottom_tooltip}  hover:bg-black hover:border border-slate-800 px-1.5 rounded-md`}
+                className={`flex items-center p-1 text-sm tooltip_bottom_text ${navbarStyle.bottom_tooltip} 
+              `}
               >
                 <IoLogoLinkedin
                   className="text-2xl  text-white font-bold cursor-pointer
@@ -149,13 +152,13 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               </li>
               {/* Github  */}
               <li
-                className={`flex items-center p-1 text-sm gap-x-2 transform translate-1
-               hover:scale-110 tooltip_bottom_text  hover:bg-black hover:border border-slate-800 px-1.5 rounded-md
+                className={`flex items-center p-1 text-sm 
+               tooltip_bottom_text 
                ${navbarStyle.bottom_tooltip}
                `}
               >
                 <FaGithub
-                  className="text-2xl  text-white font-bold cursor-pointer
+                  className="text-[1.4rem]  text-white font-bold cursor-pointer
                  hover:text-orange-300"
                 />
                 <span
@@ -178,7 +181,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           >
             <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hover:scale-110">
               {sidebarVisability === true ? (
-                <CgClose className="text-white mt-2 font-bold text-3xl hover:text-orange-300" />
+                <div className="bg-slate-700 w-10 h-10 flex justify-center items-center rounded-full mt-4">
+                  <CgClose className="text-white font-bold text-4xl hover:text-orange-300" />
+                </div>
               ) : (
                 <TbMenuDeep className="text-white  font-bold text-2xl hover:text-orange-300" />
               )}

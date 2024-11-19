@@ -1,6 +1,6 @@
 import React from "react";
-import LandingBannerBg from "../../../utils/banner-bg/LandingBannerBg";
-import BannerSpinner from "../../../utils/banner-spinner/BannerSpinner";
+import LandingBannerBg from "../banner-bg/LandingBannerBg";
+import BannerSpinner from "../banner-spinner/BannerSpinner";
 
 const LandingBanner: React.FC = () => {
   return (

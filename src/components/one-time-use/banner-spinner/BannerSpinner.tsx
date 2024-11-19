@@ -1,6 +1,6 @@
 import React from "react";
 import bannerstyle from "./spinnerStyle.module.css";
-import ownerImage from "../../assets/images/Banner-Image.jpg";
+import ownerImage from "../../../assets/images/Banner-Image.jpg";
 import { FaBootstrap, FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
@@ -24,8 +24,8 @@ const BannerSpinner: React.FC = () => {
     <>
       <div className="relative h-full w-full flex items-center justify-center">
         <div
-          className={`${bannerstyle.spinner} profileCard_container relative p-10
-      rounded-full border-spacing-4`}
+          className={`${bannerstyle.spinner} relative p-10
+      rounded-full border-spacing-4 `}
         >
           {/* Mongo db  */}
           <button
@@ -263,19 +263,16 @@ const BannerSpinner: React.FC = () => {
           </button>
 
           {/* Fake section  */}
-          <button
-            className="profile_item w-[200px] h-[200px] p-1 rounded-full
-          cursor-pointer transition-all duration-500 z-0"
-          ></button>
+          <button className="profile_item w-[200px] h-[200px]"></button>
         </div>
 
         {/* Main profile picture  */}
         <button
-          className={`${bannerstyle.tooltip_top} profile_item w-[200px] h-[200px] p-1 rounded-full
+          className={`${bannerstyle.tooltip_top} profile_picture w-[200px] h-[200px] p-1 rounded-full
           cursor-pointer transition-all duration-500 absolute`}
         >
           <span
-            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-orange-500
+            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-[#a34006d5]
                text-white font-normal text-sm`}
           >
             About Me
@@ -292,6 +289,7 @@ const BannerSpinner: React.FC = () => {
           </div>
         </button>
 
+        {/* Typewriter text  */}
         <h1
           className="text-lg md:text-xl pt-6 text-center absolute top-80
         justify-center lg:text-2xl mb-4 text-white "
