@@ -465,7 +465,7 @@ const BannerSpinner: React.FC = () => {
           cursor-pointer transition-all duration-500 absolute`}
         >
           <span
-            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-[#a34006f6]
+            className={`${bannerstyle.tooltiptext_top} w-[120px] left-[50%] bg-[#9d1112]
                text-white font-normal text-sm`}
           >
             About Me
@@ -488,7 +488,7 @@ const BannerSpinner: React.FC = () => {
         justify-center lg:text-2xl mb-4 text-white "
         >
           <p className="text-center">Hello,</p>
-          <p className="text-orange-500 ml-2 text-center">
+          <p className="text-orange-600 ml-2 text-center">
             <TypeWritter texts={texts} />
           </p>
         </h1>

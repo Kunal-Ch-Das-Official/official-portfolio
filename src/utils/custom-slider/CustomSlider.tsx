@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import sliderStyle from "./sliderStyle.module.css";
 type ImageCarouselProps = {
-  images: { id: number; src: string; alt: string }[];
+  images: {
+    id: number | undefined;
+    src: string | undefined;
+    alt: string | undefined;
+  }[];
 };
 
 const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
