@@ -2,6 +2,7 @@
   border-radius: 50%;
   border: none;
   box-shadow: 0 0 5px #ffa125, 0 0 10px #ffa125, 0 0 20px #ffa125;
+  z-index: -1;
 }
 
 .spinner {
@@ -33,31 +34,23 @@
 .tooltip_top {
   position: absolute;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 
 .tooltip_top .tooltiptext_top {
   visibility: hidden;
   text-align: center;
-  border-radius: 6px;
   padding: 5px 0;
   position: absolute;
   z-index: 10001;
-  bottom: 100%;
+  bottom: 1000%;
+  transition: 20ms;
   margin-left: -60px;
-}
-
-.tooltip_top .tooltiptext_top::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: white transparent transparent transparent;
+  border-radius: 20px;
+  z-index: 10001;
 }
 
 .tooltip_top:hover .tooltiptext_top {
   visibility: visible;
+  bottom: 100%;
+  z-index: 10001;
 }

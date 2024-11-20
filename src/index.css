@@ -12,9 +12,7 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-body {
-  background: #000000;
-}
+
 .blurBackground {
   background-color: rgba(0, 0, 0, 0.562);
   backdrop-filter: blur(3px);

@@ -50,9 +50,9 @@ const Landing = () => {
   }, []);
 
   return (
-    <main className="pb-12">
+    <main className="pb-12 bg-[#000]">
       <LandingBanner />
-      <div className="mt-24">
+      <div className="mt-28">
         <CommonHeading
           headingOne="All"
           headingTwo="Realworld"
