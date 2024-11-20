@@ -77,7 +77,8 @@ const Landing = () => {
       ) : (
         <section
           id="real_world_projects"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4
+           mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4"
         >
           {projectData &&
             projectData.map((item, index) => (

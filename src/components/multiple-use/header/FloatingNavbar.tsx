@@ -26,8 +26,8 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           sidebarVisability === true
             ? "bg-transparent"
             : "blurBackground border shadow-md"
-        } fixed top-0 block mx-auto w-full md:max-w-full z-[10001] border-slate-800
-        lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 py-2
+        } fixed top-0 block z-[10001] border-slate-800
+        mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 py-2
         rounded-md lg:px-8 lg:py-3 mt-0 md:mt-0 lg:mt-8`}
       >
         <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -136,7 +136,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 </span>
               </li>
               {/* Linkedin  */}
-              <li
+              <a
+                href="https://www.linkedin.com/in/kunal-chandra-das-470bab218"
+                target="_blank"
                 className={`flex items-center p-1 text-sm tooltip_bottom_text ${navbarStyle.bottom_tooltip} 
               `}
               >
@@ -149,10 +151,12 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 >
                   Linkedin
                 </span>
-              </li>
+              </a>
               {/* Github  */}
-              <li
-                className={`flex items-center p-1 text-sm 
+              <a
+                href={`https://github.com/Kunal-Ch-Das-Official`}
+                target="_blank"
+                className={`flex items-center p-1 text-sm  
                tooltip_bottom_text 
                ${navbarStyle.bottom_tooltip}
                `}
@@ -166,7 +170,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 >
                   Github
                 </span>
-              </li>
+              </a>
             </ul>
           </div>
 

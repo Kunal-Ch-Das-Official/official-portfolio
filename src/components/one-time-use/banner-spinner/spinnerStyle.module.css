@@ -42,8 +42,7 @@
   padding: 5px 0;
   position: absolute;
   z-index: 10001;
-  bottom: 1000%;
-  transition: 20ms;
+  bottom: 100%;
   margin-left: -60px;
   border-radius: 20px;
   z-index: 10001;
@@ -53,4 +52,6 @@
   visibility: visible;
   bottom: 100%;
   z-index: 10001;
+  transition-delay: 11s;
+  transition: ease-in-out;
 }

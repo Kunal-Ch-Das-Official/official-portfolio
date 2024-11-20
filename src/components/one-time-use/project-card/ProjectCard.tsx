@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className="bg-slate-900 min-w-300 min-h-300 max-w-[400px] max-h-[400px]
+      className="bg-slate-900 max-w-[600px]
      border border-gray-900 p-2 w-full rounded-2xl overflow-hidden mx-auto mt-4"
     >
       <div className="p-2 flex justify-between items-center gap-10">
@@ -102,6 +102,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {showHideDetails === true && (
             <section
               ref={cardRef}
+              data-aos="fade-down"
               onClick={() => setShowHideDetails(false)}
               className={`bg-slate-800 flex flex-col min-w-[150px] px-4 
           rounded-xl shadow-xl absolute top-14 right-0 cursor-pointer text-orange-100 z-10 py-1`}
@@ -122,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <a
                 href={`https://${previewUrl}`}
                 target="_blank"
-                title="Github repository"
+                title="Visit site"
                 className="border-t border-b border-gray-700 inline-flex 
                 items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
@@ -133,6 +134,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               {/* See more  */}
               <Link
                 to={aboutProjectUrl}
+                title="See about project"
                 className="border-b border-gray-700 inline-flex 
             items-center gap-2  transform translate-1 hover:scale-110 py-1"
               >
@@ -143,7 +145,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           )}
         </div>
       </div>
-      <div className="max-h-[285px] min-w-[300px] rounded-2xl overflow-hidden">
+      <div className="rounded-2xl overflow-hidden">
         <CustomSlider images={images} />
       </div>
     </div>
