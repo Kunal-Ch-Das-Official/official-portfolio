@@ -4,11 +4,11 @@ const ProjectCard = lazy(
   () => import("../../components/one-time-use/project-card/ProjectCard")
 );
 
-import CommonHeading from "../../utils/common-heading/CommonHeading";
 import axios from "../../../axios/axios";
 import envConfig from "../../../conf/envConfig";
 import CardSkeleton from "../../utils/skeleton/card-skeleton/CardSkeleton";
 import { Link } from "react-router-dom";
+import AnimatedHading from "../../utils/common-heading/AnimatedHading";
 
 interface IProjectResponse {
   _id: string;
@@ -53,15 +53,13 @@ const Landing = () => {
     <main className="pb-12 bg-[#000]">
       <LandingBanner />
       <div className="mt-28">
-        <CommonHeading
-          headingOne="Best"
-          headingTwo="Realworld"
-          headingThree="Projects"
+        <AnimatedHading
+          headingText="Best Realworld Projects"
           paragraph={null}
         />
       </div>
 
-      <p className="text-blue-600 text-center relative bottom-8 hover:underline cursor-pointer">
+      <p className="text-blue-600 text-center relative bottom-2 hover:underline cursor-pointer">
         <Link to={"/projects"}>See all</Link>
       </p>
 

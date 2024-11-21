@@ -94,7 +94,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         <div className="relative">
           <BsThreeDotsVertical
-            className="text-white text-2xl cursor-pointer hover:text-orange-500 transform translate-1 hover:scale-110"
+            className="text-white text-2xl cursor-pointer hover:text-orange-500 
+            transform translate-1 hover:scale-110"
             onClick={handleDetailsShowHide}
           />
 
@@ -104,15 +105,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               ref={cardRef}
               data-aos="fade-down"
               onClick={() => setShowHideDetails(false)}
-              className={`bg-slate-800 flex flex-col min-w-[150px] px-4 
-          rounded-xl shadow-xl absolute top-14 right-0 cursor-pointer text-orange-100 z-10 py-1`}
+              className={`bg-white flex flex-col min-w-[150px] px-4 
+          rounded-md shadow-xl absolute top-14 right-0 cursor-pointer text-gray-700 z-10 font-semibold`}
             >
               {/* Github repo  */}
               <a
                 href={`https://${githubUrl}`}
                 target="_blank"
                 title="Github repository"
-                className="border-t border-gray-700 inline-flex 
+                className="border-t border-gray-200 inline-flex 
             items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
                 <IoLogoGithub className="text-md" />
@@ -124,7 +125,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={`https://${previewUrl}`}
                 target="_blank"
                 title="Visit site"
-                className="border-t border-b border-gray-700 inline-flex 
+                className="border-t border-b border-gray-300 inline-flex 
                 items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
                 <FiExternalLink className="text-md " />
@@ -135,7 +136,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <Link
                 to={aboutProjectUrl}
                 title="See about project"
-                className="border-b border-gray-700 inline-flex 
+                className="border-b border-gray-100 inline-flex 
             items-center gap-2  transform translate-1 hover:scale-110 py-1"
               >
                 <BiSolidDetail className="text-md " />
