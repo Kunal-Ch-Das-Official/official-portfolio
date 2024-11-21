@@ -81,19 +81,21 @@ const Landing = () => {
            mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4"
         >
           {projectData &&
-            projectData.map((item, index) => (
-              <ProjectCard
-                key={index}
-                title={item.projectName}
-                owner={item.owner}
-                imageOneSrc={item.firstPageImageUrl}
-                imageTwoSrc={item.secondPageImageUrl}
-                imageThreeSrc={item.thirdPageImageUrl}
-                githubUrl={item.githubRepoUrl}
-                previewUrl={item.liveProjectUrl}
-                aboutProjectUrl={`/project/${item._id}`}
-              />
-            ))}
+            projectData
+              .slice(0, 3)
+              .map((item, index) => (
+                <ProjectCard
+                  key={index}
+                  title={item.projectName}
+                  owner={item.owner}
+                  imageOneSrc={item.firstPageImageUrl}
+                  imageTwoSrc={item.secondPageImageUrl}
+                  imageThreeSrc={item.thirdPageImageUrl}
+                  githubUrl={item.githubRepoUrl}
+                  previewUrl={item.liveProjectUrl}
+                  aboutProjectUrl={`/project/${item._id}`}
+                />
+              ))}
         </section>
       )}
     </main>

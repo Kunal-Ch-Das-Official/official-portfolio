@@ -7,7 +7,7 @@ const Pageheader: React.FC = () => {
   const sidebarRef = useRef<HTMLHtmlElement | null>(null);
   const [screenWidth, setScreenWidth] = useState<number>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isSticky, setIsSticky] = useState<boolean>(false);
+  const [isSticky, setIsSticky] = useState<boolean>(true);
   // Identify the screen width
   useEffect(() => {
     const handleResize = () => {
@@ -63,20 +63,20 @@ const Pageheader: React.FC = () => {
   }, [isSidebarOpen, handleClickOutside]);
 
   // Scroll down navbar show
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY) {
+  //       setIsSticky(true);
+  //     } else {
+  //       setIsSticky(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const handleSidebarOpenAndClose = () => {
     setSidebarOpen((prev) => !prev);

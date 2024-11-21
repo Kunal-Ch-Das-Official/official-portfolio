@@ -3,7 +3,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { BiCodeAlt } from "react-icons/bi";
-import { FaHome } from "react-icons/fa";
 import { GoProjectSymlink } from "react-icons/go";
 import { LuBadgeInfo } from "react-icons/lu";
 import { RiArticleFill } from "react-icons/ri";
@@ -34,8 +33,8 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
         >
           {/* Logo  */}
           <div className="pl-2 pt-3">
-            <a
-              href="#"
+            <Link
+              to={"/"}
               className="mr-4 inline-flex items-center z-[1001]
               cursor-pointer py-1.5 text-base text-white font-semibold"
             >
@@ -43,7 +42,7 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
               <span className="text-orange-500 ">Kunal</span>
               <span className="text-orange-400 mx-1">Chandra</span>
               <span className="text-orange-200">Das</span>
-            </a>
+            </Link>
           </div>
 
           <div className="py-3">
@@ -53,28 +52,14 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
               space-y-[10px]"
             >
               {/* Sidebar menu*/}
-              <li
-                id="home"
-                className="flex justify-center"
-                onClick={() => handleShowHide(false)}
-              >
-                <Link
-                  to={"/"}
-                  className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
-               text-white inline-flex items-center hover:border
-                border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
-                >
-                  <FaHome className="text-lg mr-2" />
-                  Home
-                </Link>
-              </li>
+
               <li
                 id="project"
                 className="flex justify-center"
                 onClick={() => handleShowHide(false)}
               >
                 <Link
-                  to={"/"}
+                  to={"/projects"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
@@ -89,7 +74,7 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
                 onClick={() => handleShowHide(false)}
               >
                 <Link
-                  to={"/"}
+                  to={"/about"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
@@ -104,7 +89,7 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
                 onClick={() => handleShowHide(false)}
               >
                 <Link
-                  to={"/"}
+                  to={"/tech-article"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
@@ -119,7 +104,7 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
                 onClick={() => handleShowHide(false)}
               >
                 <Link
-                  to={"/"}
+                  to={"/contact"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110

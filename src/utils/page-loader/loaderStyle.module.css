@@ -69,6 +69,6 @@
   filter: blur(12px);
 }
 .overlay {
-  background-color: rgba(0, 0, 0, 0.185);
+  background-color: rgba(241, 96, 0, 0.473);
   backdrop-filter: blur(20px);
 }

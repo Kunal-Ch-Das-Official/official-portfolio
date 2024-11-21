@@ -56,9 +56,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               >
                 <CgWebsite className="text-xl" />
 
-                <a href="#" className="flex items-center">
+                <Link to={"/projects"} className="flex items-center">
                   Projects
-                </a>
+                </Link>
               </li>
               {/* About Me  */}
               <li
@@ -67,9 +67,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               >
                 <BiSolidUserDetail className="text-2xl" />
 
-                <a href="#" className="flex items-center">
+                <Link to={"/about"} className="flex items-center">
                   About
-                </a>
+                </Link>
               </li>
 
               {/* Connect via contact form  */}
@@ -80,9 +80,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               >
                 <MdContactMail className="text-xl" />
 
-                <a href="#" className="flex items-center">
+                <Link to={"/contact"} className="flex items-center">
                   Contact
-                </a>
+                </Link>
               </li>
 
               {/* Article  */}
@@ -92,9 +92,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               >
                 <PiArticleNyTimesFill className="text-2xl" />
 
-                <a href="#" className="flex items-center">
+                <Link to={"tech-article"} className="flex items-center">
                   Blogs
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

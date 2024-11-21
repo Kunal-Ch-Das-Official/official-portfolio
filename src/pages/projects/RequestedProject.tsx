@@ -258,13 +258,13 @@ const RequestedProject: React.FC = () => {
   ];
 
   return (
-    <>
+    <main className="bg-orange-100">
       {pending === true ? (
         <PageLoader />
       ) : (
-        <main
-          className="flex justify-center items-center align-middle pt-28 pb-28 w-full
-    overflow-x-hidden"
+        <section
+          className="flex justify-center items-center align-middle pt-44 pb-28 
+    overflow-x-hidden mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl "
         >
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="rounded-2xl overflow-hidden">
@@ -273,7 +273,7 @@ const RequestedProject: React.FC = () => {
             {slideNumber === 1 ? (
               <div
                 className={`shadow-md rounded-xl p-4 max-h-[340px]
-           no-scrollbar overflow-y-scroll bg-white `}
+           no-scrollbar overflow-y-scroll bg-white`}
               >
                 <div className="gap-2 flex justify-between mb-8">
                   <h1 className="text-lg font-semibold text-gray-600 border-b border-gray-300 ">
@@ -296,7 +296,7 @@ const RequestedProject: React.FC = () => {
                 <div className="inline-flex items-center gap-2">
                   <img
                     src={reqProjectData?.projectLogoUrl}
-                    alt="xxx"
+                    alt={`${reqProjectData?.projectName} Logo`}
                     className="rounded-full ring-2 ring-gray-300 w-10 h-10"
                   />
                   <h1 className="text-lg font-semibold text-gray-600">
@@ -315,7 +315,7 @@ const RequestedProject: React.FC = () => {
                   <span className="text-sm font-medium mr-2 text-gray-600">
                     Type:
                   </span>
-                  <span className="text-gray-600">
+                  <span className="text-gray-600 capitalize">
                     {reqProjectData?.projectType}.
                   </span>
                 </h3>
@@ -372,9 +372,9 @@ const RequestedProject: React.FC = () => {
               </div>
             )}{" "}
           </section>
-        </main>
+        </section>
       )}
-    </>
+    </main>
   );
 };
 
