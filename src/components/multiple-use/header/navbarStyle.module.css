@@ -6,8 +6,8 @@
 
 .bottom_tooltip .bottom_tooltip_text {
   visibility: hidden;
-  background-color: #7e4700;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -25,7 +25,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #7e4700 transparent;
+  border-color: transparent transparent #fff transparent;
 }
 
 .bottom_tooltip:hover .bottom_tooltip_text {
