@@ -5,7 +5,8 @@ const CardSkeleton: React.FC = () => {
     <div>
       <div
         role="status"
-        className="min-w-300 min-h-300 max-w-[400px] max-h-[400px] p-4 border rounded-2xl shadow animate-pulse md:p-6 border-gray-700"
+        className="min-w-300 min-h-300 w-full max-w-[600px] max-h-[400px] p-4 border 
+        rounded-2xl shadow animate-pulse md:p-6 border-gray-700"
       >
         <div className="h-2.5 rounded-full bg-gray-700 w-48 mb-4"></div>
         <div className="h-2 rounded-full bg-gray-700 mb-2.5"></div>

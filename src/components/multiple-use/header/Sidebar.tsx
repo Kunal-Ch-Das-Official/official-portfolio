@@ -32,7 +32,7 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
           data-aos="fade-right"
         >
           {/* Logo  */}
-          <div className="pl-2 pt-3">
+          <div className="pl-2 pt-3" onClick={() => handleShowHide(false)}>
             <Link
               to={"/"}
               className="mr-4 inline-flex items-center z-[1001]

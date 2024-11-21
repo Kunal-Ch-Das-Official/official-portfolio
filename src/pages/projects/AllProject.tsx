@@ -36,7 +36,7 @@ const AllProject: React.FC = () => {
   }, []);
 
   return (
-    <main className="bg-orange-100">
+    <main className="bg-white">
       <div
         className="min-h-screen pt-28 mx-auto w-full md:max-w-full lg:max-w-5xl 
       xl:max-w-[78rem] 2xl:max-w-12xl flex justify-center"

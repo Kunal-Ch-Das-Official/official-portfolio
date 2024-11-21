@@ -258,7 +258,7 @@ const RequestedProject: React.FC = () => {
   ];
 
   return (
-    <main className="bg-orange-100">
+    <main className="bg-white">
       {pending === true ? (
         <PageLoader />
       ) : (
@@ -348,7 +348,9 @@ const RequestedProject: React.FC = () => {
                   <a
                     href={`https://${reqProjectData?.githubRepoUrl}`}
                     target="_blank"
-                    className="text-blue-700 hover:underline px-2 rounded-md inline-flex items-center gap-2 "
+                    className=" px-2 shadow-lg border border-gray-200 
+                    rounded-md inline-flex items-center gap-2 hover:bg-gray-50
+                    transform translate-1 hover:scale-110"
                   >
                     <GrGithub />
                     Github
@@ -356,7 +358,9 @@ const RequestedProject: React.FC = () => {
                   <a
                     href={`https://${reqProjectData?.liveProjectUrl}`}
                     target="_blank"
-                    className="text-blue-700 hover:underline px-2 rounded-md inline-flex items-center gap-2"
+                    className="px-2 shadow-lg border border-gray-200
+                    rounded-md inline-flex items-center gap-2 hover:bg-gray-50
+                      transform translate-1 hover:scale-110"
                   >
                     View Demo
                     <BiArrowToRight />

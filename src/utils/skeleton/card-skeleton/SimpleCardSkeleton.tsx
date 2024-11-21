@@ -5,7 +5,7 @@ const SimpleCardSkeleton: React.FC = () => {
     <div
       role="status"
       className="shadow-sm bg-gray-50 rounded 
-       animate-pulse p-1 min-w-[250px] max-w-[300px] max-h-[400px]"
+       animate-pulse min-w-[250px] max-w-[300px] max-h-[400px]"
     >
       <div className="flex items-center justify-center h-44 mb-4 bg-gray-300 rounded min-w-[240px]">
         <svg

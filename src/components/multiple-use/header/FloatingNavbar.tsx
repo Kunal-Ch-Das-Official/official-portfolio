@@ -35,13 +35,18 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           {!sidebarVisability && (
             <Link
               to={"/"}
-              className="mr-4 inline-flex items-center  cursor-pointer py-1.5 text-base
-             text-white font-semibold"
+              className={`mr-4 inline-flex items-center  cursor-pointer py-1.5 text-base
+             text-white font-semibold  ${navbarStyle.bottom_tooltip} `}
             >
               <BiCodeAlt className="text-3xl mr-2 text-orange-600" />
               <span className="text-orange-500 ">Kunal</span>
               <span className="text-orange-400 mx-1">Chandra</span>
               <span className="text-orange-200">Das</span>
+              <span
+                className={`${navbarStyle.bottom_tooltip_text} w-[100px] left-[50%]  text-xs`}
+              >
+                Home Page
+              </span>
             </Link>
           )}
 
@@ -49,53 +54,49 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           <div className="hidden lg:block">
             <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
               {/* Projects  */}
-              <li
+              <Link
+                to={"/projects"}
                 className="flex items-center p-1 text-sm gap-x-2 font-semibold
                text-white hover:text-orange-300 transform translate-1
                hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
               >
                 <CgWebsite className="text-xl" />
 
-                <Link to={"/projects"} className="flex items-center">
-                  Projects
-                </Link>
-              </li>
+                <span className="flex items-center">Projects</span>
+              </Link>
               {/* About Me  */}
-              <li
+              <Link
+                to={"/about"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
               >
                 <BiSolidUserDetail className="text-2xl" />
 
-                <Link to={"/about"} className="flex items-center">
-                  About
-                </Link>
-              </li>
+                <span className="flex items-center">About</span>
+              </Link>
 
               {/* Connect via contact form  */}
-              <li
+              <Link
+                to={"/contact"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110
                 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md "
               >
                 <MdContactMail className="text-xl" />
 
-                <Link to={"/contact"} className="flex items-center">
-                  Contact
-                </Link>
-              </li>
+                <span className="flex items-center">Contact</span>
+              </Link>
 
               {/* Article  */}
-              <li
+              <Link
+                to={"tech-article"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
               >
                 <PiArticleNyTimesFill className="text-2xl" />
 
-                <Link to={"tech-article"} className="flex items-center">
-                  Blogs
-                </Link>
-              </li>
+                <span className="flex items-center">Blogs</span>
+              </Link>
             </ul>
           </div>
 

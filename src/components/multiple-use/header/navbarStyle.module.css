@@ -1,8 +1,7 @@
 /* Bottom tooltip  */
 .bottom_tooltip {
   position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+  display: inline-flex;
 }
 
 .bottom_tooltip .bottom_tooltip_text {
