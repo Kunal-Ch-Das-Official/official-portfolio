@@ -12,7 +12,13 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
 .blurBackground {
   background-color: rgba(0, 0, 0, 0.562);
   backdrop-filter: blur(3px);
