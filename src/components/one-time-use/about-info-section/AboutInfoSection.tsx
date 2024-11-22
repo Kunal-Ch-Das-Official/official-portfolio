@@ -4,7 +4,7 @@ import { TracingBeam } from "../../../utils/aceternity-interfaces/tracing-beam-s
 
 const AboutMeInfo: React.FC = () => {
   return (
-    <div className="min-h-screen pt-12  bg-gray-50/50" id="about">
+    <div className="min-h-screen py-12 rounded-lg bg-gray-50/50" id="about">
       <div className="text-center mb-10"></div>
       <TracingBeam className="px-6">
         <div className="max-w-2xl mx-auto antialiased pt-4 relative">

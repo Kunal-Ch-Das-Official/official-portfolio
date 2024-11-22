@@ -8,6 +8,7 @@ import NotFound from "./pages/not-found/NotFound";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import BlogArticle from "./pages/blog-article/BlogArticle";
+import PreviewResume from "./pages/resume/PreviewResume";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,8 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           {/* Tech Blog Article Route  */}
           <Route path="/tech-article" element={<BlogArticle />} />
+          {/* Preview Resume  */}
+          <Route path="/kunal-chandra-das-resume" element={<PreviewResume />} />
         </Route>
       </Routes>
     </Router>

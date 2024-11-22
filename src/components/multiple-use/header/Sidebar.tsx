@@ -16,9 +16,16 @@ import { FaGithub } from "react-icons/fa6";
 interface SidebarI {
   sidebarVisability: boolean;
   handleShowHide: (arg: boolean) => void;
+  downloadStatus: boolean;
+  downloadResumeEventHandler: () => Promise<void>;
 }
 
-const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
+const Sidebar: React.FC<SidebarI> = ({
+  sidebarVisability,
+  handleShowHide,
+  downloadStatus,
+  downloadResumeEventHandler,
+}) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -144,18 +151,21 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
                   <ul className="mt-2 space-y-1">
                     <li
                       id="download_resume"
-                      className="flex justify-center"
-                      onClick={() => handleShowHide(false)}
+                      className="flex justify-center cursor-pointer"
+                      onClick={downloadResumeEventHandler}
                     >
-                      <Link
-                        to={"/"}
+                      <p
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                       >
-                        <SiReaddotcv className="text-lg mr-2" />
+                        {downloadStatus === true ? (
+                          <span className="loader_white mr-1"></span>
+                        ) : (
+                          <SiReaddotcv className="text-lg mr-2" />
+                        )}
                         Download CV
-                      </Link>
+                      </p>
                     </li>
 
                     <li
@@ -163,15 +173,16 @@ const Sidebar: React.FC<SidebarI> = ({ sidebarVisability, handleShowHide }) => {
                       className="flex justify-center"
                       onClick={() => handleShowHide(false)}
                     >
-                      <Link
-                        to={"/"}
+                      <a
+                        href="https://adminportal.kunalchandradas.tech"
+                        target="_blank"
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                       >
                         <TfiWrite className="text-lg mr-2" />
                         Write Article
-                      </Link>
+                      </a>
                     </li>
 
                     <li

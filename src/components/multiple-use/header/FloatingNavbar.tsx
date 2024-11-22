@@ -13,11 +13,15 @@ import { Link } from "react-router-dom";
 interface FloatingNavbarI {
   handleMenuOpenClick: () => void;
   sidebarVisability: boolean;
+  downloadResumeEventHandler: () => Promise<void>;
+  downloadStatus: boolean;
 }
 
 const FloatingNavbar: React.FC<FloatingNavbarI> = ({
   handleMenuOpenClick,
   sidebarVisability,
+  downloadResumeEventHandler,
+  downloadStatus,
 }) => {
   return (
     <nav className="flex justify-center items-center">
@@ -109,13 +113,19 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               {" "}
               {/* Download resume  */}
               <li
+                onClick={downloadResumeEventHandler}
                 className={`flex items-center p-1 text-sm tooltip_bottom_text ${navbarStyle.bottom_tooltip} 
              rounded-md`}
               >
-                <TbFileCv
-                  className="text-2xl  text-white font-bold cursor-pointer
+                {" "}
+                {downloadStatus === true ? (
+                  <span className="loader_white"></span>
+                ) : (
+                  <TbFileCv
+                    className="text-2xl  text-white font-bold cursor-pointer
              hover:text-orange-300"
-                />
+                  />
+                )}
                 <span
                   className={`${navbarStyle.bottom_tooltip_text} w-[120px] left-[50%] text-xs`}
                 >
@@ -123,7 +133,9 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 </span>
               </li>
               {/* Write article  */}
-              <li
+              <a
+                href="https://adminportal.kunalchandradas.tech"
+                target="_blank"
                 className={`flex items-center p-1 text-sm  ${navbarStyle.bottom_tooltip} `}
               >
                 <VscFileSymlinkDirectory
@@ -135,7 +147,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 >
                   Write article
                 </span>
-              </li>
+              </a>
               {/* Linkedin  */}
               <a
                 href="https://www.linkedin.com/in/kunal-chandra-das-470bab218"

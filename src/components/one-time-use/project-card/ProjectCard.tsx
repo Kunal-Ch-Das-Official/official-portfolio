@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className="bg-slate-900 max-w-[600px]
+      className="bg-slate-900 max-w-[600px] pb-12
      border border-gray-900 p-2 w-full rounded-2xl overflow-hidden mx-auto mt-4"
     >
       <div className="p-2 flex justify-between items-center gap-10">

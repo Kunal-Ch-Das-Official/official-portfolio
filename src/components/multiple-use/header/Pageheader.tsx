@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import FloatingNavbar from "./FloatingNavbar";
 import Sidebar from "./Sidebar";
+import handleDownload from "../../../download-resume-functions/downloadResume";
 
 const Pageheader: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -8,6 +9,8 @@ const Pageheader: React.FC = () => {
   const [screenWidth, setScreenWidth] = useState<number>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSticky, setIsSticky] = useState<boolean>(true);
+
+  const [downloadPending, setDownloadPending] = useState<boolean>(false);
   // Identify the screen width
   useEffect(() => {
     const handleResize = () => {
@@ -78,6 +81,13 @@ const Pageheader: React.FC = () => {
   //   };
   // }, []);
 
+  // Resume download function wrapper
+  const handleDownloadWrapper = async () => {
+    await handleDownload(setDownloadPending).catch((error) => {
+      console.error("Download error:", error);
+    });
+  };
+  console.log(downloadPending);
   const handleSidebarOpenAndClose = () => {
     setSidebarOpen((prev) => !prev);
   };
@@ -87,12 +97,16 @@ const Pageheader: React.FC = () => {
         <FloatingNavbar
           handleMenuOpenClick={handleSidebarOpenAndClose}
           sidebarVisability={isSidebarOpen}
+          downloadResumeEventHandler={handleDownloadWrapper}
+          downloadStatus={downloadPending}
         />
       )}
       {isMenuOpen === true && (
         <Sidebar
           sidebarVisability={isSidebarOpen}
           handleShowHide={setSidebarOpen}
+          downloadResumeEventHandler={handleDownloadWrapper}
+          downloadStatus={downloadPending}
         />
       )}
     </header>
