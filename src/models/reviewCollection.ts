@@ -23,7 +23,7 @@ import mongoose, { Schema, Document } from "mongoose";
 interface IReview extends Document {
   userName: string;
   organization: string;
-  gender: string;
+  reviewHeading: string;
   reviewContent: string;
   rating: [number];
   date: Date;
