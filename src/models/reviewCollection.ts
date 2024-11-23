@@ -23,7 +23,6 @@ import mongoose, { Schema, Document } from "mongoose";
 interface IReview extends Document {
   userName: string;
   organization: string;
-  reviewHeading: string;
   reviewContent: string;
   rating: [number];
   date: Date;
@@ -39,10 +38,6 @@ const reviewSchema = new mongoose.Schema({
     required: true,
   },
   organization: {
-    type: String,
-    required: true,
-  },
-  reviewHeading: {
     type: String,
     required: true,
   },

@@ -23,24 +23,16 @@ import reviewModel from "../../models/reviewCollection";
 
 class NewReviews {
   public async uploadCtrl(req: Request, res: Response): Promise<void> {
-    const { userName, organization, reviewHeading, reviewContent, rating } =
-      req.body;
+    const { userName, organization, reviewContent, rating } = req.body;
     let ratings: [number];
     try {
-      if (
-        userName &&
-        organization &&
-        reviewHeading &&
-        reviewContent &&
-        rating
-      ) {
+      if (userName && organization && reviewContent && rating) {
         if (!Array.isArray(rating)) {
           ratings = [rating];
         }
         const newReviews = new reviewModel({
           userName,
           organization,
-          reviewHeading,
           reviewContent,
           rating,
         });
