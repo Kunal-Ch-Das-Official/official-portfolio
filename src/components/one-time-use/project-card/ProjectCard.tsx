@@ -103,10 +103,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {showHideDetails === true && (
             <section
               ref={cardRef}
-              data-aos="fade-down"
               onClick={() => setShowHideDetails(false)}
               className={`bg-white flex flex-col min-w-[150px] px-4 
-          rounded-md shadow-xl absolute top-14 right-0 cursor-pointer text-gray-700 z-10 font-semibold`}
+          rounded-md shadow-xl absolute top-14 animate-slideRight right-0 cursor-pointer text-gray-700 z-10 font-semibold`}
             >
               {/* Github repo  */}
               <a

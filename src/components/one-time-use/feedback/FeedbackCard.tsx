@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 
 interface FeedbackCardProps {
   userName: string;
   organization: string;
-  reviewHeading: string;
   reviewContent: string;
   rating: [number];
   date: Date;
@@ -12,15 +11,29 @@ interface FeedbackCardProps {
 const FeedbackCard: React.FC<FeedbackCardProps> = ({
   userName,
   organization,
-  reviewHeading,
   reviewContent,
   rating,
   date,
 }) => {
+  const [reviewTitle, setReviewTitle] = useState<string>("");
+  useEffect(() => {
+    if (rating.length > 4 && rating.length < 6) {
+      setReviewTitle("Excellent experience!");
+    } else if (rating.length > 3 && rating.length < 5) {
+      setReviewTitle("Great experience!");
+    } else if (rating.length > 2 && rating.length < 4) {
+      setReviewTitle("Good experience!");
+    } else if (rating.length > 1 && rating.length < 3) {
+      setReviewTitle("Okay experience!");
+    } else {
+      setReviewTitle("Poor experience!");
+    }
+  }, [rating]);
+
   return (
     <div
       className="flex flex-col gap-2 max-w-lg min-h-[250px] w-full 
-     bg-white px-4 mt-8"
+     bg-white rounded-md mt-8 border border-orange-200 p-4"
     >
       <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row justify-between w-full">
@@ -41,7 +54,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
         </div>
       </div>
       <div className="flex flex-row justify-between w-full">
-        <h3 className="text-xl font-bold">{reviewHeading}!</h3>
+        <h3 className="text-xl font-bold">{reviewTitle}</h3>
         <div className="text-xs">
           <div className="flex flex-row">
             {rating &&

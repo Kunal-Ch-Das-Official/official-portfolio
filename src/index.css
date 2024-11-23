@@ -209,3 +209,7 @@
 #star5:checked ~ label > svg {
   fill: #ab68ff;
 }
+.overlay {
+  background-color: rgba(241, 96, 0, 0.473);
+  backdrop-filter: blur(20px);
+}

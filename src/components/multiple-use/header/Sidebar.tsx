@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import { Link } from "react-router-dom";
 import { BiCodeAlt } from "react-icons/bi";
 import { GoProjectSymlink } from "react-icons/go";
@@ -26,17 +24,13 @@ const Sidebar: React.FC<SidebarI> = ({
   downloadStatus,
   downloadResumeEventHandler,
 }) => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <>
       {sidebarVisability === true && (
         <nav
           className={`flex min-h-screen flex-1 flex-col overflow-y-scroll overflow-x-hidden
              z-[10001] shadow-2xl no-scrollbar
-       blurBackground w-[200px] fixed`}
-          data-aos="fade-right"
+       blurBackground w-[200px] fixed animate-slideLeft`}
         >
           {/* Logo  */}
           <div className="pl-2 pt-3" onClick={() => handleShowHide(false)}>

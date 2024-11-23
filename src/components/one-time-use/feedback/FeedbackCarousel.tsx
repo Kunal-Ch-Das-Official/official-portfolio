@@ -5,7 +5,6 @@ interface FeedbackCarouselProps {
   feedbacks: {
     userName: string;
     organization: string;
-    reviewHeading: string;
     reviewContent: string;
     rating: [number];
     date: Date;

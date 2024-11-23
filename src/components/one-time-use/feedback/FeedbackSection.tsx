@@ -41,7 +41,14 @@ const FeedbackSection: React.FC = () => {
         mainHeading="All My Client Feedbacks"
         subHeading={undefined}
       />
-      <FeedbackCarousel feedbacks={allFeedbacks} />
+      {allFeedbacks.length === 0 ? (
+        <p className="flex px-8 text-lg font-semibold text-orange-400 py-20">
+          Currently feedbacks are not available. please write a feedback if we
+          had work together{" "}
+        </p>
+      ) : (
+        <FeedbackCarousel feedbacks={allFeedbacks} />
+      )}
     </main>
   );
 };

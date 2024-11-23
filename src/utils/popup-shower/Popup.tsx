@@ -1,7 +1,5 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from "react";
 import { IoClose } from "react-icons/io5";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -59,7 +57,6 @@ const Popup: React.FC<PopupProps> = ({
 
   // When section is visable stop scrolling event listen
   useEffect(() => {
-    AOS.init();
     if (isVisible === true) {
       window.addEventListener("wheel", preventScroll, {
         passive: false,
@@ -78,10 +75,9 @@ const Popup: React.FC<PopupProps> = ({
   }, [isVisible]);
   return (
     <section
-      data-aos="zoom-in"
       className={` ${
         isVisible === true ? "visible" : "hidden"
-      } w-full h-full flex justify-center items-center z-50 fixed top-0 left-0`}
+      } w-full h-full flex justify-center items-center z-50 fixed top-0 left-0 animate-zoomIn`}
     >
       <div
         className={`min-w-sm max-w-md text-white bg-slate-900 p-6 shadow-xl rounded-xl

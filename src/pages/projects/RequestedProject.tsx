@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import CustomSlider from "../../utils/custom-slider/CustomSlider";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 // Technolgy logo
 import {
   FaHtml5,
@@ -93,8 +92,6 @@ const RequestedProject: React.FC = () => {
       }
     };
     fetchRequestedProject();
-
-    AOS.init();
   }, [params.id]);
 
   // Technology icons
