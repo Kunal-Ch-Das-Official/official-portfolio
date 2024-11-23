@@ -264,13 +264,14 @@ const RequestedProject: React.FC = () => {
     overflow-x-hidden mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl "
         >
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl overflow-hidden">
+            <div className="rounded-2xl overflow-hidden z-50">
               <CustomSlider images={images} />
             </div>
             {slideNumber === 1 ? (
+              // Second section
               <div
                 className={`shadow-md rounded-xl p-4 max-h-[340px]
-           no-scrollbar overflow-y-scroll bg-white`}
+           no-scrollbar overflow-y-scroll bg-white animate-slideRight`}
               >
                 <div className="gap-2 flex justify-between mb-8">
                   <h1 className="text-lg font-semibold text-gray-600 border-b border-gray-300 ">
@@ -289,7 +290,8 @@ const RequestedProject: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="w-full p-4 shadow-md rounded-xl bg-white">
+              // First section
+              <div className="w-full p-4 shadow-md rounded-xl bg-white animate-slideLeft">
                 <div className="inline-flex items-center gap-2">
                   <img
                     src={reqProjectData?.projectLogoUrl}
