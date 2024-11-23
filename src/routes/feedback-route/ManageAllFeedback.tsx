@@ -9,7 +9,6 @@ interface IAllFeedbackResponse {
   _id: string;
   userName: string;
   organization: string;
-  reviewHeading: string;
   reviewContent: string;
   rating: [number];
   date: Date;
@@ -173,11 +172,7 @@ const ManageFeedback: React.FC = () => {
                       About client
                     </p>
                   </th>
-                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                      Review Title
-                    </p>
-                  </th>
+
                   <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
                     <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
                       Review content
@@ -223,7 +218,6 @@ const ManageFeedback: React.FC = () => {
                           {filteredOutput?.map((output, index) => (
                             <ReviewTableRow
                               key={index}
-                              reviewHeading={output.reviewHeading}
                               userName={output.userName}
                               organization={output.organization}
                               reviewContent={output.reviewContent}
@@ -238,7 +232,6 @@ const ManageFeedback: React.FC = () => {
                           {currentPageData?.map((feedback, index) => (
                             <ReviewTableRow
                               key={index}
-                              reviewHeading={feedback.reviewHeading}
                               userName={feedback.userName}
                               organization={feedback.organization}
                               reviewContent={feedback.reviewContent}

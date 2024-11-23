@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 interface TableRowProps {
   userName: string;
   organization: string;
-  reviewHeading: string;
   reviewContent: string;
   rating: [number];
   date: Date;
@@ -14,7 +13,6 @@ interface TableRowProps {
 const ReviewTableRow: React.FC<TableRowProps> = ({
   userName,
   organization,
-  reviewHeading,
   reviewContent,
   rating,
   date,
@@ -40,12 +38,6 @@ const ReviewTableRow: React.FC<TableRowProps> = ({
           </div>
         </td>
 
-        {/* Review Heading  */}
-        <td className="p-4 border-b border-blue-gray-50 max-w-sm">
-          <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
-            <span>{reviewHeading}</span>
-          </p>
-        </td>
         {/* Review content  */}
         <td className="p-4 border-b border-blue-gray-50 max-w-sm">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
