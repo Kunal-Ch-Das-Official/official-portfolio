@@ -2,7 +2,10 @@ import React from "react";
 
 const FeedbackCard: React.FC = () => {
   return (
-    <div className="flex flex-col gap-2 max-w-xl min-h-[300px] w-full  bg-white  p-5 rounded-md mt-8 shadow-md hover:scale-105 hover:duration-150 duration-150">
+    <div
+      className="flex flex-col gap-2 max-w-xl min-h-[300px] w-full 
+     bg-white  p-5 rounded-md mt-8 shadow-md hover:scale-105 hover:duration-150 duration-150"
+    >
       <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row justify-between w-full">
           <p className="text-xs">John Doe</p>
