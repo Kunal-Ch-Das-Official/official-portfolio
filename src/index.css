@@ -75,3 +75,19 @@ body {
     background: red;
   }
 }
+/* Tracing beam style  */
+
+/* Define the keyframes for the tracing effect */
+@keyframes trace {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
