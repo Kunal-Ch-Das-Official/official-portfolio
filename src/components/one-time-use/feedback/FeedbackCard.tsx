@@ -32,7 +32,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
 
   return (
     <div
-      className="flex flex-col gap-2 max-w-lg min-h-[250px] w-full 
+      className="flex flex-col gap-2  min-h-[250px] w-full 
      bg-white rounded-md mt-8 border border-orange-200 p-4"
     >
       <div className="flex flex-row justify-between w-full">

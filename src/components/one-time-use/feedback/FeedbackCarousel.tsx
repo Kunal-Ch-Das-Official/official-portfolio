@@ -32,7 +32,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   }, [currentIndex]);
 
   return (
-    <div className="relative flex flex-col items-center w-full p-4">
+    <div className="relative flex flex-col items-center w-full ">
       <div className="w-full overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -46,27 +46,21 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
         </div>
       </div>
 
-      <div className="flex mt-4 space-x-2">
-        {feedbacks.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`h-2 w-2 rounded-full ${
-              index === currentIndex ? "bg-gray-800" : "bg-gray-400"
-            }`}
-          />
-        ))}
+      <div className="flex mt-4 space-x-2 font-semibold">
+        {currentIndex + 1}/{feedbacks.length}
       </div>
 
       <button
         onClick={prevCard}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md text-gray-700 hover:bg-gray-100"
+        className="absolute left-1/3 -bottom-4 transform -translate-y-1/2 p-2 rounded-full 
+        shadow-md text-gray-700 hover:bg-gray-100"
       >
         &#10094;
       </button>
       <button
         onClick={nextCard}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md text-gray-700 hover:bg-gray-100"
+        className="absolute right-1/3 -bottom-4 transform -translate-y-1/2  p-2 rounded-full 
+        shadow-md text-gray-700 hover:bg-gray-100"
       >
         &#10095;
       </button>

@@ -15,10 +15,10 @@ const Contact: React.FC = () => {
     xl:max-w-[79.5rem]
      2xl:max-w-12xl px-4"
     >
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 shadow-md rounded-md pb-10 ">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-10 rounded-md pb-10 ">
         <section>
           <FeedbackSection />
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-6 px-6 ">
             <SendButton
               buttonType="button"
               buttonText="Add Review"

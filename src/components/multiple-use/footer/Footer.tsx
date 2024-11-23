@@ -5,7 +5,7 @@ import { FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io";
 import { RiFolderDownloadFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
-import handleDownload from "../../../download-resume-functions/downloadResume";
+import handleResumeDownload from "../../../reuseable-functions/download-resume/downloadResume";
 
 const Footer: React.FC = () => {
   const { pathname } = useLocation();
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
           </p>
           <div className="w-full flex justify-center gap-4 pt-4 xl:pt-0">
             <button
-              onClick={() => handleDownload(setDownloading)}
+              onClick={() => handleResumeDownload(setDownloading)}
               className="text-black px-3 py-1 rounded-md inline-flex items-center bg-orange-400 
             transform hover:scale-110 gap-2"
             >

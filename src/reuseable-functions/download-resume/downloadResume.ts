@@ -1,10 +1,10 @@
 import { PDFDocument } from "pdf-lib";
 import { saveAs } from "file-saver";
 import React from "react";
-import envConfig from "../../conf/envConfig";
-import axios from "../../axios/axios";
+import axios from "../../../axios/axios";
+import envConfig from "../../../conf/envConfig";
 
-const handleDownload = async (
+const handleResumeDownload = async (
   downloadingState: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   try {
@@ -110,4 +110,4 @@ const handleDownload = async (
   }
 };
 
-export default handleDownload;
+export default handleResumeDownload;

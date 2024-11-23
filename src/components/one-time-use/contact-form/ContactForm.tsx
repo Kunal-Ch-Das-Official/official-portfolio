@@ -155,14 +155,17 @@ const ContactForm: React.FC = () => {
         className="bg-white p-10"
       >
         <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-10">
-          <div className="flex flex-wrap flex-1 shrink gap-5 items-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
+          <div
+            className="flex flex-wrap justify-center lg:justify-start flex-1 shrink gap-5 items-center self-stretch
+           my-auto basis-0 min-w-[240px] max-md:max-w-full"
+          >
             <div className="flex relative flex-col justify-center self-stretch bg-orange-100 h-[70px] min-h-[70px] rounded-[16px] overflow-hidden w-[70px]">
               <div className="w-[100px] h-[100px] aspect-auto">
                 <MdOutlineConnectWithoutContact className="text-7xl text-red-400" />
               </div>
             </div>
             <div className="flex flex-col self-stretch my-auto min-w-[240px]">
-              <div className="text-lg text-gray-800 font-semibold">
+              <div className="text-lg text-start max-[492px]:text-center text-gray-800 font-semibold">
                 Kunal Chandra Das.
               </div>
               <div className="text-sm text-gray-500">

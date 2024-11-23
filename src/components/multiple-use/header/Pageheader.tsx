@@ -1,8 +1,9 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import FloatingNavbar from "./FloatingNavbar";
 import Sidebar from "./Sidebar";
-import handleDownload from "../../../download-resume-functions/downloadResume";
+
 import { useLocation } from "react-router-dom";
+import handleResumeDownload from "../../../reuseable-functions/download-resume/downloadResume";
 
 const Pageheader: React.FC = () => {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -87,7 +88,7 @@ const Pageheader: React.FC = () => {
 
   // Resume download function wrapper
   const handleDownloadWrapper = async () => {
-    await handleDownload(setDownloadPending).catch((error) => {
+    await handleResumeDownload(setDownloadPending).catch((error) => {
       console.error("Download error:", error);
     });
   };
