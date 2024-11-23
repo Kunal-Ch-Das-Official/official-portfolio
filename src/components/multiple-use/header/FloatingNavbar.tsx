@@ -6,9 +6,9 @@ import { IoLogoLinkedin } from "react-icons/io";
 import { MdContactMail } from "react-icons/md";
 import { PiArticleNyTimesFill } from "react-icons/pi";
 import { TbFileCv, TbMenuDeep } from "react-icons/tb";
-import { VscFileSymlinkDirectory } from "react-icons/vsc";
 import navbarStyle from "./navbarStyle.module.css";
 import { Link } from "react-router-dom";
+import { RiPenNibFill } from "react-icons/ri";
 
 interface FloatingNavbarI {
   handleMenuOpenClick: () => void;
@@ -138,7 +138,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
                 target="_blank"
                 className={`flex items-center p-1 text-sm  ${navbarStyle.bottom_tooltip} `}
               >
-                <VscFileSymlinkDirectory
+                <RiPenNibFill
                   className="text-2xl  text-white font-bold cursor-pointer
                  hover:text-orange-300"
                 />
