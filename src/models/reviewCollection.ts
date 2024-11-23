@@ -26,7 +26,7 @@ interface IReview extends Document {
   gender: string;
   reviewContent: string;
   rating: [number];
-  date: any;
+  date: Date;
   status: boolean;
 }
 const arrayLimit = (val: any) => {
@@ -42,7 +42,7 @@ const reviewSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  gender: {
+  reviewHeading: {
     type: String,
     required: true,
   },
