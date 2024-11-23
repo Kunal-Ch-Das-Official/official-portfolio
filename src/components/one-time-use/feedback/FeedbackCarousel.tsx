@@ -28,12 +28,12 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextCard();
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 
   return (
-    <div className="relative flex flex-col items-center w-full shadow-lg p-4 rounded-md">
+    <div className="relative flex flex-col items-center w-full p-4">
       <div className="w-full overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"

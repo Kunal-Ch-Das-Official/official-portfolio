@@ -152,7 +152,7 @@ const ContactForm: React.FC = () => {
       <form
         onSubmit={handleOnSubmit}
         ref={contactFormRef}
-        className="bg-white p-10 rounded-lg shadow-lg"
+        className="bg-white p-10"
       >
         <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-10">
           <div className="flex flex-wrap flex-1 shrink gap-5 items-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
