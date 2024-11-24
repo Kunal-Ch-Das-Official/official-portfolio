@@ -213,3 +213,7 @@
   background-color: rgba(241, 96, 0, 0.473);
   backdrop-filter: blur(20px);
 }
+.extraBlurBackground {
+  background-color: rgba(0, 0, 0, 0.466);
+  backdrop-filter: blur(1px);
+}
