@@ -4,7 +4,7 @@ import Blog_banner from "../../assets/images/Blog_banner.jpg";
 import BlogDisplayer from "../../components/one-time-use/blog-component/BlogDisplayer";
 const BlogArticle: React.FC = () => {
   return (
-    <main>
+    <main className=" mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl py-2">
       <BlogBanner
         bannerBackgroundImg={Blog_banner}
         headingFirst={"Technical"}
