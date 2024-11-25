@@ -32,39 +32,44 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   }, [currentIndex]);
 
   return (
-    <div className="relative flex flex-col items-center w-full ">
-      <div className="w-full overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {feedbacks.map((feedback, index) => (
-            <div key={index} className="min-w-full flex justify-center">
-              <FeedbackCard {...feedback} />
-            </div>
-          ))}
+    <section
+      className="flex justify-center items-center max-w-fit 
+     mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4"
+    >
+      <div className="relative flex flex-col items-center w-full mx-6 lg:mx-0 lg:w-1/2 rounded-xl">
+        <div className="w-full overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {feedbacks.map((feedback, index) => (
+              <div key={index} className="min-w-full flex justify-center">
+                <FeedbackCard {...feedback} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="flex mt-4 space-x-2 font-semibold">
-        {currentIndex + 1}/{feedbacks.length}
-      </div>
+        <div className="flex mt-4 space-x-2 font-semibold text-white">
+          {currentIndex + 1}/{feedbacks.length}
+        </div>
 
-      <button
-        onClick={prevCard}
-        className="absolute left-1/3 -bottom-4 transform -translate-y-1/2 p-2 rounded-full 
-        shadow-md text-gray-700 hover:bg-gray-100"
-      >
-        &#10094;
-      </button>
-      <button
-        onClick={nextCard}
-        className="absolute right-1/3 -bottom-4 transform -translate-y-1/2  p-2 rounded-full 
-        shadow-md text-gray-700 hover:bg-gray-100"
-      >
-        &#10095;
-      </button>
-    </div>
+        <button
+          onClick={prevCard}
+          className="absolute left-0  lg:-left-8  top-1/2 transform -translate-y-1/2 p-2 rounded-full 
+        shadow-md text-white bg-slate-700 hover:bg-gray-800"
+        >
+          &#10094;
+        </button>
+        <button
+          onClick={nextCard}
+          className="absolute top-1/2 right-0 lg:-right-8 transform -translate-y-1/2  p-2 rounded-full 
+        shadow-md text-white bg-slate-700 hover:bg-gray-800"
+        >
+          &#10095;
+        </button>
+      </div>
+    </section>
   );
 };
 

@@ -142,26 +142,28 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
       )}
       <section
         className={`min-h-screen overlay fixed inset-0 px-4 flex-wrap justify-center items-center
-      w-full h-full z-[90999] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]
+      w-full h-full z-[90999] before:fixed before:inset-0 before:w-full before:h-full
+       before:bg-[rgba(0,0,0,0.5)]
        overflow-auto flex ${mountUnmountState === true ? "visible" : "hidden"}`}
       >
         <form
           ref={formRef}
           onSubmit={handleOnSubmit}
-          className="bg-white border absolute animate-zoomIn border-slate-200 rounded-xl p-4"
+          className="bg-slate-800 border absolute animate-zoomIn border-slate-950 rounded-xl p-4"
         >
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-semibold text-gray-600">
+            <h3 className="text-xl font-semibold text-gray-300">
               Send Feedback
             </h3>
             <MdOutlineClose
               onClick={() => mountUnmountHandler(false)}
-              className="text-2xl transform translate-1 
+              className="text-2xl transform translate-1 text-gray-400
         hover:scale-110 cursor-pointer hover:text-red-500"
             />
           </div>
           <div className="grid grid-cols-2 gap-6 my-4">
             <Input
+              inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
               inputContainerId="first_name_review_sec"
@@ -175,6 +177,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
               }
             />
             <Input
+              inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
               inputContainerId="last_name_review_sec"
@@ -190,6 +193,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
           <div>
             <Input
+              inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
               inputContainerId="organization_input_conatiner"
@@ -205,6 +209,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
           <div className="my-4">
             <TextArea
+              textareaColor="text-gray-400 border-gray-600 bg-slate-700"
               areaContainerId="review_content"
               areaId="review_content_input"
               placeholderText="Write feedback"
@@ -220,7 +225,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
                 <span
                   key={star}
                   className={`flex flex-row text-xl cursor-pointer ${
-                    star <= selectedStars ? "text-yellow-500" : "text-gray-400"
+                    star <= selectedStars ? "text-yellow-500" : "text-gray-500"
                   }`}
                   onClick={() => handleStarClick(star)}
                 >
@@ -230,9 +235,9 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
             </div>
             <button
               type="submit"
-              className="bg-slate-100 stroke-slate-600 border
-       border-slate-200 col-span-2 flex justify-center rounded-lg items-center
-        duration-300 hover:text-white hover:stroke-white hover:bg-orange-400"
+              className="bg-slate-500 stroke-slate-100 border
+       border-slate-700 col-span-2 flex justify-center rounded-lg items-center
+        duration-300 hover:text-white hover:stroke-white hover:bg-orange-600"
             >
               {isSending ? (
                 <p
@@ -267,7 +272,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
 
           {isRatingEmpty ? (
-            <p className="text-red-600 text-xs">Please fillup rating field</p>
+            <p className="text-red-500 text-xs">Please fillup rating field</p>
           ) : (
             ""
           )}

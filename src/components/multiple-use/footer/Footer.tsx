@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         <section
           className="md:max-w-full mx-auto w-full py-2 lg:max-w-5xl xl:max-w-[78rem] 
       rounded-md lg:py-3 md:mt-0 flex flex-col xl:flex-row  2xl:max-w-12xl
-      justify-center xl:justify-between items-center mt-20"
+      justify-center xl:justify-between items-center pt-20"
         >
           <div className="flex w-full gap-8 items-center justify-center">
             <a

@@ -9,6 +9,7 @@ interface InputProps {
   targetCatcher: Dispatch<SetStateAction<string | number>>;
   errorMessage: string | null;
   isNotValid: boolean;
+  inputColor: string;
 }
 const Input: React.FC<InputProps> = ({
   inputContainerId,
@@ -20,6 +21,7 @@ const Input: React.FC<InputProps> = ({
   isRequired,
   errorMessage,
   isNotValid,
+  inputColor,
 }) => {
   return (
     <div id={inputContainerId} className="relative">
@@ -27,8 +29,8 @@ const Input: React.FC<InputProps> = ({
         type={inputType}
         id={inputFieldsId}
         required={isRequired}
-        className={`block w-full text-sm h-[40px] px-4 text-slate-900 bg-white 
-            rounded-[8px] border border-orange-300 appearance-none focus:border-none
+        className={`block w-full text-sm h-[40px] px-4 ${inputColor}
+            rounded-[8px] border  appearance-none focus:border-none
             focus:outline focus:outline-2 focus:outline-orange-500 focus:ring-0
              hover:border-brand-500-secondary- peer invalid:border-error-500 
              invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]

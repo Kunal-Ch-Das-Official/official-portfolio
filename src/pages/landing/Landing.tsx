@@ -9,6 +9,8 @@ import envConfig from "../../../conf/envConfig";
 import CardSkeleton from "../../utils/skeleton/card-skeleton/CardSkeleton";
 import { Link } from "react-router-dom";
 import AnimatedHading from "../../utils/common-heading/AnimatedHading";
+import FeedbackSection from "../../components/one-time-use/feedback/FeedbackSection";
+import PostFeedbackForm from "../../components/one-time-use/feedback/PostFeedbackForm";
 
 interface IProjectResponse {
   _id: string;
@@ -30,7 +32,10 @@ interface IProjectResponse {
 const Landing = () => {
   const [projectData, setProjectData] = useState<[IProjectResponse]>();
   const [pending, setPending] = useState<boolean>(false);
-
+  const [mountSendFeedback, setMountSendFeedback] = useState<boolean>(false);
+  const handleAddReview = () => {
+    setMountSendFeedback(true);
+  };
   useEffect(() => {
     setPending(true);
     const fetchProjectData = async () => {
@@ -96,6 +101,24 @@ const Landing = () => {
               ))}
         </section>
       )}
+
+      <div className="mt-28">
+        <AnimatedHading
+          headingText="Client Feedbacks of mine"
+          paragraph={null}
+        />
+      </div>
+
+      <p className="text-blue-600 text-center relative bottom-2  cursor-pointer">
+        <button className="underline font-bold" onClick={handleAddReview}>
+          Add feedback
+        </button>
+      </p>
+      <FeedbackSection />
+      <PostFeedbackForm
+        mountUnmountState={mountSendFeedback}
+        mountUnmountHandler={setMountSendFeedback}
+      />
     </main>
   );
 };

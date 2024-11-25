@@ -32,8 +32,8 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
 
   return (
     <div
-      className="flex flex-col gap-2  min-h-[250px] w-full 
-     bg-white rounded-md mt-8 border border-orange-200 p-4"
+      className="flex flex-col gap-2 max-h-[300px] w-full shadow-xl
+     bg-slate-900 rounded-md mt-8 p-4"
     >
       <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row justify-between w-full">
@@ -45,16 +45,18 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
               {userName.slice(0, 1)}
             </p>
             <div className="flex flex-col pl-2">
-              <p className="text-md">{userName}</p>
-              <p>{organization}</p>
+              <p className="text-md text-orange-300">{userName}</p>
+              <p className="text-white">{organization}</p>
             </div>
           </div>
 
-          <p className="text-sm pt-1">{new Date(date).toLocaleDateString()}</p>
+          <p className="text-sm pt-1 text-white">
+            {new Date(date).toLocaleDateString()}
+          </p>
         </div>
       </div>
       <div className="flex flex-row justify-between w-full">
-        <h3 className="text-xl font-bold">{reviewTitle}</h3>
+        <h3 className="text-xl font-bold text-gray-200">{reviewTitle}</h3>
         <div className="text-xs">
           <div className="flex flex-row">
             {rating &&
@@ -64,7 +66,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
           </div>
         </div>
       </div>
-      <div className="text-sm overflow-y-scroll no-scrollbar">
+      <div className="text-sm overflow-y-scroll no-scrollbar text-gray-400">
         {reviewContent}
       </div>
     </div>

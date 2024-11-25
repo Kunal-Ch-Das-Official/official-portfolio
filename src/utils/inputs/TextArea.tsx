@@ -7,6 +7,7 @@ interface TextAreaProps {
   labelText: string;
   isRequired: boolean;
   valueCatcher: Dispatch<SetStateAction<string>>;
+  textareaColor: string;
 }
 const TextArea: React.FC<TextAreaProps> = ({
   areaContainerId,
@@ -15,16 +16,17 @@ const TextArea: React.FC<TextAreaProps> = ({
   labelText,
   valueCatcher,
   isRequired,
+  textareaColor,
 }) => {
   return (
     <div id={areaContainerId} className="relative">
       <textarea
         id={areaId}
-        className="block w-full text-sm h-[150px] px-4 text-slate-900 pt-4
-       bg-white rounded-[8px] border border-orange-300 appearance-none 
+        className={`block w-full text-sm h-[150px] px-4  pt-4 ${textareaColor}
+       rounded-[8px] border appearance-none 
        focus:border-transparent focus:outline focus:outline-2 focus:outline-orange-500
         focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500
-         invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]"
+         invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]`}
         placeholder={placeholderText}
         required={isRequired}
         onChange={(event) => valueCatcher(event.target.value)}

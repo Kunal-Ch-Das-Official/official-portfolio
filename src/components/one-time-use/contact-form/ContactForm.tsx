@@ -142,7 +142,7 @@ const ContactForm: React.FC = () => {
     setModalOpen(false);
   };
   return (
-    <section>
+    <>
       {sending && <PageLoader />}
       <MobileModal
         submitStatus={submitStatus}
@@ -152,7 +152,7 @@ const ContactForm: React.FC = () => {
       <form
         onSubmit={handleOnSubmit}
         ref={contactFormRef}
-        className="bg-white p-10"
+        className="bg-white p-2 lg:p-10 xl:p-16"
       >
         <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-10">
           <div
@@ -174,9 +174,10 @@ const ContactForm: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* firstName_input  */}
           <Input
+            inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage={null}
             isNotValid={false}
             inputContainerId="firstNameInputContainer"
@@ -191,6 +192,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Last name  */}
           <Input
+            inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage={null}
             isNotValid={false}
             inputContainerId="lastNameInputContainer"
@@ -205,6 +207,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Email Adress  */}
           <Input
+            inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage="Email address is not valid"
             isNotValid={emailNotValid}
             inputContainerId="emailIdInputContainer"
@@ -220,6 +223,7 @@ const ContactForm: React.FC = () => {
 
           {/* Contact Number */}
           <Input
+            inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage="Mobile number is not valid"
             isNotValid={numberNotValid}
             inputContainerId="phoneNoInputContainer"
@@ -236,6 +240,7 @@ const ContactForm: React.FC = () => {
 
         {/* Important message  */}
         <TextArea
+          textareaColor="text-gray-700 border-orange-200 bg-white"
           areaContainerId="important_message_container"
           areaId="important_message_input"
           placeholderText="Important Message"
@@ -259,7 +264,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
       </form>
-    </section>
+    </>
   );
 };
 
