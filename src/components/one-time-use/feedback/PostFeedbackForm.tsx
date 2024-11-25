@@ -183,8 +183,8 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
               inputContainerId="last_name_review_sec"
               inputFieldsId="last_name_input"
               inputType="text"
-              labelText="First Name"
-              placeholderText="First Name"
+              labelText="Last Name"
+              placeholderText="Last Name"
               isRequired={true}
               targetCatcher={
                 setLastName as Dispatch<SetStateAction<string | number>>

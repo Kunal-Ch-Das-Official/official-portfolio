@@ -33,7 +33,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
   return (
     <div
       className="flex flex-col gap-2 max-h-[300px] w-full shadow-xl
-     bg-slate-900 rounded-md mt-8 p-4"
+     bg-slate-900 rounded-md mt-8 p-8"
     >
       <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row justify-between w-full">
@@ -66,7 +66,7 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
           </div>
         </div>
       </div>
-      <div className="text-sm overflow-y-scroll no-scrollbar text-gray-400">
+      <div className="text-sm overflow-y-scroll no-scrollbar text-gray-400 border-t pt-2 border-gray-700">
         {reviewContent}
       </div>
     </div>

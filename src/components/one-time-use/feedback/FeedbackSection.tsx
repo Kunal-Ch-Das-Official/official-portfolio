@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../../../../axios/axios";
 import envConfig from "../../../../conf/envConfig";
 import FeedbackCarousel from "./FeedbackCarousel";
-import PageLoader from "../../../utils/page-loader/PageLoader";
+import ReviewSkeleton from "../../../utils/skeleton/review-skeleton/ReviewSkeleton";
 
 interface FeedbackDataI {
   userName: string;
@@ -34,8 +34,8 @@ const FeedbackSection: React.FC = () => {
     fetchFeedbackData();
   }, []);
   return (
-    <main>
-      {pending && <PageLoader />}
+    <main id="feedback_and_reviews">
+      {pending && <ReviewSkeleton />}
 
       {allFeedbacks.length === 0 ? (
         <p className="flex px-8 text-lg font-semibold text-orange-400 py-20">

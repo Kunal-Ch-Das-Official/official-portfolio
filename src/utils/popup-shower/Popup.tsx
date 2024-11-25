@@ -1,7 +1,5 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from "react";
 import { IoClose } from "react-icons/io5";
-import { FaLongArrowAltRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 interface PopupProps {
   title: string;
@@ -96,25 +94,6 @@ const Popup: React.FC<PopupProps> = ({
           />
         </div>
         <p className="pt-2">{description}</p>
-
-        <div
-          className={`${popupKey === "about" ? "flex " : "hidden"} gap-4 pt-4`}
-        >
-          <Link
-            to={"/"}
-            className="text-white border border-gray-500 px-3 py-1 rounded-lg
-           hover:bg-orange-950 inline-flex items-center gap-2 blurBackground"
-          >
-            Download Resume
-            <FaLongArrowAltRight />
-          </Link>
-          <Link
-            to={"/"}
-            className="text-white border hover:bg-orange-950 border-gray-500 px-3 py-1 rounded-lg blurBackground"
-          >
-            Learn more...
-          </Link>
-        </div>
       </div>
     </section>
   );

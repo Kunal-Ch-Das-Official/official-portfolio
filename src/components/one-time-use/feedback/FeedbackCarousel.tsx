@@ -33,7 +33,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
 
   return (
     <section
-      className="flex justify-center items-center max-w-fit 
+      className="flex justify-center items-center
      mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4"
     >
       <div className="relative flex flex-col items-center w-full mx-6 lg:mx-0 lg:w-1/2 rounded-xl">

@@ -115,8 +115,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="border-t border-gray-200 inline-flex 
             items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
-                <IoLogoGithub className="text-md" />
-                github repo
+                <IoLogoGithub className="text-lg" />
+                Github Repo
               </a>
 
               {/* Visit site  */}
@@ -127,8 +127,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="border-t border-b border-gray-300 inline-flex 
                 items-center gap-2 transform translate-1 hover:scale-110 py-1"
               >
-                <FiExternalLink className="text-md " />
-                visit site
+                <FiExternalLink className="text-lg" />
+                Visit Url
               </a>
 
               {/* See more  */}
@@ -138,8 +138,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="border-b border-gray-100 inline-flex 
             items-center gap-2  transform translate-1 hover:scale-110 py-1"
               >
-                <BiSolidDetail className="text-md " />
-                about
+                <BiSolidDetail className="text-lg" />
+                About
               </Link>
             </section>
           )}
