@@ -152,7 +152,7 @@ const BlogDisplayer: React.FC = () => {
                         posedIn={output.createdAt}
                         title={output.blogTitle}
                         briefDescription={output.statement}
-                        readArticleLink={"/"}
+                        readArticleLink={`/tech-article/${output._id}`}
                       />
                     ))}
                 </>
@@ -167,7 +167,7 @@ const BlogDisplayer: React.FC = () => {
                         posedIn={article.createdAt}
                         title={article.blogTitle}
                         briefDescription={article.statement}
-                        readArticleLink={"/"}
+                        readArticleLink={`/tech-article/${article._id}`}
                       />
                     ))}
                 </>

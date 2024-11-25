@@ -9,6 +9,7 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import BlogArticle from "./pages/blog-article/BlogArticle";
 import PreviewResume from "./pages/resume/PreviewResume";
+import RequestedBlog from "./pages/blog-article/RequestedBlog";
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           {/* Tech Blog Article Route  */}
           <Route path="/tech-article" element={<BlogArticle />} />
+          <Route path="/tech-article/:id" element={<RequestedBlog />} />
           {/* Preview Resume  */}
           <Route path="/kunal-chandra-das-resume" element={<PreviewResume />} />
         </Route>
