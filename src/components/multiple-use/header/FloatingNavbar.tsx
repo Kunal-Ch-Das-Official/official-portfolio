@@ -9,12 +9,15 @@ import { TbFileCv, TbMenuDeep } from "react-icons/tb";
 import navbarStyle from "./navbarStyle.module.css";
 import { Link } from "react-router-dom";
 import { RiPenNibFill } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
+import { AiOutlineFileDone } from "react-icons/ai";
 
 interface FloatingNavbarI {
   handleMenuOpenClick: () => void;
   sidebarVisability: boolean;
   downloadResumeEventHandler: () => Promise<void>;
   downloadStatus: boolean;
+  isDownloaded: string;
 }
 
 const FloatingNavbar: React.FC<FloatingNavbarI> = ({
@@ -22,6 +25,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
   sidebarVisability,
   downloadResumeEventHandler,
   downloadStatus,
+  isDownloaded,
 }) => {
   return (
     <nav className="flex justify-center items-center">
@@ -118,18 +122,26 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
              rounded-md`}
               >
                 {" "}
-                {downloadStatus === true ? (
+                {isDownloaded === "failed" ? (
+                  <IoClose className="text-2xl text-red-500 font-bold cursor-pointer hover:text-orange-300" />
+                ) : isDownloaded === "pass" ? (
+                  <AiOutlineFileDone
+                    className="text-2xl font-bold text-green-500 cursor-pointer
+                   "
+                  />
+                ) : downloadStatus === true ? (
                   <span className="loader_white"></span>
                 ) : (
-                  <TbFileCv
-                    className="text-2xl  text-white font-bold cursor-pointer
-             hover:text-orange-300"
-                  />
+                  <TbFileCv className="text-2xl  text-white font-bold cursor-pointer hover:text-orange-300" />
                 )}
                 <span
                   className={`${navbarStyle.bottom_tooltip_text} w-[120px] left-[50%] text-xs`}
                 >
-                  Download resume
+                  {isDownloaded === "failed"
+                    ? "Download fail"
+                    : isDownloaded === "pass"
+                    ? "Successfull"
+                    : "Download Resume"}
                 </span>
               </li>
               {/* Write article  */}

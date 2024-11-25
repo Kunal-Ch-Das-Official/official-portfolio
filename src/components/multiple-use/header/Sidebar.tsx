@@ -10,12 +10,15 @@ import { TbListDetails } from "react-icons/tb";
 import { TfiWrite } from "react-icons/tfi";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaGithub } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import { AiOutlineFileDone } from "react-icons/ai";
 
 interface SidebarI {
   sidebarVisability: boolean;
   handleShowHide: (arg: boolean) => void;
   downloadStatus: boolean;
   downloadResumeEventHandler: () => Promise<void>;
+  isDownloaded: string;
 }
 
 const Sidebar: React.FC<SidebarI> = ({
@@ -23,6 +26,7 @@ const Sidebar: React.FC<SidebarI> = ({
   handleShowHide,
   downloadStatus,
   downloadResumeEventHandler,
+  isDownloaded,
 }) => {
   return (
     <>
@@ -153,12 +157,23 @@ const Sidebar: React.FC<SidebarI> = ({
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                       >
-                        {downloadStatus === true ? (
-                          <span className="loader_white mr-1"></span>
+                        {isDownloaded === "failed" ? (
+                          <IoClose className="text-lg mr-2 text-red-500 font-bold cursor-pointer hover:text-orange-300" />
+                        ) : isDownloaded === "pass" ? (
+                          <AiOutlineFileDone
+                            className="text-lg mr-2 font-bold text-green-500 cursor-pointer
+                   "
+                          />
+                        ) : downloadStatus === true ? (
+                          <span className="loader_white mr-2"></span>
                         ) : (
-                          <SiReaddotcv className="text-lg mr-2" />
+                          <SiReaddotcv className="text-lg mr-2 text-white font-bold cursor-pointer hover:text-orange-300" />
                         )}
-                        Download CV
+                        {isDownloaded === "failed"
+                          ? "Failed"
+                          : isDownloaded === "pass"
+                          ? "Successful"
+                          : "Download CV"}
                       </p>
                     </li>
 

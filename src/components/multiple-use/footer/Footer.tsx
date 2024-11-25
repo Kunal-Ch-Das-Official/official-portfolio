@@ -3,14 +3,17 @@ import { BiLogoGmail } from "react-icons/bi";
 import { BsFileTextFill, BsWhatsapp } from "react-icons/bs";
 import { FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io";
-import { RiFolderDownloadFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import handleResumeDownload from "../../../reuseable-functions/download-resume/downloadResume";
+import { HiDownload } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
+import { MdOutlineDone } from "react-icons/md";
 
 const Footer: React.FC = () => {
   const { pathname } = useLocation();
   const [homeRoute, setHomeRoute] = useState<boolean>(false);
   const [downloading, setDownloading] = useState<boolean>(false);
+  const [isDownloaded, setIsDownloaded] = useState<string>("");
 
   useEffect(() => {
     setHomeRoute(pathname === "/");
@@ -28,6 +31,7 @@ const Footer: React.FC = () => {
       rounded-md lg:py-3 md:mt-0 flex flex-col xl:flex-row  2xl:max-w-12xl
       justify-center xl:justify-between items-center pt-20"
         >
+          {/* All social handle section  */}
           <div className="flex w-full gap-8 items-center justify-center">
             <a
               href="https://github.com/Kunal-Ch-Das-Official"
@@ -73,21 +77,37 @@ const Footer: React.FC = () => {
               <FaTwitter className="text-2xl text-blue-600" />
             </a>
           </div>
+          {/* Copywite text fields  */}
           <p className="text-sm flex w-full justify-center py-4 order-last xl:order-none">
             Developed by Kunal Chandra Das under MIT license ©{" "}
             {new Date().getFullYear()}
           </p>
+          {/* Download and view resume section  */}
           <div className="w-full flex justify-center gap-4 pt-4 xl:pt-0">
             <button
-              onClick={() => handleResumeDownload(setDownloading)}
+              onClick={() =>
+                handleResumeDownload(
+                  setDownloading,
+                  setIsDownloaded,
+                  isDownloaded
+                )
+              }
               className="text-black px-3 py-1 rounded-md inline-flex items-center bg-orange-400 
             transform hover:scale-110 gap-2"
             >
-              Download Resume{" "}
-              {downloading ? (
+              {isDownloaded === "failed"
+                ? "Download Fail"
+                : isDownloaded === "pass"
+                ? "Download Successful"
+                : "Download Resume"}
+              {isDownloaded === "failed" ? (
+                <IoClose />
+              ) : isDownloaded === "pass" ? (
+                <MdOutlineDone className="text-green-900 bg-orange-200 border border-gray-600 rounded-full" />
+              ) : downloading ? (
                 <span className="loader"></span>
               ) : (
-                <RiFolderDownloadFill />
+                <HiDownload />
               )}
             </button>
             <Link

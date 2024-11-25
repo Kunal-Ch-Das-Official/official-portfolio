@@ -12,6 +12,7 @@ const Pageheader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSticky, setIsSticky] = useState<boolean>(false);
   const [downloadPending, setDownloadPending] = useState<boolean>(false);
+  const [isDownloaded, setIsDownloaded] = useState<string>("");
   const { pathname } = useLocation();
   // Identify the screen width
   useEffect(() => {
@@ -88,7 +89,11 @@ const Pageheader: React.FC = () => {
 
   // Resume download function wrapper
   const handleDownloadWrapper = async () => {
-    await handleResumeDownload(setDownloadPending).catch((error) => {
+    await handleResumeDownload(
+      setDownloadPending,
+      setIsDownloaded,
+      isDownloaded
+    ).catch((error) => {
       console.error("Download error:", error);
     });
   };
@@ -101,6 +106,7 @@ const Pageheader: React.FC = () => {
     <header ref={sidebarRef}>
       {isSticky && (
         <FloatingNavbar
+          isDownloaded={isDownloaded}
           handleMenuOpenClick={handleSidebarOpenAndClose}
           sidebarVisability={isSidebarOpen}
           downloadResumeEventHandler={handleDownloadWrapper}
@@ -110,6 +116,7 @@ const Pageheader: React.FC = () => {
 
       {isMenuOpen === true && (
         <Sidebar
+          isDownloaded={isDownloaded}
           sidebarVisability={isSidebarOpen}
           handleShowHide={setSidebarOpen}
           downloadResumeEventHandler={handleDownloadWrapper}
