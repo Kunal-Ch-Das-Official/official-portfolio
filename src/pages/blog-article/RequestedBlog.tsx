@@ -58,7 +58,7 @@ const RequestedBlog: React.FC = () => {
       "
       >
         <div className="w-[95%] mx-auto ">
-          <Link to={"/tech-article"}>
+          <Link to={"/tech-article"} aria-label="See Full Article">
             <PiArrowBendUpLeftBold
               className="transform translate-1 hover:scale-110 text-2xl
              text-orange-600 hover:text-blue-700 cursor-pointer"

@@ -8,6 +8,7 @@ interface RouterLinkProps {
 const RouterLink: React.FC<RouterLinkProps> = ({ linkText, linkTo }) => {
   return (
     <Link
+      aria-label={linkTo}
       to={linkTo}
       className="relative inline-flex items-center justify-center px-8 py-1.5 overflow-hidden
      tracking-tighter text-black bg-gray-100 rounded-md group"

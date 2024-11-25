@@ -133,6 +133,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
               {/* See more  */}
               <Link
+                aria-label="About Project"
                 to={aboutProjectUrl}
                 title="See about project"
                 className="border-b border-gray-100 inline-flex 

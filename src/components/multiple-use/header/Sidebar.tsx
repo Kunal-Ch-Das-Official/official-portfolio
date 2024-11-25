@@ -39,6 +39,7 @@ const Sidebar: React.FC<SidebarI> = ({
           {/* Logo  */}
           <div className="pl-2 pt-3" onClick={() => handleShowHide(false)}>
             <Link
+              aria-label="Home"
               to={"/"}
               className="mr-4 inline-flex items-center z-[1001]
               cursor-pointer py-1.5 text-base text-white font-semibold"
@@ -64,6 +65,7 @@ const Sidebar: React.FC<SidebarI> = ({
                 onClick={() => handleShowHide(false)}
               >
                 <Link
+                  aria-label="Projects"
                   to={"/projects"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
@@ -79,6 +81,7 @@ const Sidebar: React.FC<SidebarI> = ({
                 onClick={() => handleShowHide(false)}
               >
                 <Link
+                  aria-label="About"
                   to={"/about"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
@@ -94,6 +97,7 @@ const Sidebar: React.FC<SidebarI> = ({
                 onClick={() => handleShowHide(false)}
               >
                 <Link
+                  aria-label="Technical Article"
                   to={"/tech-article"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
@@ -109,6 +113,7 @@ const Sidebar: React.FC<SidebarI> = ({
                 onClick={() => handleShowHide(false)}
               >
                 <Link
+                  aria-label="Contact "
                   to={"/contact"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
@@ -199,15 +204,18 @@ const Sidebar: React.FC<SidebarI> = ({
                       className="flex justify-center"
                       onClick={() => handleShowHide(false)}
                     >
-                      <Link
-                        to={"/"}
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Linkedin"
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                       >
                         <IoLogoLinkedin className="text-lg mr-2" />
                         Linkedin
-                      </Link>
+                      </a>
                     </li>
 
                     <li
@@ -215,15 +223,18 @@ const Sidebar: React.FC<SidebarI> = ({
                       className="flex justify-center"
                       onClick={() => handleShowHide(false)}
                     >
-                      <Link
-                        to={"/"}
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Github"
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                       >
                         <FaGithub className="text-lg mr-2" />
                         Github
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </details>

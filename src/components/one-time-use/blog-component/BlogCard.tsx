@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
         <div className="w-full bg-white flex flex-col p-3">
           <div className="flex justify-between item-center">
             <p className="text-gray-500 font-medium block text-center">
-              <span className="text-orange-500">Posted In:</span>{" "}
+              <span className="text-orange-700">Posted In:</span>{" "}
               <span>{new Date(posedIn).toLocaleDateString()}</span>
             </p>
           </div>

@@ -112,6 +112,7 @@ const Footer: React.FC = () => {
               )}
             </button>
             <Link
+              aria-label="View Resume"
               to={"/kunal-chandra-das-resume"}
               className=" text-black px-3 py-1 rounded-md inline-flex items-center bg-orange-400 
             transform hover:scale-110 gap-2"

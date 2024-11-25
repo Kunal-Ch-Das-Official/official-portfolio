@@ -35,7 +35,11 @@ const SimpleProjectCard: React.FC<SimpleProjectCardProps> = ({
         </div>
       </div>
       <div className="text-gray-500">{projectDescription.slice(0, 100)}...</div>
-      <Link to={overViewUrl} className="text-blue-500 hover:underline">
+      <Link
+        aria-label="See Project"
+        to={overViewUrl}
+        className="text-blue-500 hover:underline"
+      >
         See more
       </Link>
     </div>

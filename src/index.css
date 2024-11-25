@@ -12,6 +12,27 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ca6200;
+  outline: 1px solid #ca6200;
+  border-radius: 10%;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+@-moz-document url-prefix() {
+  .scroller {
+    scrollbar-width: 6px;
+    scrollbar-color: #ca6200;
+  }
+}
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

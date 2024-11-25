@@ -42,6 +42,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           {/* Heading  */}
           {!sidebarVisability && (
             <Link
+              aria-label="Home Page"
               to={"/"}
               className={`mr-4 inline-flex items-center  cursor-pointer py-1.5 text-base
              text-white font-semibold  ${navbarStyle.bottom_tooltip} `}
@@ -63,6 +64,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
             <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
               {/* Projects  */}
               <Link
+                aria-label="All Projects Page"
                 to={"/projects"}
                 className="flex items-center p-1 text-sm gap-x-2 font-semibold
                text-white hover:text-orange-300 transform translate-1
@@ -74,6 +76,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               </Link>
               {/* About Me  */}
               <Link
+                aria-label="About Kunal Chandra Das"
                 to={"/about"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
@@ -85,6 +88,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
 
               {/* Connect via contact form  */}
               <Link
+                aria-label="Contact Kunal Chandra Das"
                 to={"/contact"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110
@@ -97,6 +101,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
 
               {/* Article  */}
               <Link
+                aria-label="See Technical Article By Kunal Chandra Das"
                 to={"tech-article"}
                 className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
