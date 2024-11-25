@@ -16,16 +16,16 @@ const BlogBanner: React.FC<BlogBannerProps> = ({
   subHeading,
 }) => {
   return (
-    <section className="relative isolate rounded-lg ">
+    <section className="relative isolate">
       <img
         src={bannerBackgroundImg}
         width={500}
         height={500}
         loading="eager"
         alt={`${UniqueHeading} Background image`}
-        className="absolute min-h-full inset-0 -z-10 rounded-lg h-full w-full object-cover object-right md:object-center"
+        className="absolute min-h-full inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
       />
-      <div className="extraBlurBackground relative overflow-hidden py-24 sm:py-32 lg:py-40 rounded-lg">
+      <div className="extraBlurBackground relative overflow-hidden py-24 sm:py-32 lg:py-40">
         <div
           className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10
            sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"

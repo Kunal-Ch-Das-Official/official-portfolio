@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import RouterLink from "../../../utils/buttons/RouterLink";
 
 interface BlogCardProps {
   imageUrl: string;
@@ -27,34 +27,28 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <img
             src={imageUrl}
             alt={`${title} image`}
-            className="rounded-xl  md:w-[200px] w-full h-[200px]"
+            className="rounded-xl  md:w-[200px] flex items-center w-full h-[200px]"
           />
         </div>
-        <div className="w-full bg-white flex flex-col space-y-2 p-3">
+        <div className="w-full bg-white flex flex-col p-3">
           <div className="flex justify-between item-center">
             <p className="text-gray-500 font-medium block text-center">
               <span className="text-orange-500">Posted In:</span>{" "}
               <span>{new Date(posedIn).toLocaleDateString()}</span>
             </p>
           </div>
-          <h3 className="text-gray-800 md:text-2xl text-xl font-semibold">
+          <h3 className="text-gray-700 md:text-xl text-xl font-semibold">
             {title.length > 100 ? `${title.slice(0, 100)}...` : title}
           </h3>
           <p className="md:text-lg text-gray-800 text-base">{writerName}</p>
-          <p className="md:text-lg text-gray-500 text-base">
+          <p className="md:text-lg text-gray-500 text-base pb-2">
             {briefDescription.length > 300
               ? `${briefDescription.slice(0, 250)}...`
               : briefDescription}
             ....
           </p>
-          <p className="text-xl font-black text-gray-800 ">
-            <Link
-              to={readArticleLink}
-              className="font-normal text-gray-800 border bg-orange-300
-             border-gray-300 px-4 rounded-md"
-            >
-              Read article
-            </Link>
+          <p className="text-xl font-black">
+            <RouterLink linkText="Read Article" linkTo={readArticleLink} />
           </p>
         </div>
       </div>

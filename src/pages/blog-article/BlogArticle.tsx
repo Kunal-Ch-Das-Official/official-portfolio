@@ -1,10 +1,13 @@
 import React from "react";
 import BlogBanner from "../../components/one-time-use/blog-banner/BlogBanner";
-import Blog_banner from "../../assets/images/Blog_banner.jpg";
+import Blog_banner from "../../assets/images/Blog_banner_image.png";
 import BlogDisplayer from "../../components/one-time-use/blog-component/BlogDisplayer";
 const BlogArticle: React.FC = () => {
   return (
-    <main className=" mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl py-2">
+    <main
+      className=" mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem]
+     2xl:max-w-12xl py-2 mt-[3.2rem] xl:mt-[5.7rem]"
+    >
       <BlogBanner
         bannerBackgroundImg={Blog_banner}
         headingFirst={"Technical"}
