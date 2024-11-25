@@ -26,7 +26,6 @@ interface IAboutMountUnmountObj {
   nextjs: boolean;
 }
 const BannerSpinner: React.FC = () => {
-  // const [aboutOpenAndClose, setAboutMeOpenAndClose] = useState<boolean>(false);
   const [aboutMountUnmountObj, setAboutMountUnmountObj] =
     useState<IAboutMountUnmountObj>({
       about: false,

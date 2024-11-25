@@ -260,7 +260,8 @@ const RequestedProject: React.FC = () => {
         <PageLoader />
       ) : (
         <section
-          className="flex justify-center items-center align-middle pt-44 pb-28 
+          className="flex justify-center items-center  lg:justify-center lg:items-center
+           align-middle pt-44 pb-28  
     overflow-x-hidden mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl "
         >
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">

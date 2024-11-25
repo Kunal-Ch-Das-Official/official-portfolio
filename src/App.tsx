@@ -1,15 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Index from "./Index";
 import Landing from "./pages/landing/Landing"; // Example child component
-import AllProject from "./pages/projects/AllProject";
-import RequestedProject from "./pages/projects/RequestedProject";
+
+const AllProject = lazy(() => import("./pages/projects/AllProject"));
+const RequestedProject = lazy(
+  () => import("./pages/projects/RequestedProject")
+);
+const About = lazy(() => import("./pages/about/About"));
+const Contact = lazy(() => import("./pages/contact/Contact"));
+
+const BlogArticle = lazy(() => import("./pages/blog-article/BlogArticle"));
+const PreviewResume = lazy(() => import("./pages/resume/PreviewResume"));
+const RequestedBlog = lazy(() => import("./pages/blog-article/RequestedBlog"));
 import NotFound from "./pages/not-found/NotFound";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import BlogArticle from "./pages/blog-article/BlogArticle";
-import PreviewResume from "./pages/resume/PreviewResume";
-import RequestedBlog from "./pages/blog-article/RequestedBlog";
+
+import PageLoader from "./utils/page-loader/PageLoader";
 
 const App: React.FC = () => {
   return (
@@ -19,17 +25,68 @@ const App: React.FC = () => {
         <Route path="/" element={<Index />}>
           <Route index element={<Landing />} />
           {/* Projects route  */}
-          <Route path="/projects" element={<AllProject />} />
-          <Route path="/project/:id" element={<RequestedProject />} />
+
+          <Route
+            path="/projects"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <AllProject />{" "}
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/project/:id"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <RequestedProject />
+              </Suspense>
+            }
+          />
           {/* About Route  */}
-          <Route path="/about" element={<About />} />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <About />
+              </Suspense>
+            }
+          />
           {/* Contact Route  */}
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Contact />
+              </Suspense>
+            }
+          />
           {/* Tech Blog Article Route  */}
-          <Route path="/tech-article" element={<BlogArticle />} />
-          <Route path="/tech-article/:id" element={<RequestedBlog />} />
+          <Route
+            path="/tech-article"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BlogArticle />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/tech-article/:id"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <RequestedBlog />
+              </Suspense>
+            }
+          />
           {/* Preview Resume  */}
-          <Route path="/kunal-chandra-das-resume" element={<PreviewResume />} />
+          <Route
+            path="/kunal-chandra-das-resume"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <PreviewResume />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </Router>

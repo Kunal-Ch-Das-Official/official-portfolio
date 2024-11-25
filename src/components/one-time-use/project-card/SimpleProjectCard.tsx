@@ -16,7 +16,7 @@ const SimpleProjectCard: React.FC<SimpleProjectCardProps> = ({
   overViewUrl,
 }) => {
   return (
-    <div className="block rounded-lg p-4 min-w-[250px] max-w-[300px] max-h-[400px]">
+    <div className="block rounded-lg min-w-[250px] max-w-[600px] max-h-[400px]">
       <div>
         <img
           alt={`${projectTitle} image`}

@@ -1,16 +1,19 @@
-import { lazy, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import LandingBanner from "../../components/one-time-use/landing-banner/LandingBanner";
 const ProjectCard = lazy(
   () => import("../../components/one-time-use/project-card/ProjectCard")
 );
-
+const PostFeedbackForm = lazy(
+  () => import("../../components/one-time-use/feedback/PostFeedbackForm")
+);
 import axios from "../../../axios/axios";
 import envConfig from "../../../conf/envConfig";
 import CardSkeleton from "../../utils/skeleton/card-skeleton/CardSkeleton";
 import { Link } from "react-router-dom";
 import AnimatedHading from "../../utils/common-heading/AnimatedHading";
 import FeedbackSection from "../../components/one-time-use/feedback/FeedbackSection";
-import PostFeedbackForm from "../../components/one-time-use/feedback/PostFeedbackForm";
+
+import PopupSkeleton from "../../utils/skeleton/popup-skeleton/PopupSkeleton";
 
 interface IProjectResponse {
   _id: string;
@@ -115,10 +118,12 @@ const Landing = () => {
         </button>
       </p>
       <FeedbackSection />
-      <PostFeedbackForm
-        mountUnmountState={mountSendFeedback}
-        mountUnmountHandler={setMountSendFeedback}
-      />
+      <Suspense fallback={<PopupSkeleton />}>
+        <PostFeedbackForm
+          mountUnmountState={mountSendFeedback}
+          mountUnmountHandler={setMountSendFeedback}
+        />
+      </Suspense>
     </main>
   );
 };
