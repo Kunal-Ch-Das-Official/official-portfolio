@@ -113,7 +113,11 @@ const Landing = () => {
       </div>
 
       <p className="text-blue-600 text-center relative bottom-2  cursor-pointer">
-        <button className="underline font-bold" onClick={handleAddReview}>
+        <button
+          aria-label="Add Feedback"
+          className="underline font-bold"
+          onClick={handleAddReview}
+        >
           Add feedback
         </button>
       </p>

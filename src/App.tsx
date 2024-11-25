@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Index from "./Index";
-import Landing from "./pages/landing/Landing"; // Example child component
 
+const Landing = lazy(() => import("./pages/landing/Landing"));
 const AllProject = lazy(() => import("./pages/projects/AllProject"));
 const RequestedProject = lazy(
   () => import("./pages/projects/RequestedProject")
@@ -19,11 +19,18 @@ import PageLoader from "./utils/page-loader/PageLoader";
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router future={{ v7_relativeSplatPath: true }}>
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Index />}>
-          <Route index element={<Landing />} />
+          <Route
+            index
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Landing />
+              </Suspense>
+            }
+          />
           {/* Projects route  */}
 
           <Route

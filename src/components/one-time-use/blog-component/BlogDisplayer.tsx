@@ -119,7 +119,10 @@ const BlogDisplayer: React.FC = () => {
                 className="absolute grid w-5 h-5 top-2/4 right-3 -translate-y-2/4 
               place-items-center text-blue-gray-500"
               >
-                <button onClick={searchArticle}>
+                <button
+                  onClick={searchArticle}
+                  aria-label="Search Article by Name"
+                >
                   <LuSearch />
                 </button>
               </div>
@@ -184,6 +187,7 @@ const BlogDisplayer: React.FC = () => {
         </p>
         <div className={`${responseLength === 0 && "hidden"} flex gap-2`}>
           <button
+            aria-label="Previous Page"
             className={`rounded-lg border border-gray-900 py-2 px-4 text-center
                    align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all
                     hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] 
@@ -197,6 +201,7 @@ const BlogDisplayer: React.FC = () => {
             Previous
           </button>
           <button
+            aria-label="Next Page"
             className={`select-none rounded-lg border border-gray-900 py-2 px-4
                      text-center align-middle font-sans text-xs font-bold uppercase
                       text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300

@@ -1,5 +1,5 @@
 import React from "react";
-import formalImage from "../../../assets/images/protfolio_formal_image.png";
+import formalImage from "../../../assets/images/protfolio_formal_image.webp";
 const AboutBanner: React.FC = () => {
   return (
     <main>

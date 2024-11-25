@@ -1,6 +1,6 @@
 import React from "react";
 import BlogBanner from "../../components/one-time-use/blog-banner/BlogBanner";
-import Blog_banner from "../../assets/images/Blog_banner_image.png";
+import Blog_banner from "../../assets/images/Blog_banner_image.webp";
 import BlogDisplayer from "../../components/one-time-use/blog-component/BlogDisplayer";
 const BlogArticle: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const BlogArticle: React.FC = () => {
         bannerBackgroundImg={Blog_banner}
         headingFirst={"Technical"}
         UniqueHeading={"Aricle"}
-        headingLast={"of Kunal Chandra Das."}
+        headingLast={"By Kunal Chandra Das."}
         subHeading={`Discover the achievements and contributions of our distinguished alumni from CBS Research Group, who have made a significant impact in their respective fields. Their dedication, expertise, and innovative work continue to inspire future generations of researchers and professionals.`}
       />
       <BlogDisplayer />

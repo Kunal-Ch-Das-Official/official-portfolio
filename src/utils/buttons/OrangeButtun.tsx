@@ -12,6 +12,7 @@ const OrangeButtun: React.FC<OrangeButtunProps> = ({
 }) => {
   return (
     <button
+      aria-label="Common Button"
       type={buttonType}
       onClick={onClickHandler}
       className="relative inline-flex items-center justify-center px-8 py-1.5 overflow-hidden

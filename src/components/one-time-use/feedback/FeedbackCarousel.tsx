@@ -55,6 +55,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
         </div>
 
         <button
+          aria-label="Previous Feedback"
           onClick={prevCard}
           className="absolute left-0  lg:-left-8  top-1/2 transform -translate-y-1/2 p-2 rounded-full 
         shadow-md text-white bg-slate-700 hover:bg-gray-800"
@@ -62,6 +63,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
           &#10094;
         </button>
         <button
+          aria-label="Next Feedback"
           onClick={nextCard}
           className="absolute top-1/2 right-0 lg:-right-8 transform -translate-y-1/2  p-2 rounded-full 
         shadow-md text-white bg-slate-700 hover:bg-gray-800"

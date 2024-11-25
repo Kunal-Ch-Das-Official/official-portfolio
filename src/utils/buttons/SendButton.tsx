@@ -12,6 +12,7 @@ const SendButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      aria-label={buttonText}
       type={buttonType}
       onClick={clickEventHandler}
       className="flex gap-2 items-center  h-10 border-orange-400 border shadow-xl text-md bg-orange-500 backdrop-blur-md lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-lg before:bg-gray-50 hover:text-gray-700 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden rounded-lg group"

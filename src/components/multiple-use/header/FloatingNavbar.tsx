@@ -201,6 +201,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
 
           {/* Small screen menu button  */}
           <button
+            aria-label="Side bar menu"
             className="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none 
             rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit 
             transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent 

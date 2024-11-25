@@ -85,6 +85,7 @@ const Footer: React.FC = () => {
           {/* Download and view resume section  */}
           <div className="w-full flex justify-center gap-4 pt-4 xl:pt-0">
             <button
+              aria-label="Download Resume From Footer"
               onClick={() =>
                 handleResumeDownload(
                   setDownloading,

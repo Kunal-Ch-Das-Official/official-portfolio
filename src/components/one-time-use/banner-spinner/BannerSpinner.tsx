@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import bannerstyle from "./spinnerStyle.module.css";
-import ownerImage from "../../../assets/images/Banner-Image.jpg";
+import ownerImage from "../../../assets/images/Banner-Image.webp";
 import { FaBootstrap, FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
@@ -210,6 +210,7 @@ const BannerSpinner: React.FC = () => {
         >
           {/* Mongo db  */}
           <button
+            aria-label="About MongoDB"
             onClick={() => mountUnmountHandler("mongodb")}
             className={` ${bannerstyle.reverse_spinner}  profile_item 
             left-[60px] -top-[4px] absolute rounded-full bg-cover
@@ -236,6 +237,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* React js  */}
           <button
+            aria-label="About ReactJS"
             onClick={() => mountUnmountHandler("reactjs")}
             className={` ${bannerstyle.reverse_spinner} profile_item 
             right-[20px] -top-[-28px] 
@@ -263,6 +265,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Express js  */}
           <button
+            aria-label="About ExpressJS"
             onClick={() => mountUnmountHandler("expressjs")}
             className={` ${bannerstyle.reverse_spinner} profile_item 
             -left-2 top-[62px] 
@@ -289,6 +292,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Typescript  */}
           <button
+            aria-label="About Typescript"
             onClick={() => mountUnmountHandler("typescript")}
             className={`profile_item -right-4 top-24 absolute rounded-full bg-cover cursor-pointer 
         ${bannerstyle.tooltip_top} p-[2px] active:scale-95 hover:scale-95 transition-all duration-500
@@ -314,6 +318,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Github */}
           <button
+            aria-label="About Github"
             onClick={() => mountUnmountHandler("github")}
             className={` ${bannerstyle.reverse_spinner} profile_item ${bannerstyle.tooltip_top}
             -left-[16px] top-[9.5rem]
@@ -340,6 +345,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Node js */}
           <button
+            aria-label="About NodeJS"
             onClick={() => mountUnmountHandler("nodejs")}
             className={`profile_item -right-2 top-44 absolute rounded-full bg-cover cursor-pointer 
          p-[2px] active:scale-95 hover:scale-95 transition-all duration-500
@@ -363,6 +369,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Javascript  */}
           <button
+            aria-label="About Javascript"
             onClick={() => mountUnmountHandler("javascript")}
             className={`${bannerstyle.reverse_spinner}
                      profile_item bottom-4 -left-[-30px] ${bannerstyle.tooltip_top}
@@ -386,6 +393,7 @@ const BannerSpinner: React.FC = () => {
           </button>
           {/* Tailwind css  */}
           <button
+            aria-label="About TailwindCSS"
             onClick={() => mountUnmountHandler("tailwindcss")}
             className={`${bannerstyle.reverse_spinner} profile_item
              bottom-1 -right-[-48px] absolute rounded-full
@@ -411,6 +419,7 @@ const BannerSpinner: React.FC = () => {
 
           {/* Next js  */}
           <button
+            aria-label="About NextJS"
             onClick={() => mountUnmountHandler("nextjs")}
             className={`profile_item right-[48%] -bottom-4 absolute rounded-full bg-cover 
             ${bannerstyle.reverse_spinner} 
@@ -433,6 +442,7 @@ const BannerSpinner: React.FC = () => {
           </button>
           {/* Bootstrap */}
           <button
+            aria-label="About Bootstrap"
             onClick={() => mountUnmountHandler("bootstrap")}
             className={`profile_item right-[34%] -top-4 absolute rounded-full bg-cover 
             ${bannerstyle.reverse_spinner}  
@@ -454,11 +464,15 @@ const BannerSpinner: React.FC = () => {
           </button>
 
           {/* Fake section  */}
-          <button className="profile_item w-[200px] h-[200px]"></button>
+          <button
+            aria-label="Blank"
+            className="profile_item w-[200px] h-[200px]"
+          ></button>
         </div>
 
         {/* Main profile picture  */}
         <button
+          aria-label="About Kunal Chandra Das"
           onClick={() => mountUnmountHandler("about")}
           className={`${bannerstyle.tooltip_top} profile_picture w-[200px] h-[200px] p-1 rounded-full
           cursor-pointer transition-all duration-500 absolute`}
@@ -475,6 +489,8 @@ const BannerSpinner: React.FC = () => {
           >
             <img
               src={ownerImage}
+              width={500}
+              height={500}
               alt="kunal chandra das image"
               className={`${bannerstyle.imageStyle} rounded-full z-0`}
             />

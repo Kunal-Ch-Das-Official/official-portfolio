@@ -8,6 +8,7 @@ interface TextAreaProps {
   isRequired: boolean;
   valueCatcher: Dispatch<SetStateAction<string>>;
   textareaColor: string;
+  textareaFieldName: string;
 }
 const TextArea: React.FC<TextAreaProps> = ({
   areaContainerId,
@@ -17,11 +18,13 @@ const TextArea: React.FC<TextAreaProps> = ({
   valueCatcher,
   isRequired,
   textareaColor,
+  textareaFieldName,
 }) => {
   return (
     <div id={areaContainerId} className="relative">
       <textarea
         id={areaId}
+        name={textareaFieldName}
         className={`block w-full text-sm h-[150px] px-4  pt-4 ${textareaColor}
        rounded-[8px] border appearance-none 
        focus:border-transparent focus:outline focus:outline-2 focus:outline-orange-500

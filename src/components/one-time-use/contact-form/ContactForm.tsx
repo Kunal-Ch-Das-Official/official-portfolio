@@ -177,6 +177,7 @@ const ContactForm: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* firstName_input  */}
           <Input
+            fieldName="firstNameInput_contact_form"
             inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage={null}
             isNotValid={false}
@@ -192,6 +193,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Last name  */}
           <Input
+            fieldName="lastNameInput_contact_form"
             inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage={null}
             isNotValid={false}
@@ -207,6 +209,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Email Adress  */}
           <Input
+            fieldName="emailIdInput_contact_form"
             inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage="Email address is not valid"
             isNotValid={emailNotValid}
@@ -223,6 +226,7 @@ const ContactForm: React.FC = () => {
 
           {/* Contact Number */}
           <Input
+            fieldName="phoneNumberInput_contact_form"
             inputColor="text-gray-700 border-orange-200 bg-white"
             errorMessage="Mobile number is not valid"
             isNotValid={numberNotValid}
@@ -240,6 +244,7 @@ const ContactForm: React.FC = () => {
 
         {/* Important message  */}
         <TextArea
+          textareaFieldName="importantMessageInput_contact_form"
           textareaColor="text-gray-700 border-orange-200 bg-white"
           areaContainerId="important_message_container"
           areaId="important_message_input"

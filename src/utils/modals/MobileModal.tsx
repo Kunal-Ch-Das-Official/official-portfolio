@@ -71,8 +71,10 @@ const MobileModal: React.FC<MobileModalProps> = ({
             </div>
             <div>
               <button
+                aria-label={`Modal close button ${Math.random()}`}
                 onClick={closeHandler}
-                className={`${mobileModalStyle.tooltip} flex relative bottom-10  justify-center px-4 rounded-lg w-full mt-[80px]`}
+                className={`${mobileModalStyle.tooltip} flex relative bottom-10  
+                  justify-center px-4 rounded-lg w-full mt-[80px]`}
               >
                 <IoMdCloseCircleOutline className="text-2xl absolute left-[80px] text-red-500 transform translate-1 hover:scale-110" />
                 <span className={mobileModalStyle.tooltiptext}>Close</span>

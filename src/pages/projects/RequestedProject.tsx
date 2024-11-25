@@ -279,6 +279,7 @@ const RequestedProject: React.FC = () => {
                     Project Details
                   </h1>
                   <button
+                    aria-label="Next Project Page Image"
                     onClick={() => setSlideNumber(0)}
                     className="float-end font-semibold transform translate-1 hover:scale-110
                hover:text-blue-800 "
@@ -368,6 +369,7 @@ const RequestedProject: React.FC = () => {
                 </div>
 
                 <button
+                  aria-label="Next Project Page Image"
                   onClick={() => setSlideNumber(1)}
                   className="float-end font-semibold transform translate-1 hover:scale-110 hover:text-blue-800"
                 >

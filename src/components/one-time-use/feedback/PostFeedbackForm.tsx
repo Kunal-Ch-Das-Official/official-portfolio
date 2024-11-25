@@ -163,6 +163,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
           <div className="grid grid-cols-2 gap-6 my-4">
             <Input
+              fieldName="first_name_review"
               inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
@@ -177,6 +178,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
               }
             />
             <Input
+              fieldName="last_name_review"
               inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
@@ -193,6 +195,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
           <div>
             <Input
+              fieldName="organization_name_review"
               inputColor="text-gray-400 border-gray-600 bg-slate-700"
               errorMessage={null}
               isNotValid={false}
@@ -209,6 +212,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
           </div>
           <div className="my-4">
             <TextArea
+              textareaFieldName="review_contant"
               textareaColor="text-gray-400 border-gray-600 bg-slate-700"
               areaContainerId="review_content"
               areaId="review_content_input"
@@ -234,6 +238,7 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
               ))}
             </div>
             <button
+              aria-label="Submit Feedback"
               type="submit"
               className="bg-slate-500 stroke-slate-100 border
        border-slate-700 col-span-2 flex justify-center rounded-lg items-center

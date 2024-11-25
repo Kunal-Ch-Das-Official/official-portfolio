@@ -52,6 +52,7 @@ const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
 
       {/* Left Arrow Button */}
       <button
+        aria-label={`Custom slider previous button ${Math.random()}`}
         className={`${sliderStyle.carousel_arrow} ${sliderStyle.left_arrow}`}
         onClick={prevSlide}
       >
@@ -62,6 +63,7 @@ const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
       <button
         className={`${sliderStyle.carousel_arrow} ${sliderStyle.right_arrow}`}
         onClick={nextSlide}
+        aria-label={`Custom slider next button ${Math.random()}`}
       >
         &#10095;
       </button>
@@ -70,6 +72,7 @@ const CustomSlider: React.FC<ImageCarouselProps> = ({ images }) => {
       <div className={sliderStyle.carousel_indicators}>
         {images.map((_, index) => (
           <button
+            aria-label={`Custom slider image ${index}`}
             key={index}
             className={`${sliderStyle.indicator} ${
               index === currentIndex ? "active" : ""

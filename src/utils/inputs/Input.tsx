@@ -10,6 +10,7 @@ interface InputProps {
   errorMessage: string | null;
   isNotValid: boolean;
   inputColor: string;
+  fieldName: string;
 }
 const Input: React.FC<InputProps> = ({
   inputContainerId,
@@ -22,12 +23,14 @@ const Input: React.FC<InputProps> = ({
   errorMessage,
   isNotValid,
   inputColor,
+  fieldName,
 }) => {
   return (
     <div id={inputContainerId} className="relative">
       <input
         type={inputType}
         id={inputFieldsId}
+        name={fieldName}
         required={isRequired}
         className={`block w-full text-sm h-[40px] px-4 ${inputColor}
             rounded-[8px] border  appearance-none focus:border-none
