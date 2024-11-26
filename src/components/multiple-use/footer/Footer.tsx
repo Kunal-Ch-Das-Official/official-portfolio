@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="transform hover:scale-110"
             >
-              <BiLogoGmail className="text-2xl text-red-700" />
+              <BiLogoGmail className="text-2xl text-red-700 " />
             </a>
             <a
               href="tel: +919874353723"

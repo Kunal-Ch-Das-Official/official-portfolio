@@ -11,6 +11,7 @@ interface resumeResInterface {
 
 const PreviewResume: React.FC = () => {
   const [resume, setResume] = useState<resumeResInterface[]>([]);
+  const [resumeLength, setResumeLength] = useState<number>(0);
   const [pending, setPending] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const PreviewResume: React.FC = () => {
         const response = await axios.get(envConfig.resumeUrl);
         if (response) {
           setResume(response.data);
+          setResumeLength(response.data.length);
         }
       } catch (error: any) {
         console.log(error);
@@ -35,7 +37,7 @@ const PreviewResume: React.FC = () => {
   }, []);
 
   return (
-    <main className="pt-40 mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 pb-40">
+    <main className="py-40 min-h-screen mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 pb-40">
       {/* SEO Meta Tags */}
       <Helmet>
         <title>Resume Preview - Kunal Chandra Das</title>
@@ -90,16 +92,29 @@ const PreviewResume: React.FC = () => {
         <PageLoader />
       ) : (
         <>
-          <section className="flex justify-center items-center">
-            <img
-              src={resume[0]?.resumeUrl}
-              alt="Resume"
-              className="w-full h-full rounded-xl"
-            />
-          </section>
-          <div className="flex justify-end font-bold">
-            Last update: {new Date(resume[0]?.updatedAt).toDateString()}
-          </div>
+          {resumeLength === 0 ? (
+            <div className="flex justify-center w-full lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
+              <p className="md:w-1/2 md:px-8">
+                Resume not yet uploaded. But it will be available soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              <section className="flex justify-center items-center">
+                <img
+                  src={resume[0]?.resumeUrl}
+                  alt="Resume"
+                  className="w-full h-full rounded-xl"
+                />
+              </section>
+              <div className="flex justify-center md:justify-end  mt-3">
+                <span className="mr-2 font-bold text-green-600">
+                  Last update:
+                </span>
+                <span> {new Date(resume[0]?.updatedAt).toDateString()}</span>
+              </div>
+            </>
+          )}
         </>
       )}
     </main>

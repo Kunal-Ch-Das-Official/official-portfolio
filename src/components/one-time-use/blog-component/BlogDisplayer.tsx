@@ -142,47 +142,55 @@ const BlogDisplayer: React.FC = () => {
             </div>
           </form>
         </div>
-        <>
-          {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
-            <h2 className="text-center text-orange-500 font-bold my-12">
-              Article Dose Not Exist.
-            </h2>
-          ) : (
-            <>
-              {searchQuery ? (
-                <>
-                  {filteredOutput &&
-                    filteredOutput.map((output, index) => (
-                      <BlogCard
-                        key={index}
-                        writerName={output.authorName}
-                        imageUrl={output.supportingImgUrl}
-                        posedIn={output.createdAt}
-                        title={output.blogTitle}
-                        briefDescription={output.statement}
-                        readArticleLink={`/tech-article/${output._id}`}
-                      />
-                    ))}
-                </>
-              ) : (
-                <>
-                  {currentPageData &&
-                    currentPageData.map((article, index) => (
-                      <BlogCard
-                        key={index}
-                        writerName={article.authorName}
-                        imageUrl={article.supportingImgUrl}
-                        posedIn={article.createdAt}
-                        title={article.blogTitle}
-                        briefDescription={article.statement}
-                        readArticleLink={`/tech-article/${article._id}`}
-                      />
-                    ))}
-                </>
-              )}
-            </>
-          )}
-        </>
+        {responseLength === 0 ? (
+          <div className="flex justify-center w-full lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
+            <p className="md:w-1/2 md:px-8">
+              Article not yet uploaded. But it will be available soon.
+            </p>
+          </div>
+        ) : (
+          <>
+            {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
+              <h2 className="text-center text-orange-500 font-bold my-12">
+                Article Dose Not Exist.
+              </h2>
+            ) : (
+              <>
+                {searchQuery ? (
+                  <>
+                    {filteredOutput &&
+                      filteredOutput.map((output, index) => (
+                        <BlogCard
+                          key={index}
+                          writerName={output.authorName}
+                          imageUrl={output.supportingImgUrl}
+                          posedIn={output.createdAt}
+                          title={output.blogTitle}
+                          briefDescription={output.statement}
+                          readArticleLink={`/tech-article/${output._id}`}
+                        />
+                      ))}
+                  </>
+                ) : (
+                  <>
+                    {currentPageData &&
+                      currentPageData.map((article, index) => (
+                        <BlogCard
+                          key={index}
+                          writerName={article.authorName}
+                          imageUrl={article.supportingImgUrl}
+                          posedIn={article.createdAt}
+                          title={article.blogTitle}
+                          briefDescription={article.statement}
+                          readArticleLink={`/tech-article/${article._id}`}
+                        />
+                      ))}
+                  </>
+                )}
+              </>
+            )}
+          </>
+        )}
       </section>
       {/* Pagination section  */}
       <div className="flex items-center pb-12 justify-between p-4 border-t border-blue-gray-50">

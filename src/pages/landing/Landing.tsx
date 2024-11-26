@@ -7,12 +7,14 @@ const ProjectCard = lazy(
 const PostFeedbackForm = lazy(
   () => import("../../components/one-time-use/feedback/PostFeedbackForm")
 );
+const FeedbackSection = lazy(
+  () => import("../../components/one-time-use/feedback/FeedbackSection")
+);
 import axios from "../../../axios/axios";
 import envConfig from "../../../conf/envConfig";
 import CardSkeleton from "../../utils/skeleton/card-skeleton/CardSkeleton";
 import { Link } from "react-router-dom";
 import AnimatedHading from "../../utils/common-heading/AnimatedHading";
-import FeedbackSection from "../../components/one-time-use/feedback/FeedbackSection";
 import PopupSkeleton from "../../utils/skeleton/popup-skeleton/PopupSkeleton";
 
 interface IProjectResponse {
@@ -37,7 +39,7 @@ const Landing = () => {
   const [projectData, setProjectData] = useState<[IProjectResponse]>();
   const [pending, setPending] = useState<boolean>(false);
   const [mountSendFeedback, setMountSendFeedback] = useState<boolean>(false);
-
+  const [responseLength, setResponseLength] = useState<number>(0);
   const handleAddReview = () => {
     setMountSendFeedback(true);
   };
@@ -49,6 +51,7 @@ const Landing = () => {
         const response = await axios.get(envConfig.projectUrl);
         if (response) {
           setProjectData(response.data);
+          setResponseLength(response.data.length);
         }
       } catch (error: any) {
         console.log(error);
@@ -120,6 +123,13 @@ const Landing = () => {
         </Link>
       </p>
 
+      {responseLength === 0 && (
+        <div className="flex justify-center w-full lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
+          <p className="md:w-1/2 md:px-8">
+            Project not yet uploaded. But it will be available soon.
+          </p>
+        </div>
+      )}
       {pending === true ? (
         <section
           id="real_world_projects_skeleton"
@@ -167,8 +177,9 @@ const Landing = () => {
           Add feedback
         </button>
       </p>
-      <FeedbackSection />
+
       <Suspense fallback={<PopupSkeleton />}>
+        <FeedbackSection />
         <PostFeedbackForm
           mountUnmountState={mountSendFeedback}
           mountUnmountHandler={setMountSendFeedback}

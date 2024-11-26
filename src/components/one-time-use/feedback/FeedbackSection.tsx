@@ -38,10 +38,12 @@ const FeedbackSection: React.FC = () => {
       {pending && <ReviewSkeleton />}
 
       {allFeedbacks.length === 0 ? (
-        <p className="flex px-8 text-lg font-semibold text-orange-400 py-20">
-          Currently feedbacks are not available. please write a feedback if we
-          had work together{" "}
-        </p>
+        <div className="flex justify-center w-full lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
+          <p className="md:w-1/2 md:px-8">
+            Feedback is currently unavailable. If we've worked together, please
+            consider leaving feedback.
+          </p>
+        </div>
       ) : (
         <FeedbackCarousel feedbacks={allFeedbacks} />
       )}
