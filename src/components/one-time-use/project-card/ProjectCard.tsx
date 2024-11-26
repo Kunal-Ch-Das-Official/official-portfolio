@@ -86,7 +86,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <div className="p-2 flex justify-between items-center gap-10">
         <div className="min-h-20">
-          <h3 className="text-xl font-semibold text-orange-300">{title}</h3>
+          <h3 className="font-semibold text-orange-300 text-lg md:text-lg lg:text-xl">
+            {title}
+          </h3>
           <p className="mt-1 text-sm text-gray-300 inline-flex items-center">
             <span className="text-orange-200">Owner :</span>
             <span className="ml-2">{owner}</span>

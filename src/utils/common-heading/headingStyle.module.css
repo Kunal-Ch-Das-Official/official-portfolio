@@ -9,7 +9,7 @@
   background-position: 0;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 3s infinite linear;
+  animation: shine 5s infinite linear;
   animation-fill-mode: forwards;
   white-space: nowrap;
 }
@@ -21,7 +21,7 @@
     background-position: 180px;
   }
   100% {
-    background-position: 180px;
+    background-position: 360px;
   }
 }
 @-webkit-keyframes shine {
@@ -32,7 +32,7 @@
     background-position: 180px;
   }
   100% {
-    background-position: 180px;
+    background-position: 360px;
   }
 }
 @-o-keyframes shine {
@@ -43,7 +43,7 @@
     background-position: 180px;
   }
   100% {
-    background-position: 180px;
+    background-position: 360px;
   }
 }
 @keyframes shine {
@@ -54,6 +54,6 @@
     background-position: 180px;
   }
   100% {
-    background-position: 180px;
+    background-position: 360px;
   }
 }

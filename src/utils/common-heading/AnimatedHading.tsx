@@ -13,7 +13,7 @@ const AnimatedHading: React.FC<CommonHeadingProps> = ({
 
     <section className="text-center inline-flex items-center w-full">
       <h2
-        className={`text-2xl font-semibold flex flex-row  ${headingStyle.btn_shine}`}
+        className={`text-xl md:text-xl lg:text-2xl font-semibold flex flex-row  ${headingStyle.btn_shine}`}
       >
         {headingText}
       </h2>

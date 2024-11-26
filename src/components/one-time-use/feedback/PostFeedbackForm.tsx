@@ -240,9 +240,9 @@ const PostFeedbackForm: React.FC<PostFeedbackFormProps> = ({
             <button
               aria-label="Submit Feedback"
               type="submit"
-              className="bg-slate-500 stroke-slate-100 border
+              className="lg:bg-slate-500 stroke-slate-100 border
        border-slate-700 col-span-2 flex justify-center rounded-lg items-center
-        duration-300 hover:text-white hover:stroke-white hover:bg-orange-600"
+        duration-300 hover:text-white hover:stroke-white hover:bg-none bg-orange-600 lg:hover:bg-orange-600"
             >
               {isSending ? (
                 <p

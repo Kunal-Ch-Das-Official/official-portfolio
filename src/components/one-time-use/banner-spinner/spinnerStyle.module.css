@@ -55,3 +55,9 @@
   transition-delay: 11s;
   transition: ease-in-out;
 }
+
+@media screen and (max-width: 1024px) {
+  .tooltip_top:hover .tooltiptext_top {
+    visibility: hidden;
+  }
+}

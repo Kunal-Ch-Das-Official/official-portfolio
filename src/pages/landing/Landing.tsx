@@ -109,12 +109,12 @@ const Landing = () => {
       <LandingBanner />
       <div className="mt-28">
         <AnimatedHading
-          headingText="Best Realworld Projects"
+          headingText="Industry Relevant Projects"
           paragraph={null}
         />
       </div>
 
-      <p className="text-blue-600 text-center relative bottom-2 hover:underline cursor-pointer">
+      <p className="text-blue-600 text-center relative bottom-2 underline font-semibold cursor-pointer">
         <Link to={"/projects"} aria-label="See Total Project">
           See all
         </Link>
@@ -155,16 +155,13 @@ const Landing = () => {
       )}
 
       <div className="mt-28">
-        <AnimatedHading
-          headingText="Client Feedbacks of mine"
-          paragraph={null}
-        />
+        <AnimatedHading headingText="Feedback from Clients" paragraph={null} />
       </div>
 
-      <p className="text-blue-600 text-center relative bottom-2  cursor-pointer">
+      <p className="text-blue-600 text-center relative bottom-2 hover:underline cursor-pointer">
         <button
           aria-label="Add Feedback"
-          className="underline font-bold"
+          className="underline font-semibold"
           onClick={handleAddReview}
         >
           Add feedback

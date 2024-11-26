@@ -215,7 +215,7 @@ const BannerSpinner: React.FC = () => {
             className={` ${bannerstyle.reverse_spinner}  profile_item 
             left-[60px] -top-[4px] absolute rounded-full bg-cover
          cursor-pointer p-[2px] active:scale-95 hover:scale-95
-         transition-all duration-500 ${bannerstyle.tooltip_top}`}
+         transition-all duration-500  ${bannerstyle.tooltip_top}`}
           >
             {" "}
             <span
