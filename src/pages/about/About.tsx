@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import AboutBanner from "../../components/one-time-use/about-landing-banner/AboutBanner";
 import { Helmet } from "react-helmet";
+import PageLoader from "../../utils/page-loader/PageLoader";
 
 const AboutInfoSection = lazy(
   () =>
@@ -159,9 +160,13 @@ const About: React.FC = () => {
         />
       </Helmet>
 
-      <div className="mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 lg:px-0 pt-32 pb-32">
+      <div
+        className="mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl px-4 lg:px-0 
+      lg:pt-32 lg:pb-32 pt-20 pb-20
+      "
+      >
         <AboutBanner />
-        <Suspense fallback={"Loading..."}>
+        <Suspense fallback={<PageLoader />}>
           <AboutInfoSection />
         </Suspense>
       </div>

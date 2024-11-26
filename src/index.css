@@ -18,8 +18,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ca6200;
-  outline: 1px solid #ca6200;
+  background-color: #ffa14a;
+  outline: 1px solid #ffa14a;
   border-radius: 10%;
 }
 
@@ -30,7 +30,7 @@
 @-moz-document url-prefix() {
   .scroller {
     scrollbar-width: 6px;
-    scrollbar-color: #ca6200;
+    scrollbar-color: #ffa14a;
   }
 }
 @layer base {

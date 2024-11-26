@@ -16,9 +16,12 @@ const OrangeButtun: React.FC<OrangeButtunProps> = ({
       type={buttonType}
       onClick={onClickHandler}
       className="relative inline-flex items-center justify-center px-8 py-1.5 overflow-hidden
-     tracking-tighter text-black bg-orange-500 rounded-md group hover:text-white"
+     tracking-tighter text-black bg-orange-500 rounded-md group lg:hover:text-white"
     >
-      <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-500  rounded-full group-hover:w-56 group-hover:h-56" />
+      <span
+        className="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-500  rounded-full 
+      lg:group-hover:w-56 lg:group-hover:h-56"
+      />
       <span className="absolute bottom-0 left-0 h-full -ml-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"

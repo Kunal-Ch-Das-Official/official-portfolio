@@ -4,7 +4,7 @@ import ContactForm from "../../components/one-time-use/contact-form/ContactForm"
 const Contact: React.FC = () => {
   return (
     <main
-      className=" mx-auto w-full md:max-w-full lg:max-w-5xl pb-20 pt-20 
+      className=" mx-auto w-full md:max-w-full lg:max-w-5xl pt-12 pb-20
     xl:max-w-[79.5rem]
      2xl:max-w-12xl px-4 flex justify-center"
     >
