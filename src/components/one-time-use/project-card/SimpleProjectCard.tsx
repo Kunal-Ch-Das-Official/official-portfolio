@@ -40,7 +40,7 @@ const SimpleProjectCard: React.FC<SimpleProjectCardProps> = ({
         to={overViewUrl}
         className="text-blue-500 hover:underline"
       >
-        See more
+        Learn more
       </Link>
     </div>
   );

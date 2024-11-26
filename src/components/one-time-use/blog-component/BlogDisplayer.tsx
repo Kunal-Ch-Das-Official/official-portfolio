@@ -144,7 +144,7 @@ const BlogDisplayer: React.FC = () => {
         </div>
         <>
           {filteredOutput?.length === 0 && searchQuery.length !== 0 ? (
-            <h2 className="text-center text-orange-500 font-bold mt-8">
+            <h2 className="text-center text-orange-500 font-bold my-12">
               Article Dose Not Exist.
             </h2>
           ) : (

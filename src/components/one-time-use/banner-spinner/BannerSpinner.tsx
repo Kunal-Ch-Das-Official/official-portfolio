@@ -491,6 +491,7 @@ const BannerSpinner: React.FC = () => {
               src={ownerImage}
               width={500}
               height={500}
+              loading="eager"
               alt="kunal chandra das image"
               className={`${bannerstyle.imageStyle} rounded-full z-0`}
             />
