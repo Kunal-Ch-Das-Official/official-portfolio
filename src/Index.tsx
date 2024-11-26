@@ -20,7 +20,7 @@ const Index: React.FC = () => {
         <meta property="og:title" content="Kunal Chandra Das" />
       </Helmet>
       <Pageheader />
-      <main className="min-h-screen">
+      <main className="min-h-full">
         <Outlet />
         <ScrollToTop />
       </main>

@@ -44,7 +44,7 @@ const AllProject: React.FC = () => {
     "Kunal Chandra Das, projects, software engineer, web developer, full-stack development, React, JavaScript, MERN-stack, Node.js, GitHub, live project demos";
 
   return (
-    <main className="bg-white">
+    <main className="bg-white mx-6">
       {/* SEO Meta Tags */}
       <Helmet>
         <title>{pageTitle}</title>
@@ -67,9 +67,8 @@ const AllProject: React.FC = () => {
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Kunal Chandra Das" />
       </Helmet>
-
       <div className="min-h-screen pt-28 mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl flex justify-center">
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-6">
           {isPending
             ? Array.from({ length: 8 }).map((_, index) => (
                 <SimpleCardSkeleton key={index} />
@@ -85,7 +84,7 @@ const AllProject: React.FC = () => {
                 />
               ))}
         </section>
-      </div>
+      </div>{" "}
     </main>
   );
 };

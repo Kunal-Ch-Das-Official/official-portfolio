@@ -261,7 +261,7 @@ const RequestedProject: React.FC = () => {
       ) : (
         <section
           className="flex justify-center items-center  lg:justify-center lg:items-center
-           align-middle pt-44 pb-28  
+           align-middle pb-10 pt-20 lg:pt-44 lg:pb-28  
     overflow-x-hidden mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl "
         >
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">

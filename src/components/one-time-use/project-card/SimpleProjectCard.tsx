@@ -24,7 +24,7 @@ const SimpleProjectCard: React.FC<SimpleProjectCardProps> = ({
           className="h-44 w-full rounded-md object-cover"
         />
       </div>
-      <div className="flex gap-4 w-full">
+      <div className="flex justify-between w-full">
         <div>
           <dd className="font-medium">{projectTitle}</dd>
         </div>
