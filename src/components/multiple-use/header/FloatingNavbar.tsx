@@ -7,7 +7,7 @@ import { MdContactMail } from "react-icons/md";
 import { PiArticleNyTimesFill } from "react-icons/pi";
 import { TbFileCv, TbMenuDeep } from "react-icons/tb";
 import navbarStyle from "./navbarStyle.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RiPenNibFill } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
 import { AiOutlineFileDone } from "react-icons/ai";
@@ -27,6 +27,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
   downloadStatus,
   isDownloaded,
 }) => {
+  const { pathname } = useLocation();
   return (
     <nav className="flex justify-center items-center">
       <div
@@ -63,23 +64,32 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
           <div className="hidden lg:block">
             <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
               {/* Projects  */}
+
               <Link
                 aria-label="All Projects Page"
                 to={"/projects"}
-                className="flex items-center p-1 text-sm gap-x-2 font-semibold
+                className={`flex items-center p-1 text-sm gap-x-2 font-semibold
                text-white hover:text-orange-300 transform translate-1
-               hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
+               hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md
+               ${pathname === "/projects" ? "bg-black" : ""}
+               
+               `}
               >
                 <CgWebsite className="text-xl" />
 
                 <span className="flex items-center">Projects</span>
               </Link>
+
               {/* About Me  */}
               <Link
                 aria-label="About Kunal Chandra Das"
                 to={"/about"}
-                className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
-               hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
+                className={`flex items-center p-1 text-sm gap-x-2 text-white font-semibold
+               hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border
+                border-slate-800 px-1.5 rounded-md
+                  ${pathname === "/about" ? "bg-black" : ""}
+                
+                `}
               >
                 <BiSolidUserDetail className="text-2xl" />
 
@@ -90,9 +100,12 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               <Link
                 aria-label="Contact Kunal Chandra Das"
                 to={"/contact"}
-                className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
+                className={`flex items-center p-1 text-sm gap-x-2 text-white font-semibold
                hover:text-orange-300 transform translate-1 hover:scale-110
-                hover:bg-black hover:border border-slate-800 px-1.5 rounded-md "
+                hover:bg-black hover:border border-slate-800 px-1.5 rounded-md
+                   ${pathname === "/contact" ? "bg-black" : ""}
+                
+                `}
               >
                 <MdContactMail className="text-xl" />
 
@@ -103,8 +116,12 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               <Link
                 aria-label="See Technical Article By Kunal Chandra Das"
                 to={"tech-article"}
-                className="flex items-center p-1 text-sm gap-x-2 text-white font-semibold
-               hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black hover:border border-slate-800 px-1.5 rounded-md"
+                className={`flex items-center p-1 text-sm gap-x-2 text-white font-semibold
+               hover:text-orange-300 transform translate-1 hover:scale-110 hover:bg-black 
+               hover:border border-slate-800 px-1.5 rounded-md
+                 ${pathname === "/tech-article" ? "bg-black" : ""}
+               
+               `}
               >
                 <PiArticleNyTimesFill className="text-2xl" />
 

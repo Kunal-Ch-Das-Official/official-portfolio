@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BiCodeAlt } from "react-icons/bi";
 import { GoProjectSymlink } from "react-icons/go";
 import { LuBadgeInfo } from "react-icons/lu";
@@ -28,6 +28,7 @@ const Sidebar: React.FC<SidebarI> = ({
   downloadResumeEventHandler,
   isDownloaded,
 }) => {
+  const { pathname } = useLocation();
   return (
     <>
       {sidebarVisability === true && (
@@ -69,7 +70,10 @@ const Sidebar: React.FC<SidebarI> = ({
                   to={"/projects"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
-                border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
+                border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110
+                 hover:text-orange-300
+                 ${pathname === "/projects" ? "bg-black" : ""}
+                 `}
                 >
                   <GoProjectSymlink className="text-lg mr-2" />
                   Projects
@@ -85,7 +89,11 @@ const Sidebar: React.FC<SidebarI> = ({
                   to={"/about"}
                   className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
-                border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
+                border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110
+                 hover:text-orange-300
+                  ${pathname === "/about" ? "bg-black" : ""}
+                 
+                 `}
                 >
                   <LuBadgeInfo className="text-lg mr-2" />
                   About
@@ -99,7 +107,9 @@ const Sidebar: React.FC<SidebarI> = ({
                 <Link
                   aria-label="Technical Article"
                   to={"/tech-article"}
-                  className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
+                  className={`
+                    ${pathname === "/tech-article" ? "bg-black" : ""}
+                    rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110 hover:text-orange-300`}
                 >
@@ -115,7 +125,9 @@ const Sidebar: React.FC<SidebarI> = ({
                 <Link
                   aria-label="Contact "
                   to={"/contact"}
-                  className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
+                  className={`
+                     ${pathname === "/contact" ? "bg-black" : ""}
+                    rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border
                 border-gray-800 w-[90%] hover:bg-black transform translate-1 hover:scale-110
                  hover:text-orange-300`}
@@ -205,7 +217,7 @@ const Sidebar: React.FC<SidebarI> = ({
                       onClick={() => handleShowHide(false)}
                     >
                       <a
-                        href="#"
+                        href="https://www.linkedin.com/in/kunal-chandra-das-470bab218"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Linkedin"
@@ -224,7 +236,7 @@ const Sidebar: React.FC<SidebarI> = ({
                       onClick={() => handleShowHide(false)}
                     >
                       <a
-                        href="#"
+                        href="https://github.com/Kunal-Ch-Das-Official"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Github"
