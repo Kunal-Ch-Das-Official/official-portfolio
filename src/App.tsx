@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-import Index from "./Index";
-
+// import Index from "./Index";
+const Index = lazy(() => import("./Index"));
 // Lazy load pages
 const Landing = lazy(() => import("./pages/landing/Landing"));
 const AllProject = lazy(() => import("./pages/projects/AllProject"));
@@ -46,7 +46,14 @@ const App: React.FC = () => {
           />
 
           {/* Main route (Index page) */}
-          <Route path="/" element={<Index />}>
+          <Route
+            path="/"
+            element={
+              <Suspense>
+                <Index />
+              </Suspense>
+            }
+          >
             <Route
               index
               element={

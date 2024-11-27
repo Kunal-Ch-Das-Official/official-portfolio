@@ -6,6 +6,7 @@ import envConfig from "../../../conf/envConfig";
 import PageLoader from "../../utils/page-loader/PageLoader";
 import CodeEditor from "../../utils/code-editor/CodeEditor";
 import axios from "../../../axios/axios";
+import { Helmet } from "react-helmet";
 interface IBlogArticleResponse {
   _id: string;
   blogTitle: string;
@@ -49,6 +50,29 @@ const RequestedBlog: React.FC = () => {
   }, [params.id]);
   return (
     <>
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>{requestedArticle?.blogTitle}</title>
+        <meta name="description" content={requestedArticle?.statement} />
+        <meta name="keywords" content={requestedArticle?.authorName} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph (OG) Tags for Social Media Sharing */}
+        <meta property="og:title" content={requestedArticle?.blogTitle} />
+        <meta property="og:description" content={requestedArticle?.statement} />
+        <meta
+          property="og:image"
+          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // Default image for OG tags
+        />
+        <meta
+          property="og:url"
+          content="https://www.kunalchandradas.tech/projects"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Kunal Chandra Das" />
+      </Helmet>
+
       {loading === true && <PageLoader />}
 
       <main

@@ -48,6 +48,7 @@ import axios from "../../../axios/axios";
 import envConfig from "../../../conf/envConfig";
 import { GrGithub } from "react-icons/gr";
 import PageLoader from "../../utils/page-loader/PageLoader";
+import { Helmet } from "react-helmet";
 interface RequestedProjectI {
   _id: string;
   projectName: string;
@@ -255,132 +256,156 @@ const RequestedProject: React.FC = () => {
   ];
 
   return (
-    <main className="bg-white">
-      {pending === true ? (
-        <PageLoader />
-      ) : (
-        <section
-          className="flex justify-center items-center  lg:justify-center lg:items-center
+    <>
+      {/* SEO Meta Tags */}
+      <Helmet>
+        <title>{reqProjectData?.projectName}</title>
+        <meta name="description" content={reqProjectData?.description} />
+        <meta name="keywords" content={reqProjectData?.projectName} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph (OG) Tags for Social Media Sharing */}
+        <meta property="og:title" content={reqProjectData?.projectName} />
+        <meta property="og:description" content={reqProjectData?.description} />
+        <meta
+          property="og:image"
+          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // Default image for OG tags
+        />
+        <meta
+          property="og:url"
+          content="https://www.kunalchandradas.tech/projects"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Kunal Chandra Das" />
+      </Helmet>
+      <main className="bg-white">
+        {pending === true ? (
+          <PageLoader />
+        ) : (
+          <section
+            className="flex justify-center items-center  lg:justify-center lg:items-center
            align-middle pb-10 pt-20 lg:pt-44 lg:pb-28  
     overflow-x-hidden mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem] 2xl:max-w-12xl "
-        >
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="rounded-2xl overflow-hidden z-50">
-              <CustomSlider images={images} />
-            </div>
-            {slideNumber === 1 ? (
-              // Second section
-              <div
-                className={`shadow-md rounded-xl p-4 max-h-[340px]
-           no-scrollbar overflow-y-scroll bg-white animate-slideRight`}
-              >
-                <div className="gap-2 flex justify-between mb-8">
-                  <h1 className="text-lg font-semibold text-gray-600 border-b border-gray-300 ">
-                    Project Details
-                  </h1>
-                  <button
-                    aria-label="Next Project Page Image"
-                    onClick={() => setSlideNumber(0)}
-                    className="float-end font-semibold transform translate-1 hover:scale-110
-               hover:text-blue-800 "
-                  >
-                    &larr; Previous
-                  </button>
-                </div>
-                <div className="max-w-[550px] text-gray-500">
-                  {reqProjectData?.description}
-                </div>
+          >
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden z-50">
+                <CustomSlider images={images} />
               </div>
-            ) : (
-              // First section
-              <div className="w-full p-4 shadow-md rounded-xl bg-white animate-slideLeft">
-                <div className="inline-flex items-center gap-2">
-                  <img
-                    src={reqProjectData?.projectLogoUrl}
-                    alt={`${reqProjectData?.projectName} Logo`}
-                    className="rounded-full ring-2 ring-gray-300 w-10 h-10"
-                  />
-                  <h1 className="text-lg font-semibold text-gray-600">
-                    {reqProjectData?.projectName}.
-                  </h1>
-                </div>
-                <h2 className="pt-2">
-                  <span className="text-sm font-medium mr-2 text-gray-600">
-                    Author:
-                  </span>
-                  <span className="text-gray-600">
-                    {reqProjectData?.author}.
-                  </span>
-                </h2>
-                <h3 className="">
-                  <span className="text-sm font-medium mr-2 text-gray-600">
-                    Type:
-                  </span>
-                  <span className="text-gray-600 capitalize">
-                    {reqProjectData?.projectType}.
-                  </span>
-                </h3>
-                <h4 className="">
-                  <span className="text-sm font-medium mr-2 text-gray-600">
-                    Own by:
-                  </span>
-                  <span className="text-gray-600">
-                    {reqProjectData?.owner}.
-                  </span>
-                </h4>
-                <div className="pt-2 mb-4 ">
-                  <h5 className="font-medium text-gray-600">Tech stack:</h5>
-                  <div className="flex justify-start w-full mt-3">
-                    <div className="grid grid-cols-6 sm:grid-cols-6 gap-3">
-                      {reqProjectData?.technologyUsed &&
-                        reqProjectData.technologyUsed.map((tech, index) => {
-                          const matchedIcon = techStackLogo.find(
-                            (item) => item.technology === tech
-                          );
-                          return matchedIcon ? (
-                            <span key={index}>{matchedIcon.icon}</span>
-                          ) : null;
-                        })}
-                    </div>
+              {slideNumber === 1 ? (
+                // Second section
+                <div
+                  className={`shadow-md rounded-xl p-4 max-h-[340px]
+           no-scrollbar overflow-y-scroll bg-white animate-slideRight`}
+                >
+                  <div className="gap-2 flex justify-between mb-8">
+                    <h1 className="text-lg font-semibold text-gray-600 border-b border-gray-300 ">
+                      Project Details
+                    </h1>
+                    <button
+                      aria-label="Next Project Page Image"
+                      onClick={() => setSlideNumber(0)}
+                      className="float-end font-semibold transform translate-1 hover:scale-110
+               hover:text-blue-800 "
+                    >
+                      &larr; Previous
+                    </button>
+                  </div>
+                  <div className="max-w-[550px] text-gray-500">
+                    {reqProjectData?.description}
                   </div>
                 </div>
+              ) : (
+                // First section
+                <div className="w-full p-4 shadow-md rounded-xl bg-white animate-slideLeft">
+                  <div className="inline-flex items-center gap-2">
+                    <img
+                      src={reqProjectData?.projectLogoUrl}
+                      alt={`${reqProjectData?.projectName} Logo`}
+                      className="rounded-full ring-2 ring-gray-300 w-10 h-10"
+                    />
+                    <h1 className="text-lg font-semibold text-gray-600">
+                      {reqProjectData?.projectName}.
+                    </h1>
+                  </div>
+                  <h2 className="pt-2">
+                    <span className="text-sm font-medium mr-2 text-gray-600">
+                      Author:
+                    </span>
+                    <span className="text-gray-600">
+                      {reqProjectData?.author}.
+                    </span>
+                  </h2>
+                  <h3 className="">
+                    <span className="text-sm font-medium mr-2 text-gray-600">
+                      Type:
+                    </span>
+                    <span className="text-gray-600 capitalize">
+                      {reqProjectData?.projectType}.
+                    </span>
+                  </h3>
+                  <h4 className="">
+                    <span className="text-sm font-medium mr-2 text-gray-600">
+                      Own by:
+                    </span>
+                    <span className="text-gray-600">
+                      {reqProjectData?.owner}.
+                    </span>
+                  </h4>
+                  <div className="pt-2 mb-4 ">
+                    <h5 className="font-medium text-gray-600">Tech stack:</h5>
+                    <div className="flex justify-start w-full mt-3">
+                      <div className="grid grid-cols-6 sm:grid-cols-6 gap-3">
+                        {reqProjectData?.technologyUsed &&
+                          reqProjectData.technologyUsed.map((tech, index) => {
+                            const matchedIcon = techStackLogo.find(
+                              (item) => item.technology === tech
+                            );
+                            return matchedIcon ? (
+                              <span key={index}>{matchedIcon.icon}</span>
+                            ) : null;
+                          })}
+                      </div>
+                    </div>
+                  </div>
 
-                <div className="flex gap-4 pt-5">
-                  <a
-                    href={`https://${reqProjectData?.githubRepoUrl}`}
-                    target="_blank"
-                    className=" px-2 shadow-lg border border-gray-200 
+                  <div className="flex gap-4 pt-5">
+                    <a
+                      href={`https://${reqProjectData?.githubRepoUrl}`}
+                      target="_blank"
+                      className=" px-2 shadow-lg border border-gray-200 
                     rounded-md inline-flex items-center gap-2 hover:bg-gray-50
                     transform translate-1 hover:scale-110"
-                  >
-                    <GrGithub />
-                    Github
-                  </a>
-                  <a
-                    href={`https://${reqProjectData?.liveProjectUrl}`}
-                    target="_blank"
-                    className="px-2 shadow-lg border border-gray-200
+                    >
+                      <GrGithub />
+                      Github
+                    </a>
+                    <a
+                      href={`https://${reqProjectData?.liveProjectUrl}`}
+                      target="_blank"
+                      className="px-2 shadow-lg border border-gray-200
                     rounded-md inline-flex items-center gap-2 hover:bg-gray-50
                       transform translate-1 hover:scale-110"
-                  >
-                    View Demo
-                    <BiArrowToRight />
-                  </a>
-                </div>
+                    >
+                      View Demo
+                      <BiArrowToRight />
+                    </a>
+                  </div>
 
-                <button
-                  aria-label="Next Project Page Image"
-                  onClick={() => setSlideNumber(1)}
-                  className="float-end font-semibold transform translate-1 hover:scale-110 hover:text-blue-800"
-                >
-                  Next &rarr;
-                </button>
-              </div>
-            )}{" "}
+                  <button
+                    aria-label="Next Project Page Image"
+                    onClick={() => setSlideNumber(1)}
+                    className="float-end font-semibold transform translate-1 hover:scale-110 hover:text-blue-800"
+                  >
+                    Next &rarr;
+                  </button>
+                </div>
+              )}{" "}
+            </section>
           </section>
-        </section>
-      )}
-    </main>
+        )}
+      </main>{" "}
+    </>
   );
 };
 
