@@ -115,7 +115,7 @@ const RequestedProject: React.FC = () => {
         icon: <FaAngular className="text-red-600 text-2xl" />,
       },
       {
-        technology: "vuejs",
+        technology: "vue",
         icon: <FaVuejs className="text-green-500 text-2xl" />,
       },
       {
@@ -141,7 +141,7 @@ const RequestedProject: React.FC = () => {
         icon: <SiPrisma className="text-purple-600 text-2xl" />,
       },
       {
-        technology: "flask",
+        technology: "flusk",
         icon: <SiFlask className="text-green-500 text-2xl" />,
       },
       {
@@ -149,7 +149,7 @@ const RequestedProject: React.FC = () => {
         icon: <SiSpring className="text-green-600 text-2xl" />,
       },
       {
-        technology: "ruby on rails",
+        technology: "ruby",
         icon: <SiRubyonrails className="text-red-600 text-2xl" />,
       },
       {
@@ -157,7 +157,7 @@ const RequestedProject: React.FC = () => {
         icon: <SiMysql className="text-blue-500 text-2xl" />,
       },
       {
-        technology: "postgresql",
+        technology: "postgres",
         icon: <SiPostgresql className="text-blue-700 text-2xl" />,
       },
       {
@@ -173,7 +173,7 @@ const RequestedProject: React.FC = () => {
         icon: <TbBrandVite className="text-violet-600 text-2xl" />,
       },
       {
-        technology: "nodejs",
+        technology: "node",
         icon: <TbBrandNodejs className="text-green-600 text-2xl" />,
       },
       {
@@ -185,11 +185,11 @@ const RequestedProject: React.FC = () => {
         icon: <IoLogoCss3 className="text-blue-500 text-2xl" />,
       },
       {
-        technology: "tailwindcss",
+        technology: "tailwind",
         icon: <RiTailwindCssFill className="text-cyan-500 text-2xl" />,
       },
       {
-        technology: "nextjs",
+        technology: "next",
         icon: <RiNextjsFill className="text-black text-2xl" />,
       },
       {
