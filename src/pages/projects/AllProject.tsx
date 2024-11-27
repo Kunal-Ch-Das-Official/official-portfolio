@@ -18,15 +18,16 @@ const AllProject: React.FC = () => {
     allProjectsResponseI[]
   >([]);
   const [responseLength, setResponseLength] = useState<number>(0);
-  const [isPending, setPending] = useState<boolean>(true);
+  const [isPending, setPending] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchAllProjects = async () => {
+      setPending(true);
       try {
         const response = await axios.get(envConfig.projectUrl);
         if (response) {
-          setProjectResponse(response.data);
           setResponseLength(response.data.length);
+          setProjectResponse(response.data);
         }
       } catch (error) {
         console.log(error);
@@ -47,6 +48,15 @@ const AllProject: React.FC = () => {
 
   return (
     <main className="bg-white mx-6">
+      {responseLength === 0 && isPending === false ? (
+        <div className="flex justify-center pt-28 lg:pt-36 lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
+          <p className="w-full lg:w-3/4">
+            Project not yet uploaded. But it will be available soon.
+          </p>
+        </div>
+      ) : (
+        ""
+      )}
       {/* SEO Meta Tags */}
       <Helmet>
         <title>{pageTitle}</title>
@@ -73,30 +83,22 @@ const AllProject: React.FC = () => {
         className="min-h-screen pt-28 mx-auto w-full md:max-w-full lg:max-w-5xl xl:max-w-[78rem]
        2xl:max-w-12xl flex justify-center"
       >
-        {responseLength === 0 ? (
-          <div className="flex justify-center lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
-            <p className="w-full lg:w-3/4">
-              Project not yet uploaded. But it will be available soon.
-            </p>
-          </div>
-        ) : (
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-6">
-            {isPending
-              ? Array.from({ length: 8 }).map((_, index) => (
-                  <SimpleCardSkeleton key={index} />
-                ))
-              : projectResponse.map((project, index) => (
-                  <SimpleProjectCard
-                    key={index}
-                    projectTitle={project.projectName}
-                    projectFirstviewSrc={project.firstPageImageUrl}
-                    projectType={project.projectType}
-                    projectDescription={project.description}
-                    overViewUrl={`/project/${project._id}`}
-                  />
-                ))}
-          </section>
-        )}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-6">
+          {isPending === true
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <SimpleCardSkeleton key={index} />
+              ))
+            : projectResponse.map((project, index) => (
+                <SimpleProjectCard
+                  key={index}
+                  projectTitle={project.projectName}
+                  projectFirstviewSrc={project.firstPageImageUrl}
+                  projectType={project.projectType}
+                  projectDescription={project.description}
+                  overViewUrl={`/project/${project._id}`}
+                />
+              ))}
+        </section>
       </div>{" "}
     </main>
   );
