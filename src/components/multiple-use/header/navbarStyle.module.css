@@ -31,3 +31,9 @@
 .bottom_tooltip:hover .bottom_tooltip_text {
   visibility: visible;
 }
+
+@media screen and (max-width: 1024px) {
+  .bottom_tooltip:hover .bottom_tooltip_text {
+    visibility: hidden;
+  }
+}

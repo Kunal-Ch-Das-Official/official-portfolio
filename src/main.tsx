@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { Helmet } from "react-helmet";
+import Error500 from "./pages/error-500/Error500.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -51,6 +52,8 @@ createRoot(document.getElementById("root")!).render(
         content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png"
       />
     </Helmet>
-    <App />
+    <Error500>
+      <App />
+    </Error500>
   </StrictMode>
 );

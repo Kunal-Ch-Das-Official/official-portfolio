@@ -14,7 +14,6 @@ const BlogArticle = lazy(() => import("./pages/blog-article/BlogArticle"));
 const PreviewResume = lazy(() => import("./pages/resume/PreviewResume"));
 const RequestedBlog = lazy(() => import("./pages/blog-article/RequestedBlog"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
-
 import PageLoader from "./utils/page-loader/PageLoader";
 import { Helmet } from "react-helmet";
 
@@ -36,7 +35,15 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           {/* Catch-all for 404 */}
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                {" "}
+                <NotFound />
+              </Suspense>
+            }
+          />
 
           {/* Main route (Index page) */}
           <Route path="/" element={<Index />}>

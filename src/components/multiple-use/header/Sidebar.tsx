@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BiCodeAlt } from "react-icons/bi";
 import { GoProjectSymlink } from "react-icons/go";
@@ -259,4 +259,4 @@ const Sidebar: React.FC<SidebarI> = ({
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

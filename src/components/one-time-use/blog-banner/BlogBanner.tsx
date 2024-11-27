@@ -2,10 +2,10 @@ import React from "react";
 
 interface BlogBannerProps {
   bannerBackgroundImg: string;
-  headingFirst: string;
-  UniqueHeading: string;
-  headingLast: string;
-  subHeading: string;
+  headingFirst: string | null;
+  UniqueHeading: string | null;
+  headingLast: string | null;
+  subHeading: string | null;
 }
 
 const BlogBanner: React.FC<BlogBannerProps> = ({

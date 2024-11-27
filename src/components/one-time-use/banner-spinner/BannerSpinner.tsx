@@ -48,7 +48,6 @@ const BannerSpinner: React.FC = () => {
     "I'm A Tech Enthusiast",
     "Enjoy Your Stay",
   ];
-
   // Example function to toggle the value of a specific key in the state
   const mountUnmountHandler = (tech: keyof IAboutMountUnmountObj) => {
     setAboutMountUnmountObj((prevState) => ({

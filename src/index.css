@@ -40,6 +40,7 @@
     margin: 0;
   }
 }
+
 .blurBackground {
   background-color: rgba(0, 0, 0, 0.562);
   backdrop-filter: blur(3px);
@@ -55,9 +56,9 @@
   background: #000;
   backdrop-filter: blur(1px);
   overflow: hidden;
-  height: 120%;
-  background-image: linear-gradient(#f158001a 1px, transparent 1px),
-    linear-gradient(to right, #f1580034 1px, #000 1px);
+  height: 100%;
+  background-image: linear-gradient(#ff762759 1px, transparent 1px),
+    linear-gradient(to right, #ff762759 1px, #000 1px);
   background-size: 30px 30px;
   animation: banner-bg-light-dark 20s linear infinite;
   opacity: 5;
