@@ -48,7 +48,7 @@ const BlogBanner: React.FC<BlogBannerProps> = ({
               <span className="text-orange-500 mx-2">{UniqueHeading}</span>
               {headingLast}
             </h1>
-            <p className="mt-6 text-sm md:text-base lg:text-base leading-2 text-gray-200 dark:text-gray-400">
+            <p className="mt-6 text-sm md:text-base lg:text-base leading-2 text-gray-200">
               {subHeading}
             </p>
           </div>

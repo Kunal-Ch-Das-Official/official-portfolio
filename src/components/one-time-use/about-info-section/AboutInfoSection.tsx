@@ -31,7 +31,7 @@ const AboutMeInfo: React.FC = () => {
               <p className={twMerge("text-gray-950", "text-sm mb-4 px-4")}>
                 {item.location}
               </p>
-              <div className="text-sm  prose prose-sm dark:prose-invert px-4">
+              <div className="text-sm  prose prose-sm  px-4">
                 {item.description}
               </div>
             </div>

@@ -13,14 +13,14 @@ const CustomAlert: React.FC<FiveSecAlertProps> = ({
   return (
     <main className={style.tnBox}>
       <div
-        className=" w-[330px] h-20 box-border bg-white dark:bg-slate-600 
+        className=" w-[330px] h-20 box-border bg-white
       shadow-[rgba(149,157,165,0.2)_0px_8px_24px] z-[999099] overflow-hidden flex items-center
        justify-around gap-[15px] px-[15px] py-2.5 rounded-lg fixed bottom-2 right-0"
       >
         {/* Curve Design  */}
         {isSuccessful === true ? (
           <svg
-            className="absolute rotate-90 left-[-31px] w-20 fill-[#04e4003a] dark:fill-[#9dff9bb2] top-8"
+            className="absolute rotate-90 left-[-31px] w-20 fill-[#04e4003a] top-8"
             viewBox="0 0 1440 320"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -31,7 +31,7 @@ const CustomAlert: React.FC<FiveSecAlertProps> = ({
           </svg>
         ) : (
           <svg
-            className="absolute rotate-90 left-[-31px] w-20 fill-[#e400003a] dark:fill-[#ff7d7dd0] top-8"
+            className="absolute rotate-90 left-[-31px] w-20 fill-[#e400003a] top-8"
             viewBox="0 0 1440 320"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -44,11 +44,7 @@ const CustomAlert: React.FC<FiveSecAlertProps> = ({
 
         <div
           className={`w-[35px] h-[35px] flex justify-center items-center 
-            ${
-              isSuccessful === true
-                ? "bg-[#04e40048] dark:bg-green-200"
-                : "bg-[#e4000048] dark:bg-red-300"
-            } 
+            ${isSuccessful === true ? "bg-[#04e40048] " : "bg-[#e4000048] "} 
        ml-2 rounded-[50%]`}
         >
           {/* Done Circle */}
@@ -79,16 +75,12 @@ const CustomAlert: React.FC<FiveSecAlertProps> = ({
         <div className="flex flex-col justify-center items-start grow">
           <p
             className={`${
-              isSuccessful === true
-                ? "text-[#269b24] dark:text-green-400"
-                : "text-[#9b2424] dark:text-red-400"
+              isSuccessful === true ? "text-[#269b24] " : "text-[#9b2424] "
             }  text-[17px] m-0 font-bold`}
           >
             {alertText}
           </p>
-          <p className="text-sm text-[#555] dark:text-gray-100 m-0">
-            {message}
-          </p>
+          <p className="text-sm text-[#555]  m-0">{message}</p>
         </div>
 
         <div className={style.tnProgress}></div>
