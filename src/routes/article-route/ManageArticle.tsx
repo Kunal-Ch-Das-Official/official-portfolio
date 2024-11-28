@@ -120,11 +120,7 @@ const ManageArticle: React.FC = () => {
                 </p>
               </div>
               {/* Add article button  */}
-              <div
-                className={`${
-                  isSuperAdmin !== true ? "pointer-events-none" : ""
-                } flex flex-col gap-2 shrink-0 sm:flex-row`}
-              >
+              <div className="flex flex-col gap-2 shrink-0 sm:flex-row">
                 <Link
                   to={"/admin-console/post-article"}
                   className="flex select-none items-center gap-3 rounded-lg bg-primary-button-background py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-100 shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
