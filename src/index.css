@@ -13,6 +13,27 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ad9e00;
+  outline: 1px solid #ad9e00;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+@-moz-document url-prefix() {
+  .scroller {
+    scrollbar-width: 6px;
+    scrollbar-color: #ad9e00;
+  }
+}
 body {
   background: #deffa85e;
 }

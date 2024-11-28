@@ -26,8 +26,8 @@ const FullMenu: React.FC<FullMenuProps> = ({
   handleLogoutEvent,
   isSuperAdmin,
 }) => {
-  const location = useLocation();
-  const pathname = location.pathname;
+  const { pathname } = useLocation();
+
   const params = useParams();
   useEffect(() => {
     AOS.init();
@@ -123,16 +123,20 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 
                     text-sm font-medium text-gray-500 hover:bg-primary-color
                      hover:text-gray-700
-                        ${
-                          pathname === `/admin-console/manage-projects`
-                            ? "text-[#ad9e00]"
-                            : ""
-                        }
+                        
 
                      `}
                   >
-                    <MdManageAccounts className="text-xl mr-2 pl-1" />
-                    Manage All
+                    <span
+                      className={`inline-flex items-center ${
+                        pathname === `/admin-console/manage-projects`
+                          ? "text-[#ad9e00]"
+                          : ""
+                      }`}
+                    >
+                      <MdManageAccounts className="text-xl mr-2 pl-1" />
+                      Manage All
+                    </span>
                   </Link>
                 </li>
 
@@ -141,15 +145,19 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     to={"/admin-console/upload-project"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium
                      text-gray-500 hover:bg-primary-color hover:text-gray-700
-                   ${
-                     pathname === `/admin-console/upload-project` &&
-                     "text-[#ad9e00]"
-                   }
+                  
                      
                      `}
                   >
-                    <TiUploadOutline className="text-xl mr-2 pl-1" />
-                    Upload New
+                    <span
+                      className={`inline-flex items-center  ${
+                        pathname === `/admin-console/upload-project` &&
+                        "text-[#ad9e00]"
+                      }`}
+                    >
+                      <TiUploadOutline className="text-xl mr-2 pl-1" />
+                      Upload New
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -213,21 +221,25 @@ const FullMenu: React.FC<FullMenuProps> = ({
                   )}
                 </span>
               </summary>
-              {/* Routes path  */}
+              {/* Resume routes path  */}
               <ul className="mt-2 space-y-1" onClick={handleSideBarUnmount}>
                 <li id="manage_resume">
                   <Link
                     to={"/admin-console/manage-resume"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm 
                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
-                      ${
-                        pathname === `/admin-console/manage-resume` &&
-                        "text-[#ad9e00]"
-                      }
+                     
                       `}
                   >
-                    <MdManageAccounts className="text-xl mr-2 pl-1" />
-                    Manage All
+                    <span
+                      className={`inline-flex items-center  ${
+                        pathname === `/admin-console/manage-resume` &&
+                        "text-[#ad9e00]"
+                      }`}
+                    >
+                      <MdManageAccounts className="text-xl mr-2 pl-1" />
+                      Manage All
+                    </span>
                   </Link>
                 </li>
 
@@ -236,14 +248,18 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     to={"/admin-console/upload-resume"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm
                        font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
-                       ${
-                         pathname === `/admin-console/upload-resume` &&
-                         "text-[#ad9e00]"
-                       }
+                    
                        `}
                   >
-                    <TiUploadOutline className="text-xl mr-2 pl-1" />
-                    Upload New
+                    <span
+                      className={`inline-flex items-center    ${
+                        pathname === `/admin-console/upload-resume` &&
+                        "text-[#ad9e00]"
+                      }`}
+                    >
+                      <TiUploadOutline className="text-xl mr-2 pl-1" />
+                      Upload New
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -305,15 +321,19 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     to={"/admin-console/manage-articles"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm 
                       font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
-                        ${
-                          pathname === `/admin-console/manage-articles` &&
-                          "text-[#ad9e00]"
-                        }
+                       
                       
                       `}
                   >
-                    <MdManageAccounts className="text-xl mr-2 pl-1" />
-                    Manage All
+                    <span
+                      className={`inline-flex items-center  ${
+                        pathname === `/admin-console/manage-articles` &&
+                        "text-[#ad9e00]"
+                      }`}
+                    >
+                      <MdManageAccounts className="text-xl mr-2 pl-1" />
+                      Manage All
+                    </span>
                   </Link>
                 </li>
 
@@ -322,16 +342,19 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     to={"/admin-console/post-article"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm font-medium
                        text-gray-500 hover:bg-primary-color hover:text-gray-700
-                                         ${
-                                           pathname ===
-                                             `/admin-console/post-article` &&
-                                           "text-[#ad9e00]"
-                                         }
+                                         
                        
                        `}
                   >
-                    <TiUploadOutline className="text-xl mr-2 pl-1" />
-                    Post New
+                    <span
+                      className={`inline-flex items-center ${
+                        pathname === `/admin-console/post-article` &&
+                        "text-[#ad9e00]"
+                      }`}
+                    >
+                      <TiUploadOutline className="text-xl mr-2 pl-1" />
+                      Post New
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -387,17 +410,21 @@ const FullMenu: React.FC<FullMenuProps> = ({
                     to={"/admin-console/all-registerd-users"}
                     className={`inline-flex px-2.5 items-center rounded-lg py-2 w-48 text-sm
                      font-medium text-gray-500 hover:bg-primary-color hover:text-gray-700
-                                    ${
-                                      pathname ===
-                                        `/admin-console/all-registerd-users` &&
-                                      "text-[#ad9e00]"
-                                    }
+                                    
                      
                      
                      `}
                   >
-                    <FaUsersCog className="text-xl mr-2 pl-1" />
-                    Manage All Users
+                    <span
+                      className={`inline-flex items-center ${
+                        pathname === `/admin-console/all-registerd-users`
+                          ? "text-[#ad9e00]"
+                          : ""
+                      }`}
+                    >
+                      <FaUsersCog className="text-xl mr-2 pl-1" />
+                      Manage All Users
+                    </span>
                   </Link>
                 </li>
 
@@ -414,8 +441,16 @@ const FullMenu: React.FC<FullMenuProps> = ({
                        
                        `}
                   >
-                    <RiExchangeLine className="text-xl mr-2 pl-1" />
-                    Change Password
+                    <span
+                      className={`inline-flex items-center ${
+                        pathname === `/admin-console/change-password`
+                          ? "text-[#ad9e00]"
+                          : ""
+                      }`}
+                    >
+                      <RiExchangeLine className="text-xl mr-2 pl-1" />
+                      Change Password
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -435,8 +470,9 @@ const FullMenu: React.FC<FullMenuProps> = ({
               className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500
                  hover:bg-primary-color hover:text-gray-700
                   ${
-                    pathname === `/admin-console/manage-feedbacks` &&
-                    "bg-primary-color"
+                    pathname === `/admin-console/manage-feedbacks`
+                      ? "bg-primary-color"
+                      : ""
                   }
                  
                  
