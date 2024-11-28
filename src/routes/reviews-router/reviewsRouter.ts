@@ -25,13 +25,13 @@ import { Router } from "express";
 import NewReviews from "../../controllers/reviews/uploadReview";
 import ExistingReview from "../../controllers/reviews/deleteReview";
 import ReviewInfo from "../../controllers/reviews/getReviews";
-import AuthValidator from "../../middlewares/auth-validator/authValidator";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 const reviewsRouter = Router();
 
 reviewsRouter.post("/client", NewReviews.uploadCtrl);
 reviewsRouter.delete(
   "/client/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   ExistingReview.deleteCtrl
 );
 reviewsRouter.get("/client", ReviewInfo.getCtrl);

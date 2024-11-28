@@ -34,6 +34,7 @@ import ContactInfo from "../../controllers/contacts/getApplication";
 import RequestedApplication from "../../controllers/contacts/deleteApplication";
 import SendContactRes from "../../controllers/contacts/sendContactResponse";
 import AuthValidator from "../../middlewares/auth-validator/authValidator";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 
 const contactsRouter = Router();
 
@@ -41,21 +42,25 @@ contactsRouter.post("/application", ContactApplication.postCtrl);
 
 contactsRouter.post(
   "/response/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   SendContactRes.sendEmail
 );
 
 contactsRouter.get(
   "/application/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   ContactInfo.getCtrl
 );
 
-contactsRouter.get("/application", AuthValidator.validate, ContactInfo.getCtrl);
+contactsRouter.get(
+  "/application",
+  superAdminValidator.validate,
+  ContactInfo.getCtrl
+);
 
 contactsRouter.delete(
   "/application/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   RequestedApplication.deleteCtrl
 );
 

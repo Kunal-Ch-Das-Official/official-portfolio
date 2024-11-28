@@ -31,6 +31,7 @@ import ResetForgottenPassword from "../../controllers/admin-auth/resetPasswordLi
 import ForgottenPassword from "../../controllers/admin-auth/resetForgottenPassword";
 import AllUser from "../../controllers/admin-auth/allRegisteredUser";
 import DeleteAdmin from "../../controllers/admin-auth/deleteAdminUser";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 
 const admiAuthenticationRouter = Router();
 
@@ -50,7 +51,7 @@ admiAuthenticationRouter.get(
 // Get Current Admin User
 admiAuthenticationRouter.get(
   "/all-registered-user",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   AllUser.registered
 );
 
@@ -76,7 +77,7 @@ admiAuthenticationRouter.put(
 // Reset password
 admiAuthenticationRouter.delete(
   "/deactivate-account/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   DeleteAdmin.account
 );
 

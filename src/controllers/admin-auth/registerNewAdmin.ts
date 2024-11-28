@@ -88,9 +88,8 @@ class NewAdmin {
                 );
                 if (token) {
                   return <any>res.status(201).json({
-                    message: "Registration successful!",
+                    message: "Registration successfull!",
                     details: "Congratulations!",
-                    valid_admin_token: token,
                   });
                 } else {
                   return <any>res.status(501).json({

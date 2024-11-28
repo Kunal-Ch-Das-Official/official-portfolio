@@ -42,6 +42,7 @@ interface EnvType {
   cloudinaryApiKey: string;
   cloudinaryCloudSecret: string;
   jwtSecretKey: string;
+  uniqueSecretKey: string;
 
   // 2. Email env
   emailHostProtocol: string;
@@ -60,22 +61,23 @@ interface EnvType {
 const environment: EnvType = {
   // 1. Dependency ENV
   port: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
-  databaseConnectionString: process.env.DB_CONNECTION_STRING || "",
-  cloudinaryCloudName: process.env.CLOUD_NAME || "",
-  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || "",
-  cloudinaryCloudSecret: process.env.CLOUDINARY_API_SECRET || "",
-  jwtSecretKey: process.env.JWT_SECRET_KEY || "",
+  databaseConnectionString: process.env.DB_CONNECTION_STRING as string,
+  cloudinaryCloudName: process.env.CLOUD_NAME as string,
+  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY as string,
+  cloudinaryCloudSecret: process.env.CLOUDINARY_API_SECRET as string,
+  jwtSecretKey: process.env.JWT_SECRET_KEY as string,
+  uniqueSecretKey: process.env.UNIQUE_SECRET_KEY as string,
   // 2. Email ENV
-  emailHostProtocol: process.env.EMAIL_HOST_PROTOCOL || "",
+  emailHostProtocol: process.env.EMAIL_HOST_PROTOCOL as string,
   emailPort: process.env.EMAIL_PORT,
-  emailHostUser: process.env.EMAIL_HOST_USER || "",
-  emailHostPassword: process.env.EMAIL_HOST_PASSWORD || "",
-  clientSideUrl: process.env.CLIENT_FACING_URL || "",
+  emailHostUser: process.env.EMAIL_HOST_USER as string,
+  emailHostPassword: process.env.EMAIL_HOST_PASSWORD as string,
+  clientSideUrl: process.env.CLIENT_FACING_URL as string,
   // 3. Super admin ENV
-  superAdminOne: process.env.SUPER_ADMIN_ONE || "",
-  superAdminTwo: process.env.SUPER_ADMIN_TWO || "",
-  superAdminThree: process.env.SUPER_ADMIN_THREE || "",
-  superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
+  superAdminOne: process.env.SUPER_ADMIN_ONE as string,
+  superAdminTwo: process.env.SUPER_ADMIN_TWO as string,
+  superAdminThree: process.env.SUPER_ADMIN_THREE as string,
+  superAdminFour: process.env.SUPER_ADMIN_FOUR as string,
 };
 
 const envConfig = Object.freeze(environment);

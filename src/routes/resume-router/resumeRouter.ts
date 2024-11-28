@@ -26,25 +26,26 @@ import ExistingResume from "../../controllers/resume/updateResume";
 import RequestedResume from "../../controllers/resume/deleteResume";
 import ResumeInfo from "../../controllers/resume/getResume";
 import AuthValidator from "../../middlewares/auth-validator/authValidator";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 
 const resumeRouter = Router();
 resumeRouter.post(
   "/kunal-chandra-das",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   multerUploader.single("resumeUrl"),
   NewResume.uploadCtrl
 );
 
 resumeRouter.put(
   "/kunal-chandra-das/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   multerUploader.single("resumeUrl"),
   ExistingResume.updateCtrl
 );
 
 resumeRouter.delete(
   "/kunal-chandra-das/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   RequestedResume.deleteCtrl
 );
 

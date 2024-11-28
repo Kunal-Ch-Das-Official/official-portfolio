@@ -56,18 +56,22 @@ class AdminUser {
               );
               if (token) {
                 if (superAdminId.includes(adminUserEmail)) {
+                  const uniqueId = jwt.sign(
+                    { superAdminId: requestedUser._id },
+                    envConfig.uniqueSecretKey,
+                    { expiresIn: "1d" }
+                  );
                   return <any>res.status(200).json({
                     message: "Login successful!",
                     details: "Welcome to admin dashboard.",
+                    super_admin: uniqueId,
                     authentication_sign: token,
-                    super_admin: true,
                   });
                 } else {
                   return <any>res.status(200).json({
                     message: "Login successful!",
                     details: "Welcome to admin dashboard.",
                     authentication_sign: token,
-                    super_admin: false,
                   });
                 }
               } else {

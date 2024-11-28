@@ -34,6 +34,7 @@ import AuthValidator from "../../middlewares/auth-validator/authValidator";
 import ExistingBlog from "../../controllers/blogs/updateBlogs";
 import RequestedBlog from "../../controllers/blogs/deleteBlogs";
 import BlogsInfo from "../../controllers/blogs/getBlogs";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 
 const blogRouter = Router();
 
@@ -53,7 +54,7 @@ blogRouter.patch(
 
 blogRouter.delete(
   "/content/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   RequestedBlog.deleteCtrl
 );
 

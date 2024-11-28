@@ -26,6 +26,7 @@ import AuthValidator from "../../middlewares/auth-validator/authValidator";
 import ExistingProject from "../../controllers/projects/updateProject";
 import RequestedProject from "../../controllers/projects/deleteProject";
 import ProjectsInfo from "../../controllers/projects/getProject";
+import superAdminValidator from "../../middlewares/auth-validator/superAdminValidator";
 
 const projectsRouter = Router();
 const requiredProjectImage = multerUploader.fields([
@@ -37,7 +38,7 @@ const requiredProjectImage = multerUploader.fields([
 //1. Upload new project route
 projectsRouter.post(
   "/operation/url",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   requiredProjectImage,
   NewProject.uploadCtrl
 );
@@ -45,7 +46,7 @@ projectsRouter.post(
 //2. Update existing project route
 projectsRouter.patch(
   "/operation/url/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   requiredProjectImage,
   ExistingProject.updateCtrl
 );
@@ -53,7 +54,7 @@ projectsRouter.patch(
 //3. Delete existing project route
 projectsRouter.delete(
   "/operation/url/:id",
-  AuthValidator.validate,
+  superAdminValidator.validate,
   RequestedProject.deleteCtrl
 );
 
