@@ -202,7 +202,7 @@ const BannerSpinner: React.FC = () => {
         />
       ))}
 
-      <div className="relative h-full w-full flex items-center justify-center">
+      <section className="relative h-full w-full flex items-center justify-center">
         <div
           className={`${bannerstyle.spinner} relative p-10
       rounded-full border-spacing-4 `}
@@ -507,7 +507,7 @@ const BannerSpinner: React.FC = () => {
             <TypeWritter texts={texts} />
           </p>
         </h1>
-      </div>
+      </section>
     </>
   );
 };

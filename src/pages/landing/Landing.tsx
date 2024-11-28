@@ -44,6 +44,7 @@ const Landing = () => {
     setMountSendFeedback(true);
   };
 
+  // Project data fetching
   useEffect(() => {
     setPending(true);
     const fetchProjectData = async () => {
@@ -123,12 +124,14 @@ const Landing = () => {
         </Link>
       </p>
 
-      {responseLength === 0 && (
+      {responseLength === 0 && pending === false ? (
         <div className="flex justify-center w-full lg:px-8 text-center text-lg font-semibold text-orange-400 py-10">
           <p className="md:w-1/2 md:px-8">
             Project not yet uploaded. But it will be available soon.
           </p>
         </div>
+      ) : (
+        ""
       )}
       {pending === true ? (
         <section

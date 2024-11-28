@@ -4,7 +4,7 @@ import BannerSpinner from "../banner-spinner/BannerSpinner";
 
 const LandingBanner: React.FC = () => {
   return (
-    <main className="min-h-screen bannerBackground z-0">
+    <main className="py-28 lg:min-h-screen xl:py-0 bannerBackground z-0">
       <div className="w-1/2 ">
         <LandingBannerBg />
       </div>

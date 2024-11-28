@@ -37,7 +37,7 @@ const FeedbackSection: React.FC = () => {
     <main id="feedback_and_reviews">
       {pending && <ReviewSkeleton />}
 
-      {allFeedbacks.length === 0 ? (
+      {allFeedbacks.length === 0 && pending === false ? (
         <div
           className="flex justify-center w-full lg:px-8 text-center text-lg
          font-base text-orange-400 py-10"
