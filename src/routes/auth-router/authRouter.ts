@@ -51,7 +51,7 @@ admiAuthenticationRouter.get(
 // Get Current Admin User
 admiAuthenticationRouter.get(
   "/all-registered-user",
-  superAdminValidator.validate,
+  AuthValidator.validate,
   AllUser.registered
 );
 
@@ -74,7 +74,7 @@ admiAuthenticationRouter.put(
   ForgottenPassword.resetPassword
 );
 
-// Reset password
+// Delete user
 admiAuthenticationRouter.delete(
   "/deactivate-account/:id",
   superAdminValidator.validate,
