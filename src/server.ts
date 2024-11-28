@@ -30,13 +30,12 @@ import resumeRouter from "./routes/resume-router/resumeRouter";
 import blogRouter from "./routes/blog-router/blogRouter";
 import contactsRouter from "./routes/contacts-router/contactsRouter";
 import dashboardRouter from "./routes/dashboard-router/dashboardRouter";
-import CrossOrigin from "../src/middlewares/cors-middleware/cors";
+
 import helmet from "helmet";
 const server: Application = express();
 
 // Genaral Middleware
 server.use(cors());
-server.use(CrossOrigin.allowOrigin);
 server.use(express.json()); // Using Express's built-in JSON middleware
 server.use(express.urlencoded({ extended: true })); // URL-encoded data
 // Helmet rule

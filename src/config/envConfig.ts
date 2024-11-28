@@ -55,11 +55,6 @@ interface EnvType {
   // superAdminTwo: string;
   // superAdminThree: string;
   // superAdminFour: string;
-  // 4. CORS origin env
-  localOriginOne: string;
-  localOriginTwo: string;
-  hostOriginOne: string;
-  hostOriginTwo: string;
 }
 
 const environment: EnvType = {
@@ -81,11 +76,6 @@ const environment: EnvType = {
   // superAdminTwo: process.env.SUPER_ADMIN_TWO || "",
   // superAdminThree: process.env.SUPER_ADMIN_THREE || "",
   // superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
-  // 4. CORS origin ENV
-  localOriginOne: process.env.LOCAL_ORIGIN_ONE || "",
-  localOriginTwo: process.env.LOCAL_ORIGIN_TWO || "",
-  hostOriginOne: process.env.HOST_ORIGIN_ONE || "",
-  hostOriginTwo: process.env.HOST_ORIGIN_TWO || "",
 };
 
 const envConfig = Object.freeze(environment);
