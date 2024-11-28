@@ -56,11 +56,10 @@ interface EnvType {
   // superAdminThree: string;
   // superAdminFour: string;
   // 4. CORS origin env
-  // originOne: string;
-  // originTwo: string;
-  // originThree: string;
-  // originFour: string;
-  // originFive: string;
+  localOriginOne: string;
+  localOriginTwo: string;
+  hostOriginOne: string;
+  hostOriginTwo: string;
 }
 
 const environment: EnvType = {
@@ -83,11 +82,10 @@ const environment: EnvType = {
   // superAdminThree: process.env.SUPER_ADMIN_THREE || "",
   // superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
   // 4. CORS origin ENV
-  // originOne: process.env.ORIGIN_ONE || "",
-  // originTwo: process.env.ORIGIN_TWO || "",
-  // originThree: process.env.ORIGIN_THREE || "",
-  // originFour: process.env.ORIGIN_FOUR || "",
-  // originFive: process.env.ORIGIN_FIVE || "",
+  localOriginOne: process.env.LOCAL_ORIGIN_ONE || "",
+  localOriginTwo: process.env.LOCAL_ORIGIN_TWO || "",
+  hostOriginOne: process.env.HOST_ORIGIN_ONE || "",
+  hostOriginTwo: process.env.HOST_ORIGIN_TWO || "",
 };
 
 const envConfig = Object.freeze(environment);

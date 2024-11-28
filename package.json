@@ -1,6 +1,6 @@
 {
-  "name": "kunal-portfolio-server",
-  "version": "2.3.2",
+  "name": "kunal-portfolio-server_v2",
+  "version": "2.4.3",
   "description": "This is a backend server of the portfollio of Mr. Kunal Chandra Das. This is the second version.",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.3",

@@ -30,13 +30,62 @@ import resumeRouter from "./routes/resume-router/resumeRouter";
 import blogRouter from "./routes/blog-router/blogRouter";
 import contactsRouter from "./routes/contacts-router/contactsRouter";
 import dashboardRouter from "./routes/dashboard-router/dashboardRouter";
-
+import CrossOrigin from "../src/middlewares/cors-middleware/cors";
+import helmet from "helmet";
 const server: Application = express();
 
 // Genaral Middleware
 server.use(cors());
+server.use(CrossOrigin.allowOrigin);
 server.use(express.json()); // Using Express's built-in JSON middleware
 server.use(express.urlencoded({ extended: true })); // URL-encoded data
+// Helmet rule
+server.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", "data:", "https://*"],
+        connectSrc: ["'self'", "https://*"],
+        fontSrc: [
+          "'self'",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+        ],
+        objectSrc: ["'none'"], // Disallow <object>, <embed>, <applet>
+        frameSrc: ["'none'"], // Disallow framing of your app
+        upgradeInsecureRequests: [], // Force HTTPS for all requests
+      },
+    },
+    frameguard: {
+      action: "deny", // Prevent clickjacking
+    },
+    referrerPolicy: {
+      policy: "strict-origin-when-cross-origin", // Only send full referrer for same-origin requests
+    },
+    hsts: {
+      maxAge: 31536000, // Enforce HTTPS for one year
+      includeSubDomains: true, // Apply to all subdomains
+      preload: true, // Add to the HSTS preload list
+    },
+    dnsPrefetchControl: {
+      allow: false, // Disable DNS prefetching
+    },
+    hidePoweredBy: true, // Remove "X-Powered-By: Express" header
+    xssFilter: true, // Add X-XSS-Protection header
+    noSniff: true, // Prevent browsers from sniffing MIME types
+    ieNoOpen: true, // Add X-Download-Options header for IE8+
+    crossOriginEmbedderPolicy: true, // Block cross-origin resources in <iframe>
+    crossOriginOpenerPolicy: {
+      policy: "same-origin", // Mitigate cross-origin attacks like Spectre
+    },
+    crossOriginResourcePolicy: {
+      policy: "same-origin", // Restrict cross-origin resource sharing
+    },
+  })
+);
 
 // Base Route Endpoint
 server.get("/", (req: Request, res: Response) => {
