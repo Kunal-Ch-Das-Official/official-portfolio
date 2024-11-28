@@ -23,6 +23,12 @@ import envConfig from "../../config/envConfig";
 class AdminUser {
   public async login(req: Request, res: Response): Promise<void> {
     const { adminUserEmail, adminUserPassword } = req.body;
+    const superAdminId = [
+      envConfig.superAdminOne,
+      envConfig.superAdminTwo,
+      envConfig.superAdminThree,
+      envConfig.superAdminFour,
+    ];
     try {
       if (adminUserEmail && adminUserPassword) {
         const isAdmin = await authAdminUserModel.findOne({
@@ -49,11 +55,21 @@ class AdminUser {
                 { expiresIn: "1d" }
               );
               if (token) {
-                return <any>res.status(200).json({
-                  message: "Login successful!",
-                  details: "Welcome to admin dashboard.",
-                  authentication_sign: token,
-                });
+                if (superAdminId.includes(adminUserEmail)) {
+                  return <any>res.status(200).json({
+                    message: "Login successful!",
+                    details: "Welcome to admin dashboard.",
+                    authentication_sign: token,
+                    super_admin: true,
+                  });
+                } else {
+                  return <any>res.status(200).json({
+                    message: "Login successful!",
+                    details: "Welcome to admin dashboard.",
+                    authentication_sign: token,
+                    super_admin: false,
+                  });
+                }
               } else {
                 return <any>res.status(501).json({
                   issue: "Not implemented!",

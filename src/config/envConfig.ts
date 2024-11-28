@@ -51,10 +51,10 @@ interface EnvType {
   clientSideUrl: string;
 
   // 3. Super admin env
-  // superAdminOne: string;
-  // superAdminTwo: string;
-  // superAdminThree: string;
-  // superAdminFour: string;
+  superAdminOne: string;
+  superAdminTwo: string;
+  superAdminThree: string;
+  superAdminFour: string;
 }
 
 const environment: EnvType = {
@@ -72,10 +72,10 @@ const environment: EnvType = {
   emailHostPassword: process.env.EMAIL_HOST_PASSWORD || "",
   clientSideUrl: process.env.CLIENT_FACING_URL || "",
   // 3. Super admin ENV
-  // superAdminOne: process.env.SUPER_ADMIN_ONE || "",
-  // superAdminTwo: process.env.SUPER_ADMIN_TWO || "",
-  // superAdminThree: process.env.SUPER_ADMIN_THREE || "",
-  // superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
+  superAdminOne: process.env.SUPER_ADMIN_ONE || "",
+  superAdminTwo: process.env.SUPER_ADMIN_TWO || "",
+  superAdminThree: process.env.SUPER_ADMIN_THREE || "",
+  superAdminFour: process.env.SUPER_ADMIN_FOUR || "",
 };
 
 const envConfig = Object.freeze(environment);
