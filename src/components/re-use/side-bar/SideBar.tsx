@@ -13,6 +13,7 @@ interface ICurrentUser {
 }
 const SideBar = () => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const [isSuperAdmin, setIsSuperAdmin] = useState<boolean>(false);
   const [screenWidth, setScreenWidth] = useState<number>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [iSidebarOpen, setISidebarOpen] = useState<boolean>(false);
@@ -44,12 +45,17 @@ const SideBar = () => {
             adminUserName: response.data.userDetails.adminUserName,
           });
         }
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         if (error.status === 401) {
           const authToken = localStorage.getItem("auth-token") || null;
+          const superAdminToken = localStorage.getItem("super-admin") || null;
           if (authToken) {
             localStorage.removeItem("auth-token");
+            if (superAdminToken) {
+              localStorage.removeItem("super-admin");
+            }
             logout();
             window.location.href = "/";
           } else {
@@ -63,6 +69,10 @@ const SideBar = () => {
       }
     };
     getCurrentAccountHolder();
+    const superAdmin = localStorage.getItem("super-admin") || null;
+    if (superAdmin) {
+      setIsSuperAdmin(true);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -133,11 +143,18 @@ const SideBar = () => {
   const confirmLogout = () => {
     const authToken = localStorage.getItem("auth-token");
     const visitorToken = sessionStorage.getItem("visitor-token");
+    const superAdminToken = localStorage.getItem("super-admin");
     if (authToken) {
       localStorage.removeItem("auth-token");
+      if (superAdminToken) {
+        localStorage.removeItem("super-admin");
+      }
     }
     if (visitorToken) {
       sessionStorage.removeItem("visitor-token");
+      if (superAdminToken) {
+        localStorage.removeItem("super-admin");
+      }
     }
     logout();
   };
@@ -148,6 +165,7 @@ const SideBar = () => {
 
         {iSidebarOpen === true && (
           <FullMenu
+            isSuperAdmin={isSuperAdmin}
             handleSideBarUnmount={handleOpenSidebar}
             userName={currentUser.adminUserName}
             email={currentUser.adminUserEmail}
@@ -159,6 +177,7 @@ const SideBar = () => {
         {/* Half Menu  */}
         {isMenuOpen === true && (
           <HalfMenu
+            isSuperAdmin={isSuperAdmin}
             handleSidebarMount={handleOpenSidebar}
             sideBarStatus={iSidebarOpen}
             profileLogo={currentUser.adminUserName}

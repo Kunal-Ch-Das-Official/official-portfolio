@@ -25,15 +25,13 @@ const DeleteArticle: React.FC = () => {
   const deleteEventHandler = async () => {
     setLoading(true);
     try {
-      const authToken = localStorage.getItem("auth-token");
-      const visitorToken = sessionStorage.getItem("visitor-token");
-      const token = authToken || visitorToken;
+      const superAdminToken = localStorage.getItem("super-admin") || null;
 
       const deleteArticle = await axios.delete(
         `${envConfig.blogArticleUrl}/${params.id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${superAdminToken}`,
           },
         }
       );
@@ -45,7 +43,7 @@ const DeleteArticle: React.FC = () => {
         });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       setAlertMessage({
         text: "Failed!",
         message: "Something went wrong.",

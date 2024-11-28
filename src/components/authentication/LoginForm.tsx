@@ -55,7 +55,11 @@ const LoginForm: React.FC = () => {
       try {
         const res = await axios.post(envConfig.loginUrl, loginCredentials);
         if (res) {
+          console.log(res);
           if (res.status === 200) {
+            if (res.data.super_admin) {
+              localStorage.setItem("super-admin", res.data.super_admin);
+            }
             if (isRememberMeChecked) {
               localStorage.setItem("auth-token", res.data.authentication_sign);
             } else {
@@ -64,6 +68,7 @@ const LoginForm: React.FC = () => {
                 res.data.authentication_sign
               );
             }
+
             setIsLoading(false);
             setModelOpen(true);
             login();

@@ -34,9 +34,7 @@ const SendResponse: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const authToken = localStorage.getItem("auth-token");
-      const visitorToken = sessionStorage.getItem("visitor-token");
-      const token = authToken || visitorToken;
+      const superAdminToken = localStorage.getItem("super-admin") || null;
       const emailContent = {
         subject: subject,
         emailBody: emailBody,
@@ -47,7 +45,7 @@ const SendResponse: React.FC = () => {
         emailContent,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${superAdminToken}`,
           },
         }
       );

@@ -29,7 +29,7 @@ interface ItotalData {
 const DashboardRouter = () => {
   const [totalData, setTotalData] = useState<ItotalData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [isSuperAdminValid, setIsSuperAdminValid] = useState<boolean>(false);
   useEffect(() => {
     const getDashboardData = async () => {
       try {
@@ -55,6 +55,10 @@ const DashboardRouter = () => {
       }
     };
     getDashboardData();
+    const superAdminToken = localStorage.getItem("super-admin") || null;
+    if (superAdminToken) {
+      setIsSuperAdminValid(true);
+    }
   }, []);
   const adminUserLastUpdate =
     totalData?.[0]?.response?.[totalData[0].response.length - 1];
@@ -178,7 +182,11 @@ const DashboardRouter = () => {
                         </span>
                       </div>
 
-                      <div className="flex-row mt-2">
+                      <div
+                        className={`${
+                          isSuperAdminValid ? "" : "pointer-events-none"
+                        } flex-row mt-2`}
+                      >
                         <Link
                           to={`${
                             (index === 0 &&
@@ -251,73 +259,74 @@ const DashboardRouter = () => {
           </div>
         </div>
       </section>
-
-      <section id="contact_emails_box">
-        <div className="p-6 px-0 overflow-scroll">
-          <table className="w-full mt-4 text-left table-auto min-w-max">
-            {/* Table heading  */}
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Requested user
-                  </p>
-                </th>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Status
-                  </p>
-                </th>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Contact number
-                  </p>
-                </th>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Recived date
-                  </p>
-                </th>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Message
-                  </p>
-                </th>
-                <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-                  <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                    Actions
-                  </p>
-                </th>
-              </tr>
-            </thead>
-            {totalData?.[2]?.response.length === 0 ? (
-              <tbody id="Error_message_contact_info_in_dashboard">
+      {isSuperAdminValid && (
+        <section id="contact_emails_box">
+          <div className="p-6 px-0 overflow-scroll">
+            <table className="w-full mt-4 text-left table-auto min-w-max">
+              {/* Table heading  */}
+              <thead className="bg-gray-50">
                 <tr>
-                  <td className="p-6 font-semibold text-base text-accent-color">
-                    Inbox are empty.
-                  </td>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Requested user
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Status
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Contact number
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Recived date
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Message
+                    </p>
+                  </th>
+                  <th className="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                    <p className="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                      Actions
+                    </p>
+                  </th>
                 </tr>
-              </tbody>
-            ) : (
-              <>
-                {totalData?.[2]?.response.map((enquiry, index) => (
-                  <ContactEmailsTable
-                    key={index}
-                    status={enquiry.responseStatus}
-                    userName={enquiry.userName}
-                    contactEmail={enquiry.contactEmail}
-                    contactNumber={enquiry.contactNumber}
-                    createdAt={enquiry.createdAt}
-                    message={enquiry.message}
-                    sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
-                    removeLink={`/admin-console/delete-mail/${enquiry._id}`}
-                  />
-                ))}
-              </>
-            )}
-          </table>
-        </div>
-      </section>
+              </thead>
+              {totalData?.[2]?.response.length === 0 ? (
+                <tbody id="Error_message_contact_info_in_dashboard">
+                  <tr>
+                    <td className="p-6 font-semibold text-base text-accent-color">
+                      Inbox are empty.
+                    </td>
+                  </tr>
+                </tbody>
+              ) : (
+                <>
+                  {totalData?.[2]?.response.map((enquiry, index) => (
+                    <ContactEmailsTable
+                      key={index}
+                      status={enquiry.responseStatus}
+                      userName={enquiry.userName}
+                      contactEmail={enquiry.contactEmail}
+                      contactNumber={enquiry.contactNumber}
+                      createdAt={enquiry.createdAt}
+                      message={enquiry.message}
+                      sendResponseLink={`/admin-console/compose-mail/${enquiry._id}`}
+                      removeLink={`/admin-console/delete-mail/${enquiry._id}`}
+                    />
+                  ))}
+                </>
+              )}
+            </table>
+          </div>
+        </section>
+      )}
     </main>
   );
 };

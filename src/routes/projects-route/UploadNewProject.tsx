@@ -116,12 +116,10 @@ const UploadNewProject: React.FC = () => {
     );
 
     try {
-      const authToken = localStorage.getItem("auth-token");
-      const visitorToken = sessionStorage.getItem("visitor-token");
-      const token = authToken || visitorToken;
+      const superAdminToken = localStorage.getItem("super-admin") || null;
       const response = await axios.post(envConfig.projectUrl, projectFormData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${superAdminToken}`,
         },
       });
       if (response) {

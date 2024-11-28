@@ -14,13 +14,16 @@ interface HalfMenuProps {
   sideBarStatus: boolean;
   profileLogo: string | null;
   handleLogoutEvent: () => void;
+  isSuperAdmin: boolean;
 }
 const HalfMenu: React.FC<HalfMenuProps> = ({
   handleSidebarMount,
   handleLogoutEvent,
   sideBarStatus,
   profileLogo,
+  isSuperAdmin,
 }) => {
+  console.log(isSuperAdmin);
   const location = useLocation();
   const pathname = location.pathname;
   const params = useParams();
@@ -68,7 +71,12 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
 
             <ul className="space-y-1 ">
               {/* Projects half menu*/}
-              <li id="project_halfmenu" className="mt-[0.17rem]">
+              <li
+                id="project_halfmenu"
+                className={`mt-[0.17rem] ${
+                  isSuperAdmin !== true ? "pointer-events-none" : ""
+                }`}
+              >
                 <Link
                   to={"/admin-console/manage-projects"}
                   className={`group relative flex justify-center
@@ -116,7 +124,14 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
               </li>
 
               {/* Resume half menu*/}
-              <li id="resume-halfmenu">
+              <li
+                id="resume-halfmenu"
+                className={
+                  isSuperAdmin !== true
+                    ? "pointer-events-none cursor-pointer"
+                    : ""
+                }
+              >
                 <Link
                   to={"/admin-console/manage-resume"}
                   className={`group relative flex justify-center rounded px-2 py-2 text-gray-500
@@ -198,7 +213,14 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                 </Link>
               </li>
               {/* Admin half menu*/}
-              <li id="admin_management_halfmenu">
+              <li
+                id="admin_management_halfmenu"
+                className={
+                  isSuperAdmin !== true
+                    ? "pointer-events-none cursor-pointer"
+                    : ""
+                }
+              >
                 <Link
                   to={"/admin-console/all-registerd-users"}
                   className={`group relative flex justify-center rounded px-2 py-2
@@ -228,7 +250,14 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                 </Link>
               </li>
               {/* Reviews half menu*/}
-              <li id="reviews_&_feedbacks_halfmenu">
+              <li
+                id="reviews_&_feedbacks_halfmenu"
+                className={
+                  isSuperAdmin !== true
+                    ? "pointer-events-none cursor-pointer"
+                    : ""
+                }
+              >
                 <Link
                   to={"/admin-console/manage-feedbacks"}
                   className={`group relative flex justify-center rounded px-2 py-2
@@ -251,7 +280,10 @@ const HalfMenu: React.FC<HalfMenuProps> = ({
                 </Link>
               </li>
               {/* Enquiry */}
-              <li id="contact_enquiry">
+              <li
+                id="contact_enquiry"
+                className={isSuperAdmin !== true ? "pointer-events-none" : ""}
+              >
                 <Link
                   to={"/admin-console/manage-all-emails"}
                   className={`group relative flex justify-center rounded px-2 py-2

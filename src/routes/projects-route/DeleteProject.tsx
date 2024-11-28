@@ -25,15 +25,13 @@ const DeleteProject: React.FC = () => {
   const deleteEventHandler = async () => {
     setLoading(true);
     try {
-      const authToken = localStorage.getItem("auth-token");
-      const visitorToken = sessionStorage.getItem("visitor-token");
-      const token = authToken || visitorToken;
+      const superAdminToken = localStorage.getItem("super-admin") || null;
 
       const deleteProject = await axios.delete(
         `${envConfig.projectUrl}/${params.id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${superAdminToken}`,
           },
         }
       );
@@ -45,7 +43,7 @@ const DeleteProject: React.FC = () => {
         });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       setAlertMessage({
         text: "Failed!",
         message: "Something went wrong.",

@@ -13,6 +13,7 @@ interface TableRowProps {
   previewLink: string;
   updateLink: string;
   removeLink: string;
+  isSuperAdmin: boolean;
 }
 const BlogTableRow: React.FC<TableRowProps> = ({
   title,
@@ -22,6 +23,7 @@ const BlogTableRow: React.FC<TableRowProps> = ({
   previewLink,
   updateLink,
   removeLink,
+  isSuperAdmin,
 }) => {
   return (
     <tbody>
@@ -67,11 +69,12 @@ const BlogTableRow: React.FC<TableRowProps> = ({
         {/* Manage article  */}
         <td className="p-4 border-b border-blue-gray-50">
           <div className="flex flex-row gap-4">
-            {/* Delete  */}
+            {/* Preview  */}
             <Link
               title="Preview"
               to={previewLink}
-              className="text-xl text-yellow-700 hover:text-yellow-800 transform translate-1 hover:scale-110"
+              className="text-xl text-yellow-700 hover:text-yellow-800 
+              transform translate-1 hover:scale-110"
             >
               <VscPreview />
             </Link>
@@ -87,15 +90,31 @@ const BlogTableRow: React.FC<TableRowProps> = ({
               <LuClipboardEdit />
             </Link>
             {/* Remove  */}
-            <Link
-              title="Remove"
-              to={removeLink}
-              className="text-lg text-red-500
+
+            <div className="relative group">
+              <p className="text-slate-800 font-mono font-bold cursor-pointer">
+                <Link
+                  title="Remove"
+                  to={removeLink}
+                  className={`text-lg text-red-500
   hover:text-red-700
-   transform translate-1 hover:scale-110"
-            >
-              <ImBin />
-            </Link>
+   transform translate-1 hover:scale-110
+   ${isSuperAdmin !== true && "pointer-events-none"} 
+   `}
+                >
+                  <ImBin />
+                </Link>
+              </p>
+
+              {isSuperAdmin !== true && (
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 opacity-0 group-hover:opacity-100 transition duration-100 transform group-hover:translate-y-0 translate-y-2">
+                  <div className="bg-slate-800 w-max max-w-xs text-white rounded-lg px-4 py-4">
+                    <p className="font-bold text-md mb-1">Hello there! 👋</p>
+                    <p className="text-sm">Only Admin Can Remove This</p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </td>
       </tr>

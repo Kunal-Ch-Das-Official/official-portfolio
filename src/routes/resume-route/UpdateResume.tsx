@@ -84,9 +84,7 @@ const UpdateResume: React.FC = () => {
     setLoading(true);
     if (resume) {
       try {
-        const authToken = localStorage.getItem("auth-token");
-        const visitorToken = sessionStorage.getItem("visitor-token");
-        const token = authToken || visitorToken;
+        const superAdminToken = localStorage.getItem("super-admin") || null;
 
         const resumeForm = new FormData();
         resumeForm.append(
@@ -98,7 +96,7 @@ const UpdateResume: React.FC = () => {
           resumeForm,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${superAdminToken}`,
             },
           }
         );

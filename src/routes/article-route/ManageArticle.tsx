@@ -21,6 +21,7 @@ interface IBlogArticleResponse {
 }
 const ManageArticle: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState<boolean>(false);
   const [responseLength, setReponseLength] = useState<number>(0);
   const [allArticle, setAllArticle] = useState<[IBlogArticleResponse]>();
   const [filteredOutput, setFilterdOutput] = useState<
@@ -53,6 +54,10 @@ const ManageArticle: React.FC = () => {
       }
     };
     getAllArticle();
+    const superAdminToken = localStorage.getItem("super-admin");
+    if (superAdminToken) {
+      setIsSuperAdmin(true);
+    }
   }, []);
 
   const showAndHideAllData = () => {
@@ -115,7 +120,11 @@ const ManageArticle: React.FC = () => {
                 </p>
               </div>
               {/* Add article button  */}
-              <div className="flex flex-col gap-2 shrink-0 sm:flex-row">
+              <div
+                className={`${
+                  isSuperAdmin !== true ? "pointer-events-none" : ""
+                } flex flex-col gap-2 shrink-0 sm:flex-row`}
+              >
                 <Link
                   to={"/admin-console/post-article"}
                   className="flex select-none items-center gap-3 rounded-lg bg-primary-button-background py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-100 shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -227,6 +236,7 @@ const ManageArticle: React.FC = () => {
                         <>
                           {filteredOutput?.map((output, index) => (
                             <BlogTableRow
+                              isSuperAdmin={isSuperAdmin}
                               key={index}
                               title={output.blogTitle}
                               authorName={output.authorName}
@@ -242,6 +252,7 @@ const ManageArticle: React.FC = () => {
                         <>
                           {currentPageData?.map((article, index) => (
                             <BlogTableRow
+                              isSuperAdmin={isSuperAdmin}
                               key={index}
                               title={article.blogTitle}
                               authorName={article.authorName}

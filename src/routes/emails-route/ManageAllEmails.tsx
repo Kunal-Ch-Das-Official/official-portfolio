@@ -29,17 +29,15 @@ const ManageAllEmails: React.FC = () => {
   const [enquiryPerPage, setEnquiryPerPage] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // Fetch article data
+  // Fetch Emails
   useEffect(() => {
     const getAllEmailEnquiries = async () => {
       setLoading(true);
       try {
-        const authToken = localStorage.getItem("auth-token");
-        const visitorToken = sessionStorage.getItem("visitor-token");
-        const token = authToken || visitorToken;
+        const superAdminToken = localStorage.getItem("super-admin") || null;
         const response = await axios.get(envConfig.contactEnquiryUrl, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${superAdminToken}`,
           },
         });
         if (response) {

@@ -27,7 +27,7 @@ const AllAdminAccount: React.FC = () => {
   const [userAccountPerPage, setUserAccountPerPage] = useState<number>(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // Fetch article data
+  // Fetch registered accounts
   useEffect(() => {
     const getAllRegisteredAccount = async () => {
       setLoading(true);
