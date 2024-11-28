@@ -32,7 +32,7 @@ class SuperAdminValidator {
         // Type assertion for decoded token
         const decoded = jwt.verify(
           uniqueId,
-          envConfig.jwtSecretKey
+          envConfig.uniqueSecretKey
         ) as DecodedToken;
 
         // Now you can safely access adminId
