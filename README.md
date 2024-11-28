@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Kunal Chandra Das - Official Portfolio Version 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Owner & Developer:
 
-Currently, two official plugins are available:
+Kunal Chandra Das
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description:
 
-## Expanding the ESLint configuration
+This is the official portfolio website for Kunal Chandra Das. The website is a full-stack application with several key features:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Download Resume**: Users can download the resume in PDF format.
+- **Connect via Email**: Visitors can connect through email for inquiries or collaboration.
+- **Feedback Post**: Users can submit feedback about the portfolio.
+- **Latest Projects & Blog**: The site displays the latest projects and blog posts from Kunal Chandra Das.
 
-- Configure the top-level `parserOptions` property like this:
+The site is built using modern technologies and is deployed on Vercel. You can explore the live version of the portfolio, and if you find any bugs, feel free to raise an issue on GitHub.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Visit the site:**  
+[www.kunalchandradas.tech](http://www.kunalchandradas.tech)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Tools and Technologies Used:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Deployment**: Vercel
+- **Server**: Express.js
+- **Database**: MongoDB
+- **Cloud Storage**: Cloudinary
+- **File Downloader**: Pdf-lib, File-saver
+- **Animation Libraries**: Aceternity-UI, Framer-motion,
+- **Mockups**: monaco-editor/react,
+- **Icons**: React-icons
+- **UI Libraries**: Aceternity-UI, uiverse.io
+- **UI Framework**: Tailwind CSS
+- **User Interaction**: TypeScript
+- **API Requests**: Axios, Fetch API
+- **Core Library**: React.js (Version 18+)
+- **Bundler**: Vite
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Run Locally:
+
+### Dev dependencies:
+
+- **@eslint/js**
+- **@types/file-saver**
+- **@types/node**
+- **@types/react**
+- **@types/react-dom**
+- **@types/react-helmet**
+- **@vitejs/plugin-react-swc**
+- **autoprefixer**
+- **eslint**
+- **eslint-plugin-react-hooks**
+- **eslint-plugin-react-refresh**
+- **globals**
+- **postcss**
+- **tailwindcss**
+- **typescript**
+- **typescript-eslint**
+- **vite**
+- **vite-plugin-sitemap**
+
+### Clone the Project:
+
+```bash
+git clone -b client_v2 https://github.com/Kunal-Ch-Das-Official/official-portfolio.git
 ```
