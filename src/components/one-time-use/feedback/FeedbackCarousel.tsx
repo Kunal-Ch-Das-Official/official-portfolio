@@ -12,7 +12,7 @@ interface FeedbackCarouselProps {
 }
 
 const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextCard = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);

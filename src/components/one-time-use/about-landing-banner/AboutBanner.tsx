@@ -23,16 +23,15 @@ const AboutBanner: React.FC = () => {
               discovered HTML, CSS, and JavaScript.
             </p>
             <p className="py-2 text-gray-600">
-              At that time, I didn&apos;t have my own laptop, so I installed a
-              basic code editor on my mobile phone and began writing HTML code.
-              I created simple website designs. I was excited by the process,
-              and it felt like a major accomplishment. However, at the end of
-              2017, I had my board exams, and I had to pause my learning.
+              I created simple website designs using only html and some inline
+              css style. I was excited by the process, and it felt like a major
+              accomplishment. However, at the end of 2017, I had my board exams,
+              and I had to pause my learning.
             </p>
             <p className="py-2 text-gray-600">
               {" "}
-              Afterward, I didn&apos;t have the opportunity to pursue
-              programming, and I became distracted for several years. I
+              Afterward, For few years i didn&apos;t have the opportunity to
+              pursue programming, and I became distracted for several years. I
               struggled to find my true passion and wasn't happy with my college
               degree. As a result, I decided to drop out and began focusing on
               web development. This decision brought me a sense of satisfaction
