@@ -124,7 +124,7 @@ const ResetPasswordForm: React.FC = () => {
                 </div>
                 <div id="confirmPassword">
                   <PasswordInput
-                    inputId={"confirmPassword"}
+                    inputId={"newConfirmPassword"}
                     passwordLabel={"Confirm password"}
                     inputValue={setNewConfirmPassword}
                     validationError={passwordValidationError}
