@@ -15,11 +15,11 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextCard = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
+    setCurrentIndex((prevIndex:number) => (prevIndex + 1) % feedbacks.length);
   };
 
   const prevCard = () => {
-    setCurrentIndex((prevIndex) =>
+    setCurrentIndex((prevIndex:number) =>
       prevIndex === 0 ? feedbacks.length - 1 : prevIndex - 1
     );
   };
@@ -30,7 +30,6 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
     }, 8000);
     return () => clearInterval(interval);
   }, [currentIndex]);
-
   return (
     <section
       className="flex justify-center items-center
@@ -51,7 +50,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
         </div>
 
         <div className="flex mt-4 space-x-2 font-semibold text-white">
-          {currentIndex + 1}/{feedbacks.length}
+          {currentIndex + parseInt("1")}/{feedbacks.length}
         </div>
 
         <button
