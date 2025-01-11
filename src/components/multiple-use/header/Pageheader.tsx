@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import FloatingNavbar from "./FloatingNavbar";
 import Sidebar from "./Sidebar";
 
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import handleResumeDownload from "../../../reuseable-functions/download-resume/downloadResume";
 
 const Pageheader: React.FC = () => {
@@ -10,10 +10,10 @@ const Pageheader: React.FC = () => {
   const sidebarRef = useRef<HTMLHtmlElement | null>(null);
   const [screenWidth, setScreenWidth] = useState<number>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isSticky, setIsSticky] = useState<boolean>(false);
+  // const [isSticky, setIsSticky] = useState<boolean>(false);
   const [downloadPending, setDownloadPending] = useState<boolean>(false);
   const [isDownloaded, setIsDownloaded] = useState<string>("");
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
   // Identify the screen width
   useEffect(() => {
     const handleResize = () => {
@@ -69,23 +69,23 @@ const Pageheader: React.FC = () => {
   }, [isSidebarOpen, handleClickOutside]);
 
   // Scroll down navbar show handler
-  const handleScroll = useCallback(() => {
-    if (pathname === "/" && window.scrollY > 10) {
-      setIsSticky(pathname === "/");
-    } else if (pathname !== "/") {
-      setIsSticky(pathname !== "/");
-    } else {
-      setIsSticky(false);
-    }
-  }, [pathname]);
+  // const handleScroll = useCallback(() => {
+  //   if (pathname === "/" && window.scrollY > 10) {
+  //     setIsSticky(pathname === "/");
+  //   } else if (pathname !== "/") {
+  //     setIsSticky(pathname !== "/");
+  //   } else {
+  //     setIsSticky(false);
+  //   }
+  // }, [pathname]);
 
   // Scroll down navbar show
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [pathname, handleScroll]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [pathname, handleScroll]);
 
   // Resume download function wrapper
   const handleDownloadWrapper = async () => {
@@ -104,7 +104,7 @@ const Pageheader: React.FC = () => {
   };
   return (
     <header ref={sidebarRef}>
-      {isSticky && (
+
         <FloatingNavbar
           isDownloaded={isDownloaded}
           handleMenuOpenClick={handleSidebarOpenAndClose}
@@ -112,7 +112,7 @@ const Pageheader: React.FC = () => {
           downloadResumeEventHandler={handleDownloadWrapper}
           downloadStatus={downloadPending}
         />
-      )}
+
 
       {isMenuOpen === true && (
         <Sidebar

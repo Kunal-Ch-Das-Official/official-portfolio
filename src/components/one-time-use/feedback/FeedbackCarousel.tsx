@@ -50,7 +50,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
         </div>
 
         <div className="flex mt-4 space-x-2 font-semibold text-white">
-          {currentIndex + parseInt("1")}/{feedbacks.length}
+          {parseInt(`${currentIndex}`) + parseInt("1")}/{feedbacks.length}
         </div>
 
         <button
