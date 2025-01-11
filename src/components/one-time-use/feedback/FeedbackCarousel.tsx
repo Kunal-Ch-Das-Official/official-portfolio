@@ -15,12 +15,12 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextCard = () => {
-    setCurrentIndex((prevIndex:number) => (prevIndex + 1) % feedbacks.length);
+    setCurrentIndex((prevIndex:number) => (parseInt(`${prevIndex}`) + 1) % feedbacks.length);
   };
 
   const prevCard = () => {
     setCurrentIndex((prevIndex:number) =>
-      prevIndex === 0 ? feedbacks.length - 1 : prevIndex - 1
+      parseInt(`${prevIndex}`) === 0 ? feedbacks.length - 1 : parseInt(`${prevIndex}`) - 1 
     );
   };
 
