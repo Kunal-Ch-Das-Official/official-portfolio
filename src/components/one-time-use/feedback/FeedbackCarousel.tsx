@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FeedbackCard from "./FeedbackCard";
+import sliderStyle from '../../../utils/custom-slider/sliderStyle.module.css'
 
 interface FeedbackCarouselProps {
   feedbacks: {
@@ -15,14 +16,14 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextCard = () => {
-    setCurrentIndex((prevIndex:number) => (parseInt(`${prevIndex}`) + 1) % feedbacks.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
   };
 
   const prevCard = () => {
-    setCurrentIndex((prevIndex:number) =>
-      parseInt(`${prevIndex}`) === 0 ? feedbacks.length - 1 : parseInt(`${prevIndex}`) - 1 
-    );
-  };
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? feedbacks.length - 1 : prevIndex - 1
+    );}
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,9 +50,20 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
           </div>
         </div>
 
-        <div className="flex mt-4 space-x-2 font-semibold text-white">
-          {parseInt(`${currentIndex}`) + parseInt("1")}/{feedbacks.length}
-        </div>
+
+              {/* Indicators */}
+      <div className={sliderStyle.carousel_indicators}>
+        {feedbacks.map((_, index) => (
+          <button
+            aria-label={`Custom slider image ${index}`}
+            key={index}
+            className={`${sliderStyle.indicator} ${
+              index === currentIndex ? "active" : ""
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
 
         <button
           aria-label="Previous Feedback"

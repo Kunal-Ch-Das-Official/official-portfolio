@@ -1,5 +1,5 @@
 import React from "react";
-import formalImage from "../../../assets/images/protfolio_formal_image.webp";
+import formalImage from "../../../assets/images/about-image.webp";
 const AboutBanner: React.FC = () => {
   return (
     <main>
@@ -8,7 +8,7 @@ const AboutBanner: React.FC = () => {
           <img
             src={formalImage}
             alt="Kunal Chandra Das formal image"
-            className="rounded-lg max-h-[25rem] pt-0 lg:pt-12"
+            className="rounded-lg max-h-[24rem] pt-0 lg:pt-12"
           />
         </div>
         <div className="h-full lg:max-h-96 overflow-y-scroll rounded-lg">
