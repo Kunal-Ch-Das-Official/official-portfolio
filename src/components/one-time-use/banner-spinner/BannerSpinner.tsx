@@ -483,7 +483,7 @@ const BannerSpinner: React.FC = () => {
             About Me
           </span>
           <div
-            className="w-full h-full flex items-center justify-center p-2 rounded-full
+            className="w-full h-full flex items-center justify-center p-2 md:p-0 rounded-full
            active:scale-95 hover:scale-95 object-cover transition-all duration-500"
           >
             <img

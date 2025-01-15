@@ -58,7 +58,7 @@ const FeedbackCarousel: React.FC<FeedbackCarouselProps> = ({ feedbacks }) => {
             aria-label={`Custom slider image ${index}`}
             key={index}
             className={`${sliderStyle.indicator} ${
-              index === currentIndex ? "active" : ""
+              index === currentIndex ? "bg-white" : ""
             }`}
             onClick={() => setCurrentIndex(index)}
           />
