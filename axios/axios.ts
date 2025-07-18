@@ -1,5 +1,6 @@
 import axios from "axios";
+import envConfig from "../config/envConfig"
 
 export default axios.create({
-  baseURL: "https://servers.kunalchandradas.tech",
+  baseURL: envConfig.serverBaseUrl,
 });

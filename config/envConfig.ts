@@ -1,4 +1,5 @@
 interface Environment {
+  serverBaseUrl: string,
   registerUrl: string;
   loginUrl: string;
   resetPasswordLinkurl: string;
@@ -16,6 +17,7 @@ interface Environment {
   dashboardUrl: string;
 }
 const variable: Environment = {
+  serverBaseUrl: import.meta.env.VITE_APP_SERVER_BASE_URL as string,
   registerUrl: import.meta.env.VITE_APP_ADMIN_REGISTRATION_URL as string,
   loginUrl: import.meta.env.VITE_APP_ADMIN_LOGIN_URL as string,
   resetPasswordLinkurl: import.meta.env
