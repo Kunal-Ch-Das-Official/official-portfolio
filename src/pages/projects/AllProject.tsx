@@ -69,11 +69,11 @@ const AllProject: React.FC = () => {
         <meta property="og:description" content={pageDescription} />
         <meta
           property="og:image"
-          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // Default image for OG tags
+          content="https://www.kunalchandradas.site/public/android-chrome-512x512.png" // Default image for OG tags
         />
         <meta
           property="og:url"
-          content="https://www.kunalchandradas.tech/projects"
+          content="https://www.kunalchandradas.site/projects"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -88,7 +88,7 @@ const AllProject: React.FC = () => {
             ? Array.from({ length: 8 }).map((_, index) => (
                 <SimpleCardSkeleton key={index} />
               ))
-            : projectResponse.map((project, index) => (
+            : projectResponse && projectResponse.map((project, index) => (
                 <SimpleProjectCard
                   key={index}
                   projectTitle={project.projectName}

@@ -131,11 +131,11 @@ const About: React.FC = () => {
         <meta property="og:description" content={pageDescription} />
         <meta
           property="og:image"
-          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png"
+          content="https://www.kunalchandradas.site/public/android-chrome-512x512.png"
         />
         <meta
           property="og:url"
-          content="https://www.kunalchandradas.tech/about"
+          content="https://www.kunalchandradas.site/about"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />

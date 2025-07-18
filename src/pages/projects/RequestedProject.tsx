@@ -269,11 +269,11 @@ const RequestedProject: React.FC = () => {
         <meta property="og:description" content={reqProjectData?.description} />
         <meta
           property="og:image"
-          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // Default image for OG tags
+          content="https://www.kunalchandradas.site/public/android-chrome-512x512.png" // Default image for OG tags
         />
         <meta
           property="og:url"
-          content="https://www.kunalchandradas.tech/projects"
+          content="https://www.kunalchandradas.site/projects"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />

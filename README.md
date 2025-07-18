@@ -16,7 +16,7 @@ This is the official portfolio website for Kunal Chandra Das. The website is a f
 The site is built using modern technologies and is deployed on Vercel. You can explore the live version of the portfolio, and if you find any bugs, feel free to raise an issue on GitHub.
 
 **Visit the site:**  
-[www.kunalchandradas.tech](http://www.kunalchandradas.tech)
+[www.kunalchandradas.site](http://www.kunalchandradas.site)
 
 ## Tools and Technologies Used:
 

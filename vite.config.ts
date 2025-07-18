@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: "https://kunalchandradas.tech", // Your site's URL
+      hostname: "https://kunalchandradas.site", // Your site's URL
       outDir: "./dist", // Output directory for the sitemap
       dynamicRoutes: ["/", "projects", "/about", "/contact", "/tech-article"], // Specify routes manually
     }),
@@ -20,7 +20,7 @@ export default defineConfig({
           User-agent: *
           Allow: /
           Disallow: /private/
-          Sitemap: https://kunalchandradas.tech/sitemap.xml
+          Sitemap: https://kunalchandradas.site/sitemap.xml
         `.trim();
         writeFileSync("./dist/robots.txt", robotsContent);
       },

@@ -200,7 +200,7 @@ const Sidebar: React.FC<SidebarI> = ({
                       onClick={() => handleShowHide(false)}
                     >
                       <a
-                        href="https://adminportal.kunalchandradas.tech"
+                        href="https://adminportal.kunalchandradas.site"
                         target="_blank"
                         className={` rounded-lg hover:bg-primary-color px-4 py-2 text-sm font-medium
                text-white inline-flex items-center hover:border

@@ -88,9 +88,9 @@ const Landing = () => {
         />
         <meta
           property="og:image"
-          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png"
+          content="https://www.kunalchandradas.site/public/android-chrome-512x512.png"
         />
-        <meta property="og:url" content="https://www.kunalchandradas.tech" />
+        <meta property="og:url" content="https://www.kunalchandradas.site" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Kunal Chandra Das" />
@@ -106,7 +106,7 @@ const Landing = () => {
         />
         <meta
           name="twitter:image"
-          content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png"
+          content="https://www.kunalchandradas.site/public/android-chrome-512x512.png"
         />
       </Helmet>
 

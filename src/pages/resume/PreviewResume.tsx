@@ -75,11 +75,11 @@ const PreviewResume: React.FC = () => {
           />
           <meta
             property="og:image"
-            content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // You can change the URL to a relevant image for your website
+            content="https://www.kunalchandradas.site/public/android-chrome-512x512.png" // You can change the URL to a relevant image for your website
           />
           <meta
             property="og:url"
-            content="https://www.kunalchandradas.tech/preview-resume"
+            content="https://www.kunalchandradas.site/preview-resume"
           />
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="en_US" />
@@ -97,7 +97,7 @@ const PreviewResume: React.FC = () => {
           />
           <meta
             name="twitter:image"
-            content="https://www.kunalchandradas.tech/public/android-chrome-512x512.png" // You can change the URL to a relevant image for Twitter
+            content="https://www.kunalchandradas.site/public/android-chrome-512x512.png" // You can change the URL to a relevant image for Twitter
           />
         </Helmet>
 

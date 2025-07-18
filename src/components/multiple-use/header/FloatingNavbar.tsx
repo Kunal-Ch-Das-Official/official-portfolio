@@ -168,7 +168,7 @@ const FloatingNavbar: React.FC<FloatingNavbarI> = ({
               </li>
               {/* Write article  */}
               <a
-                href="https://adminportal.kunalchandradas.tech"
+                href="https://adminportal.kunalchandradas.site"
                 target="_blank"
                 className={`flex items-center p-1 text-sm  ${navbarStyle.bottom_tooltip} `}
               >
