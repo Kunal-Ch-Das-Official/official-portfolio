@@ -1,4 +1,5 @@
 interface Environment {
+  serverBaseUrl: string;
   projectUrl: string;
   resumeUrl: string;
   contactFormUrl: string;
@@ -6,6 +7,7 @@ interface Environment {
   blogArticleUrl: string;
 }
 const variable: Environment = {
+  serverBaseUrl: import.meta.env.VITE_APP_SERVER_BASE_URL as string,
   projectUrl: import.meta.env.VITE_APP_PROJECT_URL as string,
   resumeUrl: import.meta.env.VITE_APP_RESUME_URL as string,
   contactFormUrl: import.meta.env.VITE_APP_CONTACT_FORM_URL as string,
